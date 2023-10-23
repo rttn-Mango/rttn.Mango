@@ -1,0 +1,28 @@
+@forward 'Components/reset';
+@forward 'Components/font-faces';
+
+.preloader{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: grid;
+    place-content: center;
+    background-color: black;
+    transform-origin: top;
+
+    h1{
+        font-size: 5rem;
+        font-family: 'Stardom';
+        color: white;
+
+        span{display: inline-block}
+    }
+}
+
+header{
+    padding: 2rem;
+    nav ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
