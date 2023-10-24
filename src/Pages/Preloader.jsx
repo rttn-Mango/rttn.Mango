@@ -8,7 +8,6 @@ export default function Preloader({setLoading, content}){
     const stagger = {
         hidden: {opacity: 0, y: 50},
         visible: {opacity: 1, y: 0},
-        exit: {y: -90}
     }
 
     //Delay for the preloader to fade out
@@ -16,7 +15,7 @@ export default function Preloader({setLoading, content}){
         const timer = setTimeout(() =>{
             setLoading(false);
             document.title = "Home"
-        },3500);
+        },3300);
         document.title = "Loading..."
         return () => clearTimeout(timer);
     })
@@ -37,8 +36,7 @@ export default function Preloader({setLoading, content}){
                     return(
                         <motion.span
                             key={index} 
-                            variants={stagger}
-                        >
+                            variants={stagger}>
                                 {letter}
                         </motion.span>
                     )

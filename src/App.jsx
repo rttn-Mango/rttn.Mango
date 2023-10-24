@@ -3,7 +3,7 @@ import { useState } from "react";
 
 //Components
 import Preloader from "./Pages/Preloader";
-import Header from './Pages/Header';
+import Header from "./Pages/Components/Header";
 
 function App() {
   const [loading, setLoading] = useState(true)

@@ -1,28 +1,14 @@
 @forward 'Components/reset';
 @forward 'Components/font-faces';
+@forward 'Components/properties';
 
-.preloader{
-    min-height: 100vh;
-    min-width: 100vw;
-    display: grid;
-    place-content: center;
-    background-color: black;
-    transform-origin: top;
+//Pages
+@forward 'Pages/preloader.scss';
+@forward 'Pages/header.scss';
 
-    h1{
-        font-size: 5rem;
-        font-family: 'Stardom';
-        color: white;
 
-        span{display: inline-block}
-    }
-}
-
-header{
-    padding: 2rem;
-    nav ul{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+body{
+    background-color: var(--clr-bg);
+    font-size: var(--font-size-400);
+    font-family: 'Public-Sans-Regular';
 }

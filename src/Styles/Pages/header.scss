@@ -1,0 +1,25 @@
+@mixin container(){
+    max-width: clamp(98%, 98vw, 115rem);
+    margin-inline: auto;
+}
+
+@mixin flex($direction, $gap){
+    display: flex;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+.header{
+    button{
+        padding: .5rem 1rem;
+        background-color: transparent;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+
+    nav ul{
+        @include flex(row, 1rem);
+        justify-content:  space-between;
+        align-items: center;
+    }
+}
