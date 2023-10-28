@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Logo from "../svg/Logo";
+import Burger from "../svg/Burger";
 
 export default function Header(){
     return(
@@ -6,16 +8,12 @@ export default function Header(){
             <nav>
                 <ul role="list">
                     <li>
-                        <a href="public/CV.pdf" download='Manga, Kim Oliver - CV'>
-                            <button type='button'>Download CV</button>
-                        </a>
+                        <Link to="/"> <Logo/> </Link>
                     </li>
-                    <li>
-                        <Link to="/"><img src="public/Logo.svg" alt="rttn.Mango" width={180} height={50} draggable="false"/></Link>
-                    </li>
-                    <li>
-                        <img src="public/Burger.svg" alt="Hamburger Menu" draggable="false" />
-                    </li>
+                    <div className="group">
+                        <li><img src="public/Moon.svg" alt="Dark Mode Logo" draggable="false" /></li>
+                        <li><Burger/></li>
+                    </div>
                 </ul>
             </nav>
         </header>

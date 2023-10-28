@@ -71,46 +71,56 @@ textarea:not([rows]) {
   src: url("public/Fonts/Stardom-Regular.otf") format("opentype");
 }
 @font-face {
-  font-family: "Chillax-Bold";
-  src: url("public/Fonts/Chillax-Bold.otf") format("opentype");
+  font-family: "Bodoni";
+  src: url("public/Fonts/Bodoni.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Chillax-Extralight";
-  src: url("public/Fonts/Chillax-Extralight.otf") format("opentype");
+  font-family: "Bodoni-Italic";
+  src: url("public/Fonts/Bodoni-Italic.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Public-Sans-Black";
-  src: url("public/Fonts/PublicSans-Black.otf") format("opentype");
+  font-family: "Okine-Black";
+  src: url("public/Fonts/Okine-Black.otf") format("opentype");
 }
 @font-face {
-  font-family: "Public-Sans-Bold";
-  src: url("public/Fonts/PublicSans-Bold.otf") format("opentype");
+  font-family: "Okine-Black-Outline";
+  src: url("public/Fonts/Okine-Black-Outline.otf") format("opentype");
 }
 @font-face {
-  font-family: "Public-Sans-Regular";
-  src: url("public/Fonts/PublicSans-Regular.otf") format("opentype");
+  font-family: "Okine-Regular";
+  src: url("public/Fonts/Okine-Regular.otf") format("opentype");
 }
 @font-face {
-  font-family: "Public-Sans-Light";
-  src: url("public/Fonts/PublicSans-Light.otf") format("opentype");
+  font-family: "Okine-Light";
+  src: url("public/Fonts/Okine-Light.otf") format("opentype");
 }
 @font-face {
-  font-family: "Public-Sans-Extralight";
-  src: url("public/Fonts/PublicSans-ExtraLight.otf") format("opentype");
+  font-family: "Okine-Thin-Outline";
+  src: url("public/Fonts/Okine-Thin-Outline.otf") format("opentype");
+}
+@font-face {
+  font-family: "Okine-Thin";
+  src: url("public/Fonts/Okine-Thin.otf") format("opentype");
 }
 :root {
-  --clr-bg: hsl(0, 0%, 94%);
-  --clr-txt: hsl(0 0 0);
-  --clr-primary: hsl(212, 91, 9);
-  --clr-secondary: hsl(43, 78, 93);
-  --clr-accent: hsl(215, 66, 17);
-  --font-size-300: .875rem;
-  --font-size-400: 1rem;
-  --font-size-500: 1.5rem;
-  --font-size-600: 2rem;
-  --font-size-700: 3rem;
-  --font-size-800: 5rem;
-  --font-size-900: 10rem;
+  --clr-lm-bg: hsl(0, 0%, 94%);
+  --clr-lm-primary: hsl(211, 91%, 9%);
+  --clr-lm-secondary: hsl(199, 30%, 85%);
+  --clr-dm-bg: hsl(240, 10%, 4%);
+  --clr-dm-primary: hsl(37, 100%, 96%);
+  --clr-dm-secondary: hsl(194, 72%, 14%);
+  --font-size-100: .9rem;
+  --font-size-200: 1rem;
+  --font-size-250: 1.875rem;
+  --font-size-300: 2.5rem;
+  --font-size-400: 3.125rem;
+  --font-size-450: 3.5rem;
+  --font-size-500: 3.75rem;
+  --font-size-550: 4rem;
+  --font-size-600: 4.4rem;
+  --font-size-700: 5rem;
+  --font-size-800: 6.25rem;
+  --font-size-900: 9rem;
   --font-weight-600: 600;
   --font-weight-700: 700;
   --font-weight-900: 900;
@@ -125,7 +135,7 @@ textarea:not([rows]) {
   transform-origin: top;
 }
 .preloader h1 {
-  font-size: 5rem;
+  font-size: clamp(var(--font-size-300), 5vw, var(--font-size-700));
   font-family: "Stardom";
   color: white;
 }
@@ -133,10 +143,25 @@ textarea:not([rows]) {
   display: inline-block;
 }
 
+.header {
+  padding-block: 2rem;
+}
 .header button {
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: 1px solid black;
+  cursor: pointer;
+}
+.header svg {
+  color: black;
+  cursor: pointer;
+}
+.header .group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.header img {
   cursor: pointer;
 }
 .header nav ul {
@@ -147,10 +172,241 @@ textarea:not([rows]) {
   align-items: center;
 }
 
+.footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-block: 2rem;
+}
+.footer ul img {
+  rotate: 180deg;
+  cursor: pointer;
+  animation: hover 0.75s ease-in-out alternate infinite;
+}
+
+@keyframes hover {
+  from {
+    transform: translateY(0.15rem);
+  }
+  to {
+    transform: translateY(-0.5rem);
+  }
+}
 body {
-  background-color: var(--clr-bg);
-  font-size: var(--font-size-400);
-  font-family: "Public-Sans-Regular";
+  background-color: var(--clr-lm-bg);
+  font-family: "Okine-Thin";
+}
+
+.hero {
+  max-width: clamp(93%, 95vw, 115rem);
+  margin-inline: auto;
+  padding-block: 3rem;
+  height: 80vh;
+  position: relative;
+}
+.hero h1 {
+  font-size: clamp(var(--font-size-400), 10vw, var(--font-size-900));
+  font-family: "Okine-Black-Outline";
+  position: relative;
+}
+.hero h1::before {
+  content: "";
+  position: absolute;
+  height: 110%;
+  width: 5.1em;
+  border: 1px solid black;
+  top: 0.65em;
+  left: -5px;
+}
+.hero .subHeading {
+  font-size: clamp(var(--font-size-450), 10vw, 10rem);
+  font-family: "Okine-Black";
+  line-height: 1.2;
+}
+.hero img {
+  max-height: 10rem;
+  max-width: 10rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.hero__creator {
+  padding-block: 4rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.hero__creator p {
+  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-900));
+  font-family: "Okine-Thin-Outline";
+  line-height: 1;
+}
+.hero__bottom {
+  padding-block: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.hero__bottom p {
+  opacity: 0.5;
+  line-height: 1.2;
+  font-size: var(--font-size-100);
+}
+.hero__bottom svg ellipse {
+  animation: scroll-animation 0.7s ease-in-out infinite alternate;
+}
+
+.about {
+  min-height: 300vh;
+  padding-block: 10rem 5rem;
+  max-width: clamp(93%, 95vw, 115rem);
+  margin-inline: auto;
+}
+.about h2 {
+  font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+  font-family: "Okine-Regular";
+  padding-block: 2rem;
+  text-transform: uppercase;
+}
+.about h3 {
+  font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+  font-family: "Okine-Regular";
+  padding-block: 2rem;
+}
+.about__top-text, .about__bottom-text {
+  font-size: clamp(var(--font-size-250), 3.75vw, var(--font-size-550));
+  padding-block: 5em;
+  line-height: 1.7;
+}
+.about__bottom-text {
+  text-align: right;
+}
+.about__bottom-text span {
+  font-style: italic;
+}
+.about__skills--list {
+  padding-block: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
+  gap: 2rem;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  font-family: "Okine-Light";
+}
+
+.projects {
+  max-width: clamp(93%, 95vw, 115rem);
+  margin-inline: auto;
+  padding-block: 2rem 7rem;
+}
+.projects img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.9);
+}
+.projects h2 {
+  font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+  font-family: "Okine-Regular";
+  padding-block: 2rem;
+  text-transform: uppercase;
+}
+.projects h3 {
+  font-size: clamp(var(--font-size-250), 3vw, var(--font-size-450));
+  font-family: "Okine-Light";
+  padding-block: 2rem;
+}
+.projects article {
+  height: 100vh;
+}
+.projects article:last-of-type {
+  margin-top: 5rem;
+}
+.projects li {
+  padding-block: 0.25rem;
+}
+.projects li a {
+  font-style: italic;
+  font-weight: var(--font-weight-600);
+}
+.projects button {
+  padding: 1rem 3rem;
+  margin-top: 1rem;
+  background-color: var(--clr-lm-primary);
+  color: white;
+  border: 0;
+  font-family: "Okine-Light";
+  cursor: pointer;
+}
+.projects button:hover, .projects button:focus, .projects button:active {
+  background-color: var(--clr-lm-secondary);
+  color: black;
+  border: 1px solid black;
+}
+
+.contact {
+  max-width: clamp(93%, 95vw, 115rem);
+  margin-inline: auto;
+  height: 100vh;
+  padding-top: 3rem;
+}
+.contact__sub-heading {
+  font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500));
+}
+.contact h2 {
+  font-size: clamp(var(--font-size-400), 7vw, var(--font-size-800));
+  text-align: center;
+  padding-block: 3rem 1rem;
+}
+.contact h2 a {
+  font-family: "Bodoni-Italic";
+  text-decoration: none;
+}
+.contact svg {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.contact svg path {
+  fill: var(--clr-lm-primary);
+}
+.contact svg:hover path, .contact svg:focus path, .contact svg:active path {
+  fill: var(--clr-lm-secondary);
+}
+.contact__details {
+  text-align: center;
+  font-family: "Okine-Regular";
+}
+.contact__socials {
+  padding-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@keyframes scroll-animation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0.25rem);
+  }
+}
+@media screen and (width < 325px) {
+  .hero {
+    padding-block: 1rem;
+  }
+  .hero__creator {
+    flex-direction: column;
+    padding-block: 2rem 1rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

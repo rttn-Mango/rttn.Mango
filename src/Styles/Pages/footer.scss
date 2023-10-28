@@ -1,0 +1,17 @@
+.footer ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-block: 2rem;
+
+    img{
+        rotate: (180deg);
+        cursor: pointer;
+        animation: hover .75s ease-in-out alternate infinite;
+    }
+}
+
+@keyframes hover{
+    from{transform: translateY(.15rem)}
+    to{transform: translateY(-.5rem);}
+}

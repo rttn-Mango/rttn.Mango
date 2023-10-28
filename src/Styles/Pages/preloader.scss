@@ -7,7 +7,7 @@
     transform-origin: top;
 
     h1{
-        font-size: 5rem;
+        font-size: clamp(var(--font-size-300), 5vw, var(--font-size-700));
         font-family: 'Stardom';
         color: white;
 

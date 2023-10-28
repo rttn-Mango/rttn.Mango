@@ -5,10 +5,232 @@
 //Pages
 @forward 'Pages/preloader.scss';
 @forward 'Pages/header.scss';
+@forward 'Pages/footer.scss';
 
+@mixin container(){
+    max-width: clamp(93%, 95vw, 115rem);
+    margin-inline: auto;
+}
+
+@mixin flex($direction, $gap){
+    display: flex;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+@mixin grid($fit, $min, $max, $gap){
+    display: grid;
+    grid-template-columns: repeat($fit, minmax($min, $max));
+    gap: $gap;
+}
 
 body{
-    background-color: var(--clr-bg);
-    font-size: var(--font-size-400);
-    font-family: 'Public-Sans-Regular';
+    background-color: var(--clr-lm-bg);
+    font-family: 'Okine-Thin';
+}
+
+//Hero section
+.hero{
+    @include container();
+    padding-block: 3rem;
+    height: 80vh;
+    position: relative;
+
+    h1{
+        font-size: clamp(var(--font-size-400), 10vw, var(--font-size-900));
+        font-family: 'Okine-Black-Outline';
+        position: relative;
+
+        //Line bg design
+        &::before{
+            content: '';
+            position: absolute;
+            height: 110%;
+            width: 5.10em;
+            border: 1px solid black;
+            top: .65em;
+            left: -5px;
+        }
+    }
+
+    .subHeading{
+        font-size: clamp(var(--font-size-450), 10vw, 10rem);
+        font-family: 'Okine-Black';
+        line-height: 1.2;
+    }
+
+    img{
+        max-height: 10rem;
+        max-width: 10rem;
+        border-radius: .5rem;
+        cursor: pointer;
+    }
+
+    &__creator{
+        padding-block: 4rem;
+        @include flex(row, 1rem);
+        align-items: center;
+
+        & p{
+            font-size: clamp(var(--font-size-300), 10vw, var(--font-size-900));
+            font-family: 'Okine-Thin-Outline';
+            line-height: 1;
+        }
+    }
+
+    &__bottom{
+        padding-block: 2rem;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        & p{opacity: .5; line-height: 1.2; font-size: var(--font-size-100);}
+
+        svg ellipse{
+                animation: scroll-animation .7s ease-in-out infinite alternate;
+            }
+    }
+}
+
+//About section
+.about{
+    min-height: 300vh;
+    padding-block: 10rem 5rem;
+    @include container();
+    h2{
+        font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+        font-family: 'Okine-Regular';
+        padding-block: 2rem;
+        text-transform: uppercase;
+    }
+    h3{
+        font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+        font-family: 'Okine-Regular';
+        padding-block: 2rem;
+    }
+
+    //First two paragraph tags on the about page
+    &__top-text, &__bottom-text{
+        font-size: clamp(var(--font-size-250), 3.75vw, var(--font-size-550));
+        padding-block: 5em;
+        line-height: 1.7;
+    }
+    &__bottom-text{
+        text-align: right;
+        span{font-style: italic;}
+    }
+
+    &__skills--list{
+        padding-block: 5rem;
+
+        @include grid(auto-fill, 100px, 120px, 2rem);
+        place-content: center;
+        justify-items: center;
+        text-align: center;
+
+        font-family: 'Okine-Light';
+    }
+}
+
+//Projects section
+.projects{
+    @include container();
+    padding-block: 2rem 7rem;
+
+    img{
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        box-shadow: 0 0 2px rgba( 0 0 0 / .9);
+    }
+
+    h2{
+        font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+        font-family: 'Okine-Regular';
+        padding-block: 2rem;
+        text-transform: uppercase;
+    }
+    h3{
+        font-size: clamp(var(--font-size-250), 3vw, var(--font-size-450));
+        font-family: 'Okine-Light';
+        padding-block: 2rem;
+    }
+
+    article{height: 100vh; &:last-of-type{margin-top: 5rem;}}
+
+    li{
+        padding-block: .25rem;
+        a{font-style: italic; font-weight: var(--font-weight-600);}
+    }
+
+    button{
+        padding: 1rem 3rem;
+        margin-top: 1rem;
+        background-color: var(--clr-lm-primary);
+        color: white;
+        border: 0;
+        font-family: 'Okine-Light';
+        cursor: pointer;
+
+        &:hover, &:focus, &:active{
+            background-color: var(--clr-lm-secondary);
+            color: black;
+            border: 1px solid black;
+        }
+    }
+}
+
+//Contacts section
+.contact{
+    @include container();
+    height: 100vh;
+    padding-top: 3rem;
+
+    &__sub-heading{font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500))}
+    h2{
+        font-size: clamp(var(--font-size-400), 7vw, var(--font-size-800));
+        text-align: center;
+        padding-block: 3rem 1rem;
+        a{font-family: 'Bodoni-Italic'; text-decoration: none;}
+    }
+
+    svg{
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        & path{fill: var(--clr-lm-primary);}
+        
+        &:hover, &:focus, &:active{
+            & path{
+                fill: var(--clr-lm-secondary)
+            }
+        }
+    }
+
+    &__details{
+        text-align: center;
+        font-family: 'Okine-Regular';
+    }
+
+    &__socials{
+        padding-top: 2rem;
+        text-align: center;
+        @include flex(row, 1rem);
+        justify-content: center;
+    }
+}
+
+@keyframes scroll-animation{
+    from{transform: translateY(0);}
+    to{transform: translateY(.25rem);}
+}
+
+@media screen and (width < 325px) {
+    .hero{
+        padding-block: 1rem;
+        &__creator{ flex-direction: column; padding-block: 2rem 1rem;}
+    }
 }

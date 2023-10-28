@@ -4,37 +4,42 @@
 }
 
 @font-face {
-    font-family: 'Chillax-Bold';
-    src: url('public/Fonts/Chillax-Bold.otf') format('opentype');
+    font-family: 'Bodoni';
+    src: url('public/Fonts/Bodoni.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Chillax-Extralight';
-    src: url('public/Fonts/Chillax-Extralight.otf') format('opentype');
+    font-family: 'Bodoni-Italic';
+    src: url('public/Fonts/Bodoni-Italic.ttf') format('truetype');
 }
 
 
 @font-face {
-    font-family: 'Public-Sans-Black';
-    src: url('public/Fonts/PublicSans-Black.otf') format('opentype');
+    font-family: 'Okine-Black';
+    src: url('public/Fonts/Okine-Black.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Public-Sans-Bold';
-    src: url('public/Fonts/PublicSans-Bold.otf') format('opentype');
+    font-family: 'Okine-Black-Outline';
+    src: url('public/Fonts/Okine-Black-Outline.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Public-Sans-Regular';
-    src: url('public/Fonts/PublicSans-Regular.otf') format('opentype');
+    font-family: 'Okine-Regular';
+    src: url('public/Fonts/Okine-Regular.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Public-Sans-Light';
-    src: url('public/Fonts/PublicSans-Light.otf') format('opentype');
+    font-family: 'Okine-Light';
+    src: url('public/Fonts/Okine-Light.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Public-Sans-Extralight';
-    src: url('public/Fonts/PublicSans-ExtraLight.otf') format('opentype');
+    font-family: 'Okine-Thin-Outline';
+    src: url('public/Fonts/Okine-Thin-Outline.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Okine-Thin';
+    src: url('public/Fonts/Okine-Thin.otf') format('opentype');
 }

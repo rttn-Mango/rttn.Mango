@@ -1,15 +1,5 @@
-@mixin container(){
-    max-width: clamp(98%, 98vw, 115rem);
-    margin-inline: auto;
-}
-
-@mixin flex($direction, $gap){
-    display: flex;
-    flex-direction: $direction;
-    gap: $gap;
-}
-
 .header{
+    padding-block: 2rem;
     button{
         padding: .5rem 1rem;
         background-color: transparent;
@@ -17,8 +7,20 @@
         cursor: pointer;
     }
 
+    svg{color:black; cursor: pointer;}
+
+    .group{
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+    }
+
+    img{cursor: pointer;}
+
     nav ul{
-        @include flex(row, 1rem);
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
         justify-content:  space-between;
         align-items: center;
     }
