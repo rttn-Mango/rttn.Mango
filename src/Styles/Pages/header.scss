@@ -1,5 +1,8 @@
 .header{
     padding-block: 2rem;
+    max-width: clamp(80%, 85vw, 110rem);
+    margin-inline: auto;
+    
     button{
         padding: .5rem 1rem;
         background-color: transparent;

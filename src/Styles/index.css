@@ -118,9 +118,9 @@ textarea:not([rows]) {
   --font-size-500: 3.75rem;
   --font-size-550: 4rem;
   --font-size-600: 4.4rem;
-  --font-size-700: 5rem;
+  --font-size-700: 5.5rem;
   --font-size-800: 6.25rem;
-  --font-size-900: 9rem;
+  --font-size-900: 8.5rem;
   --font-weight-600: 600;
   --font-weight-700: 700;
   --font-weight-900: 900;
@@ -145,6 +145,8 @@ textarea:not([rows]) {
 
 .header {
   padding-block: 2rem;
+  max-width: clamp(80%, 85vw, 110rem);
+  margin-inline: auto;
 }
 .header button {
   padding: 0.5rem 1rem;
@@ -172,11 +174,16 @@ textarea:not([rows]) {
   align-items: center;
 }
 
+.footer {
+  padding-block: 4rem;
+}
 .footer ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-block: 2rem;
+  max-width: clamp(80%, 85vw, 110rem);
+  margin-inline: auto;
 }
 .footer ul img {
   rotate: 180deg;
@@ -195,49 +202,52 @@ textarea:not([rows]) {
 body {
   background-color: var(--clr-lm-bg);
   font-family: "Okine-Thin";
+  color: var(--clr-lm-primary);
 }
 
 .hero {
-  max-width: clamp(93%, 95vw, 115rem);
+  max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
   padding-block: 3rem;
-  height: 80vh;
+  height: 90vh;
   position: relative;
 }
 .hero h1 {
-  font-size: clamp(var(--font-size-400), 10vw, var(--font-size-900));
+  font-size: clamp(var(--font-size-400), 16.5vw, var(--font-size-800));
   font-family: "Okine-Black-Outline";
   position: relative;
 }
 .hero h1::before {
   content: "";
   position: absolute;
-  height: 110%;
+  height: 1.215em;
   width: 5.1em;
   border: 1px solid black;
   top: 0.65em;
   left: -5px;
 }
 .hero .subHeading {
-  font-size: clamp(var(--font-size-450), 10vw, 10rem);
+  font-size: clamp(var(--font-size-450), 18vw, 9rem);
   font-family: "Okine-Black";
   line-height: 1.2;
+  white-space: nowrap;
 }
 .hero img {
-  max-height: 10rem;
-  max-width: 10rem;
+  max-height: 40vw;
+  max-width: 40vw;
   border-radius: 0.5rem;
   cursor: pointer;
 }
 .hero__creator {
-  padding-block: 4rem;
+  padding-block: 7rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   align-items: center;
+  justify-content: flex-end;
 }
 .hero__creator p {
-  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-900));
+  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
   font-family: "Okine-Thin-Outline";
   line-height: 1;
 }
@@ -261,9 +271,9 @@ body {
 }
 
 .about {
-  min-height: 300vh;
+  min-height: 270vh;
   padding-block: 10rem 5rem;
-  max-width: clamp(93%, 95vw, 115rem);
+  max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
 }
 .about h2 {
@@ -300,14 +310,14 @@ body {
 }
 
 .projects {
-  max-width: clamp(93%, 95vw, 115rem);
+  max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
   padding-block: 2rem 7rem;
 }
 .projects img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 40vh;
+  object-fit: fill;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.9);
 }
 .projects h2 {
@@ -322,13 +332,14 @@ body {
   padding-block: 2rem;
 }
 .projects article {
-  height: 100vh;
+  height: 80vh;
 }
 .projects article:last-of-type {
   margin-top: 5rem;
 }
 .projects li {
   padding-block: 0.25rem;
+  list-style: inside;
 }
 .projects li a {
   font-style: italic;
@@ -350,18 +361,18 @@ body {
 }
 
 .contact {
-  max-width: clamp(93%, 95vw, 115rem);
+  max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
-  height: 100vh;
+  height: 80vh;
   padding-top: 3rem;
 }
 .contact__sub-heading {
   font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500));
 }
 .contact h2 {
-  font-size: clamp(var(--font-size-400), 7vw, var(--font-size-800));
+  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-700));
   text-align: center;
-  padding-block: 3rem 1rem;
+  padding-block: 5rem 1rem;
 }
 .contact h2 a {
   font-family: "Bodoni-Italic";
@@ -391,12 +402,65 @@ body {
   justify-content: center;
 }
 
-@keyframes scroll-animation {
-  from {
-    transform: translateY(0);
+@media (min-width: 40em) {
+  .hero {
+    height: 90vh;
   }
-  to {
-    transform: translateY(0.25rem);
+  .hero img {
+    max-height: 20em;
+    max-width: 30em;
+  }
+  .hero__creator {
+    padding-block: 1rem;
+  }
+  .about__top-text {
+    max-width: 30ch;
+  }
+  .about__bottom-text {
+    max-width: 30ch;
+    margin-left: auto;
+  }
+  .about__skills {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about__skills--subheading {
+    max-width: 40ch;
+    position: sticky;
+    top: 0;
+  }
+  .about__skills--list {
+    grid-template-columns: repeat(2, minmax(100px, 150px));
+    padding-top: 0;
+    max-width: 30%;
+    align-self: flex-end;
+  }
+  .projects h2 {
+    padding-block: 2rem 10vh;
+  }
+  .projects img {
+    width: 40vw;
+    height: 50vh;
+    object-fit: fill;
+  }
+  .projects ul li {
+    font-size: 1.15rem;
+    padding-top: 1rem;
+  }
+  .projects button {
+    margin-block: 3vw;
+  }
+  .projects article {
+    height: 100vh;
+  }
+  .projects__group {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media screen and (width < 325px) {
@@ -405,7 +469,23 @@ body {
   }
   .hero__creator {
     flex-direction: column;
-    padding-block: 2rem 1rem;
+    padding-block: 7rem 1rem;
+  }
+}
+@media (width > 640px) and (width < 930px) {
+  .projects img {
+    width: 70vw;
+  }
+  .projects__group {
+    flex-direction: column;
+  }
+}
+@keyframes scroll-animation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0.25rem);
   }
 }
 
