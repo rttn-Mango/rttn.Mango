@@ -6,6 +6,7 @@
 @forward 'Pages/preloader.scss';
 @forward 'Pages/header.scss';
 @forward 'Pages/footer.scss';
+@forward 'Pages/nav.scss';
 
 @mixin container(){
     max-width: clamp(80%, 85vw, 110rem);

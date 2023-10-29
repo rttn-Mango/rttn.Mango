@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Lenis from '@studio-freight/lenis'
 
 //Components
 import Preloader from "./Pages/Preloader";
@@ -8,10 +9,11 @@ import About from './Pages/About';
 import Projects from './Pages/Projects'
 import Contact from './Pages/Contact';
 import Footer from './Pages/Components/Footer';
-import Lenis from '@studio-freight/lenis'
+import NavPanel from "./Pages/Components/NavPanel";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showNav, setShowNav] = useState(false);
 
   //Smooth scrolling effect
   useEffect(() => {
@@ -31,7 +33,7 @@ function App() {
         ? <Preloader content="rttn.Mango" setLoading={setLoading}/>
         : 
         <>
-          <Header/>
+          <Header setShowNav={setShowNav}/>
           <main>
             <Hero/>
             <About/>
@@ -40,6 +42,10 @@ function App() {
           </main>
           <Footer/>
         </>  
+      }
+
+      {
+        showNav ? <NavPanel setShowNav={setShowNav}/> : null
       }
       
     </>
