@@ -215,6 +215,7 @@ textarea:not([rows]) {
   top: 2.5rem;
   right: 9rem;
   cursor: pointer;
+  color: var(--clr-dm-primary);
 }
 .nav span {
   font-family: "Bodoni";
@@ -459,6 +460,100 @@ body {
   justify-content: center;
 }
 
+.form {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 90%;
+}
+.form::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+.form__close-btn {
+  position: absolute;
+  left: 87%;
+  top: 2rem;
+  cursor: pointer;
+  rotate: 0;
+  color: var(--clr-dm-primary);
+}
+.form__close-btn:hover, .form__close-btn:focus {
+  rotate: 180deg;
+  transition: rotate 500ms ease-in-out;
+}
+.form img {
+  max-width: 40vw;
+  max-height: 25vh;
+}
+.form__subheading {
+  background-color: var(--clr-dm-bg);
+  color: var(--clr-dm-primary);
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.form__subheading h3 {
+  font-size: clamp(var(--font-size-250), 7vw, var(--font-size-600));
+  line-height: 1.3;
+  font-family: "Okine-Black";
+}
+.form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.form__inputs {
+  padding: 2rem 3rem;
+}
+.form__inputs textarea {
+  resize: none;
+}
+.form__inputs label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: -10000px;
+  top: auto;
+  overflow: hidden;
+}
+.form__inputs input, .form__inputs textarea {
+  position: relative;
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid black;
+  font-family: "Okine-Light";
+}
+.form__inputs input:hover, .form__inputs input:focus, .form__inputs input:active, .form__inputs textarea:hover, .form__inputs textarea:focus, .form__inputs textarea:active {
+  box-shadow: 5px 8px 0 var(--clr-lm-primary);
+}
+.form button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.5rem;
+  background-color: transparent;
+  border: 1px solid black;
+  cursor: pointer;
+  font-family: "Okine-Light";
+}
+.form button img {
+  transform: translateX(0);
+}
+.form button:hover, .form button:focus, .form button:active {
+  box-shadow: 5px 8px 0 var(--clr-lm-primary);
+}
+.form button:hover img, .form button:focus img, .form button:active img {
+  transform: translateX(5px);
+  transition: transform 500ms ease;
+}
+
 @media (min-width: 40em) {
   .hero {
     height: 90vh;
@@ -518,6 +613,30 @@ body {
     gap: 2rem;
     justify-content: center;
     align-items: center;
+  }
+  .form {
+    width: clamp(60%, 80vw, 90rem);
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .form__close-btn {
+    color: black;
+    left: 90%;
+  }
+  .form__subheading {
+    flex-direction: column;
+    position: relative;
+    width: 40%;
+  }
+  .form__subheading img {
+    display: none;
+  }
+  .form__inputs {
+    width: 50%;
+    margin: auto;
+    padding: 0;
   }
 }
 @media screen and (width < 325px) {

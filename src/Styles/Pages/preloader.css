@@ -1,0 +1,16 @@
+.preloader {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: grid;
+  place-content: center;
+  background-color: black;
+  transform-origin: top;
+}
+.preloader h1 {
+  font-size: clamp(var(--font-size-300), 5vw, var(--font-size-700));
+  font-family: "Stardom";
+  color: white;
+}
+.preloader h1 span {
+  display: inline-block;
+}/*# sourceMappingURL=preloader.css.map */

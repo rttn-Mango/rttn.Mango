@@ -1,0 +1,25 @@
+.footer {
+  padding-block: 4rem;
+}
+.footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-block: 2rem;
+  max-width: clamp(80%, 85vw, 110rem);
+  margin-inline: auto;
+}
+.footer ul img {
+  rotate: 180deg;
+  cursor: pointer;
+  animation: hover 0.75s ease-in-out alternate infinite;
+}
+
+@keyframes hover {
+  from {
+    transform: translateY(0.15rem);
+  }
+  to {
+    transform: translateY(-0.5rem);
+  }
+}/*# sourceMappingURL=footer.css.map */

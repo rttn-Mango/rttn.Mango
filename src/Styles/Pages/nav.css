@@ -1,0 +1,56 @@
+.nav {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background-color: black;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav .close {
+  position: fixed;
+  top: 2.5rem;
+  right: 9rem;
+  cursor: pointer;
+}
+.nav span {
+  font-family: "Bodoni";
+}
+.nav ul li a {
+  text-decoration: none;
+  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
+  list-style: 1.5;
+  position: relative;
+}
+.nav ul li a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  bottom: -1rem;
+  left: 0;
+  background-color: var(--clr-dm-primary);
+}
+.nav ul li a:not(.btn):hover, .nav ul li a:not(.btn):focus, .nav ul li a:not(.btn):active {
+  font-style: italic;
+}
+.nav ul li a:not(.btn):hover::after, .nav ul li a:not(.btn):focus::after, .nav ul li a:not(.btn):active::after {
+  width: 100%;
+  transition: width 500ms ease-in-out;
+}
+.nav li:nth-child(4) {
+  padding-block: 3rem;
+}
+.nav .btn {
+  color: white;
+  font-size: var(--font-size-250);
+  border: 1px solid white;
+  text-align: center;
+  padding: 1rem 6vw;
+}
+.nav .btn:hover, .nav .btn:focus, .nav .btn:active {
+  box-shadow: 3px 5px 0 var(--clr-dm-primary);
+  color: var(--clr-dm-primary);
+}/*# sourceMappingURL=nav.css.map */

@@ -228,6 +228,105 @@ body{
     }
 }
 
+//Contact Form
+.form{
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: 90%;
+
+    //Darkens backdrop of the modal
+    &::backdrop{background: rgba( 0 0 0 / .6);}
+
+    &__close-btn{
+        position: absolute;
+        left: 87%;
+        top: 2rem;
+        cursor: pointer;
+        rotate: (0);
+        color: var(--clr-dm-primary);
+
+        &:hover, &:focus{
+            rotate: (180deg);
+            transition: rotate 500ms ease-in-out;
+        }
+    }
+
+    img{
+        max-width: 40vw;
+        max-height: 25vh;
+    }
+
+    &__subheading{
+        background-color: var(--clr-dm-bg);
+        color: var(--clr-dm-primary);
+        padding: 2rem 3rem;
+        @include flex(row, 1rem);
+        justify-content: center;
+        align-items: center;
+
+        h3{
+            font-size: clamp(var(--font-size-250), 7vw, var(--font-size-600));
+            line-height: 1.3;
+            font-family: 'Okine-Black';
+        }
+    }
+
+    .form-group{@include flex(column, .5rem); margin-bottom: 1.5rem;}
+
+    &__inputs{
+        padding: 2rem 3rem;
+
+        textarea{resize: none;}
+
+        //Hides the label from the screen but still accessible from screen readers
+        label{
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            left: -10000px;
+            top: auto;
+            overflow: hidden;
+        }
+
+        input, textarea{
+            position: relative;
+            padding: 1rem;
+            background-color: transparent;
+            border: 1px solid black;
+            font-family: 'Okine-Light';
+
+            &:hover, &:focus, &:active{box-shadow: 5px 8px 0 var(--clr-lm-primary);}
+        }
+    }
+
+    button{
+        width: 100%;
+        @include flex(row, .5rem);
+        align-items: center;
+        justify-content: center;
+        padding-block: .5rem;
+        background-color: transparent;
+        border: 1px solid black;
+        cursor: pointer;
+        font-family: 'Okine-Light';
+
+        img{
+            transform: translateX(0);
+        }
+
+        &:hover, &:focus, &:active{
+            box-shadow: 5px 8px 0 var(--clr-lm-primary);
+
+            img{
+                transform: translateX(5px);
+                transition: transform 500ms ease;
+            }
+        }
+    }
+
+}
+
 //Desktop Layouts
 @media (min-width: 40em){
     .hero{
@@ -287,6 +386,32 @@ body{
             @include flex(row, 2rem);
             justify-content: center;
             align-items: center;
+        }
+    }
+
+    .form{
+        width: clamp(60%, 80vw, 90rem);
+        height: 75vh;
+        @include flex(row, 1rem);
+
+
+        &__close-btn{
+            color: black;
+            left: 90%;
+        }
+
+        &__subheading{
+            flex-direction: column;
+            position: relative;
+            width: 40%;
+
+            img{display: none}
+        }
+
+        &__inputs{
+            width: 50%;
+            margin: auto;
+            padding: 0;
         }
     }
 }
