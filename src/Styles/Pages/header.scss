@@ -2,6 +2,25 @@
     padding-block: 2rem;
     max-width: clamp(80%, 85vw, 110rem);
     margin-inline: auto;
+
+    #logo{color: black;}
+
+    .burger{
+        position: relative;
+        z-index: 999;
+        top: -.70rem;
+        background-color: black;
+        clip-path: circle();
+        padding: .75rem;
+        rotate: 0;
+        pointer-events: all;
+        touch-action: all;
+
+        &:active{
+            rotate: 180deg;
+            transition: rotate 200ms ease-in-out;
+        }
+    }
     
     button{
         padding: .5rem 1rem;
@@ -10,7 +29,7 @@
         cursor: pointer;
     }
 
-    svg{color:black; cursor: pointer;}
+    svg{color:white; cursor: pointer;}
 
     .group{
         display: flex;

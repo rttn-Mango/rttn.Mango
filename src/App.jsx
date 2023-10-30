@@ -21,6 +21,9 @@ function App() {
     const formModal = document.getElementById('modal');
     if(formModal === null) return;
 
+    window.addEventListener('keydown', (event) =>{
+      if(event.key === 'Escape') setSendMessage(false)
+    })
 
     if(sendMessage) {
       formModal.showModal();
@@ -29,9 +32,25 @@ function App() {
     }
   },[sendMessage])
 
+  //For disabling background actions when nav is opened, e.g. scrolling and tab navigation
+  const handleNav = useCallback(() => {
+    if(showNav) {
+      document.body.addEventListener('wheel',(e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+      })
+      document.body.classList.add('disabled');
+    }
+    else{document.body.classList.remove('disabled');}
+  },[showNav])
+
   useEffect(() => {
     showFormPopup();
   },[showFormPopup])
+
+  useEffect(()=> {
+    handleNav()
+  }, [handleNav])
 
   //Smooth scrolling effect
   useEffect(() => {
@@ -51,12 +70,12 @@ function App() {
         ? <Preloader content="rttn.Mango" setLoading={setLoading}/>
         : 
         <>
-          <Header setShowNav={setShowNav}/>
+          <Header setShowNav={setShowNav} showNav={showNav}/>
           <main>
             <Hero/>
             <About/>
-            <Projects/>
-            <Contact setSendMessage={setSendMessage}/>
+            <Projects showNav={showNav}/>
+            <Contact setSendMessage={setSendMessage} showNav={showNav}/>
           </main>
           <Footer/>
         </>  
@@ -64,10 +83,9 @@ function App() {
 
       {sendMessage ? <ContactForm setSendMessage={setSendMessage}/> : null}
 
-      {
-        showNav ? <NavPanel setShowNav={setShowNav}/> : null
-      }
-      
+      <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
+        <NavPanel/>
+      </nav>
     </>
   )
 }

@@ -272,22 +272,9 @@ body{
         }
     }
 
-    .form-group{@include flex(column, .5rem); margin-bottom: 1.5rem;}
-
-    &__inputs{
-        padding: 2rem 3rem;
-
-        textarea{resize: none;}
-
-        //Hides the label from the screen but still accessible from screen readers
-        label{
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            left: -10000px;
-            top: auto;
-            overflow: hidden;
-        }
+    .form-group{
+        @include flex(column, .5rem); margin-bottom: 1.5rem;
+        position: relative;
 
         input, textarea{
             position: relative;
@@ -296,8 +283,32 @@ body{
             border: 1px solid black;
             font-family: 'Okine-Light';
 
-            &:hover, &:focus, &:active{box-shadow: 5px 8px 0 var(--clr-lm-primary);}
+            &:hover, &:focus, &:active{box-shadow: 5px 8px 0 var(--clr-lm-primary)}
+
+            &:focus + label,
+            &:hover + label,
+            &:not(:placeholder-shown) ~ label{
+                top: -.5rem;
+                scale: .9;
+                background-color: white;
+                z-index: 999;
+            }
         }
+
+        label{
+            position: absolute;
+            scale: 1;
+            top: 1.15rem;
+            left: 1rem;
+            padding-inline: 7px;
+            transition: 200ms ease-in-out;
+        }
+    }
+
+    &__inputs{
+        padding: 2rem 3rem;
+
+        textarea{resize: none;}
     }
 
     button{
@@ -325,6 +336,13 @@ body{
         }
     }
 
+}
+
+//Disable scrolling when nav is open
+.disabled{
+    pointer-events: none;
+    touch-action: none;
+    overflow: hidden;
 }
 
 //Desktop Layouts

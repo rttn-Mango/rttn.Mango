@@ -1,7 +1,7 @@
 const Logo = () => {
     return(
         //currentcolor on fill allows the path color value to be changed on css using color property
-        <svg width="80" height="49" viewBox="0 0 80 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="80" height="49" id="logo" viewBox="0 0 80 49" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_87_152)">
             <path d="M76.5 30.2619L27.5 30.2619V27.7419L76.5 27.7419V30.2619Z" fill="currentcolor"/>
             <path d="M7.25 47L7.25 12H9L9 29.15L25.55 12H28.25L11.6 29.3L29.65 47H26.8L9 29.55L9 47H7.25Z" fill="currentcolor"/>

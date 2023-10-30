@@ -17,16 +17,17 @@ export default function ContactForm({setSendMessage}){
             </div>
             <form action="" className="form__inputs">
                 <div className="form-group">
+                    
+                    <input className="input" type="text" id="Name" name="Name" placeholder=" " required/>
                     <label htmlFor="Name">Name</label>
-                    <input type="text" id="Name" name="Name" placeholder="Name" required/>
                 </div>
-                <div className="form-group">
+                <div className="form-group">                    
+                    <input className="input" type="email" id="Email" name="Email" placeholder=" " required/>
                     <label htmlFor="Email">Email</label>
-                    <input type="email" id="Email" name="Email" placeholder="Email" required/>
                 </div>
-                <div className="form-group">
+                <div className="form-group">                   
+                    <textarea className="input" type="text" id="message" name="message" placeholder=" " required/>
                     <label htmlFor="message">Message</label>
-                    <textarea type="text" id="message" name="message" placeholder="Message" required/>
                 </div>
                 <button type="submit">
                     Send <img src="public/Right.svg" alt="right arrow" draggable="false" width={30} height={30}/>

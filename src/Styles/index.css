@@ -148,6 +148,24 @@ textarea:not([rows]) {
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
 }
+.header #logo {
+  color: black;
+}
+.header .burger {
+  position: relative;
+  z-index: 999;
+  top: -0.7rem;
+  background-color: black;
+  clip-path: circle();
+  padding: 0.75rem;
+  rotate: 0;
+  pointer-events: all;
+  touch-action: all;
+}
+.header .burger:active {
+  rotate: 180deg;
+  transition: rotate 200ms ease-in-out;
+}
 .header button {
   padding: 0.5rem 1rem;
   background-color: transparent;
@@ -155,7 +173,7 @@ textarea:not([rows]) {
   cursor: pointer;
 }
 .header svg {
-  color: black;
+  color: white;
   cursor: pointer;
 }
 .header .group {
@@ -205,17 +223,21 @@ textarea:not([rows]) {
   margin: auto;
   background-color: black;
   min-height: 100vh;
-  color: white;
+  color: var(--clr-dm-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 700ms ease-in-out;
+  pointer-events: all;
+  touch-action: all;
 }
-.nav .close {
-  position: fixed;
-  top: 2.5rem;
-  right: 9rem;
-  cursor: pointer;
-  color: var(--clr-dm-primary);
+.nav.hidden {
+  clip-path: circle(0 at 92% 6%);
+  opacity: 0;
+}
+.nav.show {
+  clip-path: circle(300vh at 92% 6%);
+  opacity: 1;
 }
 .nav span {
   font-family: "Bodoni";
@@ -505,30 +527,37 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  position: relative;
 }
-.form__inputs {
-  padding: 2rem 3rem;
-}
-.form__inputs textarea {
-  resize: none;
-}
-.form__inputs label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  left: -10000px;
-  top: auto;
-  overflow: hidden;
-}
-.form__inputs input, .form__inputs textarea {
+.form .form-group input, .form .form-group textarea {
   position: relative;
   padding: 1rem;
   background-color: transparent;
   border: 1px solid black;
   font-family: "Okine-Light";
 }
-.form__inputs input:hover, .form__inputs input:focus, .form__inputs input:active, .form__inputs textarea:hover, .form__inputs textarea:focus, .form__inputs textarea:active {
+.form .form-group input:hover, .form .form-group input:focus, .form .form-group input:active, .form .form-group textarea:hover, .form .form-group textarea:focus, .form .form-group textarea:active {
   box-shadow: 5px 8px 0 var(--clr-lm-primary);
+}
+.form .form-group input:focus + label, .form .form-group input:hover + label, .form .form-group input:not(:placeholder-shown) ~ label, .form .form-group textarea:focus + label, .form .form-group textarea:hover + label, .form .form-group textarea:not(:placeholder-shown) ~ label {
+  top: -0.5rem;
+  scale: 0.9;
+  background-color: white;
+  z-index: 999;
+}
+.form .form-group label {
+  position: absolute;
+  scale: 1;
+  top: 1.15rem;
+  left: 1rem;
+  padding-inline: 7px;
+  transition: 200ms ease-in-out;
+}
+.form__inputs {
+  padding: 2rem 3rem;
+}
+.form__inputs textarea {
+  resize: none;
 }
 .form button {
   width: 100%;
@@ -552,6 +581,12 @@ body {
 .form button:hover img, .form button:focus img, .form button:active img {
   transform: translateX(5px);
   transition: transform 500ms ease;
+}
+
+.disabled {
+  pointer-events: none;
+  touch-action: none;
+  overflow: hidden;
 }
 
 @media (min-width: 40em) {
