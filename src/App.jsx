@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import Lenis from '@studio-freight/lenis'
+import Lenis from '@studio-freight/lenis';
 
 //Components
 import Preloader from "./Pages/Preloader";
@@ -21,9 +21,7 @@ function App() {
     const formModal = document.getElementById('modal');
     if(formModal === null) return;
 
-    window.addEventListener('keydown', (event) =>{
-      if(event.key === 'Escape') setSendMessage(false)
-    })
+    window.addEventListener('keydown', (event) =>{if(event.key === 'Escape') setSendMessage(false)})
 
     if(sendMessage) {
       formModal.showModal();
@@ -36,7 +34,6 @@ function App() {
   const handleNav = useCallback(() => {
     if(showNav) {
       document.body.addEventListener('wheel',(e)=>{
-        e.preventDefault();
         e.stopPropagation();
       })
       document.body.classList.add('disabled');
@@ -84,7 +81,7 @@ function App() {
       {sendMessage ? <ContactForm setSendMessage={setSendMessage}/> : null}
 
       <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
-        <NavPanel/>
+        <NavPanel setShowNav={setShowNav}/>
       </nav>
     </>
   )

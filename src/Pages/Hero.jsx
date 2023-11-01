@@ -2,7 +2,7 @@ import Mouse from "./svg/Mouse"
 
 export default function Hero(){
     return(
-        <section className="hero">
+        <section className="hero" id="">
             <h1>Developer</h1>
             <p className="subHeading">Front-end</p>
             <div className="hero__creator">

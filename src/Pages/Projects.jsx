@@ -20,7 +20,7 @@ export default function Projects(){
     ]
 
     return(
-        <section className="projects">
+        <section className="projects" id='projects'>
             <h2>Personal Projects</h2>
 
             {

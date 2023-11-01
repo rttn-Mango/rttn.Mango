@@ -158,13 +158,13 @@ textarea:not([rows]) {
   background-color: black;
   clip-path: circle();
   padding: 0.75rem;
-  rotate: 0;
+  transform: rotate(0);
   pointer-events: all;
   touch-action: all;
 }
 .header .burger:active {
-  rotate: 180deg;
-  transition: rotate 200ms ease-in-out;
+  transform: rotate(180deg);
+  transition: transform 200ms ease-in-out;
 }
 .header button {
   padding: 0.5rem 1rem;
@@ -452,9 +452,14 @@ body {
   height: 30px;
   width: 30px;
   cursor: pointer;
+  transform: translateY(0);
+  transition: transform 300ms ease-in-out;
 }
 .contact svg path {
   fill: var(--clr-lm-primary);
+}
+.contact svg:hover, .contact svg:focus, .contact svg:active {
+  transform: translateY(-5px);
 }
 .contact svg:hover path, .contact svg:focus path, .contact svg:active path {
   fill: var(--clr-lm-secondary);
@@ -531,13 +536,13 @@ body {
 }
 .form .form-group input:focus + label, .form .form-group input:hover + label, .form .form-group input:not(:placeholder-shown) ~ label, .form .form-group textarea:focus + label, .form .form-group textarea:hover + label, .form .form-group textarea:not(:placeholder-shown) ~ label {
   top: -0.5rem;
-  scale: 0.9;
+  transform: scale(0.9);
   background-color: white;
   z-index: 999;
 }
 .form .form-group label {
   position: absolute;
-  scale: 1;
+  transform: scale(1);
   top: 1.15rem;
   left: 1rem;
   padding-inline: 7px;

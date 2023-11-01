@@ -62,6 +62,6 @@ export default function HoverModal({modal, PROJECTS_DATA}){
 
 HoverModal.propTypes = {
     modal: PropTypes.object,
-    PROJECTS_DATA: PropTypes.object,
+    PROJECTS_DATA: PropTypes.array,
 }
 

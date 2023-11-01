@@ -1,6 +1,6 @@
 export default function About(){
     return(
-        <section className="about">
+        <section className="about" id="about">
             <h2>Who am I?</h2>
             <p className="about__top-text">Kumusta? I&apos;m a young blood from Camarines Sur, Philippines</p>
             <p className="about__bottom-text">Passionate about <span>discovering, developing, and transforming ideas</span> that will have an influence and inspire others.</p>

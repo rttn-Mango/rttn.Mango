@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import Logo from "../svg/Logo";
 import { useState, useEffect } from "react";
 
@@ -17,17 +17,18 @@ export default function Footer(){
         <footer className="footer">
             <ul role="list">
                     <li>
-                        <Link tabIndex={-1} to="/"><Logo/></Link>
+                        <Link tabIndex={-1} title="Website Logo" smooth to="#"><Logo/></Link>
                     </li>
                     <li>
-                        <img 
-                            src="public/Arrowheads.svg" 
-                            alt="Scroll down icon"
-                            draggable="false"
-                            onClick={()=>{setToTop(!toTop)}}
-                            width={45}
-                            height={40}
-                        />
+                        <Link smooth to='#' tabIndex={-1} title="Back to Top">
+                            <img 
+                                src="public/Arrowheads.svg" 
+                                alt="Scroll to top icon"
+                                draggable="false"
+                                width={45}
+                                height={40}
+                            />
+                        </Link>
                     </li>
                 </ul>
         </footer>

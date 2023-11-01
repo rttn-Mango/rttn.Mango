@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import Logo from "../svg/Logo";
 import Burger from "../svg/Burger";
 import PropTypes from 'prop-types';
@@ -9,15 +9,15 @@ export default function Header({setShowNav, showNav}){
             <nav>
                 <ul role="list">
                     <li>
-                        <Link to="/"> <Logo/> </Link>
+                        <Link to="#" title="Website Logo"> <Logo/> </Link>
                     </li>
                     <div className="group">
                         <li><img src="public/Moon.svg" alt="Dark Mode Logo" draggable="false" /></li>
                         <li className="burger">
                             {
                                 showNav ?
-                                <Link to='/' className="close" onClick={()=>setShowNav(false)}><Close/></Link> : 
-                                <Link to='/' id="burger" onClick={()=>{setShowNav(true)}}><Burger/></Link>
+                                <Link to='/' title="Back to Page" className="close" onClick={()=>setShowNav(false)}><Close/></Link> : 
+                                <Link to='/' title="Click to open Navigation Panel" id="burger" onClick={()=>{setShowNav(true)}}><Burger/></Link>
                             }
                             </li>
                     </div>

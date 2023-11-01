@@ -193,9 +193,13 @@ body{
         height: 30px;
         width: 30px;
         cursor: pointer;
+        transform: translateY(0);
+        transition: transform 300ms ease-in-out;
+
         & path{fill: var(--clr-lm-primary);}
         
         &:hover, &:focus, &:active{
+            transform: translateY(-5px);
             & path{
                 fill: var(--clr-lm-secondary)
             }
@@ -276,7 +280,7 @@ body{
             &:hover + label,
             &:not(:placeholder-shown) ~ label{
                 top: -.5rem;
-                scale: .9;
+                transform: scale(.9);
                 background-color: white;
                 z-index: 999;
             }
@@ -284,7 +288,7 @@ body{
 
         label{
             position: absolute;
-            scale: 1;
+            transform: scale(1);
             top: 1.15rem;
             left: 1rem;
             padding-inline: 7px;
