@@ -351,35 +351,42 @@ body {
 }
 
 .about {
-  min-height: 270vh;
-  padding-block: 10rem 5rem;
-  max-width: clamp(80%, 85vw, 110rem);
-  margin-inline: auto;
+  width: 400vw;
+  overflow: hidden;
+}
+.about .wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
 }
 .about h2 {
-  font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+  font-size: clamp(var(--font-size-300), 30vw, 30rem);
   font-family: "Okine-Regular";
   padding-block: 2rem;
   text-transform: uppercase;
+  min-width: 100vw;
+  text-align: center;
 }
 .about h3 {
   font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
   font-family: "Okine-Regular";
   padding-block: 2rem;
+  min-width: 100vw;
 }
 .about__top-text, .about__bottom-text {
   font-size: clamp(var(--font-size-250), 3.75vw, var(--font-size-550));
-  padding-block: 5em;
   line-height: 1.7;
-}
-.about__bottom-text {
-  text-align: right;
+  min-width: 100vw;
+  padding-block: 5rem;
 }
 .about__bottom-text span {
   font-style: italic;
 }
 .about__skills--list {
   padding-block: 5rem;
+  min-height: 100vh;
+  min-width: 100vw;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
   gap: 2rem;
@@ -616,8 +623,8 @@ body {
   .about__skills--list {
     grid-template-columns: repeat(2, minmax(100px, 150px));
     padding-top: 0;
-    max-width: 30%;
-    align-self: flex-end;
+    padding-right: 10rem;
+    justify-content: flex-end;
   }
   .projects {
     position: relative;

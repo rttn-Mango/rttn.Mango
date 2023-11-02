@@ -101,35 +101,46 @@ body{
 
 //About section
 .about{
-    min-height: 270vh;
-    padding-block: 10rem 5rem;
-    @include container();
+    
+    width: 400vw;
+    overflow: hidden;
+
+    .wrapper{
+        @include flex(row, 2rem);
+        align-items: center;
+    }
+
     h2{
-        font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+        font-size: clamp(var(--font-size-300), 30vw, 30rem);
         font-family: 'Okine-Regular';
         padding-block: 2rem;
         text-transform: uppercase;
+        min-width: 100vw;
+        text-align: center;
     }
+
     h3{
         font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
         font-family: 'Okine-Regular';
         padding-block: 2rem;
+        min-width: 100vw;;
     }
 
     //First two paragraph tags on the about page
     &__top-text, &__bottom-text{
         font-size: clamp(var(--font-size-250), 3.75vw, var(--font-size-550));
-        padding-block: 5em;
         line-height: 1.7;
+        min-width: 100vw;
+        padding-block: 5rem;
     }
-    &__bottom-text{
-        text-align: right;
-        span{font-style: italic;}
-    }
+
+    &__bottom-text span{font-style: italic;}
 
     &__skills--list{
         padding-block: 5rem;
-
+        min-height: 100vh;
+        min-width: 100vw;
+        
         @include grid(auto-fill, 100px, 120px, 2rem);
         place-content: center;
         justify-items: center;
@@ -367,8 +378,8 @@ body{
             &--list{
                 grid-template-columns: repeat(2, minmax(100px, 150px));
                 padding-top: 0;
-                max-width: 30%;
-                align-self: flex-end;
+                padding-right: 10rem;
+                justify-content: flex-end;
             }
 
         }
