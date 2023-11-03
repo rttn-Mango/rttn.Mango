@@ -25,6 +25,7 @@ export default function Footer(){
                                 src="public/Arrowheads.svg" 
                                 alt="Scroll to top icon"
                                 draggable="false"
+                                id="arrowhead"
                                 width={45}
                                 height={40}
                             />

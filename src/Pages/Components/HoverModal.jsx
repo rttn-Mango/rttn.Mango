@@ -14,13 +14,13 @@ export default function HoverModal({modal, PROJECTS_DATA}){
 
     useEffect(() => {
         //gsap variables to make the wrapper follow the mouse
-        const mouseContainerX = gsap.quickTo('#carousel', 'left', {duration: .8, ease: 'power3'})
-        const mouseContainerY = gsap.quickTo('#carousel', 'top', {duration: .8, ease: 'power3'})
+        let mouseContainerX = gsap.quickTo('#carousel', 'left', {duration: .8, ease: 'power1'})
+        let mouseContainerY = gsap.quickTo('#carousel', 'top', {duration: .8, ease: 'power1'})
 
         window.addEventListener('mousemove', e => {
             //Varialbes to get the mouse position
             const clientMouseX = e.clientX;
-            const clientMouseY = e.clientY;
+            const clientMouseY = e.offsetY + e.clientY;
 
             //Sends mouse position to gsap
             mouseContainerX(clientMouseX)

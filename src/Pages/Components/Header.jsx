@@ -3,6 +3,7 @@ import Logo from "../svg/Logo";
 import Burger from "../svg/Burger";
 import PropTypes from 'prop-types';
 import Close from "../svg/Close";
+
 export default function Header({setShowNav, showNav}){
     return(
         <header className="header">

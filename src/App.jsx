@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
+import React from "react";
 import Lenis from '@studio-freight/lenis';
+import { AnimatePresence, motion } from "framer-motion";
 
 //Components
 import Preloader from "./Pages/Preloader";
@@ -62,20 +64,27 @@ function App() {
   }, [])
 
   return (
-    <>
+    <AnimatePresence>
       {loading 
-        ? <Preloader content="rttn.Mango" setLoading={setLoading}/>
+        ? 
+          (
+            <motion.div key='preloader'>
+              <Preloader content="rttn.Mango" setLoading={setLoading}/>
+            </motion.div>
+          )
         : 
-        <>
-          <Header setShowNav={setShowNav} showNav={showNav}/>
-          <main>
-            <Hero/>
-            <About/>
-            <Projects showNav={showNav}/>
-            <Contact setSendMessage={setSendMessage} showNav={showNav}/>
-          </main>
-          <Footer/>
-        </>  
+        (
+          <React.Fragment key="main">
+            <Header setShowNav={setShowNav} showNav={showNav}/>
+            <main>
+              <Hero/>
+              <About/>
+              <Projects showNav={showNav}/>
+              <Contact setSendMessage={setSendMessage} showNav={showNav}/>
+            </main>
+            <Footer/>
+          </React.Fragment>
+        )  
       }
 
       {sendMessage ? <ContactForm setSendMessage={setSendMessage}/> : null}
@@ -83,7 +92,7 @@ function App() {
       <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
         <NavPanel setShowNav={setShowNav}/>
       </nav>
-    </>
+    </AnimatePresence>
   )
 }
 

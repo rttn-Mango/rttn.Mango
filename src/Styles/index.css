@@ -194,6 +194,7 @@ textarea:not([rows]) {
 
 .footer {
   padding-block: 4rem;
+  background-color: var(--clr-dm-bg);
 }
 .footer ul {
   display: flex;
@@ -202,6 +203,9 @@ textarea:not([rows]) {
   padding-block: 2rem;
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
+}
+.footer ul svg {
+  color: var(--clr-dm-primary);
 }
 .footer ul img {
   rotate: 180deg;
@@ -291,6 +295,7 @@ body {
   padding-block: 3rem;
   height: 90vh;
   position: relative;
+  overflow: hidden;
 }
 .hero h1 {
   font-size: clamp(var(--font-size-400), 16.5vw, var(--font-size-800));
@@ -316,7 +321,8 @@ body {
   max-height: 40vw;
   max-width: 40vw;
   border-radius: 0.5rem;
-  cursor: pointer;
+  position: relative;
+  z-index: 999;
 }
 .hero__creator {
   padding-block: 7rem;
@@ -325,14 +331,16 @@ body {
   gap: 1rem;
   align-items: center;
   justify-content: flex-end;
+  overflow: hidden;
 }
 .hero__creator p {
   font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
   font-family: "Okine-Thin-Outline";
   line-height: 1;
+  overflow: hidden;
 }
 .hero__bottom {
-  padding-block: 2rem;
+  margin-bottom: 3rem;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -351,13 +359,15 @@ body {
 }
 
 .about {
-  width: 400vw;
-  overflow: hidden;
+  padding-block: 5rem 20rem;
 }
 .about .wrapper {
+  overflow-x: hidden;
+}
+.about #slider {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 0;
   align-items: center;
 }
 .about h2 {
@@ -372,21 +382,23 @@ body {
   font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
   font-family: "Okine-Regular";
   padding-block: 2rem;
-  min-width: 100vw;
 }
 .about__top-text, .about__bottom-text {
   font-size: clamp(var(--font-size-250), 3.75vw, var(--font-size-550));
   line-height: 1.7;
+  padding-block: 30vw;
   min-width: 100vw;
-  padding-block: 5rem;
+  text-align: center;
 }
 .about__bottom-text span {
   font-style: italic;
 }
+.about__skills {
+  max-width: clamp(80%, 85vw, 110rem);
+  margin-inline: auto;
+}
 .about__skills--list {
   padding-block: 5rem;
-  min-height: 100vh;
-  min-width: 100vw;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
   gap: 2rem;
@@ -438,6 +450,11 @@ body {
 }
 
 .contact {
+  padding-top: 15vw;
+  background-color: var(--clr-dm-bg);
+  color: white;
+}
+.contact__wrapper {
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
   height: 80vh;
@@ -454,6 +471,21 @@ body {
 .contact h2 a {
   font-family: "Bodoni-Italic";
   text-decoration: none;
+  color: var(--clr-dm-primary);
+  position: relative;
+}
+.contact h2 a::after {
+  content: "";
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: var(--clr-dm-primary);
+  transition: width 1s cubic-bezier(0.83, 0, 0.17, 1);
+}
+.contact h2 a:hover::after, .contact h2 a:focus::after, .contact h2 a:active::after {
+  width: 100%;
 }
 .contact svg {
   height: 30px;
@@ -463,13 +495,13 @@ body {
   transition: transform 300ms ease-in-out;
 }
 .contact svg path {
-  fill: var(--clr-lm-primary);
+  fill: var(--clr-dm-primary);
 }
 .contact svg:hover, .contact svg:focus, .contact svg:active {
   transform: translateY(-5px);
 }
 .contact svg:hover path, .contact svg:focus path, .contact svg:active path {
-  fill: var(--clr-lm-secondary);
+  fill: var(--clr-dm-secondary);
 }
 .contact__details {
   text-align: center;
@@ -576,13 +608,13 @@ body {
 }
 .form button img {
   transform: translateX(0);
+  transition: transform 300ms ease-in-out;
 }
 .form button:hover, .form button:focus, .form button:active {
   box-shadow: 5px 8px 0 var(--clr-lm-primary);
 }
 .form button:hover img, .form button:focus img, .form button:active img {
   transform: translateX(5px);
-  transition: transform 500ms ease;
 }
 
 .disabled {
@@ -623,8 +655,8 @@ body {
   .about__skills--list {
     grid-template-columns: repeat(2, minmax(100px, 150px));
     padding-top: 0;
-    padding-right: 10rem;
-    justify-content: flex-end;
+    max-width: 30%;
+    margin-left: auto;
   }
   .projects {
     position: relative;
@@ -641,9 +673,11 @@ body {
   }
   .projects__contents p {
     font-size: var(--font-size-250);
+    pointer-events: none;
   }
   .projects h3 {
     animation: none;
+    pointer-events: none;
   }
   .projects__hover-wrapper {
     width: 500px;
@@ -660,7 +694,7 @@ body {
     height: 100%;
     width: 100%;
     position: relative;
-    transition: top 500ms cubic-bezier(0.76, 0, 0.24, 1);
+    transition: top 500ms cubic-bezier(0.45, 0, 0.55, 1);
   }
   .projects__hover-content {
     padding: 3rem;
