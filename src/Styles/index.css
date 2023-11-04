@@ -106,9 +106,9 @@ textarea:not([rows]) {
   --clr-lm-bg: hsl(0, 0%, 94%);
   --clr-lm-primary: hsl(211, 91%, 9%);
   --clr-lm-secondary: hsl(199, 30%, 85%);
-  --clr-dm-bg: hsl(240, 10%, 4%);
+  --clr-dm-bg: hsl(240, 10%, 8%);
   --clr-dm-primary: hsl(37, 100%, 96%);
-  --clr-dm-secondary: #0a313d;
+  --clr-dm-secondary: hsl(194, 72%, 34%);
   --font-size-100: .9rem;
   --font-size-200: 1rem;
   --font-size-250: 1.875rem;
@@ -149,22 +149,18 @@ textarea:not([rows]) {
   margin-inline: auto;
 }
 .header #logo {
-  color: black;
+  color: white;
 }
 .header .burger {
   position: relative;
   z-index: 999;
   top: -0.7rem;
-  background-color: black;
+  background-color: var(--clr-dm-primary);
   clip-path: circle();
-  padding: 0.75rem;
   transform: rotate(0);
+  padding: 0.55rem;
   pointer-events: all;
   touch-action: all;
-}
-.header .burger:active {
-  transform: rotate(180deg);
-  transition: transform 200ms ease-in-out;
 }
 .header button {
   padding: 0.5rem 1rem;
@@ -173,8 +169,12 @@ textarea:not([rows]) {
   cursor: pointer;
 }
 .header svg {
-  color: white;
+  color: black;
   cursor: pointer;
+}
+.header svg:not(#logo):active {
+  transform: rotate(180deg);
+  transition: transform 200ms ease-in-out;
 }
 .header .group {
   display: flex;
@@ -194,7 +194,7 @@ textarea:not([rows]) {
 
 .footer {
   padding-block: 4rem;
-  background-color: var(--clr-dm-bg);
+  background-color: black;
 }
 .footer ul {
   display: flex;
@@ -284,9 +284,9 @@ textarea:not([rows]) {
 }
 
 body {
-  background-color: var(--clr-lm-bg);
+  background-color: var(--clr-dm-bg);
   font-family: "Okine-Thin";
-  color: var(--clr-lm-primary);
+  color: white;
 }
 
 .hero {
@@ -302,27 +302,17 @@ body {
   font-family: "Okine-Black-Outline";
   position: relative;
 }
-.hero h1::before {
-  content: "";
-  position: absolute;
-  height: 1.215em;
-  width: 5.1em;
-  border: 1px solid black;
-  top: 0.65em;
-  left: -5px;
-}
 .hero .subHeading {
   font-size: clamp(var(--font-size-450), 18vw, 9rem);
   font-family: "Okine-Black";
   line-height: 1.2;
   white-space: nowrap;
+  color: var(--clr-dm-primary);
 }
 .hero img {
   max-height: 40vw;
   max-width: 40vw;
   border-radius: 0.5rem;
-  position: relative;
-  z-index: 999;
 }
 .hero__creator {
   padding-block: 7rem;
@@ -338,6 +328,9 @@ body {
   font-family: "Okine-Thin-Outline";
   line-height: 1;
   overflow: hidden;
+  position: relative;
+  z-index: -999;
+  padding-bottom: 0.25rem;
 }
 .hero__bottom {
   margin-bottom: 3rem;
@@ -362,9 +355,16 @@ body {
   padding-block: 5rem 20rem;
 }
 .about .wrapper {
-  overflow-x: hidden;
+  height: 200vh;
+  position: relative;
 }
 .about #slider {
+  overflow: hidden;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+.about .container {
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -375,18 +375,17 @@ body {
   font-family: "Okine-Regular";
   padding-block: 2rem;
   text-transform: uppercase;
-  min-width: 100vw;
   text-align: center;
 }
 .about h3 {
-  font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+  font-size: clamp(var(--font-size-300), 6vw, var(--font-size-700));
   font-family: "Okine-Regular";
   padding-block: 2rem;
 }
 .about__top-text, .about__bottom-text {
-  font-size: clamp(var(--font-size-250), 3.75vw, var(--font-size-550));
+  font-size: clamp(var(--font-size-250), 4vw, var(--font-size-600));
   line-height: 1.7;
-  padding-block: 30vw;
+  padding-block: 20vw;
   min-width: 100vw;
   text-align: center;
 }
@@ -433,25 +432,25 @@ body {
   text-decoration: none;
 }
 .projects__contents {
-  color: var(--clr-lm-primary);
+  color: var(--clr-dm-primary);
   display: flex;
   flex-direction: row;
   gap: 5rem;
   align-items: center;
   justify-content: space-between;
   padding: 7rem 2vw;
-  border-top: 1px solid black;
+  border-top: 1px solid white;
 }
 .projects__contents:not(:first-child) {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
 }
 .projects__contents:not(:hover) {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .contact {
   padding-top: 15vw;
-  background-color: var(--clr-dm-bg);
+  background-color: black;
   color: white;
 }
 .contact__wrapper {

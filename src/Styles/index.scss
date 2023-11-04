@@ -26,9 +26,9 @@
 }
 
 body{
-    background-color: var(--clr-lm-bg);
+    background-color: var(--clr-dm-bg);
     font-family: 'Okine-Thin';
-    color: var(--clr-lm-primary)
+    color: white
 }
 
 //Hero section
@@ -43,17 +43,6 @@ body{
         font-size: clamp(var(--font-size-400), 16.5vw, var(--font-size-800));
         font-family: 'Okine-Black-Outline';
         position: relative;
-
-        //Line bg design
-        &::before{
-            content: '';
-            position: absolute;
-            height: 1.215em;
-            width: 5.10em;
-            border: 1px solid black;
-            top: .65em;
-            left: -5px;
-        }
     }
 
     .subHeading{
@@ -61,14 +50,13 @@ body{
         font-family: 'Okine-Black';
         line-height: 1.2;
         white-space: nowrap;
+        color: var(--clr-dm-primary);
     }
 
     img{
         max-height: 40vw;
         max-width: 40vw;
         border-radius: .5rem;
-        position: relative;
-        z-index: 999;
     }
 
     &__creator{
@@ -83,6 +71,9 @@ body{
             font-family: 'Okine-Thin-Outline';
             line-height: 1;
             overflow: hidden;
+            position: relative;
+            z-index: -999;
+            padding-bottom: .25rem;
         }
     }
 
@@ -107,9 +98,19 @@ body{
 .about{
     padding-block: 5rem 20rem;
 
-    .wrapper{overflow-x: hidden;}
+    .wrapper{
+        height: 200vh;
+        position: relative;
+    }
 
     #slider{
+        overflow: hidden;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .container{
         @include flex(row, 0);
         align-items: center;
     }
@@ -119,23 +120,23 @@ body{
         font-family: 'Okine-Regular';
         padding-block: 2rem;
         text-transform: uppercase;
-        min-width: 100vw;
         text-align: center;
     }
 
     h3{
-        font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
+        font-size: clamp(var(--font-size-300), 6vw, var(--font-size-700));
         font-family: 'Okine-Regular';
         padding-block: 2rem;
     }
 
     //First two paragraph tags on the about page
     &__top-text, &__bottom-text{
-        font-size: clamp(var(--font-size-250), 3.75vw, var(--font-size-550));
+        font-size: clamp(var(--font-size-250), 4vw, var(--font-size-600));
         line-height: 1.7;
-        padding-block: 30vw;
+        padding-block: 20vw;
         min-width: 100vw;
         text-align: center;
+    
     }
 
     &__bottom-text span{font-style: italic;}
@@ -179,22 +180,22 @@ body{
     a{text-decoration: none}
 
     &__contents{
-        color: var(--clr-lm-primary);
+        color: var(--clr-dm-primary);
         @include flex(row, 5rem);
         align-items: center;
         justify-content: space-between;
         padding: 7rem 2vw;
-        border-top: 1px solid black;
+        border-top: 1px solid white;
 
-        &:not(:first-child){border-bottom: 1px solid black}
-        &:not(:hover){opacity: .8}
+        &:not(:first-child){border-bottom: 1px solid white}
+        &:not(:hover){opacity: .6}
     }
 }
 
 //Contacts section
 .contact{
     padding-top: 15vw;
-    background-color: var(--clr-dm-bg);
+    background-color: black;
     color: white;
 
     &__wrapper{

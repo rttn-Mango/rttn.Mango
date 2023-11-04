@@ -68,11 +68,11 @@ export default function Hero(){
                         variants={imgAnim}
                         initial={'initial'}
                         animate={"animate"}
-                        src="public/me.jpg" 
-                        alt="Portrait image of me." 
+                        src="public/growth.png" 
+                        alt="Illustration by Pablo Stanley" 
                         draggable="false"
                         width={330}
-                        height={300}
+                        height={350}
                     />
                     <motion.p
                         variants={nameAnim}

@@ -12,16 +12,13 @@ export default function Header({setShowNav, showNav}){
                     <li>
                         <Link to="#" title="Website Logo"> <Logo/> </Link>
                     </li>
-                    <div className="group">
-                        <li><img src="public/Moon.svg" alt="Dark Mode Logo" draggable="false" /></li>
-                        <li className="burger">
-                            {
-                                showNav ?
-                                <Link to='/' title="Back to Page" className="close" onClick={()=>setShowNav(false)}><Close/></Link> : 
-                                <Link to='/' title="Click to open Navigation Panel" id="burger" onClick={()=>{setShowNav(true)}}><Burger/></Link>
-                            }
-                            </li>
-                    </div>
+                    <li className="burger">
+                        {
+                            showNav ?
+                            <Link to='/' title="Back to Page" className="close" onClick={()=>setShowNav(false)}><Close/></Link> : 
+                            <Link to='/' title="Click to open Navigation Panel" id="burger" onClick={()=>{setShowNav(true)}}><Burger/></Link>
+                        }
+                    </li>
                 </ul>
             </nav>
         </header>
