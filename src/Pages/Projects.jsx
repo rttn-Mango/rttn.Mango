@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import HoverModal from './Components/HoverModal';
-import ProjectsCard from './Components/ProjectsCard';
+import HoverModal from '../Components/HoverModal';
+import ProjectsCard from '../Components/ProjectsCard';
+
+import {motion} from 'framer-motion'
 
 export default function Projects(){
     const [modal, setModal] = useState({active: false, index: 0})
@@ -19,19 +21,30 @@ export default function Projects(){
         }
     ]
 
+    const textRevealAnim = {
+        initial: {opacity: 0},
+        animate: {
+            opacity: 1,
+            transition: {
+                duration: .75,
+                delay: .25
+            }
+        }
+    }
+
     return(
         <section className="projects" id='projects'>
-            <h2>Personal Projects</h2>
+            <motion.h2 variants={textRevealAnim} initial="initial" whileInView="animate">Personal Projects</motion.h2>
 
             {
-                PROJECTS_DATA.map((project, index) => {
+                PROJECTS_DATA.map((project, i) => {
                     return (
                         <ProjectsCard
-                            key={index}
+                            key={i}
                             setModal={setModal}
                             title={project.title}
                             src={project.src}
-                            index={index}
+                            index={i}
                         />
                     )
                 })

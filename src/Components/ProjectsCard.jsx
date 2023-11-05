@@ -8,6 +8,7 @@ export default function ProjectsCard({setModal, title, src, index}){
             className="projects__contents"
             onMouseEnter={() => {setModal({active: true, index: index})}}
             onMouseLeave={() => {setModal({active: false, index: index})}}
+            title={index === 0 ? 'Shortly Website' : 'Easybank Website'}
         >
             <h3>{title}</h3>
             <p>Design & Development</p>

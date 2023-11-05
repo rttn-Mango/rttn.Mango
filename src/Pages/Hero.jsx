@@ -1,4 +1,4 @@
-import Mouse from "./svg/Mouse";
+import Mouse from "../svg/Mouse";
 import { motion } from "framer-motion";
 
 export default function Hero(){
@@ -78,6 +78,7 @@ export default function Hero(){
                         variants={nameAnim}
                         initial={'initial'}
                         animate={"animate"}
+                        aria-label="Kim Oliver Manga"
                     >
                         Kim<br/>Oliver<br/>Manga
                     </motion.p>
@@ -89,7 +90,7 @@ export default function Hero(){
                     initial={'initial'}
                     animate={"animate"}
                 >
-                    <p>Hit me up for — <br/> offers or collabs</p>
+                    <p aria-label="Hit me up for offers or collaborations">Hit me up for — <br/> offers or collabs</p>
                     <Mouse/>
                 </motion.div>
             </section>

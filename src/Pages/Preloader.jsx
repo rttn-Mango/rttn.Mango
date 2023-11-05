@@ -1,15 +1,15 @@
-import {easeIn, motion} from 'framer-motion';
+import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 export default function Preloader({setLoading, content}){
 
     //Letter staggering animation
-    const stagger = {
-        hidden: {opacity: 0, y: 50},
-        visible: {opacity: 1, y: 0},
+    const letterStagger = {
+        initial: {opacity: 0, y: 50},
+        animate: {opacity: 1, y: 0, delay: 0.5}
     }
-
+    
     const animatePreloader = {
         initial: {
             opacity: 1,
@@ -25,7 +25,7 @@ export default function Preloader({setLoading, content}){
 
     }
 
-    useEffect(() =>{document.title = "Loading..."})
+    useEffect(() =>{document.title = "Loading..."},[])
 
     return(
         <motion.div
@@ -41,14 +41,14 @@ export default function Preloader({setLoading, content}){
         >
 
             <motion.h1
-                initial={"hidden"}
-                animate={"visible"}
-                transition={{staggerChildren: .1, ease: easeIn}}>
+                initial='initial'
+                animate='animate'
+                transition={{staggerChildren: .1, ease: [0.45, 0, 0.55, 1]}}>
                 {content.split('').map((letter, index) => {
                     return(
                         <motion.span
                             key={index} 
-                            variants={stagger}>
+                            variants={letterStagger}>
                                 {letter}
                         </motion.span>
                     )

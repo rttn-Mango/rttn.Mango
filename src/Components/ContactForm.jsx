@@ -1,12 +1,21 @@
 import Close from "../svg/Close";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { useShowNotifProvider } from "../hooks/UseSetMessage";
 
 export default function ContactForm({setSendMessage}){
+    const {showNotif, setShowNotif} = useShowNotifProvider();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setShowNotif(!showNotif);
+        setSendMessage(false)
+    }
+
     return(
         <dialog id="modal" className="form">
             <a className="form__close-btn" onClick={()=>setSendMessage(false)}><Close/></a>
             <div className="form__subheading">
-                <h3>Send <br/> me a <br/> Mess   <br/>age</h3>
+                <h3 aria-label="Send me a Message">Send <br/> me a <br/> Mess   <br/>age</h3>
                 <img 
                     src="public/message.gif" 
                     alt="send message gif" 
@@ -15,14 +24,14 @@ export default function ContactForm({setSendMessage}){
                     height={415}
                 />
             </div>
-            <form action="" className="form__inputs">
+            <form onSubmit={handleSubmit} action="https://formsubmit.co/khimmanga445@gmail.com" method="POST" className="form__inputs">
+                <input type="hidden" name="_captcha" value='false'/>
                 <div className="form-group">
-                    
-                    <input className="input" type="text" id="Name" name="Name" placeholder=" " required/>
+                    <input className="input" type="text" id="Name" name="name" placeholder=" " required/>
                     <label htmlFor="Name">Name</label>
                 </div>
                 <div className="form-group">                    
-                    <input className="input" type="email" id="Email" name="Email" placeholder=" " required/>
+                    <input className="input" type="email" id="Email" name="email" placeholder=" " required/>
                     <label htmlFor="Email">Email</label>
                 </div>
                 <div className="form-group">                   
