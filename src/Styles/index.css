@@ -66,6 +66,18 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+/* Scroll bar styling*/
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--clr-dm-secondary);
+}
+
 @font-face {
   font-family: "Stardom";
   src: url("public/Fonts/Stardom-Regular.otf") format("opentype");
@@ -143,37 +155,61 @@ textarea:not([rows]) {
 }
 
 .header {
-  padding-block: 2rem;
+  padding-block: 3rem;
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
 }
 .header #logo {
   color: white;
 }
-.header .burger {
+.header a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-family: "Okine-Thin-Outline";
   position: relative;
-  z-index: 999;
-  top: -0.7rem;
-  background-color: var(--clr-dm-primary);
-  clip-path: circle();
-  transform: rotate(0);
-  padding: 0.55rem;
-  pointer-events: all;
-  touch-action: all;
+}
+.header a::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  left: 0;
+  transition: width 300ms ease-in-out;
+  background-color: var(--clr-dm-accent);
+}
+.header a:hover, .header a:focus, .header a:active {
+  font-family: "Bodoni-Italic";
+}
+.header a:hover::after, .header a:focus::after, .header a:active::after {
+  width: 100%;
+}
+.header .close {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  top: -1rem;
+  right: 0;
+  color: var(--clr-dm-primary);
+}
+.header__mobile-menu a {
+  font-family: "Okine-Thin-Outline";
+  display: none;
+}
+.header__mobile-menu a:hover .burger {
+  opacity: 1;
+}
+.header__pages {
+  display: flex;
+  gap: 2rem;
+  overflow: hidden;
+  margin-left: auto;
 }
 .header button {
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: 1px solid black;
   cursor: pointer;
-}
-.header svg {
-  color: black;
-  cursor: pointer;
-}
-.header svg:not(#logo):active {
-  transform: rotate(180deg);
-  transition: transform 200ms ease-in-out;
 }
 .header .group {
   display: flex;
@@ -191,8 +227,16 @@ textarea:not([rows]) {
   align-items: center;
 }
 
+@media screen and (max-width: 600px) {
+  .header__mobile-menu a {
+    display: block;
+  }
+  .header__pages {
+    display: none;
+  }
+}
 .footer {
-  padding-block: 4rem;
+  padding-bottom: 4rem;
   background-color: black;
 }
 .footer ul {
@@ -221,7 +265,7 @@ textarea:not([rows]) {
   }
 }
 .nav {
-  position: absolute;
+  position: fixed;
   inset: 0;
   margin: auto;
   background-color: black;
@@ -286,6 +330,7 @@ body {
   background-color: var(--clr-dm-bg);
   font-family: "Okine-Thin";
   color: white;
+  overflow-x: hidden;
 }
 
 .hero {
@@ -334,7 +379,7 @@ body {
 .hero__bottom {
   margin-bottom: 3rem;
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -387,7 +432,8 @@ body {
   min-width: 100vw;
   text-align: center;
 }
-.about__bottom-text span {
+.about__top-text span, .about__bottom-text span {
+  font-family: "Okine-Thin-Outline";
   font-style: italic;
 }
 .about__skills {
@@ -454,8 +500,6 @@ body {
 .contact {
   padding-top: 15vw;
   background-color: black;
-  border-top-right-radius: 5rem;
-  border-top-left-radius: 5rem;
   color: white;
 }
 .contact__wrapper {
@@ -466,6 +510,7 @@ body {
 }
 .contact__sub-heading {
   font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500));
+  font-family: "Okine-Thin-Outline";
 }
 .contact h2 {
   font-size: clamp(var(--font-size-300), 10vw, var(--font-size-700));
@@ -639,6 +684,28 @@ body {
   transform: translateX(0);
 }
 
+.burger {
+  position: fixed;
+  z-index: 999;
+  top: 3vw;
+  right: 3vw;
+  background-color: black;
+  border-radius: 50%;
+  transform: rotate(0);
+  padding: 0.875rem;
+  pointer-events: all;
+  touch-action: all;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.burger svg {
+  color: white;
+  cursor: pointer;
+}
+.burger svg:not(#logo):active {
+  transform: rotate(180deg);
+  transition: transform 200ms ease-in-out;
+}
+
 .disabled {
   pointer-events: none;
   touch-action: none;
@@ -766,7 +833,7 @@ body {
     transform: translateY(0);
   }
   to {
-    transform: translateY(0.1rem);
+    transform: translateY(0.3rem);
   }
 }
 

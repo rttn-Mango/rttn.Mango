@@ -41,7 +41,7 @@ export default function HoverModal({modal, PROJECTS_DATA}){
                         {
                             PROJECTS_DATA.map((project, index) =>  {
                                 return(
-                                    <div style={{backgroundColor: project.clr}} className="projects__hover-content" key={index}>
+                                    <div style={{backgroundColor: project.clr}} className="projects__hover-content" key={`${project.id}${index}`}>
                                         <img 
                                             src={project.img} 
                                             alt="Site Image" 

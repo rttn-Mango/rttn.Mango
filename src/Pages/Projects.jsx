@@ -8,12 +8,14 @@ export default function Projects(){
     const [modal, setModal] = useState({active: false, index: 0})
     const PROJECTS_DATA = [
         {
+            id: 'link',
             title: 'Shortly',
             src: 'https://sh0rtly.vercel.app/',
             clr: '#02162c',
             img: 'public/Shortly.png'
         },
         {
+            id: 'bank',
             title: 'Easybank',
             src: 'https://izibank.vercel.app/',
             clr: '#0a313d',
@@ -40,7 +42,7 @@ export default function Projects(){
                 PROJECTS_DATA.map((project, i) => {
                     return (
                         <ProjectsCard
-                            key={i}
+                            key={project.id}
                             setModal={setModal}
                             title={project.title}
                             src={project.src}

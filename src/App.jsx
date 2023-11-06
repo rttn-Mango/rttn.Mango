@@ -2,6 +2,9 @@ import React from "react";
 import { useState, useEffect, useCallback } from "react";
 import Lenis from '@studio-freight/lenis';
 import { AnimatePresence, motion } from "framer-motion";
+import { HashLink as Link } from "react-router-hash-link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 //Components
 import Preloader from "./Pages/Preloader";
@@ -14,6 +17,8 @@ import Header from './Components/Header';
 import Footer from "./Components/Footer";
 import NavPanel from './Components/NavPanel';
 import ContactForm from "./Components/ContactForm";
+import Close from "./svg/Close";
+import Burger from './svg/Burger';
 
 //Hooks
 import { useShowNotifProvider } from "./hooks/UseSetMessage";
@@ -71,6 +76,23 @@ function App() {
     handleNav()
   }, [handleNav])
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.fromTo('.burger', {opacity: 0},{
+      opacity: 1,
+      transition: {
+        duration: .5,
+        ease: [[0.76, 0, 0.24, 1]],
+      },
+      scrollTrigger: {
+        trigger: '.hero',
+        scrub: 1,
+        start: 'center 20%'
+      }
+    })
+  },[]) 
+
   //Smooth scrolling effect
   useEffect(() => {
     const lenis = new Lenis()
@@ -80,7 +102,7 @@ function App() {
       requestAnimationFrame(raf)
     }
 
-    requestAnimationFrame(raf)
+    requestAnimationFrame(raf);
   }, [])
 
   return (
@@ -91,7 +113,7 @@ function App() {
               <Preloader content="rttn.Mango" setLoading={setLoading}/>
             </motion.div>
           : 
-            <React.Fragment key='main'>
+            <React.Fragment key='primary-content'>
               <Header setShowNav={setShowNav} showNav={showNav}/>
               <main>
                 <Hero/>
@@ -103,13 +125,23 @@ function App() {
             </React.Fragment>
           }
 
-          {sendMessage ? <ContactForm setSendMessage={setSendMessage}/> : null}
+          <React.Fragment key='side-contents'>
+            {sendMessage ? <ContactForm setSendMessage={setSendMessage}/> : null}
 
-          <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
-            <NavPanel setShowNav={setShowNav}/>
-          </nav>
+            <div className="burger">
+              {
+                  showNav ?
+                  <Link to='/' title="Back to Page" className="close" onClick={()=>setShowNav(false)}><Close/></Link> : 
+                  <Link to='/' title="Click to open Navigation Panel" id="burger" onClick={()=>{setShowNav(true)}}><Burger/></Link>
+              }
+            </div>
 
-          <Notification/>
+            <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
+              <NavPanel setShowNav={setShowNav}/>
+            </nav>
+
+            <Notification/>
+          </React.Fragment>
       </AnimatePresence>
   )
 }

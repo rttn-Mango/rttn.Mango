@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 export default function Preloader({setLoading, content}){
 
+
     //Letter staggering animation
     const letterStagger = {
         initial: {opacity: 0, y: 50},

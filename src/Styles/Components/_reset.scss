@@ -67,3 +67,13 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
+/* Scroll bar styling*/
+::-webkit-scrollbar-track{background-color: transparent}
+
+::-webkit-scrollbar{
+  width: 3px;
+
+  &-thumb{background-color: var(--clr-dm-secondary);}
+}
+

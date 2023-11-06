@@ -33,7 +33,7 @@ export default function About(){
             <div className="wrapper" ref={ref}> 
                 <div id="slider">
                     <motion.div style={{x: horizontalScrollProgress}} className="container">
-                        <p className="about__top-text">Kumusta? I&apos;m a young blood from Camarines Sur, Philippines</p>
+                        <p className="about__top-text"><span>Kumusta?</span> I&apos;m a young blood from Camarines Sur, Philippines</p>
                         <p className="about__bottom-text">Passionate about <span>discovering, developing, and transforming ideas</span> that will have an influence and inspire others.</p>
                     </motion.div>
                 </div>

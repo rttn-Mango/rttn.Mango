@@ -1,20 +1,59 @@
+@forward '../Components/font-faces';
+
 .header{
-    padding-block: 2rem;
+    padding-block: 3rem;
     max-width: clamp(80%, 85vw, 110rem);
     margin-inline: auto;
 
     #logo{color: white}
 
-    .burger{
+    a{
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-family: 'Okine-Thin-Outline';
         position: relative;
-        z-index: 999;
-        top: -.70rem;
-        background-color: var(--clr-dm-primary);
-        clip-path: circle();
-        transform: rotate(0);
-        padding: .55rem;
-        pointer-events: all;
-        touch-action: all;
+
+        &::after{
+            position: absolute;
+            content: '';
+            height: 2px;
+            width: 0%;
+            bottom: 0;
+            left: 0;
+            transition: width 300ms ease-in-out;
+            background-color: var(--clr-dm-accent);
+        }
+
+        &:hover, &:focus, &:active{
+            font-family: 'Bodoni-Italic';
+
+            &::after{width: 100%;}
+        }
+    }
+
+    .close{
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        top: -1rem;
+        right: 0;
+        color: var(--clr-dm-primary);
+    }
+
+    &__mobile-menu a{
+        font-family: 'Okine-Thin-Outline';
+        display: none;
+
+        &:hover{
+            .burger{opacity: 1}
+        }
+    }
+
+    &__pages{
+        display: flex;
+        gap: 2rem;
+        overflow: hidden;
+        margin-left: auto;
     }
     
     button{
@@ -22,16 +61,6 @@
         background-color: transparent;
         border: 1px solid black;
         cursor: pointer;
-    }
-
-    svg{
-        color:black; 
-        cursor: pointer;
-
-        &:not(#logo):active{
-            transform: rotate(180deg);
-            transition: transform 200ms ease-in-out;
-        }
     }
 
     .group{
@@ -48,5 +77,12 @@
         gap: 1rem;
         justify-content:  space-between;
         align-items: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header{
+        &__mobile-menu a{display: block;}
+        &__pages{display: none;}
     }
 }

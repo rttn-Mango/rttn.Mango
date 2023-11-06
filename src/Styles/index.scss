@@ -29,6 +29,7 @@ body{
     background-color: var(--clr-dm-bg);
     font-family: 'Okine-Thin';
     color: white;
+    overflow-x: hidden;
 }
 
 //Hero section
@@ -80,7 +81,7 @@ body{
     &__bottom{
         margin-bottom: 3rem;
         position: absolute;
-        bottom: 0;
+        bottom: 1rem;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -136,9 +137,8 @@ body{
         min-width: 100vw;
         text-align: center;
     
+        & span{font-family: 'Okine-Thin-Outline'; font-style: italic}
     }
-
-    &__bottom-text span{font-style: italic;}
 
     &__skills{
         @include container();
@@ -203,8 +203,6 @@ body{
 .contact{
     padding-top: 15vw;
     background-color: black;
-    border-top-right-radius: 5rem;
-    border-top-left-radius: 5rem;
     color: white;   
 
     &__wrapper{
@@ -213,7 +211,9 @@ body{
         padding-top: 3rem;
     }
 
-    &__sub-heading{font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500))}
+
+    &__sub-heading{font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500)); font-family: 'Okine-Thin-Outline';}
+
     h2{
         font-size: clamp(var(--font-size-300), 10vw, var(--font-size-700));
         text-align: center;
@@ -401,6 +401,31 @@ body{
 
 }
 
+//Burger Menu
+.burger{
+    position: fixed;
+    z-index: 999;
+    top: 3vw;
+    right: 3vw;
+    background-color: black;
+    border-radius: 50%;
+    transform: rotate(0);
+    padding: .875rem;
+    pointer-events: all;
+    touch-action: all;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    svg{
+        color:white; 
+        cursor: pointer;
+
+        &:not(#logo):active{
+            transform: rotate(180deg);
+            transition: transform 200ms ease-in-out;
+        }
+    }
+}
+
 //Disable scrolling when nav is open
 .disabled{
     pointer-events: none;
@@ -524,5 +549,5 @@ body{
 
 @keyframes scroll-animation{
     from{transform: translateY(0);}
-    to{transform: translateY(.10rem);}
+    to{transform: translateY(.30rem);}
 }
