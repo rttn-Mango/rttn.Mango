@@ -1,4 +1,4 @@
-import Mouse from "../svg/Mouse";
+import Mouse from "../../svg/Mouse";
 import { motion } from "framer-motion";
 
 export default function Hero(){

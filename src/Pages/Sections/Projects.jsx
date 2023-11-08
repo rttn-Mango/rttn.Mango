@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import HoverModal from '../Components/HoverModal';
-import ProjectsCard from '../Components/ProjectsCard';
+import HoverModal from '../../Components/HoverModal';
+import ProjectsCard from '../../Components/ProjectsCard';
 
 import {motion} from 'framer-motion'
 

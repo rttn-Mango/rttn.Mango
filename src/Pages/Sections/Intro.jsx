@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { motion, useTransform, useScroll } from 'framer-motion'
 
-export default function About(){
+export default function Intro(){
     const ref = useRef(null);
     const { scrollYProgress } =  useScroll({target: ref})
 
@@ -29,24 +29,24 @@ export default function About(){
 
     const horizontalScrollProgress = useTransform(scrollYProgress, [0, 1], ['1', '-100%'])
     return(
-        <section className="about" id="about">
+        <section className="intro" id="intro">
             <div className="wrapper" ref={ref}> 
                 <div id="slider">
                     <motion.div style={{x: horizontalScrollProgress}} className="container">
-                        <p className="about__top-text"><span>Kumusta?</span> I&apos;m a young blood from Camarines Sur, Philippines</p>
-                        <p className="about__bottom-text">Passionate about <span>discovering, developing, and transforming ideas</span> that will have an influence and inspire others.</p>
+                        <p className="intro__top-text"><span>Kumusta?</span> I&apos;m a young blood from Camarines Sur, Philippines</p>
+                        <p className="intro__bottom-text">Passionate about <span>discovering, developing, and transforming ideas</span> that will have an influence and inspire others.</p>
                     </motion.div>
                 </div>
             </div>
 
             {/* TODO: Take this out of wrapper and  Make this a component */}
-            <div className="about__skills">
-                <motion.div variants={textRevealAnim} initial="initial" whileInView="animate" className="about__skills--subheading">
+            <div className="intro__skills">
+                <motion.div variants={textRevealAnim} initial="initial" whileInView="animate" className="intro__skills--subheading">
                     <h3>my skill set</h3>
                     <p>These are the technologies I currently know. I&apos;m constantly looking to expand my present skill set by studying new technologies that can broaden my horizons.</p>
                 </motion.div>
                     
-                <motion.div className="about__skills--list" variants={skillSlideInAnim} initial='initial' whileInView='animate'>
+                <motion.div className="intro__skills--list" variants={skillSlideInAnim} initial='initial' whileInView='animate'>
                     <div className="group">
                         <img 
                             src="public/Html.svg" 

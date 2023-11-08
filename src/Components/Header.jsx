@@ -35,12 +35,12 @@ export default function Header({setShowNav, showNav}){
             <nav>
                 <ul role="list">
                     <motion.li variants={logoAnim} initial={'initial'} animate={'animate'}>
-                        <Link to="#" title="Website Logo"> <Logo/> </Link>
+                        <Link to="/" title="Website Logo"> <Logo/> </Link>
                     </motion.li>
                     <motion.li className="header__pages" initial="initial" animate="animate" transition={{staggerChildren: .3}}>
-                        <motion.span variants={navPagesAnim}><Link to="/" smooth title="Who am I?">About</Link></motion.span>
+                        <motion.span variants={navPagesAnim}><Link to="/about" smooth title="Who am I?">About</Link></motion.span>
                         <motion.span variants={navPagesAnim}><Link to="/" smooth title="Personal Projects">Works</Link></motion.span>
-                        <motion.span variants={navPagesAnim}><Link to="/" smooth title="Send me a Message">Contact</Link></motion.span>
+                        <motion.span variants={navPagesAnim}><Link to="/send" smooth title="Send me a Message">Contact</Link></motion.span>
                     </motion.li>
 
                     <motion.li className="header__mobile-menu" initial="initial" animate="animate" transition={{staggerChildren: .3}}>
