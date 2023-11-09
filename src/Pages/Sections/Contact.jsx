@@ -41,7 +41,7 @@ export default function Contact(){
         <section className="contact" id='contacts'>
         <motion.p variants={paragraphRevealAnim} initial="initial" whileInView='animate' className="contact__sub-heading">got a great idea?</motion.p>
             <motion.h2 variants={headingRevealAnim} initial='initial' whileInView='animate'>
-                <Link to="/send">
+                <Link to="/contact" title='Send me a message'>
                     Get in touch with me
                 </Link>, let&apos;s work together and create something great
             </motion.h2>

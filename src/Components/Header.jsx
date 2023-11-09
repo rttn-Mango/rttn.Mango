@@ -3,6 +3,7 @@ import Logo from "../svg/Logo";
 import PropTypes from 'prop-types';
 import { motion } from "framer-motion";
 import Close from "../svg/Close";
+import Burger from "../svg/Burger";
 
 export default function Header({setShowNav, showNav}){
     const logoAnim = {
@@ -35,18 +36,17 @@ export default function Header({setShowNav, showNav}){
             <nav>
                 <ul role="list">
                     <motion.li variants={logoAnim} initial={'initial'} animate={'animate'}>
-                        <Link to="/" title="Website Logo"> <Logo/> </Link>
+                        <Link to="/" title="Website Logo" className="logo"> <Logo/> </Link>
                     </motion.li>
                     <motion.li className="header__pages" initial="initial" animate="animate" transition={{staggerChildren: .3}}>
                         <motion.span variants={navPagesAnim}><Link to="/about" smooth title="Who am I?">About</Link></motion.span>
-                        <motion.span variants={navPagesAnim}><Link to="/" smooth title="Personal Projects">Works</Link></motion.span>
-                        <motion.span variants={navPagesAnim}><Link to="/send" smooth title="Send me a Message">Contact</Link></motion.span>
+                        <motion.span variants={navPagesAnim}><Link to="/works" smooth title="Personal Projects">Works</Link></motion.span>
+                        <motion.span variants={navPagesAnim}><Link to="/contact" smooth title="Send me a Message">Contact</Link></motion.span>
                     </motion.li>
 
                     <motion.li className="header__mobile-menu" initial="initial" animate="animate" transition={{staggerChildren: .3}}>
-                        {showNav ? 
-                            <Link to='/' title="Back to Page" className="close" onClick={()=>setShowNav(false)}><Close/></Link>
-                            : <motion.span variants={navPagesAnim}><Link to="/" smooth title="Open Menu" onClick={()=>{setShowNav(true)}}>Menu</Link></motion.span>
+                        {
+                            showNav ? <motion.span variants={navPagesAnim} className="close" onClick={()=>setShowNav(false)}><Close/></motion.span> : <motion.span variants={navPagesAnim} onClick={()=>{setShowNav(true)}}><Burger/></motion.span>
                         }
                     </motion.li>
                 </ul>

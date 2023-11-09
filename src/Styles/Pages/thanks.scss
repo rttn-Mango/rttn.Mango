@@ -1,0 +1,24 @@
+.thanks{
+    max-width: clamp(80%, 85vw, 110rem);
+    margin-inline: auto;
+    display: grid;
+    place-content: center;
+    
+    h1{
+        font-size: clamp(var(--font-size-300), 7vw, var(--font-size-900));
+        font-family: 'Okine-Medium';
+        padding-block: 3vw;
+        text-align: center;
+        span{font-family: 'Okine-Medium-Outline';}
+
+        & img{background-color: white; display: inline;}
+
+        & .q-mark{display: inline-block; animation: q-mark 500ms ease-in-out infinite alternate;}
+    }
+}
+
+
+@keyframes q-mark{
+    from{transform: translateY(-.25rem);}
+    to{transform: translateY(.25rem);}
+}

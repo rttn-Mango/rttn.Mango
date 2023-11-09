@@ -5,16 +5,13 @@ import Contact from "./Sections/Contact"
 
 //Hooks
 
-import { useShowNavProvider } from "../hooks/UseShowNav"
-
 export default function Homepage(){
-    const {showNav} = useShowNavProvider()
 
     return(
         <main>
             <Hero/>
             <Intro/>
-            <Projects showNav={showNav}/>
+            <Projects/>
             <Contact/>
         </main>
     )

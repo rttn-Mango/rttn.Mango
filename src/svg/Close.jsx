@@ -9,7 +9,7 @@ const Close = () => {
             </g>
             <defs>
             <clipPath id="clip0_26_278">
-            <rect width="30" height="30" fill="white"/>
+            <rect width="30" height="30" fill="currentcolor"/>
             </clipPath>
             </defs>
         </svg>

@@ -7,6 +7,7 @@
 @forward 'Pages/header.scss';
 @forward 'Pages/footer.scss';
 @forward 'Pages/nav.scss';
+@forward 'Pages/thanks.scss';
 
 @mixin container(){
     max-width: clamp(80%, 85vw, 110rem);
@@ -207,11 +208,6 @@ body{
     padding-top: 3rem;
     color: white;   
 
-    &__wrapper{
-        
-    }
-
-
     &__sub-heading{font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500)); font-family: 'Okine-Thin-Outline';}
 
     h2{
@@ -279,7 +275,7 @@ body{
     h1{
         font-size: clamp(var(--font-size-300), 10vw, var(--font-size-900));
         font-family: 'Okine-Medium';
-        padding-block: 8vw 15vw;
+        margin-block: 8vw 15vw;
 
         span{font-family: 'Okine-Medium-Outline';}
     }
@@ -402,7 +398,7 @@ body{
     &__profile{
         padding-block: 15vw 5vw;
 
-        img{margin-bottom: 5rem;}
+        img{margin-bottom: 5rem; position: relative;}
         
         p{
             font-size: clamp(var(--font-size-200), 2vw, var(--font-size-250));
@@ -425,7 +421,7 @@ body{
     }
 
     &__contact-me{
-        padding-block: 10vw 15vw;
+        margin-block: 10vw 15vw;
         @include flex(column, 1rem);
         align-items: center;
 
@@ -436,6 +432,82 @@ body{
     }
 
     a{
+        text-align: center;
+        text-decoration: none;
+        font-size: clamp(var(--font-size-250), 5vw, var(--font-size-900));
+        font-family: 'Bodoni-Italic';
+        position: relative;
+        padding: 5vw 2.15rem;
+        border-top: 1px solid rgba(255 255 255 / 0.5);
+        border-bottom: 1px solid rgba(255 255 255 / 0.5);
+
+        &:hover{
+            background-color: black;
+        }
+    }
+}
+
+//Works Page
+.works-page{
+    @include container();
+
+    h1{
+        font-size: clamp(var(--font-size-300), 7.5vw, var(--font-size-900));
+        font-family: 'Okine-Medium';
+        padding-block: 8vw 15vw;
+        border-bottom: 1px solid rgba(255 255 255 / 0.5);
+
+        span{font-family: 'Okine-Medium-Outline';}
+    }
+
+    h2{
+        font-size: clamp(var(--font-size-250), 8vw, var(--font-size-900));
+        font-family: 'Okine-Regular';
+        margin-block: 15vw;
+        position: relative;
+
+        span{font-family: 'Okine-Medium-Outline';}
+    }
+
+    h3{
+        font-size: clamp(var(--font-size-250), 1.5vw, var(--font-size-300));
+        font-family: 'Okine-Light';
+        padding-block: 1.5rem;
+        border-bottom: 1px solid rgba(255 255 255 / 0.5);
+    }
+
+    .desktop-img{display: none;}
+    .mobile-img{object-fit: contain;}
+
+    .info-data{
+        padding-bottom: 5rem;
+
+        &__paragraphs{@include flex(row, 2rem); justify-content: space-between; padding-top: 1.5rem;}
+    }
+
+    &__details{
+        &--label{display: none;}
+
+        &--info{padding-bottom: 5rem;}
+    }
+
+    &__contact-me{
+        margin-block: 10vw 15vw;
+        @include flex(column, 1rem);
+        align-items: center;
+
+        & img{
+            margin-bottom: 15vw;
+            animation: down-arrow 1s ease-in-out infinite alternate;
+        }
+    }
+
+    .work-link{
+        text-decoration: none;
+        color: var(--clr-dm-primary);
+    }
+
+    a:not(.work-link){
         text-align: center;
         text-decoration: none;
         font-size: clamp(var(--font-size-250), 5vw, var(--font-size-900));
@@ -542,6 +614,54 @@ body{
         p:nth-child(2){
             bottom: 4rem;
             left: 10rem;
+        }
+
+    }
+
+    .works-page{
+        .mobile-img{display: none;}
+        .desktop-img{display: block; object-fit: contain;}
+        .info-img__wrapper{height: 0;}
+
+        h3{padding-top: 0}
+
+        .info-data{
+            cursor: pointer;
+            padding: 2rem 3rem 3rem 3rem; 
+            border-radius: 1rem;
+            transition: background-color 500ms ease-in-out
+        }
+
+        &__details{
+            &--wrapper{
+                @include flex(row, 2rem); justify-content: space-between;
+            }
+
+            &--hover{
+                height: 750px;
+                overflow: hidden;
+
+                .hover-anim{
+                    & p{
+                        height: 750px;
+                        font-size: clamp(var(--font-size-300), 2vw, var(--font-size-900));
+                        font-family: 'Okine-Medium-Outline';
+                        max-width: 10ch;
+                        text-align: center;
+                        padding-top: 50%;
+                    }
+
+                    position: relative;
+                    
+                }
+            }
+
+
+            &--info{
+                order: -1;
+                flex-basis: 50%;
+                align-self: center;
+            }
         }
 
     }

@@ -1,17 +1,7 @@
 import { HashLink as Link } from "react-router-hash-link";
 import Logo from "../svg/Logo";
-import { useState, useEffect } from "react";
 
 export default function Footer(){
-
-    const [toTop, setToTop] = useState(false)
-
-    useEffect(() =>{
-        if(toTop){
-            window.scrollTo(0, 0);
-            setToTop(!toTop);
-        }
-    },[toTop])
 
     return(
         <footer className="footer">

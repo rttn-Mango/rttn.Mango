@@ -1,20 +1,45 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function AboutPage(){
+    const textAnim = {
+        initial: {opacity: 0},
+        animate: {
+            opacity: 1,
+            transition: {
+                duration: .5,
+                ease: [0.45, 0, 0.55, 1]
+            }
+        }
+    }
+
+    const imgAnim = {
+        initial: {x: -300, opacity: 0},
+        animate: {
+            x: 0,
+            opacity: 1,
+            trasition: {
+                duration: 1,
+                ease: [0.45, 0, 0.55, 1],
+                delay: .25
+            }
+        }
+    }
+
     return(
         <main className="about-page">
-            <h1>Crafting seamless, <span>user-friendly</span> interfaces</h1>
+            <motion.h1 variants={textAnim} initial="initial" whileInView="animate">Crafting seamless, <span>user-friendly</span> interfaces</motion.h1>
 
             <section className="about-page__profile">
-                <img src="public/me.svg" alt="An image of me" draggable="false" width={500} height={500}/>
-                <div className="about-page__profile--text-wrapper">
+                <motion.img variants={imgAnim} initial="initial" whileInView="animate" src="public/me.svg" alt="An image of me" draggable="false" width={500} height={500}/>
+                <motion.div variants={textAnim} initial="initial" whileInView="animate" className="about-page__profile--text-wrapper">
                     <p>New to the industry, I specialize in front-end web development. I&apos;m also starting to explore UI Design while keeping tabs with the current industry trends.</p>
                     <p>Equipped with a solid foundation, I&apos;m always looking to hone my skills.</p>
-                </div>
+                </motion.div>
 
             </section>
 
-            <section className="about-page__services">
+            <motion.section variants={textAnim} initial="initial" whileInView="animate" className="about-page__services">
                 <h2>I can help you with these<span>.</span><span>.</span><span>.</span></h2>
                 <section className="about-page__services--info">
                     <img src="public/dev.svg" alt="An illustration of a programmer" draggable="false" width={350} height={300}/>
@@ -31,12 +56,12 @@ export default function AboutPage(){
                         </div>
                     </section>
                 </section>
-            </section>
-
-            <section className="about-page__contact-me">
+            </motion.section>
+            
+            <motion.section variants={textAnim} initial="initial" whileInView="animate" className="about-page__contact-me">
                 <img src="public/Down Arrow.svg" alt="Down Arrow Icon"  draggable="false" height={160} width={130}/>
-                <Link to='/send' title="Send me a Message">Let&apos;s talk about it, Drop me a message</Link>
-            </section>
+                <Link to='/contact' title="Send me a Message">Let&apos;s talk about it, Drop me a message</Link>
+            </motion.section>
         </main>
     )
 }

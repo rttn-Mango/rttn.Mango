@@ -7,13 +7,29 @@
 
     #logo{color: white}
 
+    &__mobile-menu{
+        display: none;
+        pointer-events: all;
+        touch-action: all;
+        position: relative;
+        cursor: pointer;
+        z-index: 999;
+
+        & svg:active{
+            transform: rotate(180deg);
+            transition: transform 200ms ease-in-out;
+        }
+
+        & .close{color: white; cursor: pointer;}
+    }
+
     a{
         text-decoration: none;
         font-size: 1.25rem;
         font-family: 'Okine-Thin-Outline';
         position: relative;
 
-        &::after{
+        &:not(.logo)::after{
             position: absolute;
             content: '';
             height: 2px;
@@ -27,25 +43,7 @@
         &:hover, &:focus, &:active{
             font-family: 'Bodoni-Italic';
 
-            &::after{width: 100%;}
-        }
-    }
-
-    .close{
-        position: relative;
-        z-index: 1;
-        cursor: pointer;
-        top: -1rem;
-        right: 0;
-        color: var(--clr-dm-primary);
-    }
-
-    &__mobile-menu a{
-        font-family: 'Okine-Thin-Outline';
-        display: none;
-
-        &:hover{
-            .burger{opacity: 1}
+            &:not(.logo)::after{width: 100%;}
         }
     }
 
@@ -82,7 +80,7 @@
 
 @media screen and (max-width: 600px) {
     .header{
-        &__mobile-menu a{display: block;}
+        &__mobile-menu {display: block;}
         &__pages{display: none;}
     }
 }
