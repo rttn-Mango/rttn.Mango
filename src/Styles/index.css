@@ -1055,9 +1055,8 @@ body {
     pointer-events: none;
   }
   .projects img {
-    max-height: 200px;
+    height: auto;
     margin-inline: auto;
-    object-fit: contain;
   }
   .projects__hover-container {
     height: 100%;

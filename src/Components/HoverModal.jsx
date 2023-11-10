@@ -46,8 +46,8 @@ export default function HoverModal({modal, PROJECTS_DATA}){
                                             src={project.img} 
                                             alt="Site Image" 
                                             draggable="false"
-                                            width={350}
-                                            height={400}
+                                            width={project.id === 'link' ? 292 : 314}
+                                            height={200}
                                         />
                                     </div>
                                 )
