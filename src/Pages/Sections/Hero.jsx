@@ -72,8 +72,8 @@ export default function Hero(){
                         src={growth} 
                         alt="Illustration by Pablo Stanley" 
                         draggable="false"
-                        width={165}
-                        height={165}
+                        width={381}
+                        height={400}
                     />
                     <motion.p
                         variants={nameAnim}
