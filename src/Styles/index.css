@@ -81,50 +81,62 @@ textarea:not([rows]) {
 @font-face {
   font-family: "Stardom";
   src: url("/public/Fonts/Stardom-Regular.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Bodoni";
   src: url("/public/Fonts/Bodoni.ttf") format("truetype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Bodoni-Italic";
   src: url("/public/Fonts/Bodoni-Italic.ttf") format("truetype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Black";
   src: url("/public/Fonts/Okine-Black.otf"), format("opentype"), url("/Fonts/Okine-Black.otf"), format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Medium";
   src: url("/public/Fonts/Okine-Medium.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Medium-Outline";
   src: url("/public/Fonts/Okine-Medium-Outline.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Black-Outline";
   src: url("/public/Fonts/Okine-Black-Outline.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Regular";
   src: url("/public/Fonts/Okine-Regular.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Light";
   src: url("/public/Fonts/Okine-Light.otf"), format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Light-Outline";
   src: url("/public/Fonts/Okine-Light-Outline.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Thin-Outline";
   src: url("/public/Fonts/Okine-Thin-Outline.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Thin";
   src: url("/public/Fonts/Okine-Thin.otf") format("opentype");
+  font-display: swap;
 }
 :root {
   --clr-lm-bg: hsl(0, 0%, 94%);
@@ -395,9 +407,8 @@ body {
   color: var(--clr-dm-primary);
 }
 .hero img {
-  max-height: 40vw;
-  max-width: 40vw;
-  border-radius: 0.5rem;
+  max-height: 10.5rem;
+  max-width: 10.5rem;
   opacity: 0.9;
 }
 .hero__creator {
@@ -453,13 +464,6 @@ body {
   align-items: center;
 }
 .intro h2 {
-  font-size: clamp(var(--font-size-300), 30vw, 30rem);
-  font-family: "Okine-Regular";
-  padding-block: 2rem;
-  text-transform: uppercase;
-  text-align: center;
-}
-.intro h3 {
   font-size: clamp(var(--font-size-300), 6vw, var(--font-size-700));
   font-family: "Okine-Regular";
   padding-block: 2rem;
@@ -887,8 +891,8 @@ body {
 
 @media (min-width: 50em) {
   .hero img {
-    max-height: 20em;
-    max-width: 30em;
+    min-height: 21.5rem;
+    min-width: 21.5rem;
   }
   .hero__creator {
     padding-block: min(3vw, 1.5rem);

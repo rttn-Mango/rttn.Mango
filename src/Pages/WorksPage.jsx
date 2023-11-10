@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { motion } from 'framer-motion'
 
 //Image
-import Shortly from '../assets/Shrtly.png'
-import Easybank from '../assets/Eas.png'
+import Shortly from '../assets/Shrtly.webp'
+import Easybank from '../assets/Eas.webp'
 import down from '../assets/Down Arrow.svg'
 
 export default function WorksPage(){

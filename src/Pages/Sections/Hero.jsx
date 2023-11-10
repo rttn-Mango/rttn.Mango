@@ -1,6 +1,6 @@
 import Mouse from "../../svg/Mouse";
 import { motion } from "framer-motion";
-import growth from '../../assets/growth.png'
+import growth from '../../assets/growth.webp'
 
 export default function Hero(){
     const nameAnim = {
@@ -72,8 +72,8 @@ export default function Hero(){
                         src={growth} 
                         alt="Illustration by Pablo Stanley" 
                         draggable="false"
-                        width={330}
-                        height={350}
+                        width={165}
+                        height={165}
                     />
                     <motion.p
                         variants={nameAnim}

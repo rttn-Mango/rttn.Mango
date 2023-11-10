@@ -51,7 +51,7 @@ export default function Intro(){
             {/* TODO: Take this out of wrapper and  Make this a component */}
             <div className="intro__skills">
                 <motion.div variants={textRevealAnim} initial="initial" whileInView="animate" className="intro__skills--subheading">
-                    <h3>my skill set</h3>
+                    <h2>my skill set</h2>
                     <p>These are the technologies I currently know. I&apos;m constantly looking to expand my present skill set by studying new technologies that can broaden my horizons.</p>
                 </motion.div>
                     

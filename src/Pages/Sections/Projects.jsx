@@ -4,8 +4,8 @@ import ProjectsCard from '../../Components/ProjectsCard';
 import {motion} from 'framer-motion'
 
 //Images
-import Shortly from '../../assets/Shortly.png'
-import Easybank from '../../assets/Easybank.png'
+import Shortly from '../../assets/Shortly.webp'
+import Easybank from '../../assets/Easybank.webp'
 
 export default function Projects(){
     const [modal, setModal] = useState({active: false, index: 0})
