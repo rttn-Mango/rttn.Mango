@@ -13,7 +13,6 @@ import Header from './Components/Header';
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
 import WorksPage from "./Pages/WorksPage";
-import ThanksPage from "./Pages/ThanksPage";
 
 import Footer from "./Components/Footer";
 import NavPanel from './Components/NavPanel';
@@ -85,7 +84,6 @@ function App() {
                 <Route path="/about" element={<AboutPage/>}/>
                 <Route path="/works" element={<WorksPage/>}/>
                 <Route path="/contact" element={<ContactPage/>}/>
-                <Route path="/thanks" element={<ThanksPage/>}/>
               </Routes>
               <Footer/>
             </React.Fragment>

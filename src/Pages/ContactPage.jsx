@@ -37,13 +37,10 @@ export default function ContactPage() {
             <motion.h1 variants={textAnim} initial="initial" whileInView='animate'>Don&apos;t Hesitate to <span>Reach Out</span></motion.h1>
 
             <section className="contact-page__container">
-                <form action="https://formsubmit.co/khimmanga445@gmail.com" method="POST" className="contact-page__form">
+                <form action="https://formsubmit.co/d04bc60964151e048879c5cd4e2a437f" method="POST" className="contact-page__form">
                     
                     {/*To disable captcha when sending message */}
                     <input type="hidden" name="_captcha" value='false'/>
-
-                    {/*To redirect user after sending a message */}
-                    <input type="hidden" name="_next" value="https://mng0.vercel.app/thanks"></input>
 
                     <motion.div variants={textAnim} initial="initial" whileInView='animate' className="form-group">
                         <label htmlFor="name">What should I call you<span>?</span></label>
