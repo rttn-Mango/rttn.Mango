@@ -36,10 +36,8 @@ body{
 //Hero section
 .hero{
     @include container();
-    padding-block: 3rem;
-    height: 90vh;
-    position: relative;
     overflow: hidden;
+    padding-block: min(4vw, 5rem);
 
     h1{
         font-size: clamp(var(--font-size-300), 14.5vw, var(--font-size-800));
@@ -58,11 +56,11 @@ body{
         max-height: 40vw;
         max-width: 40vw;
         border-radius: .5rem;
-        opacity: .8;
+        opacity: .9;
     }
 
     &__creator{
-        padding-block: 7rem;
+        padding-block: clamp(2rem, 35vw, 10rem);
         @include flex(row, 1rem);
         align-items: center;
         justify-content: flex-end;
@@ -80,25 +78,19 @@ body{
     }
 
     &__bottom{
-        margin-bottom: 3rem;
-        position: absolute;
-        bottom: 1rem;
         width: 100%;
-        display: flex;
-        flex-direction: row;
+        @include flex(row, 1rem);
         justify-content: space-between;
-        gap: 1rem;
         & p{opacity: .5; line-height: 1.2; font-size: var(--font-size-100);}
 
-        svg ellipse{
-                animation: scroll-animation .7s ease-in-out infinite alternate;
-            }
+        svg ellipse{animation: scroll-animation .7s ease-in-out infinite alternate}
     }
+
 }
 
 //intro section
 .intro{
-    padding-block: 5rem 20rem;
+    padding-block: 5rem 30vw;
 
     .wrapper{
         height: 150vh;
@@ -558,15 +550,14 @@ body{
 //Desktop Layouts
 @media (min-width: 50em){
     .hero{
-        height: 90vh;
         img{
             max-height: 20em;
             max-width: 30em;
         }
 
-        &__creator{
-            padding-block: 1rem ;
-        }
+        &__creator{padding-block: min(3vw, 1.5rem);}
+        @media screen and (width < 1000px) and (width > 800px){
+            &__creator{padding-block: min(10vw, 5rem);}}
     }
 
     .contact-page{
@@ -735,7 +726,7 @@ body{
 @media screen and (width < 325px) {
     .hero{
         padding-block: 1rem;
-        &__creator{ flex-direction: column; padding-block: 7rem 1rem;}
+        &__creator{ flex-direction: column; padding-block: 30vw;}
     }
 }
 

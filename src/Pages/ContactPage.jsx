@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function ContactPage() {
     const textAnim = {
@@ -21,6 +22,11 @@ export default function ContactPage() {
 
         }
     }
+
+    useEffect(() => {
+        document.title = 'Contact';
+        window.scrollTo(0, 0);
+    }, [])
 
     return(
         

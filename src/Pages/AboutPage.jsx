@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function AboutPage(){
     const textAnim = {
@@ -25,6 +26,8 @@ export default function AboutPage(){
             }
         }
     }
+
+    useEffect( () => {document.title = "About"}, [])
 
     return(
         <main className="about-page">

@@ -3,9 +3,11 @@ import Intro from "./Sections/Intro"
 import Projects from "./Sections/Projects"
 import Contact from "./Sections/Contact"
 
-//Hooks
+import { useEffect } from "react"
 
 export default function Homepage(){
+
+    useEffect( () => {document.title = "Home"}, [])
 
     return(
         <main>

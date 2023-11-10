@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from 'framer-motion'
 
 export default function WorksPage(){
@@ -31,6 +31,8 @@ export default function WorksPage(){
             }
         }
     }
+
+    useEffect( () => {document.title = "Works"}, [])
 
     return(
         <main className="works-page">

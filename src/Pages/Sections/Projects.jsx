@@ -36,7 +36,7 @@ export default function Projects(){
 
     return(
         <section className="projects" id='projects'>
-            <motion.h2 variants={textRevealAnim} initial="initial" whileInView="animate">Personal Projects</motion.h2>
+            <motion.h2 variants={textRevealAnim} initial="initial" whileInView="animate">Recent Works</motion.h2>
 
             {
                 PROJECTS_DATA.map((project, i) => {
