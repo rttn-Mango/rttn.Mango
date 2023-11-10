@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
+//Image
+import right from '../assets/Right.svg'
+
 export default function ContactPage() {
     const textAnim = {
         initial: {opacity: 0},
@@ -57,7 +60,7 @@ export default function ContactPage() {
                         <textarea name="message" id="message" placeholder="Hello, I'd like to ask about..." required/>
                     </motion.div>
 
-                    <motion.button variants={textAnim} initial="initial" whileInView='animate' type="submit">Forward <img src="public/Right.svg" alt="right arrow" draggable="false" width={30} height={30}/></motion.button>
+                    <motion.button variants={textAnim} initial="initial" whileInView='animate' type="submit">Forward <img src={right} alt="right arrow" draggable="false" width={30} height={30}/></motion.button>
                 </form>
 
                 <section className="contact-page__links">

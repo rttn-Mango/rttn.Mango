@@ -1,5 +1,6 @@
 import { HashLink as Link } from "react-router-hash-link";
 import Logo from "../svg/Logo";
+import Arrowheads from '../assets/Arrowheads.svg'
 
 export default function Footer(){
 
@@ -12,7 +13,7 @@ export default function Footer(){
                     <li>
                         <Link smooth to='#' tabIndex={-1} title="Back to Top">
                             <img 
-                                src="public/Arrowheads.svg" 
+                                src={Arrowheads} 
                                 alt="Scroll to top icon"
                                 draggable="false"
                                 id="arrowhead"

@@ -2,6 +2,11 @@ import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { motion } from 'framer-motion'
 
+//Image
+import Shortly from '../assets/Shrtly.png'
+import Easybank from '../assets/Eas.png'
+import down from '../assets/Down Arrow.svg'
+
 export default function WorksPage(){
     const [workIndex, setWorkIndex] = useState(0);
     let windowWidth = window.innerWidth;
@@ -51,8 +56,8 @@ export default function WorksPage(){
                             animate="hovered"
                         >
                             <p {...windowWidth < 800 ? {style: {display: "none"}} : {style: {display: "block"}}}>Try hovering on project name</p>
-                            <motion.img variants={textAnim} initial="initial" whileInView='animate' className="desktop-img" src="public/Shrtly.png" alt="Shortly Website full image" draggable="false" width={550} height={750}/>
-                            <motion.img variants={textAnim} initial="initial" whileInView='animate' className="desktop-img" src="public/Eas.png" alt="Easybank Website full image" draggable="false" width={550} height={750}/>
+                            <motion.img variants={textAnim} initial="initial" whileInView='animate' className="desktop-img" src={Shortly} alt="Shortly Website full image" draggable="false" width={550} height={750}/>
+                            <motion.img variants={textAnim} initial="initial" whileInView='animate' className="desktop-img" src={Easybank} alt="Easybank Website full image" draggable="false" width={550} height={750}/>
                         </motion.div>
                     </section>
 
@@ -66,7 +71,7 @@ export default function WorksPage(){
                                 initial="initial"
                                 animate={windowWidth > 800 && workIndex === 1 ? 'hovered' : 'initial'}
                             >
-                                <img className="mobile-img" src="public/Shortly.png" alt="Shortly Website full image" draggable="false" width={400} height={350}/>
+                                <img className="mobile-img" src={Shortly} alt="Shortly Website full image" draggable="false" width={400} height={350}/>
                                 <h3>Shortly</h3>
                                 <div className="info-data__paragraphs">
                                     <p>Designer & Dev</p>
@@ -84,7 +89,7 @@ export default function WorksPage(){
                                 initial="initial"
                                 animate={windowWidth > 800 && workIndex === 2 ? 'hovered' : 'initial'}
                             >
-                                <img className="mobile-img" src="public/Easybank.png" alt="Shortly Website full image" draggable="false" width={400} height={350}/>
+                                <img className="mobile-img" src={Easybank} alt="Shortly Website full image" draggable="false" width={400} height={350}/>
                                 <h3>Easybank</h3>
                                 <div className="info-data__paragraphs">
                                     <p>Designer & Dev</p>
@@ -98,7 +103,7 @@ export default function WorksPage(){
             </section>
             
             <motion.section variants={textAnim} initial="initial" whileInView='animate' className="works-page__contact-me">
-                <img src="public/Down Arrow.svg" alt="Down Arrow Icon"  draggable="false" height={160} width={130}/>
+                <img src={down} alt="Down Arrow Icon"  draggable="false" height={160} width={130}/>
                 <Link to='/contact' title="Send me a Message">Let&apos;s talk about it, Drop me a message</Link>
             </motion.section>
         </main>

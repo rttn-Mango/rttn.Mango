@@ -1,5 +1,14 @@
 import { useRef } from "react"
-import { motion, useTransform, useScroll } from 'framer-motion'
+import { motion, useTransform, useScroll } from 'framer-motion';
+
+//Icons
+import Html from '../../assets/Html.svg'
+import Css from '../../assets/CSS3.svg'
+import JS from '../../assets/JavaScript.svg'
+import Figma from '../../assets/Figma.svg'
+import Wireframe from '../../assets/Wireframe.svg'
+import sass from '../../assets/Sass.svg'
+import React from '../../assets/React.svg'
 
 export default function Intro(){
     const ref = useRef(null);
@@ -49,7 +58,7 @@ export default function Intro(){
                 <motion.div className="intro__skills--list" variants={skillSlideInAnim} initial='initial' whileInView='animate'>
                     <div className="group">
                         <img 
-                            src="public/Html.svg" 
+                            src={Html}
                             alt="HTML Icon"
                             draggable="false"
                             width={100}
@@ -59,7 +68,7 @@ export default function Intro(){
                     </div>
                     <div className="group">
                         <img 
-                            src="public/CSS3.svg" 
+                            src={Css}
                             alt="CSS Icon"
                             draggable="false"
                             width={100}
@@ -69,7 +78,7 @@ export default function Intro(){
                     </div>
                     <div className="group">
                         <img 
-                            src="public/JavaScript.svg" 
+                            src={JS}
                             alt="JavaScript Icon"
                             draggable="false"
                             width={100}
@@ -79,7 +88,7 @@ export default function Intro(){
                     </div>
                     <div className="group">
                         <img 
-                            src="public/Figma.svg"  
+                            src={Figma}
                             alt="Figma Icon"
                             draggable="false"
                             width={100}
@@ -89,7 +98,7 @@ export default function Intro(){
                     </div>
                     <div className="group">
                         <img 
-                            src="public/Wireframe.svg"  
+                            src={Wireframe}
                             alt="Wireframing Icon"
                             draggable="false"
                             width={100}
@@ -99,7 +108,7 @@ export default function Intro(){
                     </div>
                     <div className="group">
                         <img 
-                            src="public/Sass.svg" 
+                            src={sass}
                             alt="SASS Icon"
                             draggable="false"
                             width={100}
@@ -109,7 +118,7 @@ export default function Intro(){
                     </div>
                     <div className="group">
                         <img 
-                            src="public/React.svg" 
+                            src={React}
                             alt="ReactJS Icon"
                             draggable="false"
                             width={100}

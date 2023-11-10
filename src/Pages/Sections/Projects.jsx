@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import HoverModal from '../../Components/HoverModal';
 import ProjectsCard from '../../Components/ProjectsCard';
-
 import {motion} from 'framer-motion'
+
+//Images
+import Shortly from '../../assets/Shortly.png'
+import Easybank from '../../assets/Easybank.png'
 
 export default function Projects(){
     const [modal, setModal] = useState({active: false, index: 0})
@@ -12,14 +15,14 @@ export default function Projects(){
             title: 'Shortly',
             src: 'https://sh0rtly.vercel.app/',
             clr: '#02162c',
-            img: 'public/Shortly.png'
+            img: Shortly
         },
         {
             id: 'bank',
             title: 'Easybank',
             src: 'https://izibank.vercel.app/',
             clr: '#0a313d',
-            img: 'public/Easybank.png'
+            img: Easybank
         }
     ]
 
