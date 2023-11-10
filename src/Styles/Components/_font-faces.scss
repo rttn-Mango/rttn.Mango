@@ -1,59 +1,60 @@
 @font-face {
     font-family: "Stardom";
-    src: url('./Fonts/Stardom-Regular.otf') format('opentype');
+    src: url('/public/Fonts/Stardom-Regular.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Bodoni';
-    src: url('./Fonts/Bodoni.ttf') format('truetype');
+    src: url('/public/Fonts/Bodoni.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Bodoni-Italic';
-    src: url('./Fonts/Bodoni-Italic.ttf') format('truetype');
+    src: url('/public/Fonts/Bodoni-Italic.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Okine-Black';
-    src: url('./Fonts/Okine-Black.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Black.otf'),  format('opentype'),
+        url('/Fonts/Okine-Black.otf'),  format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Medium';
-    src: url('./Fonts/Okine-Medium.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Medium.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Medium-Outline';
-    src: url('./Fonts/Okine-Medium-Outline.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Medium-Outline.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Black-Outline';
-    src: url('./Fonts/Okine-Black-Outline.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Black-Outline.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Regular';
-    src: url('./Fonts/Okine-Regular.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Regular.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Light';
-    src: url('./Fonts/Okine-Light.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Light.otf'), format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Light-Outline';
-    src: url('./Fonts/Okine-Light-Outline.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Light-Outline.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Thin-Outline';
-    src: url('./Fonts/Okine-Thin-Outline.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Thin-Outline.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Okine-Thin';
-    src: url('./Fonts/Okine-Thin.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Thin.otf') format('opentype');
 }
