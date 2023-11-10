@@ -407,7 +407,7 @@ body {
   color: var(--clr-dm-primary);
 }
 .hero img {
-  max-height: 10.5rem;
+  height: auto;
   max-width: 10.5rem;
   opacity: 0.9;
 }
@@ -891,8 +891,7 @@ body {
 
 @media (min-width: 50em) {
   .hero img {
-    min-height: 21.5rem;
-    min-width: 21.5rem;
+    max-width: 100%;
   }
   .hero__creator {
     padding-block: min(3vw, 1.5rem);

@@ -53,7 +53,7 @@ body{
     }
 
     img{
-        max-height: 10.5rem;
+        height: auto;
         max-width: 10.5rem;
         opacity: .9;
     }
@@ -541,10 +541,7 @@ body{
 //Desktop Layouts
 @media (min-width: 50em){
     .hero{
-        & img{
-            min-height: 21.5rem;
-            min-width: 21.5rem;
-        }
+        & img{max-width: 100%}
 
         &__creator{padding-block: min(3vw, 1.5rem);}
         @media screen and (width < 1000px) and (width > 800px){
