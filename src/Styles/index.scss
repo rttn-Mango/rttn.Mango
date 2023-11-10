@@ -541,11 +541,10 @@ body{
 //Desktop Layouts
 @media (min-width: 50em){
     .hero{
-        & img{max-width: 100%}
+        & img{max-width: 100%; height: auto;}
 
         &__creator{padding-block: min(3vw, 1.5rem);}
-        @media screen and (width < 1000px) and (width > 800px){
-            &__creator{padding-block: min(10vw, 5rem);}}
+        @media screen and (width < 1000px) and (width > 800px){&__creator{padding-block: min(10vw, 5rem);}}
     }
 
     .contact-page{
@@ -691,7 +690,7 @@ body{
             pointer-events: none;
         }
 
-        img{height: 200px; margin-inline: auto;}
+        img{max-height: 200px; margin-inline: auto; object-fit: contain;}
 
         &__hover-container{
             height: 100%;

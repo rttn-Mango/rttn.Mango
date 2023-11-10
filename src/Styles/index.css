@@ -892,6 +892,7 @@ body {
 @media (min-width: 50em) {
   .hero img {
     max-width: 100%;
+    height: auto;
   }
   .hero__creator {
     padding-block: min(3vw, 1.5rem);
@@ -1054,8 +1055,9 @@ body {
     pointer-events: none;
   }
   .projects img {
-    height: 200px;
+    max-height: 200px;
     margin-inline: auto;
+    object-fit: contain;
   }
   .projects__hover-container {
     height: 100%;
