@@ -6,11 +6,13 @@
 @font-face {
     font-family: 'Bodoni';
     src: url('/public/Fonts/Bodoni.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Bodoni-Italic';
     src: url('/public/Fonts/Bodoni-Italic.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
@@ -22,11 +24,13 @@
 @font-face {
     font-family: 'Okine-Medium';
     src: url('/public/Fonts/Okine-Medium.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Okine-Medium-Outline';
     src: url('/public/Fonts/Okine-Medium-Outline.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
@@ -37,24 +41,29 @@
 @font-face {
     font-family: 'Okine-Regular';
     src: url('/public/Fonts/Okine-Regular.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Okine-Light';
     src: url('/public/Fonts/Okine-Light.otf'), format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Okine-Light-Outline';
     src: url('/public/Fonts/Okine-Light-Outline.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Okine-Thin-Outline';
     src: url('/public/Fonts/Okine-Thin-Outline.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Okine-Thin';
     src: url('/public/Fonts/Okine-Thin.otf') format('opentype');
+    font-display: swap;
 }
