@@ -1,4 +1,5 @@
 # rttn.Mango
+<p align="left"><a href='src/svg/Logo.jsx'><img src="/public/img/unc-logo.png" width="80" height="49" alt="Site Logo"></a></p>
 
 Welcome! This is my personal portfolio website which serves to showcase my skills, projects, and knowledge. Feel free to explore and Thanks for dropping by!
 
@@ -19,10 +20,10 @@ Welcome! This is my personal portfolio website which serves to showcase my skill
 
 ### Screenshots
 
-![homepage](public/screenshots/Homepage.png)
-![About](public/screenshots/About.png)
-![Works](public/screenshots/Works.png)
-![Contact](public/screenshots/Contact.png)
+![homepage](public/Homepage.png)
+![About](public/About.png)
+![Works](public/Works.png)
+![Contact](public/Contact.png)
 
 ## Installation
 1. Clone the repository by running `git clone https://github.com/rttn-Mango/rttn.Mango.git`;
