@@ -1,5 +1,4 @@
 # rttn.Mango
-<p align="left"><a href='src/svg/Logo.jsx'><img src="/public/img/unc-logo.png" width="80" height="49" alt="Site Logo"></a></p>
 
 Welcome! This is my personal portfolio website which serves to showcase my skills, projects, and knowledge. Feel free to explore and Thanks for dropping by!
 
