@@ -5,7 +5,7 @@ import { useEffect } from "react";
 //Image
 import me from '../assets/me.svg'
 import dev from '../assets/dev.svg'
-import down from '../assets/Down Arrow.svg'
+import down from '../assets/Down Arrow.svg';
 
 export default function AboutPage(){
     const textAnim = {

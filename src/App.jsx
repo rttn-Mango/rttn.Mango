@@ -32,7 +32,7 @@ function App() {
     }
     else{document.body.classList.remove('disabled');}
   },[showNav])
-  
+
   useEffect(()=> {
     handleNav()
   }, [handleNav])
@@ -79,12 +79,12 @@ function App() {
           : 
             <React.Fragment key='primary-content'>
               <Header setShowNav={setShowNav} showNav={showNav}/>
-              <Routes>
-                <Route index path="/" element={<Homepage/>}/>
-                <Route path="/about" element={<AboutPage/>}/>
-                <Route path="/works" element={<WorksPage/>}/>
-                <Route path="/contact" element={<ContactPage/>}/>
-              </Routes>
+                <Routes>
+                  <Route index path="/" element={<Homepage/>}/>
+                  <Route path="/about" element={<AboutPage/>}/>
+                  <Route path="/works" element={<WorksPage/>}/>
+                  <Route path="/contact" element={<ContactPage/>}/>
+                </Routes>
               <Footer/>
             </React.Fragment>
           }
