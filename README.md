@@ -34,9 +34,9 @@ Welcome! This is my personal portfolio website which serves to showcase my skill
 ### Usage
 - Customize the contents in each components to your liking.
 - Styles folder contains all the styling-related files of the website. 
-- `Components` contains thins such as font-faces, custom properties, and also the reset.
-- `Pages` contains the styling for other components such as the `Header`, `Footer`, `Preloader`, etc.
-- `index` is the main css file.
+- `Styles/Components` contains things such as font-faces, custom properties, and also the reset.
+- `Styles/Pages` contains the styling for other components such as the `Header`, `Footer`, `Preloader`, etc.
+- `Styles/index` is the main css file.
 - Don't forget to update the links and buttons with your social media profiles.
 
 ## Process
@@ -52,7 +52,6 @@ Welcome! This is my personal portfolio website which serves to showcase my skill
 - Semantic HTML5
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first
 - [React](https://reactjs.org/)
 - [Framer-Motion](https://www.framer.com/motion/)
@@ -72,7 +71,7 @@ Welcome! This is my personal portfolio website which serves to showcase my skill
 - [Awwwards](https://www.awwwards.com/) - For Website Inspirations.
 - [Main Inspiration](https://dennissnellenberg.com/) - Main inspiration for developing this website.
 - [Another Inspiration](https://huyml.co/) - Another inspiration for developing this website
-- [stackoverflow] - Used to get ideas.
+- [Stackoverflow](https://stackoverflow.com/) - Used to get ideas.
 
 ## Author
 - Website - (https://mng0.vercel.app)

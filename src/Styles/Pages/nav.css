@@ -1,19 +1,26 @@
 .nav {
-  position: absolute;
+  position: fixed;
   inset: 0;
   margin: auto;
   background-color: black;
   min-height: 100vh;
-  color: white;
+  color: var(--clr-dm-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 700ms ease-in-out;
+  pointer-events: all;
+  touch-action: all;
 }
-.nav .close {
-  position: fixed;
-  top: 2.5rem;
-  right: 9rem;
-  cursor: pointer;
+.nav.hidden {
+  -webkit-clip-path: circle(0 at 92% 6%);
+          clip-path: circle(0 at 92% 6%);
+  opacity: 0;
+}
+.nav.show {
+  -webkit-clip-path: circle(300vh at 92% 6%);
+          clip-path: circle(300vh at 92% 6%);
+  opacity: 1;
 }
 .nav span {
   font-family: "Bodoni";

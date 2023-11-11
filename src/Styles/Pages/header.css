@@ -1,16 +1,107 @@
+@font-face {
+  font-family: "Stardom";
+  src: url("/public/Fonts/Stardom-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Bodoni";
+  src: url("/public/Fonts/Bodoni.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Bodoni-Italic";
+  src: url("/public/Fonts/Bodoni-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Okine-Black";
+  src: url("/public/Fonts/Okine-Black.otf"), format("opentype"), url("/Fonts/Okine-Black.otf"), format("opentype");
+}
+@font-face {
+  font-family: "Okine-Medium";
+  src: url("/public/Fonts/Okine-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "Okine-Medium-Outline";
+  src: url("/public/Fonts/Okine-Medium-Outline.otf") format("opentype");
+}
+@font-face {
+  font-family: "Okine-Black-Outline";
+  src: url("/public/Fonts/Okine-Black-Outline.otf") format("opentype");
+}
+@font-face {
+  font-family: "Okine-Regular";
+  src: url("/public/Fonts/Okine-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Okine-Light";
+  src: url("/public/Fonts/Okine-Light.otf"), format("opentype");
+}
+@font-face {
+  font-family: "Okine-Light-Outline";
+  src: url("/public/Fonts/Okine-Light-Outline.otf") format("opentype");
+}
+@font-face {
+  font-family: "Okine-Thin-Outline";
+  src: url("/public/Fonts/Okine-Thin-Outline.otf") format("opentype");
+}
+@font-face {
+  font-family: "Okine-Thin";
+  src: url("/public/Fonts/Okine-Thin.otf") format("opentype");
+}
 .header {
-  padding-block: 2rem;
+  padding-block: 3rem;
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
+}
+.header #logo {
+  color: white;
+}
+.header__mobile-menu {
+  display: none;
+  pointer-events: all;
+  touch-action: all;
+  position: relative;
+  cursor: pointer;
+  z-index: 999;
+}
+.header__mobile-menu svg:active {
+  transform: rotate(180deg);
+  transition: transform 200ms ease-in-out;
+}
+.header__mobile-menu .close {
+  color: white;
+  cursor: pointer;
+}
+.header a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-family: "Okine-Thin-Outline";
+  position: relative;
+}
+.header a:not(.logo)::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  left: 0;
+  transition: width 300ms ease-in-out;
+  background-color: var(--clr-dm-accent);
+}
+.header a:hover, .header a:focus, .header a:active {
+  font-family: "Bodoni-Italic";
+}
+.header a:hover:not(.logo)::after, .header a:focus:not(.logo)::after, .header a:active:not(.logo)::after {
+  width: 100%;
+}
+.header__pages {
+  display: flex;
+  gap: 2rem;
+  overflow: hidden;
+  margin-left: auto;
 }
 .header button {
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: 1px solid black;
-  cursor: pointer;
-}
-.header svg {
-  color: black;
   cursor: pointer;
 }
 .header .group {
@@ -27,4 +118,13 @@
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .header__mobile-menu {
+    display: block;
+  }
+  .header__pages {
+    display: none;
+  }
 }/*# sourceMappingURL=header.css.map */
