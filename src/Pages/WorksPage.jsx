@@ -9,6 +9,8 @@ import down from '../assets/Down Arrow.svg'
 
 export default function WorksPage(){
     const [workIndex, setWorkIndex] = useState(0);
+
+    //This will be used to disable certain animations on smaller screen sizes
     let windowWidth = window.innerWidth;
 
     const workHoverAnim = {
@@ -37,6 +39,7 @@ export default function WorksPage(){
         }
     }
 
+    //To change document title once the Component mounts
     useEffect( () => {document.title = "Works"}, [])
 
     return(

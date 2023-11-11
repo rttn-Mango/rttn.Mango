@@ -37,6 +37,7 @@ export default function Intro(){
     }
 
     const horizontalScrollProgress = useTransform(scrollYProgress, [0, 1], ['1', '-100%'])
+    
     return(
         <section className="intro" id="intro">
             <div className="wrapper" ref={ref}> 

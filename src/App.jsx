@@ -13,7 +13,6 @@ import Header from './Components/Header';
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
 import WorksPage from "./Pages/WorksPage";
-
 import Footer from "./Components/Footer";
 import NavPanel from './Components/NavPanel';
 import Close from "./svg/Close";
@@ -33,11 +32,12 @@ function App() {
     }
     else{document.body.classList.remove('disabled');}
   },[showNav])
-
+  
   useEffect(()=> {
     handleNav()
   }, [handleNav])
 
+  //Burger menu animation to appear when user scrolls a certain amount
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const hero = document.querySelector('.hero')

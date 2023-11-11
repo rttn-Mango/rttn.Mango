@@ -26,6 +26,7 @@ export default function ContactPage() {
         }
     }
 
+    //To change document title once the Component mounts
     useEffect(() => {
         document.title = 'Contact';
         window.scrollTo(0, 0);

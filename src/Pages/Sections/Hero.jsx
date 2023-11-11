@@ -4,14 +4,12 @@ import growth from '../../assets/growth.webp'
 
 export default function Hero(){
     const nameAnim = {
-        initial: {x: -300, opacity: 0},
+        initial: {x: -250, opacity: 0},
         animate: {
             x: 0,
             opacity: 1, 
             transition: {
-                ease: [0.34, 1.56, 0.64, 1],
-                duration: 1,
-                delay: 1.2
+                delay: 1.6
             }
         }
     }
@@ -33,11 +31,6 @@ export default function Hero(){
         animate: {
             y: 0, 
             opacity: 1,
-            transition: {
-                ease: [0.34, 1.56, 0.64, 1],
-                duration: 1,
-                delay: .5
-            }
         }
     }
 
@@ -45,15 +38,11 @@ export default function Hero(){
         initial: {y: 500},
         animate: {
             y: 0,
-            transition: {
-                ease: [0.76, 0, 0.24, 1],
-                duration: 1.5
-            }
         }
     }
 
     return(
-        //id is left empty so there's no unecessary hastag on ur when used later to go back to top
+        //id is left empty so there's no unecessary hashtag on ur when used later to go back to top
             <section className="hero" id="">
                 <motion.h1
                     variants={slideYAnim}

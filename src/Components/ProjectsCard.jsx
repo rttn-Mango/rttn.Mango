@@ -6,7 +6,8 @@ export default function ProjectsCard({setModal, title, src, index}){
             tabIndex={-1}
             href={src}
             className="projects__contents"
-            onMouseEnter={() => {setModal({active: true, index: index})}}
+            //Window.innerwidth condition is to disable hover animation on smaller screen sizes
+            onMouseEnter={() => {setModal(window.innerWidth > 799 ? {active: true, index: index} : {active: false, index: index})}}
             onMouseLeave={() => {setModal({active: false, index: index})}}
             title={index === 0 ? 'Shortly Website' : 'Easybank Website'}
         >

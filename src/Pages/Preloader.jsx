@@ -8,7 +8,7 @@ export default function Preloader({setLoading, content}){
     //Letter staggering animation
     const letterStagger = {
         initial: {opacity: 0, y: 50},
-        animate: {opacity: 1, y: 0, delay: 0.5}
+        animate: {opacity: 1, y: 0}
     }
     
     const animatePreloader = {
@@ -44,7 +44,7 @@ export default function Preloader({setLoading, content}){
             <motion.h1
                 initial='initial'
                 animate='animate'
-                transition={{staggerChildren: .1, ease: [0.45, 0, 0.55, 1]}}>
+                transition={{staggerChildren: .1}}>
                 {content.split('').map((letter, index) => {
                     return(
                         <motion.span

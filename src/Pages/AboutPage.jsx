@@ -32,6 +32,7 @@ export default function AboutPage(){
         }
     }
 
+    //To change document title once the Component mounts
     useEffect( () => {document.title = "About"}, [])
 
     return(

@@ -7,6 +7,7 @@ import { useEffect } from "react"
 
 export default function Homepage(){
 
+    //To change document title once the Component mounts
     useEffect( () => {document.title = "Home"}, [])
 
     return(
