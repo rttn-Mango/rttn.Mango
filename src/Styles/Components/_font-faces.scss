@@ -1,6 +1,7 @@
 @font-face {
     font-family: "Stardom";
     src: url('/public/Fonts/Stardom-Regular.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
@@ -19,6 +20,7 @@
     font-family: 'Okine-Black';
     src: url('/public/Fonts/Okine-Black.otf'),  format('opentype'),
         url('/Fonts/Okine-Black.otf'),  format('opentype');
+    font-display: swap;
 }
 
 @font-face {
@@ -36,6 +38,7 @@
 @font-face {
     font-family: 'Okine-Black-Outline';
     src: url('/public/Fonts/Okine-Black-Outline.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
