@@ -17,6 +17,7 @@ import Footer from "./Components/Footer";
 import NavPanel from './Components/NavPanel';
 import Close from "./svg/Close";
 import Burger from './svg/Burger';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -103,6 +104,7 @@ function App() {
             </nav>
 
           </React.Fragment>
+          <Analytics/>
       </AnimatePresence>
   )
 }
