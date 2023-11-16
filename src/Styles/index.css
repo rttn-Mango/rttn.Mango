@@ -412,6 +412,7 @@ body {
   padding-block: 5rem 30vw;
 }
 .intro .wrapper {
+  height: 150vh;
   position: sticky;
 }
 .intro #slider {
@@ -1003,7 +1004,7 @@ body {
     margin-left: auto;
   }
   .projects {
-    padding-bottom: 25rem;
+    padding-bottom: 25vw;
     position: relative;
   }
   .projects h2 {

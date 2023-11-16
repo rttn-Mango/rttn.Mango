@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { motion} from 'framer-motion';
+import { motion, useTransform, useScroll } from 'framer-motion';
 
 //Icons
 import Html from '../../assets/Html.svg'
@@ -12,7 +12,7 @@ import React from '../../assets/React.svg'
 
 export default function Intro(){
     const ref = useRef(null);
-    // const { scrollYProgress } =  useScroll({target: ref})
+    const { scrollYProgress } =  useScroll({target: ref})
 
     const textRevealAnim = {
         initial: {opacity: 0},
@@ -36,13 +36,13 @@ export default function Intro(){
         }
     }
 
-    // const horizontalScrollProgress = useTransform(scrollYProgress, [0, 1], ['1', '-100%'])
+    const horizontalScrollProgress = useTransform(scrollYProgress, [0, 1], ['1', '-100%'])
     
     return(
         <section className="intro" id="intro">
             <div className="wrapper" ref={ref}> 
                 <div id="slider">
-                    <motion.div className="container">
+                    <motion.div style={{x: horizontalScrollProgress}} className="container">
                         <p className="intro__top-text"><span>Kumusta?</span> I&apos;m a young blood from Camarines Sur, Philippines</p>
                         <p className="intro__bottom-text">Passionate about <span>discovering, developing, and transforming ideas</span> that will have an influence and inspire others.</p>
                     </motion.div>

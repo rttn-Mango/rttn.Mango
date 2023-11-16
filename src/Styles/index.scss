@@ -98,6 +98,7 @@ body{
     padding-block: 5rem 30vw;
 
     .wrapper{
+        height: 150vh;
         position: sticky;
     }
 
@@ -682,7 +683,7 @@ body{
 
     .projects{
         h2{padding-bottom: 15rem}
-        padding-bottom: 25rem;
+        padding-bottom: 25vw;
         position: relative;
 
         &__contents{
