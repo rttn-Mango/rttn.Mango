@@ -389,8 +389,8 @@ body {
   transition-delay: 100ms;
 }
 .hero img {
-  height: auto;
-  max-width: 10.5rem;
+  height: clamp(8rem, 45vw, 21rem);
+  max-width: clamp(5rem, 40vw, 100%);
   opacity: 0.9;
   transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
@@ -884,10 +884,6 @@ body {
 }
 
 @media (min-width: 50em) {
-  .hero img {
-    max-width: 100%;
-    height: auto;
-  }
   .hero__creator {
     padding-block: min(3vw, 1.5rem);
   }
