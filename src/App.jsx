@@ -7,15 +7,17 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
-//Components
+//Pages
 import Preloader from "./Pages/Preloader";
 import Homepage from "./Pages/Homepage";
-import Header from './Components/Header';
 
+//Lazy loaded Pages
 const AboutPage = lazy(() => import("./Pages/AboutPage"))
 const ContactPage = lazy(() => import("./Pages/ContactPage"))
 const WorksPage = lazy(() => import("./Pages/WorksPage"))
 
+//Components
+import Header from './Components/Header';
 import Footer from "./Components/Footer";
 import NavPanel from './Components/NavPanel';
 import Close from "./svg/Close";
