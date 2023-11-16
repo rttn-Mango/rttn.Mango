@@ -1,72 +1,71 @@
 @font-face {
-    font-display: swap;
     font-family: "Stardom";
     src: url('/public/Fonts/Stardom-Regular.otf') format('opentype');
+    font-display: optional;
 }
 
 @font-face {
-    font-display: swap;
     font-family: 'Bodoni';
     src: url('/public/Fonts/Bodoni.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
-    font-display: swap;
     font-family: 'Bodoni-Italic';
     src: url('/public/Fonts/Bodoni-Italic.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Okine-Black';
-    font-display: swap;
-    src: url('/public/Fonts/Okine-Black.otf'),  format('opentype'),
-        url('/Fonts/Okine-Black.otf'),  format('opentype');
+    src: url('/public/Fonts/Okine-Black.woff2'),  format('woff2');
+    font-display: optional;
 }
 
 @font-face {
-    font-display: swap;
-    font-family: 'Okine-Medium';
-    src: url('/public/Fonts/Okine-Medium.otf') format('opentype');
-}
-
-@font-face {
-    font-display: swap;
-    font-family: 'Okine-Medium-Outline';
-    src: url('/public/Fonts/Okine-Medium-Outline.otf') format('opentype');
-}
-
-@font-face {
-    font-display: swap;
     font-family: 'Okine-Black-Outline';
-    src: url('/public/Fonts/Okine-Black-Outline.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Black-Outline.woff2') format('woff2');
+    font-display: optional;
 }
 
 @font-face {
+    font-family: 'Okine-Medium';
+    src: url('/public/Fonts/Okine-Medium.woff2') format('woff2');
+    font-display: optional;
+}
+
+@font-face {
+    font-family: 'Okine-Medium-Outline';
+    src: url('/public/Fonts/Okine-Medium-Outline.woff2') format('woff2');
     font-display: swap;
+}
+
+@font-face {
     font-family: 'Okine-Regular';
-    src: url('/public/Fonts/Okine-Regular.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Regular.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
-    font-display: swap;
     font-family: 'Okine-Light';
-    src: url('/public/Fonts/Okine-Light.otf'), format('opentype');
+    src: url('/public/Fonts/Okine-Light.woff2'), format('woff2');
+    font-display: swap;
 }
 
 @font-face {
-    font-display: swap;
     font-family: 'Okine-Light-Outline';
-    src: url('/public/Fonts/Okine-Light-Outline.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Light-Outline.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
-    font-display: swap;
     font-family: 'Okine-Thin-Outline';
-    src: url('/public/Fonts/Okine-Thin-Outline.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Thin-Outline.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
-    font-display: swap;
     font-family: 'Okine-Thin';
-    src: url('/public/Fonts/Okine-Thin.otf') format('opentype');
+    src: url('/public/Fonts/Okine-Thin.woff2') format('woff2');
+    font-display: swap;
 }
