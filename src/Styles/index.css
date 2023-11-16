@@ -80,37 +80,17 @@ textarea:not([rows]) {
 
 @font-face {
   font-family: "Stardom";
-  src: url("/public/Fonts/Stardom-Regular.otf") format("opentype");
-  font-display: optional;
-}
-@font-face {
-  font-family: "Bodoni";
-  src: url("/public/Fonts/Bodoni.ttf") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Bodoni-Italic";
-  src: url("/public/Fonts/Bodoni-Italic.ttf") format("truetype");
+  src: url("/public/Fonts/Stardom.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Okine-Black";
   src: url("/public/Fonts/Okine-Black.woff2"), format("woff2");
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Okine-Black-Outline";
   src: url("/public/Fonts/Okine-Black-Outline.woff2") format("woff2");
-  font-display: optional;
-}
-@font-face {
-  font-family: "Okine-Medium";
-  src: url("/public/Fonts/Okine-Medium.woff2") format("woff2");
-  font-display: optional;
-}
-@font-face {
-  font-family: "Okine-Medium-Outline";
-  src: url("/public/Fonts/Okine-Medium-Outline.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
@@ -121,11 +101,6 @@ textarea:not([rows]) {
 @font-face {
   font-family: "Okine-Light";
   src: url("/public/Fonts/Okine-Light.woff2"), format("woff2");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Okine-Light-Outline";
-  src: url("/public/Fonts/Okine-Light-Outline.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
@@ -224,7 +199,7 @@ textarea:not([rows]) {
   background-color: var(--clr-dm-accent);
 }
 .header a:hover, .header a:focus, .header a:active {
-  font-family: "Bodoni-Italic";
+  font-family: "Stardom";
 }
 .header a:hover:not(.logo)::after, .header a:focus:not(.logo)::after, .header a:active:not(.logo)::after {
   width: 100%;
@@ -321,7 +296,7 @@ textarea:not([rows]) {
   opacity: 1;
 }
 .nav span {
-  font-family: "Bodoni";
+  font-family: "Okine-Thin-Outline";
 }
 .nav ul li a {
   text-decoration: none;
@@ -353,10 +328,14 @@ textarea:not([rows]) {
   font-size: var(--font-size-250);
   border: 1px solid white;
   text-align: center;
-  padding: 1rem 6vw;
+  padding: 0.75rem 6vw;
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 100ms ease-in-out;
 }
 .nav .btn:hover, .nav .btn:focus, .nav .btn:active {
   box-shadow: 3px 5px 0 var(--clr-dm-primary);
+  transform: translateY(-3px);
   color: var(--clr-dm-primary);
 }
 
@@ -542,15 +521,16 @@ body {
   padding-block: 5rem 1rem;
 }
 .contact h2 a {
-  font-family: "Bodoni-Italic";
+  font-family: "Stardom";
   text-decoration: none;
   color: var(--clr-dm-primary);
   position: relative;
+  display: inline-block;
 }
 .contact h2 a::after {
   content: "";
   position: absolute;
-  bottom: 15px;
+  bottom: 5px;
   left: 0;
   height: 3px;
   width: 0;
@@ -595,12 +575,12 @@ body {
   margin-inline: auto;
 }
 .contact-page h1 {
-  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-900));
-  font-family: "Okine-Medium";
+  font-size: clamp(var(--font-size-300), 9vw, var(--font-size-900));
+  font-family: "Okine-Black";
   margin-block: 8vw 15vw;
 }
 .contact-page h1 span {
-  font-family: "Okine-Medium-Outline";
+  font-family: "Okine-Black-Outline";
 }
 .contact-page .form-group {
   display: flex;
@@ -641,6 +621,8 @@ body {
   border: 1px solid var(--clr-dm-primary);
   color: white;
   cursor: pointer;
+  transform: translateY(0);
+  transition: transform 300ms ease-in-out;
 }
 .contact-page button img {
   transform: translateX(0);
@@ -648,6 +630,7 @@ body {
 }
 .contact-page button:hover, .contact-page button:focus, .contact-page button:active {
   box-shadow: 2px 3px 0 var(--clr-dm-primary);
+  transform: translateY(-3px);
 }
 .contact-page button:hover img, .contact-page button:focus img, .contact-page button:active img {
   transform: translateX(5px);
@@ -683,13 +666,13 @@ body {
   margin-inline: auto;
 }
 .about-page h1 {
-  font-size: clamp(var(--font-size-300), 7.5vw, var(--font-size-900));
-  font-family: "Okine-Medium";
+  font-size: clamp(var(--font-size-300), 7vw, var(--font-size-900));
+  font-family: "Okine-Black";
   padding-block: 8vw 15vw;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 .about-page h1 span {
-  font-family: "Okine-Medium-Outline";
+  font-family: "Okine-Black-Outline";
 }
 .about-page h2 {
   font-size: clamp(var(--font-size-250), 2.25vw, var(--font-size-300));
@@ -755,8 +738,8 @@ body {
 .about-page a {
   text-align: center;
   text-decoration: none;
-  font-size: clamp(var(--font-size-250), 5vw, var(--font-size-900));
-  font-family: "Bodoni-Italic";
+  font-size: clamp(var(--font-size-250), 4vw, var(--font-size-900));
+  font-family: "Stardom";
   position: relative;
   padding: 5vw 2.15rem;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -772,21 +755,21 @@ body {
 }
 .works-page h1 {
   font-size: clamp(var(--font-size-300), 7.5vw, var(--font-size-900));
-  font-family: "Okine-Medium";
+  font-family: "Okine-Black";
   padding-block: 8vw 15vw;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 .works-page h1 span {
-  font-family: "Okine-Medium-Outline";
+  font-family: "Okine-Black-Outline";
 }
 .works-page h2 {
   font-size: clamp(var(--font-size-250), 8vw, var(--font-size-900));
-  font-family: "Okine-Regular";
+  font-family: "Okine-Black";
   margin-block: 15vw;
   position: relative;
 }
 .works-page h2 span {
-  font-family: "Okine-Medium-Outline";
+  font-family: "Okine-Black-Outline";
 }
 .works-page h3 {
   font-size: clamp(var(--font-size-250), 1.5vw, var(--font-size-300));
@@ -834,8 +817,8 @@ body {
 .works-page a:not(.work-link) {
   text-align: center;
   text-decoration: none;
-  font-size: clamp(var(--font-size-250), 5vw, var(--font-size-900));
-  font-family: "Bodoni-Italic";
+  font-size: clamp(var(--font-size-250), 4vw, var(--font-size-900));
+  font-family: "Stardom";
   position: relative;
   padding: 5vw 2.15rem;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -982,7 +965,7 @@ body {
   .works-page__details--hover .hover-anim p {
     height: 750px;
     font-size: clamp(var(--font-size-300), 2vw, var(--font-size-900));
-    font-family: "Okine-Medium-Outline";
+    font-family: "Okine-Black-Outline";
     max-width: 10ch;
     text-align: center;
     padding-top: 50%;

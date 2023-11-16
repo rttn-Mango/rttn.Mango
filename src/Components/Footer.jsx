@@ -9,7 +9,7 @@ export default function Footer(){
             <ul role="list">
                     <li>
                         <Link tabIndex={-1} title="Website Logo" smooth to="#"><Logo/></Link>
-                        <p>Ver — 1 | © 2023</p>
+                        <p>Vol — 1 <span aria-hidden="true">|</span> © 2023</p>
                     </li>
                     <li>
                         <Link smooth to='#' tabIndex={-1} title="Back to Top">

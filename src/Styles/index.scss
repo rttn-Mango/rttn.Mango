@@ -204,15 +204,16 @@ body{
         text-align: center;
         padding-block: 5rem 1rem;
         a{
-            font-family: 'Bodoni-Italic'; 
+            font-family: 'Stardom'; 
             text-decoration: none;
             color: var(--clr-dm-primary);
             position: relative;
+            display: inline-block;
 
             &::after{
                 content: '';
                 position: absolute;
-                bottom: 15px;
+                bottom: 5px;
                 left: 0;
                 height: 3px;
                 width: 0;
@@ -220,9 +221,7 @@ body{
                 transition: width 1s cubic-bezier(0.83, 0, 0.17, 1);
             }
 
-            &:hover, &:focus, &:active {
-                &::after{width: 100%;}
-            }
+            &:hover, &:focus, &:active {&::after{width: 100%;}}
         }
     }
 
@@ -262,11 +261,11 @@ body{
     @include container();
 
     h1{
-        font-size: clamp(var(--font-size-300), 10vw, var(--font-size-900));
-        font-family: 'Okine-Medium';
+        font-size: clamp(var(--font-size-300), 9vw, var(--font-size-900));
+        font-family: 'Okine-Black';
         margin-block: 8vw 15vw;
 
-        span{font-family: 'Okine-Medium-Outline';}
+        span{font-family: 'Okine-Black-Outline';}
     }
 
     .form-group{
@@ -308,6 +307,8 @@ body{
         border: 1px solid var(--clr-dm-primary);
         color: white;
         cursor: pointer;
+        transform: translateY(0);
+        transition: transform 300ms ease-in-out;
 
         img{
             transform: translateX(0);
@@ -316,11 +317,8 @@ body{
 
         &:hover, &:focus, &:active{
             box-shadow: 2px 3px 0 var(--clr-dm-primary);
-
-            img{
-                transform: translateX(5px);
-                
-            }
+            transform: translateY(-3px);
+            img{transform: translateX(5px)}
         }
     }
 
@@ -354,12 +352,12 @@ body{
     @include container();
 
     h1{
-        font-size: clamp(var(--font-size-300), 7.5vw, var(--font-size-900));
-        font-family: 'Okine-Medium';
+        font-size: clamp(var(--font-size-300), 7vw, var(--font-size-900));
+        font-family: 'Okine-Black';
         padding-block: 8vw 15vw;
         border-bottom: 1px solid rgba(255 255 255 / 0.5);
 
-        span{font-family: 'Okine-Medium-Outline';}
+        span{font-family: 'Okine-Black-Outline';}
     }
 
     h2{
@@ -423,15 +421,15 @@ body{
     a{
         text-align: center;
         text-decoration: none;
-        font-size: clamp(var(--font-size-250), 5vw, var(--font-size-900));
-        font-family: 'Bodoni-Italic';
+        font-size: clamp(var(--font-size-250), 4vw, var(--font-size-900));
+        font-family: 'Stardom';
         position: relative;
         padding: 5vw 2.15rem;
         border-top: 1px solid rgba(255 255 255 / 0.5);
         border-bottom: 1px solid rgba(255 255 255 / 0.5);
 
         &:hover{
-            background-color: black;
+            background-color: black
         }
     }
 }
@@ -442,20 +440,20 @@ body{
 
     h1{
         font-size: clamp(var(--font-size-300), 7.5vw, var(--font-size-900));
-        font-family: 'Okine-Medium';
+        font-family: 'Okine-Black';
         padding-block: 8vw 15vw;
         border-bottom: 1px solid rgba(255 255 255 / 0.5);
 
-        span{font-family: 'Okine-Medium-Outline';}
+        span{font-family: 'Okine-Black-Outline';}
     }
 
     h2{
         font-size: clamp(var(--font-size-250), 8vw, var(--font-size-900));
-        font-family: 'Okine-Regular';
+        font-family: 'Okine-Black';
         margin-block: 15vw;
         position: relative;
 
-        span{font-family: 'Okine-Medium-Outline';}
+        span{font-family: 'Okine-Black-Outline';}
     }
 
     h3{
@@ -499,8 +497,8 @@ body{
     a:not(.work-link){
         text-align: center;
         text-decoration: none;
-        font-size: clamp(var(--font-size-250), 5vw, var(--font-size-900));
-        font-family: 'Bodoni-Italic';
+        font-size: clamp(var(--font-size-250), 4vw, var(--font-size-900));
+        font-family: 'Stardom';
         position: relative;
         padding: 5vw 2.15rem;
         border-top: 1px solid rgba(255 255 255 / 0.5);
@@ -636,7 +634,7 @@ body{
                     & p{
                         height: 750px;
                         font-size: clamp(var(--font-size-300), 2vw, var(--font-size-900));
-                        font-family: 'Okine-Medium-Outline';
+                        font-family: 'Okine-Black-Outline';
                         max-width: 10ch;
                         text-align: center;
                         padding-top: 50%;
