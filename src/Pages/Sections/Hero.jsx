@@ -14,18 +14,6 @@ export default function Hero(){
         }
     }
 
-    const scrollAnim = {
-        initial: {y: 300},
-        animate: {
-            y: 0,
-            transition: {
-                ease: [0.12, 0, 0.39, 0],
-                duration: 1,
-                delay: 1.5
-            }
-        }
-    }
-
     const slideYAnim = {
         initial: {y: -500, opacity: 0},
         animate: {
@@ -74,15 +62,10 @@ export default function Hero(){
                     </motion.p>
                 </div>
 
-                <motion.div 
-                    className="hero__bottom"
-                    variants={scrollAnim}
-                    initial={'initial'}
-                    animate={"animate"}
-                >
+                <div className="hero__bottom">
                     <p aria-label="Hit me up for offers or collaborations">Hit me up for — <br/> offers or collabs</p>
                     <Mouse/>
-                </motion.div>
+                </div>
             </section>
     )
 }
