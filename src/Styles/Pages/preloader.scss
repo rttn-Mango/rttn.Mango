@@ -5,6 +5,8 @@
     place-content: center;
     background-color: black;
 
+    span{transition: transform .1s ease}
+
     h1{
         font-size: clamp(var(--font-size-300), 5vw, var(--font-size-700));
         font-family: 'Stardom';

@@ -79,50 +79,62 @@ textarea:not([rows]) {
 }
 
 @font-face {
+  font-display: swap;
   font-family: "Stardom";
   src: url("/public/Fonts/Stardom-Regular.otf") format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Bodoni";
   src: url("/public/Fonts/Bodoni.ttf") format("truetype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Bodoni-Italic";
   src: url("/public/Fonts/Bodoni-Italic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Okine-Black";
+  font-display: swap;
   src: url("/public/Fonts/Okine-Black.otf"), format("opentype"), url("/Fonts/Okine-Black.otf"), format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Medium";
   src: url("/public/Fonts/Okine-Medium.otf") format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Medium-Outline";
   src: url("/public/Fonts/Okine-Medium-Outline.otf") format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Black-Outline";
   src: url("/public/Fonts/Okine-Black-Outline.otf") format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Regular";
   src: url("/public/Fonts/Okine-Regular.otf") format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Light";
   src: url("/public/Fonts/Okine-Light.otf"), format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Light-Outline";
   src: url("/public/Fonts/Okine-Light-Outline.otf") format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Thin-Outline";
   src: url("/public/Fonts/Okine-Thin-Outline.otf") format("opentype");
 }
 @font-face {
+  font-display: swap;
   font-family: "Okine-Thin";
   src: url("/public/Fonts/Okine-Thin.otf") format("opentype");
 }
@@ -157,6 +169,9 @@ textarea:not([rows]) {
   display: grid;
   place-content: center;
   background-color: black;
+}
+.preloader span {
+  transition: transform 0.1s ease;
 }
 .preloader h1 {
   font-size: clamp(var(--font-size-300), 5vw, var(--font-size-700));
@@ -252,6 +267,11 @@ textarea:not([rows]) {
 }
 .footer {
   padding-block: 4rem;
+}
+.footer p {
+  font-size: var(--font-size-100);
+  margin: 5px 0 0 3px;
+  opacity: 0.85;
 }
 .footer ul {
   display: flex;

@@ -1,6 +1,12 @@
 .footer{
     padding-block: 4rem;
 
+    p{
+        font-size: var(--font-size-100);
+        margin: 5px 0 0 3px;
+        opacity: .85;
+    }
+
     & ul{
         display: flex;
         flex-direction: row;
