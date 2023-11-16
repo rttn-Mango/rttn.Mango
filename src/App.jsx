@@ -14,7 +14,7 @@ import Header from './Components/Header';
 
 const AboutPage = lazy(() => import("./Pages/AboutPage"))
 const ContactPage = lazy(() => import("./Pages/ContactPage"))
-const WorksPage = lazy(() => import("./Pages/Workspage"))
+const WorksPage = lazy(() => import("./Pages/WorksPage"))
 
 import Footer from "./Components/Footer";
 import NavPanel from './Components/NavPanel';
