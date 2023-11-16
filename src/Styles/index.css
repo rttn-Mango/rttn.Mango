@@ -413,7 +413,7 @@ body {
 }
 .intro .wrapper {
   height: 150vh;
-  position: relative;
+  position: sticky;
 }
 .intro #slider {
   overflow: hidden;
@@ -460,8 +460,8 @@ body {
 .projects {
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
-  padding-block: 2rem 15rem;
-  min-height: 150vh;
+  padding-block: 2rem 0;
+  min-height: 100vh;
 }
 .projects h2 {
   font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
@@ -869,7 +869,7 @@ body {
 @media (min-width: 50em) {
   .hero img {
     max-width: 100%;
-    height: 21rem;
+    height: auto;
   }
   .hero__creator {
     padding-block: min(3vw, 1.5rem);
@@ -1004,6 +1004,7 @@ body {
     margin-left: auto;
   }
   .projects {
+    padding-bottom: 25rem;
     position: relative;
   }
   .projects h2 {
