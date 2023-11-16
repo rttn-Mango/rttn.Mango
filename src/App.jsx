@@ -1,18 +1,21 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import Lenis from '@studio-freight/lenis';
 import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 //Components
 import Preloader from "./Pages/Preloader";
 import Homepage from "./Pages/Homepage";
 import Header from './Components/Header';
-import AboutPage from "./Pages/AboutPage";
-import ContactPage from "./Pages/ContactPage";
-import WorksPage from "./Pages/WorksPage";
+
+const AboutPage = lazy(() => import("./Pages/AboutPage"))
+const ContactPage = lazy(() => import("./Pages/ContactPage"))
+const WorksPage = lazy(() => import("./Pages/Workspage"))
+
 import Footer from "./Components/Footer";
 import NavPanel from './Components/NavPanel';
 import Close from "./svg/Close";
@@ -80,12 +83,14 @@ function App() {
           : 
             <React.Fragment key='primary-content'>
               <Header setShowNav={setShowNav} showNav={showNav}/>
-                <Routes>
-                  <Route index path="/" element={<Homepage/>}/>
-                  <Route path="/about" element={<AboutPage/>}/>
-                  <Route path="/works" element={<WorksPage/>}/>
-                  <Route path="/contact" element={<ContactPage/>}/>
-                </Routes>
+                <Suspense fallback={<span aria-hidden="true" className="loading-fallback"><ScaleLoader color="#fff" size={100}/></span>}>
+                  <Routes>
+                    <Route index path="/" element={<Homepage/>}/>
+                    <Route path="/about" element={<AboutPage/>}/>
+                    <Route path="/works" element={<WorksPage/>}/>
+                    <Route path="/contact" element={<ContactPage/>}/>
+                  </Routes>
+                </Suspense>
               <Footer/>
             </React.Fragment>
           }
