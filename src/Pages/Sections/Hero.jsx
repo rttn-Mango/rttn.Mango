@@ -15,9 +15,9 @@ export default function Hero(){
     }
 
     const slideYAnim = {
-        initial: {y: -500, opacity: 0},
+        initial: {x: -800, opacity: 0},
         animate: {
-            y: 0, 
+            x: 0, 
             opacity: 1,
         }
     }
