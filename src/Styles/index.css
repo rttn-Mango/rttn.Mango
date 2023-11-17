@@ -144,6 +144,7 @@ textarea:not([rows]) {
   display: grid;
   place-content: center;
   background-color: black;
+  position: fixed;
 }
 .preloader span {
   transition: transform 0.1s ease;

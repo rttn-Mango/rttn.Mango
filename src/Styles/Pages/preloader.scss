@@ -4,6 +4,7 @@
     display: grid;
     place-content: center;
     background-color: black;
+    position: fixed;
 
     span{transition: transform .1s ease}
 
