@@ -29,7 +29,7 @@
         font-family: 'Okine-Thin-Outline';
         position: relative;
 
-        &:not(.logo)::after{
+        &:not(.logo, .btn)::after{
             position: absolute;
             content: '';
             height: 2px;
@@ -41,16 +41,18 @@
         }
 
         &:hover, &:focus, &:active{
-            font-family: 'Stardom';
+            &:not(.btn){font-family: 'Stardom';}
 
-            &:not(.logo)::after{width: 100%;}
+            &:not(.logo, .btn)::after{width: 100%;}
         }
     }
 
     &__pages{
         display: flex;
+        padding-block: 1rem;
         gap: 2rem;
         overflow: hidden;
+        align-items: center;
         margin-left: auto;
     }
     
@@ -75,6 +77,24 @@
         gap: 1rem;
         justify-content:  space-between;
         align-items: center;
+    }
+
+    .btn{
+        display: inline-flex;
+        gap: .5rem;
+        color: #fff;
+        font-family: 'Okine-Light';
+        border: 1px solid var(--clr-dm-primary);
+        padding: .35rem 1rem;
+        transform: translateY(0);
+        transition: transform 200ms ease-in-out;
+
+        & img{display: inline-block;}
+
+        &:hover, &:focus, &:active{
+            transform: translateY(-2px);
+            box-shadow: -3px 3px 0 var(--clr-dm-primary);
+        }
     }
 }
 

@@ -189,7 +189,7 @@ textarea:not([rows]) {
   font-family: "Okine-Thin-Outline";
   position: relative;
 }
-.header a:not(.logo)::after {
+.header a:not(.logo, .btn)::after {
   position: absolute;
   content: "";
   height: 2px;
@@ -199,16 +199,18 @@ textarea:not([rows]) {
   transition: width 300ms ease-in-out;
   background-color: var(--clr-dm-accent);
 }
-.header a:hover, .header a:focus, .header a:active {
+.header a:hover:not(.btn), .header a:focus:not(.btn), .header a:active:not(.btn) {
   font-family: "Stardom";
 }
-.header a:hover:not(.logo)::after, .header a:focus:not(.logo)::after, .header a:active:not(.logo)::after {
+.header a:hover:not(.logo, .btn)::after, .header a:focus:not(.logo, .btn)::after, .header a:active:not(.logo, .btn)::after {
   width: 100%;
 }
 .header__pages {
   display: flex;
+  padding-block: 1rem;
   gap: 2rem;
   overflow: hidden;
+  align-items: center;
   margin-left: auto;
 }
 .header button {
@@ -231,6 +233,23 @@ textarea:not([rows]) {
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+}
+.header .btn {
+  display: inline-flex;
+  gap: 0.5rem;
+  color: #fff;
+  font-family: "Okine-Light";
+  border: 1px solid var(--clr-dm-primary);
+  padding: 0.35rem 1rem;
+  transform: translateY(0);
+  transition: transform 200ms ease-in-out;
+}
+.header .btn img {
+  display: inline-block;
+}
+.header .btn:hover, .header .btn:focus, .header .btn:active {
+  transform: translateY(-2px);
+  box-shadow: -3px 3px 0 var(--clr-dm-primary);
 }
 
 @media screen and (max-width: 600px) {
@@ -330,9 +349,14 @@ textarea:not([rows]) {
   border: 1px solid white;
   text-align: center;
   padding: 0.75rem 6vw;
-  display: inline-block;
+  display: inline-flex;
+  gap: 0.875rem;
+  align-items: center;
   transform: translateY(0);
   transition: transform 100ms ease-in-out;
+}
+.nav .btn img {
+  display: inline-block;
 }
 .nav .btn:hover, .nav .btn:focus, .nav .btn:active {
   box-shadow: 3px 5px 0 var(--clr-dm-primary);
@@ -372,7 +396,7 @@ body {
 }
 .hero img {
   height: auto;
-  max-width: 10.5rem;
+  width: clamp(8rem, 30vw, 21rem);
   opacity: 0.9;
   transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
@@ -869,7 +893,7 @@ body {
   justify-content: center;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 70em) {
   .hero img {
     max-width: 100%;
     height: auto;
@@ -878,12 +902,12 @@ body {
     padding-block: min(3vw, 1.5rem);
   }
 }
-@media screen and (min-width: 50em) and (width < 1000px) and (width > 800px) {
+@media screen and (min-width: 70em) and (width < 1000px) and (width > 800px) {
   .hero__creator {
     padding-block: min(10vw, 5rem);
   }
 }
-@media (min-width: 50em) {
+@media (min-width: 70em) {
   .contact-page__container {
     display: flex;
     flex-direction: row;
