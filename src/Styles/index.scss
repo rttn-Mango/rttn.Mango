@@ -343,6 +343,27 @@ body{
             padding-block: 1.5rem;
         }
 
+        & a{
+            position: relative;
+            
+            &::after{
+                position: absolute;
+                content: '';
+                width: 0%;
+                height: 2px;
+                left: 1rem;
+                bottom: -3px;
+                background-color: var(--clr-dm-accent);
+                transition: width 300ms ease-in-out;
+
+            }
+
+            &:hover, &:focus{
+                font-family: 'Stardom';
+                &::after{width: 15%;}
+            }
+        }
+
         &--socials{
             padding-bottom: 3rem;
             @include flex(column, 1rem)
@@ -451,12 +472,10 @@ body{
     }
 
     h2{
-        font-size: clamp(var(--font-size-250), 8vw, var(--font-size-900));
-        font-family: 'Okine-Black';
-        margin-block: 15vw;
+        font-size: clamp(var(--font-size-250), 8vw, var(--font-size-800));
+        font-family: 'Okine-Regular';
+        margin-block: 10vw;
         position: relative;
-
-        span{font-family: 'Okine-Black-Outline';}
     }
 
     h3{

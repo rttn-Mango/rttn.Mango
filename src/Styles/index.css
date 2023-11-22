@@ -681,6 +681,25 @@ body {
   font-family: "Okine-Regular";
   padding-block: 1.5rem;
 }
+.contact-page__links a {
+  position: relative;
+}
+.contact-page__links a::after {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 2px;
+  left: 1rem;
+  bottom: -3px;
+  background-color: var(--clr-dm-accent);
+  transition: width 300ms ease-in-out;
+}
+.contact-page__links a:hover, .contact-page__links a:focus {
+  font-family: "Stardom";
+}
+.contact-page__links a:hover::after, .contact-page__links a:focus::after {
+  width: 15%;
+}
 .contact-page__links--socials {
   padding-bottom: 3rem;
   display: flex;
@@ -790,13 +809,10 @@ body {
   font-family: "Okine-Black-Outline";
 }
 .works-page h2 {
-  font-size: clamp(var(--font-size-250), 8vw, var(--font-size-900));
-  font-family: "Okine-Black";
-  margin-block: 15vw;
+  font-size: clamp(var(--font-size-250), 8vw, var(--font-size-800));
+  font-family: "Okine-Regular";
+  margin-block: 10vw;
   position: relative;
-}
-.works-page h2 span {
-  font-family: "Okine-Black-Outline";
 }
 .works-page h3 {
   font-size: clamp(var(--font-size-250), 1.5vw, var(--font-size-300));
