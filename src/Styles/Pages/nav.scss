@@ -2,71 +2,60 @@
     position:fixed;
     inset: 0;
     margin: auto;
-    background-color: black;
-    min-height: 100vh;
-    color: var(--clr-dm-primary);
+    background-color: var(--neutral-900);
+    min-height: 100dvh;
     display: flex;
     align-items: center;
-    justify-content: center;
     transition: all 700ms ease-in-out;
     pointer-events: all;
-    touch-action: all;
+    touch-action: auto;
     
     &.hidden{clip-path: circle(0 at 92% 6%); opacity: 0;}
     &.show{clip-path: circle(300vh at 92% 6%); opacity: 1;}
 
-    span{font-family: 'Okine-Thin-Outline'}
-
-    ul li a{
-        text-decoration: none;
-        font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
-        list-style: 1.5;
-        position: relative;
-
-        &:not(.btn)::after{
-            content: '';
-            position: absolute;
-            height:3px;
-            width: 0;
-            bottom: -1rem;
-            left: 0;
-            background-color: var(--clr-dm-primary);
-        }
-
-        //Animates the pseudo-element
-        &:not(.btn){
-            &:hover, &:focus, &:active{
-                font-style: italic;
-
-                &::after{
-                    width: 100%;
-                    transition: width 500ms ease-in-out;
-                }
-            }
-        }
-        
+    .close{
+        position: absolute;
+        top: 5dvh;
+        right: 8dvw;
+        cursor: pointer;
     }
 
-    li:nth-child(4){padding-block: 3rem;}
+    ul {
+        padding-left: calc(2rem + 15vw);
 
-    .btn{
-        color: white;
-        font-size: var(--font-size-250);
-        border: 1px solid white;
-        text-align: center;
-        padding: .75rem 6vw;
+        & li a{
+            text-decoration: none;
+            font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
+            position: relative;
+            color: var(--dm-text);
+            font-family: 'Okine-Medium';
+    
+            &:focus{
+                color: var(--accent);
+                outline: 0;
+            }
+        }
+    }
+
+    .resume{
+        text-decoration: none;
         display: inline-flex;
-        gap: .875rem;
         align-items: center;
-        transform: translateY(0);
-        transition: transform 100ms ease-in-out;
-        
-        img{display: inline-block;}
+        gap: calc(.5rem + 1.5dvw);
 
-        &:hover, &:focus, &:active{
-            box-shadow: 3px 5px 0 var(--clr-dm-primary);
-            transform: translateY(-3px);
-            color: var(--clr-dm-primary);
+        & svg{
+            height: .35em;
+            width: .35em;
+            stroke: var(--dm-primary);
+            stroke-width: .04em;
+            margin-top: calc(.5rem + 1dvw);
+        }
+
+        &:focus-within{
+            svg{
+                color: var(--accent);
+                stroke: var(--accent);
+            }
         }
     }
 }

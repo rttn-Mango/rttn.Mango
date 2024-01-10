@@ -27,4 +27,33 @@
     --font-weight-700: 700;
     --font-weight-900: 900;
 
+
+    
+    // V2 Properties
+    --fs-display: 17.938rem;
+    --fs-heading: 10.062rem;
+    --fs-heading2: 6.875rem;
+    --fs-heading3: 4.250rem;
+    --fs-body3: 2.625rem;
+    --fs-body2: 1.625rem;
+    --fs-body: 1rem;
+    --fs-caption: 0.813rem;
+
+    --dm-txt: hsl(30, 15%, 95%);
+    --dm-bg: hsl(210, 10%, 4%);
+    --dm-primary: hsl(35, 100%, 95%);
+
+    --lm-txt: hsl(30, 15%, 5%);
+    --lm-bg: hsl(30, 10%, 96%);
+    --lm-primary: hsl(35, 100%, 5%);
+
+    --secondary: hsl(30, 54%, 58%);
+    --accent: hsl(216, 34%, 32%);
+
+    --neutral-900: hsl(0, 0%, 0%);
+    --neutral-700: hsl(0, 0%, 20%);
+    --neutral-500: hsl(0, 0%, 40%);
+    --neutral-300: hsl(0, 0%, 60%);
+    --neutral-100: hsl(0, 0%, 100%);
+
 }

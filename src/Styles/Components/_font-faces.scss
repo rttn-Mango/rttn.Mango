@@ -1,18 +1,18 @@
 @font-face {
-    font-family: 'Stardom';
-    src: url('/public/Fonts/Stardom.woff2') format('woff2');
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'Okine-Black';
     src: url('/public/Fonts/Okine-Black.woff2'),  format('woff2');
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Okine-Black-Outline';
-    src: url('/public/Fonts/Okine-Black-Outline.woff2') format('woff2');
+    font-family: 'Okine-Bold';
+    src: url('/public/Fonts/Okine-Bold.woff2'),  format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Okine-Medium';
+    src: url('/public/Fonts/Okine-Medium.woff2'),  format('woff2');
     font-display: swap;
 }
 
@@ -25,12 +25,6 @@
 @font-face {
     font-family: 'Okine-Light';
     src: url('/public/Fonts/Okine-Light.woff2'), format('woff2');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Okine-Thin-Outline';
-    src: url('/public/Fonts/Okine-Thin-Outline.woff2') format('woff2');
     font-display: swap;
 }
 

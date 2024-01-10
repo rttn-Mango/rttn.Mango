@@ -1,50 +1,63 @@
 @forward '../Components/font-faces';
+@forward '../Components/properties';
 
 .header{
     padding-block: 3rem;
     max-width: clamp(80%, 85vw, 110rem);
     margin-inline: auto;
 
-    #logo{color: white}
+    .logo{
+        color: var(--dm-text); 
+        text-decoration: none;
+        font-size: clamp(calc(var(--fs-body) + 2dvw), 5vw, calc(var(--fs-body3)));
+        font-family: 'Okine-Medium';
+        position: relative;
+        display: inline-block;
+    }
 
-    &__mobile-menu{
+    //Right group containing burger and theme icon
+    &__btns{
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    //Container for Burger btn
+    &__btns--mobile-menu{
+        cursor: pointer;
         display: none;
         pointer-events: all;
         touch-action: all;
         position: relative;
         cursor: pointer;
-        z-index: 999;
-
-        & svg:active{
-            transform: rotate(180deg);
-            transition: transform 200ms ease-in-out;
-        }
-
-        & .close{color: white; cursor: pointer;}
     }
 
     a{
+        color: var(--dm-text);
         text-decoration: none;
-        font-size: 1.25rem;
-        font-family: 'Okine-Thin-Outline';
+        font-size: clamp(var(--fs-body), 5vw, 1.5rem);
+        font-family: 'Okine-Thin';
         position: relative;
 
-        &:not(.logo, .btn)::after{
+        //Targets the link that isn't the logo
+        &:not(.logo)::after{
             position: absolute;
             content: '';
-            height: 2px;
+            height: 3px;
             width: 0%;
             bottom: 0;
             left: 0;
             transition: width 300ms ease-in-out;
-            background-color: var(--clr-dm-accent);
+            background-color: var(--neutral-300);
+            border-radius: 1rem;
         }
 
-        &:hover, &:focus, &:active{
-            &:not(.btn){font-family: 'Stardom';}
-
-            &:not(.logo, .btn)::after{width: 100%;}
+        &.active{
+            font-family: 'Okine-Light';
+            &::after{width: 50%; background-color: var(--secondary);}
         }
+
+        &:hover{ &:not(.logo)::after{width: 50%; background-color: var(--neutral-300);} }
     }
 
     &__pages{
@@ -53,20 +66,6 @@
         gap: 2rem;
         overflow: hidden;
         align-items: center;
-        margin-left: auto;
-    }
-    
-    button{
-        padding: .5rem 1rem;
-        background-color: transparent;
-        border: 1px solid black;
-        cursor: pointer;
-    }
-
-    .group{
-        display: flex;
-        flex-direction: row;
-        gap: .5rem;
     }
 
     img{cursor: pointer;}
@@ -78,29 +77,11 @@
         justify-content:  space-between;
         align-items: center;
     }
-
-    .btn{
-        display: inline-flex;
-        gap: .5rem;
-        color: #fff;
-        font-family: 'Okine-Light';
-        border: 1px solid var(--clr-dm-primary);
-        padding: .35rem 1rem;
-        transform: translateY(0);
-        transition: transform 200ms ease-in-out;
-
-        & img{display: inline-block;}
-
-        &:hover, &:focus, &:active{
-            transform: translateY(-2px);
-            box-shadow: -3px 3px 0 var(--clr-dm-primary);
-        }
-    }
 }
 
 @media screen and (max-width: 600px) {
     .header{
-        &__mobile-menu {display: block;}
+        &__btns--mobile-menu {display: block}
         &__pages{display: none;}
     }
 }

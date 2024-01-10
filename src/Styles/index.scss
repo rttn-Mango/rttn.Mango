@@ -37,60 +37,63 @@ body{
 .hero{
     @include container();
     overflow: hidden;
-    padding-block: min(4vw, 5rem);
+    padding-block: min(4vw, 1rem);
+    @media screen and (max-width: 600px) { padding-block: calc(5rem + 5dvw); }
 
     h1{
-        font-size: clamp(var(--font-size-300), 15vw, var(--font-size-850));
-        font-family: 'Okine-Black-Outline';
-        transition: transform .7s cubic-bezier(0.34, 1.56, 0.64, 1);
-        transition-delay: 100ms;
-        position: relative;
-    }
-
-    .subHeading{
-        font-size: clamp(var(--font-size-300), 14.5vw, var(--font-size-800));
+        font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
         font-family: 'Okine-Black';
-        position: relative;
-        line-height: 1.2;
-        white-space: nowrap;
-        color: var(--clr-dm-primary);
-        transition: transform .7s cubic-bezier(0.34, 1.56, 0.64, 1);
-        transition-delay: 100ms;
-    }
+        color: transparent;
+        -webkit-text-stroke: 6px var(--dm-primary);
+        @media screen and (max-width: 1000px) {-webkit-text-stroke: 2px var(--dm-primary);}
 
-    img{
-        height: auto;
-        width: clamp(8rem, 30vw, 21rem);
-        opacity: .9;
-        transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
-    }
-
-    &__creator{
-        padding-block: clamp(2rem, 35vw, 10rem);
-        @include flex(row, 1rem);
-        align-items: center;
-        justify-content: flex-end;
-        overflow: hidden;
-
-        & p{
-            font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
-            font-family: 'Okine-Thin-Outline';
-            line-height: 1;
-            overflow: hidden;
+        & .img{
+            display: inline-block;
             position: relative;
-            z-index: -999;
-            padding-bottom: .25rem;
-            transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+
+            &::before{
+                position: absolute;
+                padding-top: 1.2em;
+                inset: 0;
+                content: '';
+                background-image: url(/public/old\ dp.jpg);
+                background-repeat: no-repeat;
+                clip-path: circle();
+                background-position: center;
+                background-size: contain;
+            }
         }
     }
 
-    &__bottom{
-        width: 100%;
-        @include flex(row, 1rem);
-        justify-content: space-between;
-        & p{opacity: .5; line-height: 1.2; font-size: var(--font-size-100);}
+    .subHeading{
+        font-size: clamp(calc(var(--fs-body3) + 1dvw), 12vw, 14.375rem);
+        font-family: 'Okine-Black';
+        line-height: 1;
+        white-space: nowrap;
+        color: var(--dm-text);
+    }
 
-        svg ellipse{animation: scroll-animation .7s ease-in-out infinite alternate}
+    &__bottom{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: space-between;
+        padding-top: calc(1em + 3dvw);
+        @media screen and (max-width: 600px) { padding-block: calc(10rem + 5dvw); }
+
+        &--scrollTo{
+            border: 3px solid var(--dm-primary);
+            border-radius: 50%;
+            padding: min(3dvw, 1.5em);
+            cursor: pointer;
+
+            & svg{
+                height: clamp(25px, 3vw, 40px);
+                width: clamp(25px, 3vw, 40px);
+                animation: down-arrow 500ms linear infinite alternate;
+            }
+        }
     }
 
 }
@@ -535,20 +538,22 @@ body{
 //Burger Menu
 .burger{
     position: fixed;
-    z-index: 999;
-    top: 3vw;
-    right: 3vw;
-    background-color: black;
+    z-index: 9;
+    top: 5dvh;
+    right: 5dvw;
+    background-color: var(--neutral-900);
     border-radius: 50%;
     transform: rotate(0);
     padding: .875rem;
     pointer-events: all;
     touch-action: all;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--neutral-500);
 
     svg{
-        color:white; 
+        color:var(--neutral-100); 
         cursor: pointer;
+        height: clamp(25px, 3vw, 40px);
+        width: clamp(25px, 3vw, 40px);
 
         &:not(#logo):active{
             transform: rotate(180deg);
@@ -760,16 +765,10 @@ body{
     }
 }
 
-//Hero section mouse scroller animation
-@keyframes scroll-animation{
-    from{transform: translateY(0);}
-    to{transform: translateY(.30rem);}
-}
-
-//About page down arrow animation
+//Down arrow animation
 @keyframes down-arrow{
-    from{transform: translateY(-2rem);}
-    to{transform: translateY(2rem);}
+    from{transform: translateY(-1px);}
+    to{transform: translateY(1px);}
 }
 
 //Contact page form-group question mark animation

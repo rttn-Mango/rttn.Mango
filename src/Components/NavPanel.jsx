@@ -1,21 +1,28 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import resume from '../../public/Resume.pdf'
-import Download from '../assets/Download.svg'
+import resume from '../../public/Kim Oliver Manga - Resume.pdf'
 
-export default function NavPanel({setShowNav}){
+//Icons
+import TiltedArrow from '../svg/TiltedArrow';
+import Close from "../svg/Close";
+
+export default function NavPanel({setShowNav, fromHeader}){
     return(
-        <>
+        <>  
+            {/* TODO: BUGFIX */}
+            {fromHeader && <div className="close" onClick={()=>setShowNav(false)}><Close/></div>}
             <ul role="list">
-                <li><Link to='/about' title='About Me' onClick={()=> {setShowNav(false)}}><span>A</span>bout</Link></li>
-                <li><Link to='/works' title='Personal Projects' onClick={()=> {setShowNav(false)}}><span>W</span>orks</Link></li>
-                <li><Link to='/contact' title='Contact Details' onClick={()=> {setShowNav(false)}}><span>C</span>ontact</Link></li>
-                <li><a href={resume} className="btn" download="Manga, Kim Oliver - Resume">Resume <img src={Download} alt="Download Icon" draggable="false" width={30} height={30}/></a></li>
+                <li><Link to='/' title='Home' onClick={()=> {setShowNav(false)}}>Home</Link></li>
+                <li><Link to='/about' title='About me' onClick={()=> {setShowNav(false)}}>About</Link></li>
+                <li><Link to='/works' title='Recent works' onClick={()=> {setShowNav(false)}}>Works</Link></li>
+                <li><Link to='/contact' title='Send me a message' onClick={()=> {setShowNav(false)}}>Contact</Link></li>
+                <li><a href={resume} title='Download my resume' className="resume" download>Resume <TiltedArrow/></a></li>
             </ul>
         </>
     )
 }
 
 NavPanel.propTypes = {
-    setShowNav: PropTypes.func
+    setShowNav: PropTypes.func,
+    fromHeader: PropTypes.bool
 }

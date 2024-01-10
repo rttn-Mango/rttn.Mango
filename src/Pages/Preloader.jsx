@@ -1,62 +1,57 @@
-import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import gsap from 'gsap';
 
 export default function Preloader({setLoading, content}){
 
+    useEffect(() =>{
+        document.title = "Loading...";
 
-    //Letter staggering animation
-    const letterStagger = {
-        initial: {opacity: 0, y: 50},
-        animate: {opacity: 1, y: 0}
-    }
-    
-    const animatePreloader = {
-        initial: {
+        gsap.set('span', {opacity: 0, y: 100});
+
+        let tl = gsap.timeline();
+        tl.to('span', {
             opacity: 1,
-        },
-        animate: {
-            opacity: 1,
-            transition: {
-                ease: [0.36, 0, 0.66, -0.56],
-                duration: 2
-            }
-        },
-        exit: {opacity: 0}
+            y: 0,
+            stagger: .1
+        }).to('.preloader__char, .preloader__dot', {
+            delay: .1,
+            stagger: .1,
+            y: -100,
+            opacity: 0,
+            display: 'none',
+            duration: .5
+        }).to('span', {
+            opacity: 0,
+            display: 'none',
+            delay: 1
+        }).to('.preloader__bg', {
+            delay: .5,
+            scaleY: 0,
+            stagger: .2
+        })
 
-    }
-
-    useEffect(() =>{document.title = "Loading..."},[])
+        setTimeout(() => setLoading(false), 5500)
+    },[setLoading])
 
     return(
-        <motion.div
-            className="preloader"
-            variants={animatePreloader}
-            initial={'initial'}
-            animate={'animate'}
-            exit={'exit'}
-            onAnimationComplete={()=> {
-                setLoading(false);
-                document.title = "Home"
-            }}
-        >
+        <>
+            
+            {/* Empty divs which fade out once preloader is */}
+            <div className="preloader__bg"></div>
+            <div className="preloader__bg"></div>
 
-            <motion.h1
-                initial='initial'
-                animate='animate'
-                transition={{staggerChildren: .1}}>
+            <h1 aria-label='Kim Oliver Manga'>           
                 {content.split('').map((letter, index) => {
+                    //I know this thing here is ugly but it works, for now...
                     return(
-                        <motion.span
-                            key={index} 
-                            variants={letterStagger}>
+                        <span key={index} className={letter === 'K' ? 'charK' : letter === 'O' ? 'charO' : index === 11 ? 'charM' : index === 15 ? 'charA' : letter === '.' ? 'preloader__dot' : 'preloader__char'}>
                                 {letter}
-                        </motion.span>
+                        </span>
                     )
                 })}
-            </motion.h1>
-
-        </motion.div>
+            </h1>
+        </>
     )
 }
 

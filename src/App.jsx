@@ -27,21 +27,20 @@ import { Analytics } from '@vercel/analytics/react';
 function App() {
   const [loading, setLoading] = useState(true);
   const [showNav, setShowNav] = useState(false);
+  const [fromHeader, setFromHeader] = useState(false);
 
-  //For disabling background actions when nav is opened, e.g. scrolling and tab navigation
-  const handleNav = useCallback(() => {
-    if(showNav) {
-      document.body.addEventListener('wheel',(e)=>{
-        e.stopPropagation();
-      })
-      document.body.classList.add('disabled');
-    }
-    else{document.body.classList.remove('disabled');}
-  },[showNav])
-
+  //For disabling background actions when nav is opened or still loading, e.g. scrolling and tab navigation
   useEffect(()=> {
+    const handleNav = () => {
+      if(showNav || loading) {
+        document.body.addEventListener('wheel',(e)=>{e.stopPropagation()})
+        document.body.classList.add('disabled');
+      }
+      else{document.body.classList.remove('disabled')}
+    }
+    console.log(showNav)
     handleNav()
-  }, [handleNav])
+  }, [showNav, loading])
 
   //Burger menu animation to appear when user scrolls a certain amount
   useEffect(() => {
@@ -51,14 +50,10 @@ function App() {
     gsap.fromTo('.burger', {scale: 0, opacity: 0},{
       scale: 1,
       opacity: 1,
-      transition: {
-        duration: .5,
-        ease: [[0.76, 0, 0.24, 1]],
-      },
       scrollTrigger: {
         trigger: hero,
-        scrub: 1,
-        start: 'center 20%'
+        scrub: true,
+        start: 'center 40%',
       }
     })
   },[]) 
@@ -68,51 +63,51 @@ function App() {
     const lenis = new Lenis()
 
     function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+      if(!loading){
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
     }
 
     requestAnimationFrame(raf);
-  }, [])
+  }, [loading])
 
   return (
-      <AnimatePresence>
-        {loading 
-          ? 
-            <motion.div key='loading-anim'>
-              <Preloader content="rttn.Mango" setLoading={setLoading}/>
-            </motion.div>
-          : 
-            <React.Fragment key='primary-content'>
-              <Header setShowNav={setShowNav} showNav={showNav}/>
-                <Suspense fallback={<span aria-hidden="true" className="loading-fallback"><ScaleLoader color="#fff" size={100}/></span>}>
-                  <Routes>
-                    <Route index path="/" element={<Homepage/>}/>
-                    <Route path="/about" element={<AboutPage/>}/>
-                    <Route path="/works" element={<WorksPage/>}/>
-                    <Route path="/contact" element={<ContactPage/>}/>
-                  </Routes>
-                </Suspense>
-              <Footer/>
-            </React.Fragment>
-          }
-
-          <React.Fragment key='side-contents'>
-            <div className="burger">
-              {
-                  showNav ?
-                  <span className="close" onClick={()=>setShowNav(false)}><Close/></span> : 
-                  <span id="burger" onClick={()=>{setShowNav(true)}}><Burger/></span>
-              }
+      <>
+            <div className={loading ? "preloader" : 'preloader removed'}>
+              <Preloader content="Kim.Oliver.Manga" setLoading={setLoading}/>
             </div>
+        
+            <>
+              <>
+                <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader}/>
+                  <Suspense fallback={<span aria-hidden="true" className="loading-fallback"><ScaleLoader color="#fff" size={100}/></span>}>
+                    <Routes>
+                      <Route index path="/" element={<Homepage/>}/>
+                      <Route path="/about" element={<AboutPage/>}/>
+                      <Route path="/works" element={<WorksPage/>}/>
+                      <Route path="/contact" element={<ContactPage/>}/>
+                    </Routes>
+                  </Suspense>
+                <Footer/>
+              </>
 
-            <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
-              <NavPanel setShowNav={setShowNav}/>
-            </nav>
+                <>
+                  {/* Floating Burger Menu which appears when header is not in view */}
+                  <div className="burger" aria-hidden="true">
+                    {
+                        showNav ? <div onClick={()=>setShowNav(false)}><Close/></div> 
+                        : <div onClick={()=>{setShowNav(true)}}><Burger/></div>
+                    }
+                  </div>
 
-          </React.Fragment>
+                  <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
+                    <NavPanel setShowNav={setShowNav} fromHeader={fromHeader}/>
+                  </nav>
+                </>
+            </> 
           <Analytics/>
-      </AnimatePresence>
+      </>
   )
 }
 

@@ -1,19 +1,34 @@
 .preloader{
-    min-height: 100vh;
-    min-width: 100vw;
-    display: grid;
-    place-content: center;
-    background-color: black;
+    width: 100dvw;
+    height: 100dvh;
     position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 9;
 
-    span{transition: transform .1s ease}
+    //To remove the preloader from dom when loading is done
+    &.removed{display: none;}
+
+    //Hides the dots from view
+    &__dot{visibility: hidden;}
+
+    //Serves as background which will fade out later
+    &__bg{
+        flex: 1;
+        background-color: black;
+        transform-origin: top;
+    }
 
     h1{
-        font-size: clamp(var(--font-size-300), 5vw, var(--font-size-700));
-        font-family: 'Stardom';
+        font-size: clamp(calc(var(--font-size-200) + .5rem), 4vw, var(--font-size-700));
+        font-family: 'Okine-Medium';
         color: white;
-        transition: all 0.1s cubic-bezier(0.45, 0, 0.55, 1);
+        position: absolute;
+        align-self: center;
+        margin: auto;
+        text-transform: uppercase;
 
-        span{display:inline-block;}
+        span{display:inline-block;transition: all .1s ease;}
     }
 }
