@@ -102,7 +102,7 @@ function App() {
                   </div>
 
                   <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
-                    <NavPanel setShowNav={setShowNav} fromHeader={fromHeader}/>
+                    <NavPanel setShowNav={setShowNav} fromHeader={fromHeader} setFromHeader={setFromHeader}/>
                   </nav>
                 </>
             </> 

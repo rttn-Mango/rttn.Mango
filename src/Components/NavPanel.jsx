@@ -6,11 +6,11 @@ import resume from '../../public/Kim Oliver Manga - Resume.pdf'
 import TiltedArrow from '../svg/TiltedArrow';
 import Close from "../svg/Close";
 
-export default function NavPanel({setShowNav, fromHeader}){
+export default function NavPanel({setShowNav, fromHeader, setFromHeader}){
     return(
         <>  
             {/* TODO: BUGFIX */}
-            {fromHeader && <div className="close" onClick={()=>setShowNav(false)}><Close/></div>}
+            {fromHeader && <div className="close" onClick={()=>{setShowNav(false); setFromHeader(false)}}><Close/></div>}
             <ul role="list">
                 <li><Link to='/' title='Home' onClick={()=> {setShowNav(false)}}>Home</Link></li>
                 <li><Link to='/about' title='About me' onClick={()=> {setShowNav(false)}}>About</Link></li>
@@ -24,5 +24,6 @@ export default function NavPanel({setShowNav, fromHeader}){
 
 NavPanel.propTypes = {
     setShowNav: PropTypes.func,
-    fromHeader: PropTypes.bool
+    fromHeader: PropTypes.bool,
+    setFromHeader: PropTypes.func,
 }

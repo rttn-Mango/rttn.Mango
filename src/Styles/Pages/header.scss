@@ -9,7 +9,7 @@
     .logo{
         color: var(--dm-text); 
         text-decoration: none;
-        font-size: clamp(calc(var(--fs-body) + 2dvw), 5vw, calc(var(--fs-body3)));
+        font-size: clamp(var(--fs-body2), 5vw, calc(var(--fs-body3)));
         font-family: 'Okine-Medium';
         position: relative;
         display: inline-block;
@@ -35,7 +35,7 @@
     a{
         color: var(--dm-text);
         text-decoration: none;
-        font-size: clamp(var(--fs-body), 5vw, 1.5rem);
+        font-size: clamp(var(--fs-caption), 3vw, 1.25rem);
         font-family: 'Okine-Thin';
         position: relative;
 
@@ -50,6 +50,7 @@
             transition: width 300ms ease-in-out;
             background-color: var(--neutral-300);
             border-radius: 1rem;
+            z-index: -1;
         }
 
         &.active{
@@ -57,7 +58,7 @@
             &::after{width: 50%; background-color: var(--secondary);}
         }
 
-        &:hover{ &:not(.logo)::after{width: 50%; background-color: var(--neutral-300);} }
+        &:hover{ &:not(.logo, .active)::after{width: 50%; background-color: var(--neutral-300);} }
     }
 
     &__pages{
