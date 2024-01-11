@@ -37,7 +37,7 @@ export default function Header({setShowNav, showNav, setFromHeader}){
             <nav>
                 <ul role="list">
                     <li>
-                        <Link to="" title="Logo" className="logo" aria-label="Logo"> KOMA </Link>
+                        <Link to="/" title="Logo" className="logo" aria-label="Logo"> KOMA </Link>
                     </li>
                     <li className="header__pages">
                         <Link className={path === '/' ? 'active' : ''} to="/" title="Homepage">Home</Link>

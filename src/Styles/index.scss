@@ -129,6 +129,7 @@ body{
         border-radius: 1rem;
         opacity: .7;
         width: 100%;
+        height: 100%
         
     }
 
@@ -190,12 +191,20 @@ body{
 //Projects section
 .projects{
     @include container();
-    padding-block: 2rem 0;
-    min-height: 100vh;
+    position: relative;
+    max-height: 100dvh;
+    overflow-y: hidden;
+
+    & .wrapper{
+        position: sticky;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
 
     h2{
-        font-size: clamp(var(--font-size-300), 4vw, var(--font-size-600));
-        font-family: 'Okine-Regular';
+        font-size: clamp(calc(var(--fs-body3) + 3dvw), 10vw, var(--fs-heading2));
+        font-family: 'Okine-Medium';
         padding-block: 2rem 10rem;
         text-transform: uppercase;
     }
@@ -203,98 +212,129 @@ body{
     h3{
         text-decoration: none; 
         font-family: 'Okine-Black';
-        font-size: clamp(var(--font-size-250), 7vw, var(--font-size-600));
-        animation: scroll-animation 500ms ease-in-out alternate infinite;
+        font-size: clamp(calc(var(--fs-body) + 1dvw), 7vw, var(--fs-heading3));
         position: relative;
     }
 
-    p{
-        font-size: var(--font-size-100);
-        position:relative;
+    a{
+        text-decoration: none;
+        color: var(--secondary);
+        font-family: 'Okine-Regular';
+        display: inline-flex;
+        align-items: center;
+        gap: .75rem;
+        font-size: clamp(var(--fs-caption), 5dvw, calc(var(--fs-body) + .15dvw));
+
+        &:hover{ color: var(--accent);}
+
+        & svg{
+            height: 13px;
+            width: 13px;
+        }
     }
-    a{text-decoration: none}
+
+    p{
+        font-size: clamp(var(--fs-caption), 3dvw, var(--fs-body2));
+        text-align: center;
+        @media screen and (max-width: 640px) {width: min-content}
+    }
 
     &__contents{
-        color: var(--clr-dm-primary);
+        color: var(--dm-primary);
         @include flex(row, 1rem);
+        @media screen and (max-width: 450px) { flex-direction: column; gap: 2rem;}
         align-items: center;
         justify-content: space-between;
-        padding: 7rem 2vw;
-        border-top: 1px solid white;
+        padding: calc(5em + 10dvw) 2vw;
+        border-top: 1px solid var(--neutral-100);
 
-        &:hover{
-            background-color: black;
-        }
-
-        &:not(:first-child){border-bottom: 1px solid white}
-        &:not(:hover){opacity: .6}
+        &:not(:first-child){border-bottom: 1px solid var(--neutral-100)}
+        &:not(:hover){opacity: .7}
     }
 }
 
-//Contacts section
+//Contact section
 .contact{
-    padding-top: 15vw;
+    padding-block: calc(5em + 5dvw);
     @include container();
-    height: 80vh;
-    padding-top: 3rem;
-    color: white;   
+    color: var(--dm-text);
+    z-index: 9;
 
-    &__sub-heading{font-size: clamp(var(--font-size-300), 3vw, var(--font-size-500)); font-family: 'Okine-Thin-Outline';}
+    & > p{font-size: clamp(calc(var(--fs-caption) + .25em), 3dvw, calc(var(--fs-body) + .35dvw));}
+
+    @media screen and (min-width: 800px) {.wrapper{@include flex(row, 1rem); justify-content: space-between; align-items: center;}}
+    @media screen and (width > 1400px) {
+        .wrapper{max-width: 90%; margin-inline: auto }}
+
+    &__sub-heading{font-size: clamp(var(--fs-body), 5vw, var(--fs-body2)); font-family: 'Okine-Thin';}
 
     h2{
-        font-size: clamp(var(--font-size-300), 10vw, var(--font-size-700));
-        text-align: center;
-        padding-block: 5rem 1rem;
-        a{
-            font-family: 'Stardom'; 
-            text-decoration: none;
-            color: var(--clr-dm-primary);
-            position: relative;
-            display: inline-block;
-
-            &::after{
-                content: '';
-                position: absolute;
-                bottom: 5px;
-                left: 0;
-                height: 3px;
-                width: 0;
-                background-color: var(--clr-dm-accent);
-                transition: width 1s cubic-bezier(0.83, 0, 0.17, 1);
-            }
-
-            &:hover, &:focus, &:active {&::after{width: 100%;}}
-        }
+        font-size: clamp(calc(var(--fs-body3) + 5dvw), 10vw, var(--fs-display));
+        max-width: 7ch;
+        font-family: 'Okine-Bold';
+        padding-block: .5em;
     }
 
-    svg{
-        height: 30px;
-        width: 30px;
-        cursor: pointer;
-        transform: translateY(0);
-        transition: transform 300ms ease-in-out;
-
-        & path{fill: var(--clr-dm-primary);}
-        
-        &:hover, &:focus, &:active{
-            transform: translateY(-5px);
-            & path{
-                fill: var(--clr-dm-accent)
-            }
-        }
-    }
-
-    &__details{
-        text-align: center;
+    a{
+        text-decoration: none;
+        font-size: calc(var(--fs-body) + .5dvw);
+        display: inline-flex;
         font-family: 'Okine-Regular';
+        color: var(--dm-primary);
+        align-items: center;
+        justify-content: center;
+        gap: .75rem;
+        border: 2px solid var(--dm-primary);
+        padding: .5em 2em;
+        border-radius: 3rem;
+        position: relative;
+        top: 0;
+        transition: top 100ms ease-in-out;
+        width: 100%;
+
+        & svg{width: .65em}
+
+        &:hover, &:focus{
+            border-color: var(--accent);
+            top: -3px;
+            box-shadow: 0 0 10px var(--dm-primary);
+            color: var(--secondary);
+        }
     }
 
-    &__socials{
-        padding-top: 2rem;
+    p:not(:first-of-type){
+        font-size: calc(var(--fs-body) + .5dvw);
+        font-family: 'Okine-Regular';
         text-align: center;
-        @include flex(row, 1rem);
-        justify-content: center;
-        overflow: hidden;
+    }
+
+    &__details {
+        @media screen and (max-width: 800px) { padding-top: 3em }
+        & p:first-of-type{
+            font-size: calc(var(--fs-body) + .5dvw);
+            text-transform: uppercase;
+            color: var(--accent);
+            text-align: center;
+            padding-block: calc(1rem + 5dvw);
+            font-family: 'Okine-Medium'
+        }
+    }
+
+    &__scroll-to{
+        border: 3px solid var(--dm-primary);
+        width: max-content;
+        padding: calc(.5rem + 1.5dvw);
+        border-radius: 50%;
+        margin-top: calc(5em + 5dvw);
+        margin-left: auto;
+        cursor: pointer;
+        rotate: 180deg;
+        
+        svg{
+            width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
+            height: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
+            animation: down-arrow 500ms linear infinite alternate;
+        }
     }
 }
 
@@ -616,12 +656,6 @@ body{
 
 //Desktop Layouts
 @media (min-width: 70em){
-    .hero{
-        img{max-width: 100%; height: auto}
-        &__creator{padding-block: min(3vw, 1.5rem);}
-        @media screen and (width < 1000px) and (width > 800px){&__creator{padding-block: min(10vw, 5rem);}}
-    }
-
     .contact-page{
         &__container{@include flex(row, 20vw)}
 
@@ -718,79 +752,11 @@ body{
         }
 
     }
-
-    .intro{
-        &__top-text{max-width: 30ch}
-        &__bottom-text{max-width:30ch; margin-left: auto;}
-
-        &__skills{
-            min-height: 80vh;
-            @include flex(column, 2rem);
-
-            &--subheading{
-                max-width: 40vw;
-                position: sticky;
-                top: 0;
-            }
-
-            &--list{
-                grid-template-columns: repeat(2, minmax(100px, 150px));
-                padding-top: 0;
-                max-width: 30%;
-                margin-left: auto;
-            }
-
-        }
-    }
-
-    .projects{
-        h2{padding-bottom: 15rem}
-        padding-bottom: 25vw;
-        position: relative;
-
-        &__contents{
-            padding-inline: 15rem;
-            transition: all 400ms ease-in-out;
-            &:hover{padding-inline: 13rem;}
-            
-            p{font-size: var(--font-size-250); pointer-events: none;}
-        }
-
-        h3{animation: none; pointer-events: none;}
-
-        &__hover-wrapper{
-            width: 500px;
-            height: 300px;
-            overflow: hidden;
-            position: absolute;
-            pointer-events: none;
-        }
-
-        img{height: auto; margin-inline: auto;}
-
-        &__hover-container{
-            height: 100%;
-            width: 100%;
-            position: relative;
-            transition: top 500ms cubic-bezier(0.45, 0, 0.55, 1);
-        }
-
-        &__hover-content{padding: 3rem;}
-    }
-
 }
 
 //Add spacing to profile section in about page
 @media screen and (width > 1400px) {
     .about-page__profile{padding-inline: 8%;}
-}
-
-//To re-align the hero section on screen width smaller than 325 pixels
-@media screen and (width < 325px) {
-    .hero{
-        padding-block: 1rem;
-        &__creator{ flex-direction: column; padding-block: 30vw;}
-    }
 }
 
 //To re-align the text inside the container

@@ -14,6 +14,7 @@ export default function Hero(){
             gsap.to(wrapper.current, {
                 y: '-2dvw',
                 ease: 'power2',
+                opacity: .3,
                 scrollTrigger: {
                     trigger: wrapper.current,
                     start: 'top top',

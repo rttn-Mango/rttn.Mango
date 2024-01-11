@@ -19,7 +19,9 @@ export default function Homepage(){
                 <Skills/>
             </div>
             <Projects/>
-            <Contact/>
+            <div className="bg-wrapper">
+                <Contact/>
+            </div>
         </main>
     )
 }

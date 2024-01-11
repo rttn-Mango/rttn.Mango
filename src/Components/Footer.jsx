@@ -1,29 +1,31 @@
-import { HashLink as Link } from "react-router-hash-link";
-import Logo from "../svg/Logo";
-import Arrowheads from '../assets/Arrowheads.svg'
-
+import { Link } from "react-router-dom";
+import { CiLocationOn } from "react-icons/ci";
 export default function Footer(){
 
     return(
         <footer className="footer">
-            <ul role="list">
+            <nav>
+                <ul role="list">
                     <li>
-                        <Link tabIndex={-1} title="Website Logo" smooth to="#"><Logo/></Link>
-                        <p>Vol — 1 <span aria-hidden="true">|</span> © 2023</p>
-                    </li>
-                    <li>
-                        <Link smooth to='#' tabIndex={-1} title="Back to Top">
-                            <img 
-                                src={Arrowheads} 
-                                alt="Scroll to top icon"
-                                draggable="false"
-                                id="arrowhead"
-                                width={45}
-                                height={40}
-                            />
-                        </Link>
+                        <Link to="/" title="Logo" className="logo" aria-label="Logo"> KOMA </Link>
+                        <p>Vol — 2 © 2023</p>
                     </li>
                 </ul>
+                <ul role="list" className="footer__links">
+                    <li><a href="">Linkedin</a></li>
+                    <li><a href="">Github</a></li>
+                    <li><a href="">Instagram</a></li>
+                </ul>
+                <ul role="list" className="footer__links">
+                    <li><Link to = '/about'>About</Link></li>
+                    <li><Link to = '/works'>Works</Link></li>
+                    <li><Link to = '/contact'>Contact</Link></li>
+                </ul>
+                <ul role="list" className="footer__mark">
+                    <li><CiLocationOn/> Philippines</li>
+                    <li>rttn.Mango</li>
+                </ul>
+            </nav>
         </footer>
     )
 }
