@@ -38,7 +38,7 @@ function App() {
       }
       else{document.body.classList.remove('disabled')}
     }
-    console.log(showNav)
+
     handleNav()
   }, [showNav, loading])
 

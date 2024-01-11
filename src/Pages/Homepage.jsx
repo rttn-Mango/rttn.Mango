@@ -1,5 +1,6 @@
 import Hero from "./Sections/Hero"
 import Intro from "./Sections/Intro"
+import Skills from "./Sections/Skills"
 import Projects from "./Sections/Projects"
 import Contact from "./Sections/Contact"
 
@@ -13,7 +14,10 @@ export default function Homepage(){
     return(
         <main>
             <Hero/>
-            <Intro/>
+            <div className="bg-wrapper">
+                <Intro/>
+                <Skills/>
+            </div>
             <Projects/>
             <Contact/>
         </main>

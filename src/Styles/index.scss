@@ -27,7 +27,7 @@
 }
 
 body{
-    background-color: var(--clr-dm-bg);
+    background-color: var(--dm-bg);
     font-family: 'Okine-Thin';
     color: white;
     overflow-x: hidden;
@@ -36,9 +36,17 @@ body{
 //Hero section
 .hero{
     @include container();
+    @media screen and (max-width: 600px) { padding-top: calc(5rem + 5dvw); }
+    position: relative;
+    max-height: 100dvh;
     overflow: hidden;
-    padding-block: min(4vw, 1rem);
-    @media screen and (max-width: 600px) { padding-block: calc(5rem + 5dvw); }
+
+    & .wrapper{
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
 
     h1{
         font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
@@ -69,7 +77,7 @@ body{
     .subHeading{
         font-size: clamp(calc(var(--fs-body3) + 1dvw), 12vw, 14.375rem);
         font-family: 'Okine-Black';
-        line-height: 1;
+        line-height: 1.3;
         white-space: nowrap;
         color: var(--dm-text);
     }
@@ -79,14 +87,13 @@ body{
         align-items: center;
         gap: 1rem;
         justify-content: space-between;
-        padding-top: calc(1em + 3dvw);
+        padding-top: calc(1em + 2.5dvw);
         @media screen and (max-width: 600px) { padding-block: calc(10rem + 5dvw); }
 
         &--scrollTo{
-            border: 3px solid var(--dm-primary);
+            border: 2px solid var(--dm-primary);
             border-radius: 50%;
             padding: min(3dvw, 1.5em);
-            cursor: pointer;
 
             & svg{
                 height: clamp(25px, 3vw, 40px);
@@ -98,55 +105,84 @@ body{
 
 }
 
+//Wrapper to make the parallax effect work
+.bg-wrapper{background-color: var(--dm-bg)}
+
 //intro section
 .intro{
-    padding-block: 5rem 30vw;
+    @include container();
+    padding-block: calc(5em + 10dvw) calc(10em + 10dvw);
+    
+    @media screen and (min-width: 1400px) { @include flex(row, calc(.5rem + 2dvw)); justify-content: space-between; }
 
-    .wrapper{
-        height: 150vh;
-        position: sticky;
+    & p{
+        font-size: clamp(var(--fs-body2), 10vw, calc(var(--fs-heading3) + 1dvw));
+        font-family: 'Okine-Thin';
+        max-width: 15ch;
+        position: relative;
+        
+        span{font-family: 'Okine-Light'}
     }
 
-    #slider{
-        overflow: hidden;
-        position: sticky;
-        top: 0;
+    img{
+        object-fit: cover;
+        border-radius: 1rem;
+        opacity: .7;
+        width: 100%;
+        
     }
 
-    .container{
-        @include flex(row, 0);
-        align-items: center;
-    }
+}
+
+//Skills section
+.skills{
+    @include container();
+    padding-block: 3em calc(10em + 10dvw);
+    @media (width > 800px) and (width < 1500px) { padding-top: calc(5em + 10dvw) }
 
     h2{
-        font-size: clamp(var(--font-size-300), 6vw, var(--font-size-700));
+        font-size: clamp(calc(var(--fs-heading3) - 5dvw), 10dvw, var(--fs-heading2));
+        font-family: 'Okine-Medium';
+        padding-bottom: 1.5rem;
+    }
+
+    p{
+        max-width: 30ch;
+        line-height: 1.5;
+        font-size: clamp(var(--fs-body), 10dvw, calc(var(--fs-body) + .25dvw));
+
+        &:first-of-type{padding-bottom: 1rem}
+    }
+
+    &__list{padding-top: 6em}
+
+    h3{
+        font-size: clamp(calc(var(--fs-body2) + 2dvw), 10dvw, var(--fs-heading3));
         font-family: 'Okine-Regular';
-        padding-block: 2rem;
-    }
-
-    //First two paragraph tags on the intro page
-    &__top-text, &__bottom-text{
-        font-size: clamp(var(--font-size-250), 3.5vw, var(--font-size-500));
-        line-height: 1.7;
-        padding: 20vw 4vw;
-        min-width: 100vw;
         text-align: center;
-    
-        & span{font-family: 'Okine-Thin-Outline'; font-style: italic}
+        color: var(--dm-primary);
+
+        &:first-of-type{padding-bottom: calc(1.5em + 3dvw);}
+        &:not(:first-of-type){
+            border-top: 1px solid var(--neutral-500);
+            padding-block: calc(1.5em + 3dvw);
+        }
     }
 
-    &__skills{
-        @include container();
+    @media screen and (min-width: 800px) {
+        @include flex(row, 1rem);
+        justify-content: space-between;
 
-        &--list{
-            padding-block: 5rem;
-            
-            @include grid(auto-fill, 100px, 120px, 2rem);
-            place-content: center;
-            justify-items: center;
-            text-align: center;
-    
-            font-family: 'Okine-Light';
+        &__desc{
+            max-width: max-content;
+            position: sticky;
+            top: 0;
+            align-self: start;
+        }
+
+        &__list{
+            width: 50%;
+            padding-top: .75rem
         }
     }
 }
