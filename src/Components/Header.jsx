@@ -13,6 +13,9 @@ export default function Header({setShowNav, showNav, setFromHeader}){
     useEffect(() => {
         //Animations will only show when prefers-reduced-motion is set to no-preference
         gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+            //This allows the animation to still run even when user is tabbed somewhere else
+            gsap.ticker.lagSmoothing(0);
+
             gsap.fromTo('.logo', {opacity: 0, x: -100} ,{
                 delay: 6,
                 opacity: 1,

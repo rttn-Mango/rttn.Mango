@@ -1,8 +1,7 @@
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Lenis from '@studio-freight/lenis';
-import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import ScaleLoader from 'react-spinners/ScaleLoader';
@@ -45,17 +44,19 @@ function App() {
   //Burger menu animation to appear when user scrolls a certain amount
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-    const hero = document.querySelector('.hero')
+      const hero = document.getElementById('#trigger')
 
-    gsap.fromTo('.burger', {scale: 0, opacity: 0},{
-      scale: 1,
-      opacity: 1,
-      scrollTrigger: {
-        trigger: hero,
-        scrub: true,
-        start: 'center 40%',
-      }
-    })
+      gsap.fromTo('.burger', {scale: 0, opacity: 0},{
+        scale: 1,
+        opacity: 1,
+        ease: 'back.out',
+        scrollTrigger: {
+          trigger: hero,
+          scrub: true,
+          start: 'top top',
+          end: '5%',
+        }
+      })
   },[]) 
 
   //Smooth scrolling effect

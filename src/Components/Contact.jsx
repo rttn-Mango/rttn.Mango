@@ -1,10 +1,10 @@
-
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 //Icons
-import TiltedArrow from '../../svg/TiltedArrow';
-import ScrollToIcon from '../../svg/ScrollTo'
+import TiltedArrow from '../svg/TiltedArrow';
+import ScrollToIcon from '../svg/ScrollTo'
+
 export default function Contact(){
     return(
         <section className="contact">
@@ -23,7 +23,6 @@ export default function Contact(){
             <div className="contact__scroll-to" onClick={() => window.scrollTo(0 , 0)}>
                 <ScrollToIcon/>
             </div>
-
         </section>
     )
 }
