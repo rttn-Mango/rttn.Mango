@@ -530,73 +530,93 @@ body{
     @include container();
 
     h1{
-        font-size: clamp(var(--font-size-300), 7.5vw, var(--font-size-900));
+        font-size: clamp(calc(var(--fs-body3) + .75dvw), 10vw, var(--fs-display));
         font-family: 'Okine-Black';
-        padding-block: 8vw 15vw;
-        border-bottom: 1px solid rgba(255 255 255 / 0.5);
+        padding-block: calc(1em + 3.5dvw);
 
-        span{font-family: 'Okine-Black-Outline';}
+        span{
+            color: transparent;
+            -webkit-text-stroke: 3px var(--dm-txt);
+            @media screen and (max-width: 800px) { -webkit-text-stroke: 1px var(--dm-txt); }
+        }
     }
 
-    h2{
-        font-size: clamp(var(--font-size-250), 8vw, var(--font-size-800));
-        font-family: 'Okine-Regular';
-        margin-block: 10vw;
-        position: relative;
+    h2:not(.contact h2){
+        font-size: clamp(calc(var(--fs-body) + .2em), 8dvw, var(--fs-heading3));
+        font-family: 'Okine-Bold';
     }
 
-    h3{
-        font-size: clamp(var(--font-size-250), 1.5vw, var(--font-size-300));
-        font-family: 'Okine-Light';
-        padding-block: 1.5rem;
-        border-bottom: 1px solid rgba(255 255 255 / 0.5);
-    }
-
-    .desktop-img{display: none;}
-    .mobile-img{object-fit: contain;}
-
-    .info-data{
-        padding-bottom: 5rem;
-
-        &__paragraphs{@include flex(row, 2rem); justify-content: space-between; padding-top: 1.5rem;}
-    }
-
-    &__details{
-        &--label{display: none;}
-
-        &--info{padding-bottom: 5rem;}
-    }
-
-    &__contact-me{
-        margin-block: 10vw 15vw;
-        @include flex(column, 1rem);
+    a:not(.contact a){
+        display: inline-flex;
         align-items: center;
+        gap: 3px;
+        font-size: calc(var(--fs-body) + .08em);
+        color: var(--secondary);
+        font-family: 'Okine-Light';
 
-        & img{
-            margin-bottom: 15vw;
-            animation: down-arrow 1s ease-in-out infinite alternate;
+        & svg{
+            width: var(--fs-caption);
+            height: max-content;
         }
     }
 
-    .work-link{
-        text-decoration: none;
-        color: var(--clr-dm-primary);
+    .desc__row{
+        @include flex(row, 1rem);
+        &:first-of-type{padding-bottom: 1rem; border-bottom: 1px solid var(--neutral-300)}
+        &:last-of-type{
+            padding-top: 1rem;
+            @media screen and (width < 350px) {flex-direction: column}
+        }
+
+        &--stack{
+            @include flex(row, 1rem);
+            & p{
+                border: 1px solid var(--neutral-300);
+                align-self: flex-start;
+                padding: .25rem .35rem;
+                border-radius: .75rem;
+            }
+        }
+        justify-content: space-between;
     }
 
-    a:not(.work-link){
-        text-align: center;
-        text-decoration: none;
-        font-size: clamp(var(--font-size-250), 4vw, var(--font-size-900));
-        font-family: 'Stardom';
+    img{
+        border-radius: 2rem;
+        object-fit:cover ;
+        object-position: top;
+        @media screen and (max-width: 700px) {height: calc(20rem + 30dvw)}
+        box-shadow: 0 0 10px rgba(255 255 255 / 0.5);
+    }
+
+    .flex-wrapper{
+        @include flex(column, calc(5rem + 15dvw));
+        padding-block: 3em calc(3em + 7dvw);
+    }
+
+    &__card{
         position: relative;
-        padding: 5vw 2.15rem;
-        border-top: 1px solid rgba(255 255 255 / 0.5);
-        border-bottom: 1px solid rgba(255 255 255 / 0.5);
+        width: fit-content;
+        
+        &--desc{margin-block: 3em;}
 
-        &:hover{
-            background-color: black;
+        @media screen and (min-width: 900px) {
+            &:last-of-type{align-self: flex-end;}
+            &--desc{
+                background-color: var(--neutral-900);
+                margin-block: 0;
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                padding: 2rem 3rem;
+                border-bottom-left-radius: 2rem;
+                border-bottom-right-radius: 2rem;
+            }
+
+            img{opacity: .85;}
         }
     }
+
+    
 }
 
 //Burger Menu

@@ -1,114 +1,78 @@
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react";
-import { motion } from 'framer-motion'
+import { useEffect } from "react";
 
-//Image
-import Shortly from '../assets/Shrtly.webp'
-import Easybank from '../assets/Eas.webp'
-import down from '../assets/Down Arrow.svg'
+//Component
+import Contact from "../Components/Contact";
+
+//Images
+import minify from '../assets/Minify.png';
+import minifyMobile from '../assets/MinifyMobile.png';
+import minifyTablet from '../assets/MinifyTablet.png';
+import shortly from '../assets/Shortly.png';
+import shortlyMobile from '../assets/ShortlyMobile.png'
+import shortlyTablet from '../assets/ShortlyTablet.png'
+
+//Icon
+import TiltedArrow from "../svg/TiltedArrow";
 
 export default function WorksPage(){
-    const [workIndex, setWorkIndex] = useState(0);
-
-    //This will be used to disable certain animations on smaller screen sizes
-    let windowWidth = window.innerWidth;
-
-    const workHoverAnim = {
-        initial: {backgroundColor: 'transparent'},
-        hovered: {backgroundColor: 'black'},
-    }
-
-    const imageHoverAnim = {
-        initial: {top: 0},
-        hovered: {
-            top :  workIndex * -100 + '%',
-            transition: {
-                ease: [0.65, 0, 0.35, 1]
-            }
-        }
-    }
-
-    const textAnim = {
-        initial: {opacity: 0},
-        animate: {
-            opacity: 1,
-            transition: {
-                duration: .5,
-                ease: [0.45, 0, 0.55, 1]
-            }
-        }
-    }
-
     //To change document title once the Component mounts
     useEffect( () => {document.title = "Works"}, [])
 
     return(
         <main className="works-page">
-            <motion.h1 variants={textAnim} initial="initial" whileInView="animate">Intuitive and <span>Smooth</span> User Experience</motion.h1>
+            <h1>My Recent <span>Works</span></h1>
 
-            <section className="works-page__details">
-                <motion.h2 variants={textAnim} initial='initial' whileInView='animate'>My recent <span>works</span></motion.h2>
-                
-                <div className="works-page__details--wrapper">
+            <div className="flex-wrapper">
+                <section className="works-page__card">
+                    <picture>
+                        <source srcSet={minifyMobile} media="(max-width: 700px)"/>
+                        <source srcSet={minifyTablet} media="(width > 700px) and (width < 1080px)"/>
+                        <img src={minify} alt="Minify Hero Section" draggable='false' width={1430} height={750}/>
+                    </picture>
 
-                    <section className="works-page__details--hover">
-                        <motion.div 
-                            className="hover-anim"
-                            variants={imageHoverAnim}
-                            initial="initial"
-                            animate="hovered"
-                        >
-                            <p {...windowWidth < 800 ? {style: {display: "none"}} : {style: {display: "block"}}}>Try hovering on project name</p>
-                            <motion.img variants={textAnim} initial="initial" whileInView='animate' className="desktop-img" src={Shortly} alt="Shortly Website full image" draggable="false" width={550} height={750}/>
-                            <motion.img variants={textAnim} initial="initial" whileInView='animate' className="desktop-img" src={Easybank} alt="Easybank Website full image" draggable="false" width={550} height={750}/>
-                        </motion.div>
+                    <section className="works-page__card--desc">
+                        <div className="desc__row">
+                            <h2>minify</h2>
+                            <Link to='' title="read more about minify">read more <TiltedArrow/> </Link>
+                        </div>
+                        <div className="desc__row">
+                            <p>Designer & Developer</p>
+
+                            <div className="desc__row--stack">
+                                <p>React</p>
+                                <p>SASS</p>
+                                <p>Figma</p>
+                            </div>
+                        </div>
                     </section>
+                </section>
 
-                    <motion.div className="works-page__details--info" variants={textAnim} initial='initial' whileInView='animate'>
-                        <a href="https://sh0rtly.vercel.app/" className="work-link" title="Go to Shortly Website">
-                            <motion.section 
-                                className="info-data" 
-                                onMouseEnter={() => setWorkIndex(1)} 
-                                onMouseLeave={() => setWorkIndex(1)}
-                                variants={workHoverAnim}
-                                initial="initial"
-                                animate={windowWidth > 800 && workIndex === 1 ? 'hovered' : 'initial'}
-                            >
-                                <img className="mobile-img" src={Shortly} alt="Shortly Website full image" draggable="false" width={400} height={350}/>
-                                <h3>Shortly</h3>
-                                <div className="info-data__paragraphs">
-                                    <p>Designer & Dev</p>
-                                    <p>React, SASS</p>
-                                </div>
-                            </motion.section>
-                        </a>
+                <section className="works-page__card">
+                    <picture>
+                        <source srcSet={shortlyMobile} media="(max-width: 700px)"/>
+                        <source srcSet={shortlyTablet} media="(width > 700px) and (width < 1080px)"/>
+                        <img src={shortly} alt="Minify Hero Section" draggable='false' width={1430} height={750}/>
+                    </picture>
 
-                        <a href="https://izibank.vercel.app/" className="work-link" title="Go to Easybank Website">
-                            <motion.section 
-                                className="info-data" 
-                                onMouseEnter={() => setWorkIndex(2)} 
-                                onMouseLeave={() => setWorkIndex(1)}
-                                variants={workHoverAnim}
-                                initial="initial"
-                                animate={windowWidth > 800 && workIndex === 2 ? 'hovered' : 'initial'}
-                            >
-                                <img className="mobile-img" src={Easybank} alt="Shortly Website full image" draggable="false" width={400} height={350}/>
-                                <h3>Easybank</h3>
-                                <div className="info-data__paragraphs">
-                                    <p>Designer & Dev</p>
-                                    <p>React, SASS</p>
-                                </div>
-                            </motion.section>
-                        </a>
-                        
-                    </motion.div>
-                </div>
-            </section>
-            
-            <motion.section variants={textAnim} initial="initial" whileInView='animate' className="works-page__contact-me">
-                <img src={down} alt="Down Arrow Icon"  draggable="false" height={160} width={130}/>
-                <Link to='/contact' title="Send me a Message">Let&apos;s talk about it, Drop me a message</Link>
-            </motion.section>
+                    <section className="works-page__card--desc">
+                        <div className="desc__row">
+                            <h2>Shortly</h2>
+                            <Link to='' title="read more about Shortly">read more <TiltedArrow/> </Link>
+                        </div>
+                        <div className="desc__row">
+                            <p>Developer</p>
+
+                            <div className="desc__row--stack">
+                                <p>React</p>
+                                <p>SASS</p>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+
+            <Contact/>
         </main>
     )
 }
