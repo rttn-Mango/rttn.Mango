@@ -28,10 +28,11 @@
 }
 
 body{
-    background-color: var(--dm-bg);
+    background-color: var(--clr-bg);
     font-family: 'Okine-Thin';
     color: var(--neutral-100);
     overflow-x: hidden;
+    transition: background-color 1s ease-in-out
 }
 
 //Hero section
@@ -53,8 +54,9 @@ body{
         font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
         font-family: 'Okine-Black';
         color: transparent;
-        -webkit-text-stroke: 6px var(--dm-primary);
-        @media screen and (max-width: 1000px) {-webkit-text-stroke: 2px var(--dm-primary);}
+        -webkit-text-stroke: 6px var(--clr-primary);
+        padding-top: calc(.5rem + 1.5dvw);
+        @media screen and (max-width: 1000px) {-webkit-text-stroke: 2px var(--clr-primary);}
 
         & .img{
             display: inline-block;
@@ -80,25 +82,27 @@ body{
         font-family: 'Okine-Black';
         line-height: 1.3;
         white-space: nowrap;
-        color: var(--dm-text);
+        color: var(--clr-txt);
     }
 
     &__bottom{
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         gap: 1rem;
         justify-content: space-between;
-        padding-top: calc(1em + 2.5dvw);
+        padding-top: calc(1em + 1dvw);
+        color: var(--clr-txt);
         @media screen and (max-width: 600px) { padding-block: calc(10rem + 5dvw); }
 
         &--scrollTo{
-            border: 2px solid var(--dm-primary);
+            border: 2px solid var(--clr-primary);
             border-radius: 50%;
             padding: min(3dvw, 1.5em);
+            background-color: var(--neutral-900);
 
             & svg{
-                height: clamp(25px, 3vw, 40px);
-                width: clamp(25px, 3vw, 40px);
+                width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
+                height: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
                 animation: down-arrow 500ms linear infinite alternate;
             }
         }
@@ -107,7 +111,7 @@ body{
 }
 
 //Wrapper to make the parallax effect work
-.bg-wrapper{background-color: var(--dm-bg); position: relative; z-index: -1;}
+.bg-wrapper{background-color: var(--clr-bg); position: relative; z-index: -1;}
 
 //intro section
 .intro{
@@ -121,6 +125,7 @@ body{
         font-family: 'Okine-Thin';
         max-width: 15ch;
         position: relative;
+        color: var(--clr-txt);
         
         span{font-family: 'Okine-Light'}
     }
@@ -145,12 +150,14 @@ body{
     h2{
         font-size: clamp(calc(var(--fs-heading3) - 5dvw), 10dvw, var(--fs-heading2));
         font-family: 'Okine-Medium';
+        color: var(--clr-txt);
         padding-bottom: 1.5rem;
     }
 
     p{
         max-width: 30ch;
         line-height: 1.5;
+        color: var(--clr-txt);
         font-size: clamp(var(--fs-body), 10dvw, calc(var(--fs-body) + .25dvw));
 
         &:first-of-type{padding-bottom: 1rem}
@@ -162,7 +169,7 @@ body{
         font-size: clamp(calc(var(--fs-body2) + 2dvw), 10dvw, var(--fs-heading3));
         font-family: 'Okine-Regular';
         text-align: center;
-        color: var(--dm-primary);
+        color: var(--clr-primary);
 
         &:first-of-type{padding-bottom: calc(1.5em + 3dvw);}
         &:not(:first-of-type){
@@ -199,6 +206,7 @@ body{
         font-family: 'Okine-Medium';
         padding-block: 2rem 10rem;
         text-transform: uppercase;
+        color: var(--clr-txt);
     }
 
     h3{
@@ -206,6 +214,8 @@ body{
         font-family: 'Okine-Regular';
         font-size: clamp(calc(var(--fs-body) + 1dvw), 7vw, var(--fs-heading3));
         position: relative;
+        color: var(--clr-txt);
+
     }
 
     a{
@@ -232,15 +242,15 @@ body{
     }
 
     &__contents{
-        color: var(--dm-primary);
+        color: var(--clr-primary);
         @include flex(row, 1rem);
         @media screen and (max-width: 450px) { flex-direction: column; gap: 2rem;}
         align-items: center;
         justify-content: space-between;
         padding: calc(5em + 10dvw) 2vw;
-        border-top: 1px solid var(--neutral-100);
+        border-top: 1px solid var(--neutral-500);
 
-        &:not(:first-child){border-bottom: 1px solid var(--neutral-100)}
+        &:not(:first-child){border-bottom: 1px solid var(--neutral-500)}
         &:not(:hover){opacity: .7}
     }
 }
@@ -253,9 +263,12 @@ body{
         font-size: clamp(calc(var(--fs-body3) + .75dvw), 10vw, var(--fs-heading));
         font-family: 'Okine-Black';
         padding-block: 1em;
+        color: var(--clr-txt);
+
         span{
             color: transparent;
-            -webkit-text-stroke: 3px var(--dm-txt);
+            -webkit-text-stroke: 3px var(--clr-primary);
+            @media screen and (max-width: 600px) { -webkit-text-stroke: 1px var(--clr-txt); }
         }
     }
 
@@ -263,14 +276,14 @@ body{
         font-size: clamp(var(--fs-body2), 8vw, var(--fs-heading2));
         font-family: 'Okine-Medium';
         padding-block: .25em;
-        color: var(--dm-primary);
+        color: var(--clr-primary);
     }
 
     h3{
         font-size: clamp(calc(var(--fs-body) + .75dvw), 5.5vw, var(--fs-heading3));
         font-family: 'Okine-Regular';
         padding-block: 1.5rem;
-        color: var(--dm-primary);
+        color: var(--clr-primary);
         display: inline-flex;
         gap: 1rem;
         align-items: center;
@@ -281,6 +294,7 @@ body{
         max-height: 130dvh;
         position: relative;
         overflow: hidden;
+        color: var(--clr-txt);
 
         & .wrapper{
             position: sticky;
@@ -302,6 +316,7 @@ body{
 
     &__design-style{
         padding-block: calc(2em + 3dvw);
+        color: var(--clr-txt);
 
         .flex{
             @include flex(column, 1rem);
@@ -315,9 +330,9 @@ body{
         }
         
         & p{
-            font-size: clamp(calc(var(--fs-body) + .05em), 2dvw, var(--fs-body2));
             padding-top: 1.5em;
             max-width: 35ch;
+            font-size: clamp(var(--fs-body), 3vw, var(--fs-body2));
         }
 
         span{color: var(--secondary);}
@@ -376,17 +391,19 @@ body{
 
     &__niche{
         padding-block: calc(3em + 2dvw);
+        color: var(--clr-txt);
 
         & > p:first-of-type{
             padding-block: 3rem calc(3rem + 3dvw);
             span{color: var(--secondary);}
+            font-size: clamp(var(--fs-body), 3vw, var(--fs-body2));
         }
 
         &--label{
             padding-block: calc(2em + 3dvw) 2em;
             font-size: clamp(calc(var(--fs-body) + .1em), 5dvw, calc(var(--fs-body3) + .5em));
             font-family: 'Okine-Regular';
-            color: var(--dm-txt);
+            color: var(--clr-txt);
 
             $i: 0;
             @for $i from 1 through 3{
@@ -401,6 +418,7 @@ body{
         &--field{
             @include flex(column, 2rem);
             justify-content: space-between;
+            font-size: clamp(var(--fs-body), 3vw, calc(var(--fs-body) + .25em));
 
             @media screen and (min-width: 1000px) {
                 flex-direction: row; 
@@ -421,17 +439,19 @@ body{
         font-size: clamp(calc(var(--fs-body3) + .75dvw), 10vw, var(--fs-display));
         font-family: 'Okine-Black';
         padding-block: calc(1em + 3.5dvw);
+        color: var(--clr-txt);
 
         span{
             color: transparent;
-            -webkit-text-stroke: 3px var(--dm-txt);
-            @media screen and (max-width: 800px) { -webkit-text-stroke: 1px var(--dm-txt); }
+            -webkit-text-stroke: 3px var(--clr-primary);
+            @media screen and (max-width: 800px) { -webkit-text-stroke: 1px var(--clr-txt); }
         }
     }
 
     h2:not(.contact h2){
         font-size: clamp(calc(var(--fs-body) + .2em), 8dvw, var(--fs-heading3));
         font-family: 'Okine-Bold';
+        color: var(--neutral-100);
     }
 
     a:not(.contact a){
@@ -518,18 +538,20 @@ body{
         font-size: clamp(calc(var(--fs-body3) + .75dvw), 10vw, var(--fs-display));
         font-family: 'Okine-Black';
         padding-block: .875em;
+        color: var(--clr-txt);
 
         span{
             color: transparent;
-            -webkit-text-stroke: 3px var(--dm-txt);
-            @media screen and (max-width: 600px) { -webkit-text-stroke: 1px var(--dm-txt); }
+            -webkit-text-stroke: 3px var(--clr-primary);
+            @media screen and (max-width: 600px) { -webkit-text-stroke: 1px var(--clr-txt); }
         }
     }
 
     .form-group{
         @include flex(column, 1rem);
         padding-block: 3rem;
-        border-top: 1px solid rgba(255 255 255 / 0.5);
+        color: var(--clr-txt);
+        border-top: 1px solid var(--neutral-500);
 
         &:focus-within{
             label{
@@ -541,6 +563,7 @@ body{
 
     label{
         padding-left: 1.5rem;
+        font-family: 'Okine-Light';
 
         span{
             display: inline-block;
@@ -557,7 +580,8 @@ body{
         outline: 0;
 
         &::-webkit-input-placeholder, &::-moz-placeholder{
-            color: var(--neutral-100);;
+            color: var(--clr-txt);
+            opacity: .7;
         }
     }
 
@@ -569,8 +593,8 @@ body{
         align-items: center;
         justify-content: center;
         padding-block: .65rem;
-        background-color: transparent;
-        border: 1px solid var(--dm-primary);
+        background-color: var(--accent);
+        border: none;
         color: var(--neutral-100);
         cursor: pointer;
         transform: translateY(0);
@@ -582,7 +606,7 @@ body{
         }
 
         &:hover{
-            box-shadow: 2px 3px 0 var(--dm-primary);
+            box-shadow: 2px 3px 0 var(--clr-primary);
             transform: translateY(-3px);
             img{transform: translateX(5px)}
         }
@@ -595,6 +619,7 @@ body{
     a, p{
         text-decoration: none; 
         font-family: 'Okine-Light';
+        color: var(--clr-txt);
     }
 
     p{padding-bottom: 1rem;}
@@ -604,7 +629,8 @@ body{
 
         h2{
             font-size: clamp(var(--fs-body), 8vw, var(--fs-body3));
-            font-family: 'Okine-Regular';
+            font-family: 'Okine-Medium';
+            color: var(--clr-primary);
             padding-block: 1.5rem;
         }
 

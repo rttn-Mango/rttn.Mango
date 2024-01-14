@@ -15,6 +15,7 @@ export default function Hero(){
                 y: '-2dvw',
                 ease: 'power2',
                 opacity: .3,
+                scale: .90,
                 scrollTrigger: {
                     trigger: wrapper.current,
                     start: 'top top',

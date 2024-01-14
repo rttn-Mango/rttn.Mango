@@ -1,35 +1,4 @@
 :root{
-    //Light Mode
-    --clr-lm-bg: hsl(0, 0%, 94%);
-    --clr-lm-secondary: hsl(199, 30%, 85%);
-
-    //Dark Mode
-    --clr-dm-bg: hsl(240, 10%, 8%);
-    --clr-dm-primary: hsl(37, 100%, 96%);
-    --clr-dm-secondary: hsl(211, 91%, 9%);
-    --clr-dm-accent: hsl(194, 72%, 34%);
-
-    --font-size-100: .9rem;
-    --font-size-200: 1rem;
-    --font-size-250: 1.875rem;
-    --font-size-300: 2.5rem;
-    --font-size-400: 3.125rem;
-    --font-size-450: 3.5rem;
-    --font-size-500: 3.75rem;
-    --font-size-550: 4rem;
-    --font-size-600: 4.4rem;
-    --font-size-700: 5.5rem;
-    --font-size-800: 6.25rem;
-    --font-size-850: 9rem;
-    --font-size-900: 30rem;
-
-    --font-weight-600: 600;
-    --font-weight-700: 700;
-    --font-weight-900: 900;
-
-
-    
-    // V2 Properties
     --fs-display: 17.938rem;
     --fs-heading: 10.062rem;
     --fs-heading2: 6.875rem;
@@ -39,9 +8,9 @@
     --fs-body: 1rem;
     --fs-caption: 0.813rem;
 
-    --dm-txt: hsl(30, 15%, 95%);
-    --dm-bg: hsl(210, 10%, 4%);
-    --dm-primary: hsl(35, 100%, 95%);
+    --clr-txt: hsl(30, 15%, 95%);
+    --clr-bg: hsl(210, 10%, 4%);
+    --clr-primary: hsl(35, 100%, 95%);
 
     --lm-txt: hsl(30, 15%, 5%);
     --lm-bg: hsl(30, 10%, 96%);

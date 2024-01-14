@@ -5,7 +5,7 @@
     padding-block: calc(5rem + 5dvw);
 
     .logo{
-        color: var(--dm-text); 
+        color: var(--neutral-100); 
         text-decoration: none;
         font-size: clamp(var(--fs-body2), 5vw, calc(var(--fs-body3)));
         font-family: 'Okine-Medium';
@@ -13,7 +13,7 @@
         display: inline-block;
     }
 
-    p:first-of-type{font-size: var(--fs-caption);font-family: 'Okine-Light';}
+    p:first-of-type{font-size: var(--fs-caption);font-family: 'Okine-Light'; color: var(--neutral-100);}
 
     nav{
         max-width: clamp(80%, 85vw, 110rem);
@@ -47,7 +47,7 @@
 
     a{
         text-decoration: none;
-        color: var(--dm-primary);
+        color: var(--neutral-100);
 
         &:not(.logo){
             &:hover, &:focus{

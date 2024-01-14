@@ -25,9 +25,9 @@
 
         & li a{
             text-decoration: none;
-            font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
+            font-size: clamp(var(--fs-body3), 10vw, var(--fs-heading2));
             position: relative;
-            color: var(--dm-text);
+            color: var(--clr-text);
             font-family: 'Okine-Medium';
     
             &:focus{
@@ -46,7 +46,7 @@
         & svg{
             height: .35em;
             width: .35em;
-            stroke: var(--dm-primary);
+            stroke: var(--neutral-100);
             stroke-width: .04em;
             margin-top: calc(.5rem + 1dvw);
         }

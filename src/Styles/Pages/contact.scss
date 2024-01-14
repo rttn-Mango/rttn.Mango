@@ -6,9 +6,9 @@
     padding-block: calc(5em + 5dvw);
     max-width: clamp(80%, 85vw, 110rem);
     margin-inline: auto;
-    color: var(--dm-text);
+    color: var(--clr-text);
 
-    & > p{font-size: clamp(calc(var(--fs-caption) + .25em), 3dvw, calc(var(--fs-body) + .35dvw));}
+    & > p{font-size: clamp(calc(var(--fs-caption) + .25em), 3dvw, calc(var(--fs-body) + .35dvw)); color: var(--clr-txt);}
 
     @media screen and (min-width: 800px) {
         .wrapper{
@@ -22,13 +22,14 @@
     @media screen and (width > 1400px) {
         .wrapper{max-width: 90%; margin-inline: auto }}
 
-    &__sub-heading{font-size: clamp(var(--fs-body), 5vw, var(--fs-body2)); font-family: 'Okine-Thin';}
+        &__sub-heading{font-size: clamp(var(--fs-body), 5vw, var(--fs-body2)); font-family: 'Okine-Thin'; color: var(--clr-txt);}
 
     h2{
         font-size: clamp(calc(var(--fs-body3) + 5dvw), 10vw, var(--fs-display));
         max-width: 7ch;
         font-family: 'Okine-Bold';
         padding-block: .5em;
+        color: var(--clr-txt);
     }
 
     a{
@@ -36,11 +37,11 @@
         font-size: calc(var(--fs-body) + .5dvw);
         display: inline-flex;
         font-family: 'Okine-Regular';
-        color: var(--dm-primary);
+        color: var(--clr-primary);
         align-items: center;
         justify-content: center;
         gap: .75rem;
-        border: 2px solid var(--dm-primary);
+        border: 2px solid var(--clr-primary);
         padding: .5em 2em;
         border-radius: 3rem;
         position: relative;
@@ -48,12 +49,12 @@
         transition: top 100ms ease-in-out;
         width: 100%;
 
-        & svg{width: .65em}
+        & svg{width: .65em;}
 
         &:hover, &:focus{
             border-color: var(--accent);
             top: -3px;
-            box-shadow: 0 0 10px var(--dm-primary);
+            box-shadow: 0 0 10px var(--clr-primary);
             color: var(--secondary);
         }
     }
@@ -62,6 +63,7 @@
         font-size: calc(var(--fs-body) + .5dvw);
         font-family: 'Okine-Regular';
         text-align: center;
+        color: var(--clr-txt);
     }
 
     &__details {
@@ -77,7 +79,7 @@
     }
 
     &__scroll-to{
-        border: 3px solid var(--dm-primary);
+        border: 3px solid var(--clr-primary);
         width: max-content;
         padding: calc(.5rem + 1.5dvw);
         border-radius: 50%;
@@ -85,6 +87,7 @@
         margin-left: auto;
         cursor: pointer;
         rotate: 180deg;
+        background-color: var(--neutral-900);
         
         svg{
             width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));

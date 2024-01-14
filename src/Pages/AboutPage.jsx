@@ -25,6 +25,7 @@ export default function AboutPage(){
                 y: '-2dvw',
                 ease: 'power2',
                 opacity: .3,
+                scale: .93,
                 scrollTrigger: {
                     trigger: wrapper.current,
                     start: 'top top',

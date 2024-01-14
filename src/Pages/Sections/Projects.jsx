@@ -28,7 +28,7 @@ export default function Projects(){
                 PROJECTS_DATA.map((project, i) => {
                     return (
                         <ProjectsCard
-                            key={project.id}
+                            key={i}
                             title={project.title}
                             src={project.src}
                             index={i}

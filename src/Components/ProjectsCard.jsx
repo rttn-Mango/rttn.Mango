@@ -10,6 +10,7 @@ export default function ProjectsCard({setModal, title, src, index}){
             onMouseEnter={() => {setModal(window.innerWidth > 799 ? {active: true, index: index} : {active: false, index: index})}}
             onMouseLeave={() => {setModal({active: false, index: index})}}
             title={index === 0 ? 'Minify Website' : 'Shortly Website'}
+            key={index}
         >
             <h3>{title}</h3>
             <p>{index === 0 ? 'Designer & Developer' : 'Developer'}</p>

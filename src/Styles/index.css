@@ -11,6 +11,7 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   scroll-behavior: smooth;
+  color-scheme: dark light;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -110,28 +111,6 @@ textarea:not([rows]) {
   font-display: swap;
 }
 :root {
-  --clr-lm-bg: hsl(0, 0%, 94%);
-  --clr-lm-secondary: hsl(199, 30%, 85%);
-  --clr-dm-bg: hsl(240, 10%, 8%);
-  --clr-dm-primary: hsl(37, 100%, 96%);
-  --clr-dm-secondary: hsl(211, 91%, 9%);
-  --clr-dm-accent: hsl(194, 72%, 34%);
-  --font-size-100: .9rem;
-  --font-size-200: 1rem;
-  --font-size-250: 1.875rem;
-  --font-size-300: 2.5rem;
-  --font-size-400: 3.125rem;
-  --font-size-450: 3.5rem;
-  --font-size-500: 3.75rem;
-  --font-size-550: 4rem;
-  --font-size-600: 4.4rem;
-  --font-size-700: 5.5rem;
-  --font-size-800: 6.25rem;
-  --font-size-850: 9rem;
-  --font-size-900: 30rem;
-  --font-weight-600: 600;
-  --font-weight-700: 700;
-  --font-weight-900: 900;
   --fs-display: 17.938rem;
   --fs-heading: 10.062rem;
   --fs-heading2: 6.875rem;
@@ -140,9 +119,9 @@ textarea:not([rows]) {
   --fs-body2: 1.625rem;
   --fs-body: 1rem;
   --fs-caption: 0.813rem;
-  --dm-txt: hsl(30, 15%, 95%);
-  --dm-bg: hsl(210, 10%, 4%);
-  --dm-primary: hsl(35, 100%, 95%);
+  --clr-txt: hsl(30, 15%, 95%);
+  --clr-bg: hsl(210, 10%, 4%);
+  --clr-primary: hsl(35, 100%, 95%);
   --lm-txt: hsl(30, 15%, 5%);
   --lm-bg: hsl(30, 10%, 96%);
   --lm-primary: hsl(35, 100%, 5%);
@@ -172,13 +151,13 @@ textarea:not([rows]) {
 }
 .preloader__bg {
   flex: 1;
-  background-color: black;
+  background-color: var(--neutral-900);
   transform-origin: top;
 }
 .preloader h1 {
-  font-size: clamp(var(--font-size-200) + 0.5rem, 4vw, var(--font-size-700));
+  font-size: clamp(var(--fs-body) + 0.5rem, 4vw, var(--fs-heading2));
   font-family: "Okine-Medium";
-  color: white;
+  color: var(--neutral-100);
   position: absolute;
   align-self: center;
   margin: auto;
@@ -195,7 +174,7 @@ textarea:not([rows]) {
   margin-inline: auto;
 }
 .header .logo {
-  color: var(--dm-text);
+  color: var(--clr-txt);
   text-decoration: none;
   font-size: clamp(var(--fs-body2), 5vw, var(--fs-body3));
   font-family: "Okine-Medium";
@@ -215,8 +194,11 @@ textarea:not([rows]) {
   position: relative;
   cursor: pointer;
 }
+.header__btns--mobile-menu svg {
+  color: var(--clr-primary);
+}
 .header a {
-  color: var(--dm-text);
+  color: var(--clr-txt);
   text-decoration: none;
   font-size: clamp(var(--fs-caption), 3vw, 1.25rem);
   font-family: "Okine-Thin";
@@ -276,7 +258,7 @@ textarea:not([rows]) {
   padding-block: calc(5rem + 5dvw);
 }
 .footer .logo {
-  color: var(--dm-text);
+  color: var(--neutral-100);
   text-decoration: none;
   font-size: clamp(var(--fs-body2), 5vw, var(--fs-body3));
   font-family: "Okine-Medium";
@@ -286,6 +268,7 @@ textarea:not([rows]) {
 .footer p:first-of-type {
   font-size: var(--fs-caption);
   font-family: "Okine-Light";
+  color: var(--neutral-100);
 }
 .footer nav {
   max-width: clamp(80%, 85vw, 110rem);
@@ -321,7 +304,7 @@ textarea:not([rows]) {
 }
 .footer a {
   text-decoration: none;
-  color: var(--dm-primary);
+  color: var(--neutral-100);
 }
 .footer a:not(.logo):hover, .footer a:not(.logo):focus {
   color: var(--secondary);
@@ -359,9 +342,9 @@ textarea:not([rows]) {
 }
 .nav ul li a {
   text-decoration: none;
-  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
+  font-size: clamp(var(--fs-body3), 10vw, var(--fs-heading2));
   position: relative;
-  color: var(--dm-text);
+  color: var(--clr-text);
   font-family: "Okine-Medium";
 }
 .nav ul li a:focus {
@@ -377,7 +360,7 @@ textarea:not([rows]) {
 .nav .resume svg {
   height: 0.35em;
   width: 0.35em;
-  stroke: var(--dm-primary);
+  stroke: var(--neutral-100);
   stroke-width: 0.04em;
   margin-top: calc(0.5rem + 1dvw);
 }
@@ -390,10 +373,11 @@ textarea:not([rows]) {
   padding-block: calc(5em + 5dvw);
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
-  color: var(--dm-text);
+  color: var(--clr-text);
 }
 .contact > p {
   font-size: clamp(var(--fs-caption) + 0.25em, 3dvw, var(--fs-body) + 0.35dvw);
+  color: var(--clr-txt);
 }
 @media screen and (min-width: 800px) {
   .contact .wrapper {
@@ -413,23 +397,25 @@ textarea:not([rows]) {
 .contact__sub-heading {
   font-size: clamp(var(--fs-body), 5vw, var(--fs-body2));
   font-family: "Okine-Thin";
+  color: var(--clr-txt);
 }
 .contact h2 {
   font-size: clamp(var(--fs-body3) + 5dvw, 10vw, var(--fs-display));
   max-width: 7ch;
   font-family: "Okine-Bold";
   padding-block: 0.5em;
+  color: var(--clr-txt);
 }
 .contact a {
   text-decoration: none;
   font-size: calc(var(--fs-body) + 0.5dvw);
   display: inline-flex;
   font-family: "Okine-Regular";
-  color: var(--dm-primary);
+  color: var(--clr-primary);
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  border: 2px solid var(--dm-primary);
+  border: 2px solid var(--clr-primary);
   padding: 0.5em 2em;
   border-radius: 3rem;
   position: relative;
@@ -443,13 +429,14 @@ textarea:not([rows]) {
 .contact a:hover, .contact a:focus {
   border-color: var(--accent);
   top: -3px;
-  box-shadow: 0 0 10px var(--dm-primary);
+  box-shadow: 0 0 10px var(--clr-primary);
   color: var(--secondary);
 }
 .contact p:not(:first-of-type) {
   font-size: calc(var(--fs-body) + 0.5dvw);
   font-family: "Okine-Regular";
   text-align: center;
+  color: var(--clr-txt);
 }
 @media screen and (max-width: 800px) {
   .contact__details {
@@ -465,7 +452,7 @@ textarea:not([rows]) {
   font-family: "Okine-Medium";
 }
 .contact__scroll-to {
-  border: 3px solid var(--dm-primary);
+  border: 3px solid var(--clr-primary);
   width: max-content;
   padding: calc(0.5rem + 1.5dvw);
   border-radius: 50%;
@@ -473,6 +460,7 @@ textarea:not([rows]) {
   margin-left: auto;
   cursor: pointer;
   rotate: 180deg;
+  background-color: var(--neutral-900);
 }
 .contact__scroll-to svg {
   width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
@@ -481,10 +469,11 @@ textarea:not([rows]) {
 }
 
 body {
-  background-color: var(--dm-bg);
+  background-color: var(--clr-bg);
   font-family: "Okine-Thin";
   color: var(--neutral-100);
   overflow-x: hidden;
+  transition: background-color 1s ease-in-out;
 }
 
 .hero {
@@ -509,11 +498,12 @@ body {
   font-size: clamp(var(--fs-body3) + 2dvw, 16vw, var(--fs-display));
   font-family: "Okine-Black";
   color: transparent;
-  -webkit-text-stroke: 6px var(--dm-primary);
+  -webkit-text-stroke: 6px var(--clr-primary);
+  padding-top: calc(0.5rem + 1.5dvw);
 }
 @media screen and (max-width: 1000px) {
   .hero h1 {
-    -webkit-text-stroke: 2px var(--dm-primary);
+    -webkit-text-stroke: 2px var(--clr-primary);
   }
 }
 .hero h1 .img {
@@ -536,14 +526,15 @@ body {
   font-family: "Okine-Black";
   line-height: 1.3;
   white-space: nowrap;
-  color: var(--dm-text);
+  color: var(--clr-txt);
 }
 .hero__bottom {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 1rem;
   justify-content: space-between;
-  padding-top: calc(1em + 2.5dvw);
+  padding-top: calc(1em + 1dvw);
+  color: var(--clr-txt);
 }
 @media screen and (max-width: 600px) {
   .hero__bottom {
@@ -551,18 +542,19 @@ body {
   }
 }
 .hero__bottom--scrollTo {
-  border: 2px solid var(--dm-primary);
+  border: 2px solid var(--clr-primary);
   border-radius: 50%;
   padding: min(3dvw, 1.5em);
+  background-color: var(--neutral-900);
 }
 .hero__bottom--scrollTo svg {
-  height: clamp(25px, 3vw, 40px);
-  width: clamp(25px, 3vw, 40px);
+  width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
+  height: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
   animation: down-arrow 500ms linear infinite alternate;
 }
 
 .bg-wrapper {
-  background-color: var(--dm-bg);
+  background-color: var(--clr-bg);
   position: relative;
   z-index: -1;
 }
@@ -585,6 +577,7 @@ body {
   font-family: "Okine-Thin";
   max-width: 15ch;
   position: relative;
+  color: var(--clr-txt);
 }
 .intro p span {
   font-family: "Okine-Light";
@@ -610,11 +603,13 @@ body {
 .skills h2 {
   font-size: clamp(var(--fs-heading3) - 5dvw, 10dvw, var(--fs-heading2));
   font-family: "Okine-Medium";
+  color: var(--clr-txt);
   padding-bottom: 1.5rem;
 }
 .skills p {
   max-width: 30ch;
   line-height: 1.5;
+  color: var(--clr-txt);
   font-size: clamp(var(--fs-body), 10dvw, var(--fs-body) + 0.25dvw);
 }
 .skills p:first-of-type {
@@ -627,7 +622,7 @@ body {
   font-size: clamp(var(--fs-body2) + 2dvw, 10dvw, var(--fs-heading3));
   font-family: "Okine-Regular";
   text-align: center;
-  color: var(--dm-primary);
+  color: var(--clr-primary);
 }
 .skills h3:first-of-type {
   padding-bottom: calc(1.5em + 3dvw);
@@ -665,12 +660,14 @@ body {
   font-family: "Okine-Medium";
   padding-block: 2rem 10rem;
   text-transform: uppercase;
+  color: var(--clr-txt);
 }
 .projects h3 {
   text-decoration: none;
   font-family: "Okine-Regular";
   font-size: clamp(var(--fs-body) + 1dvw, 7vw, var(--fs-heading3));
   position: relative;
+  color: var(--clr-txt);
 }
 .projects a {
   text-decoration: none;
@@ -698,14 +695,14 @@ body {
   }
 }
 .projects__contents {
-  color: var(--dm-primary);
+  color: var(--clr-primary);
   display: flex;
   flex-direction: row;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
   padding: calc(5em + 10dvw) 2vw;
-  border-top: 1px solid var(--neutral-100);
+  border-top: 1px solid var(--neutral-500);
 }
 @media screen and (max-width: 450px) {
   .projects__contents {
@@ -714,7 +711,7 @@ body {
   }
 }
 .projects__contents:not(:first-child) {
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--neutral-500);
 }
 .projects__contents:not(:hover) {
   opacity: 0.7;
@@ -728,22 +725,28 @@ body {
   font-size: clamp(var(--fs-body3) + 0.75dvw, 10vw, var(--fs-heading));
   font-family: "Okine-Black";
   padding-block: 1em;
+  color: var(--clr-txt);
 }
 .about-page h1 span {
   color: transparent;
-  -webkit-text-stroke: 3px var(--dm-txt);
+  -webkit-text-stroke: 3px var(--clr-primary);
+}
+@media screen and (max-width: 600px) {
+  .about-page h1 span {
+    -webkit-text-stroke: 1px var(--clr-txt);
+  }
 }
 .about-page h2:not(.contact h2) {
   font-size: clamp(var(--fs-body2), 8vw, var(--fs-heading2));
   font-family: "Okine-Medium";
   padding-block: 0.25em;
-  color: var(--dm-primary);
+  color: var(--clr-primary);
 }
 .about-page h3 {
   font-size: clamp(var(--fs-body) + 0.75dvw, 5.5vw, var(--fs-heading3));
   font-family: "Okine-Regular";
   padding-block: 1.5rem;
-  color: var(--dm-primary);
+  color: var(--clr-primary);
   display: inline-flex;
   gap: 1rem;
   align-items: center;
@@ -753,6 +756,7 @@ body {
   max-height: 130dvh;
   position: relative;
   overflow: hidden;
+  color: var(--clr-txt);
 }
 .about-page__profile .wrapper {
   position: sticky;
@@ -770,6 +774,7 @@ body {
 }
 .about-page__design-style {
   padding-block: calc(2em + 3dvw);
+  color: var(--clr-txt);
 }
 .about-page__design-style .flex {
   display: flex;
@@ -785,9 +790,9 @@ body {
   }
 }
 .about-page__design-style p {
-  font-size: clamp(var(--fs-body) + 0.05em, 2dvw, var(--fs-body2));
   padding-top: 1.5em;
   max-width: 35ch;
+  font-size: clamp(var(--fs-body), 3vw, var(--fs-body2));
 }
 .about-page__design-style span {
   color: var(--secondary);
@@ -845,9 +850,11 @@ body {
 }
 .about-page__niche {
   padding-block: calc(3em + 2dvw);
+  color: var(--clr-txt);
 }
 .about-page__niche > p:first-of-type {
   padding-block: 3rem calc(3rem + 3dvw);
+  font-size: clamp(var(--fs-body), 3vw, var(--fs-body2));
 }
 .about-page__niche > p:first-of-type span {
   color: var(--secondary);
@@ -856,7 +863,7 @@ body {
   padding-block: calc(2em + 3dvw) 2em;
   font-size: clamp(var(--fs-body) + 0.1em, 5dvw, var(--fs-body3) + 0.5em);
   font-family: "Okine-Regular";
-  color: var(--dm-txt);
+  color: var(--clr-txt);
 }
 .about-page__niche--label span:nth-child(1) {
   display: inline-block;
@@ -878,6 +885,7 @@ body {
   flex-direction: column;
   gap: 2rem;
   justify-content: space-between;
+  font-size: clamp(var(--fs-body), 3vw, var(--fs-body) + 0.25em);
 }
 @media screen and (min-width: 1000px) {
   .about-page__niche--field {
@@ -896,19 +904,21 @@ body {
   font-size: clamp(var(--fs-body3) + 0.75dvw, 10vw, var(--fs-display));
   font-family: "Okine-Black";
   padding-block: calc(1em + 3.5dvw);
+  color: var(--clr-txt);
 }
 .works-page h1 span {
   color: transparent;
-  -webkit-text-stroke: 3px var(--dm-txt);
+  -webkit-text-stroke: 3px var(--clr-primary);
 }
 @media screen and (max-width: 800px) {
   .works-page h1 span {
-    -webkit-text-stroke: 1px var(--dm-txt);
+    -webkit-text-stroke: 1px var(--clr-txt);
   }
 }
 .works-page h2:not(.contact h2) {
   font-size: clamp(var(--fs-body) + 0.2em, 8dvw, var(--fs-heading3));
   font-family: "Okine-Bold";
+  color: var(--neutral-100);
 }
 .works-page a:not(.contact a) {
   display: inline-flex;
@@ -1006,14 +1016,15 @@ body {
   font-size: clamp(var(--fs-body3) + 0.75dvw, 10vw, var(--fs-display));
   font-family: "Okine-Black";
   padding-block: 0.875em;
+  color: var(--clr-txt);
 }
 .contact-page h1 span {
   color: transparent;
-  -webkit-text-stroke: 3px var(--dm-txt);
+  -webkit-text-stroke: 3px var(--clr-primary);
 }
 @media screen and (max-width: 600px) {
   .contact-page h1 span {
-    -webkit-text-stroke: 1px var(--dm-txt);
+    -webkit-text-stroke: 1px var(--clr-txt);
   }
 }
 .contact-page .form-group {
@@ -1021,7 +1032,8 @@ body {
   flex-direction: column;
   gap: 1rem;
   padding-block: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--clr-txt);
+  border-top: 1px solid var(--neutral-500);
 }
 .contact-page .form-group:focus-within label {
   color: var(--secondary);
@@ -1029,6 +1041,7 @@ body {
 }
 .contact-page label {
   padding-left: 1.5rem;
+  font-family: "Okine-Light";
 }
 .contact-page label span {
   display: inline-block;
@@ -1043,7 +1056,8 @@ body {
   outline: 0;
 }
 .contact-page input::-webkit-input-placeholder, .contact-page input::-moz-placeholder, .contact-page textarea::-webkit-input-placeholder, .contact-page textarea::-moz-placeholder {
-  color: var(--neutral-100);
+  color: var(--clr-txt);
+  opacity: 0.7;
 }
 .contact-page textarea {
   resize: none;
@@ -1056,8 +1070,8 @@ body {
   align-items: center;
   justify-content: center;
   padding-block: 0.65rem;
-  background-color: transparent;
-  border: 1px solid var(--dm-primary);
+  background-color: var(--accent);
+  border: none;
   color: var(--neutral-100);
   cursor: pointer;
   transform: translateY(0);
@@ -1068,7 +1082,7 @@ body {
   transition: transform 300ms ease-in-out;
 }
 .contact-page button:hover {
-  box-shadow: 2px 3px 0 var(--dm-primary);
+  box-shadow: 2px 3px 0 var(--clr-primary);
   transform: translateY(-3px);
 }
 .contact-page button:hover img {
@@ -1084,6 +1098,7 @@ body {
 .contact-page a, .contact-page p {
   text-decoration: none;
   font-family: "Okine-Light";
+  color: var(--clr-txt);
 }
 .contact-page p {
   padding-bottom: 1rem;
@@ -1093,7 +1108,8 @@ body {
 }
 .contact-page__links h2 {
   font-size: clamp(var(--fs-body), 8vw, var(--fs-body3));
-  font-family: "Okine-Regular";
+  font-family: "Okine-Medium";
+  color: var(--clr-primary);
   padding-block: 1.5rem;
 }
 .contact-page__links a {

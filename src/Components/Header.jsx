@@ -6,8 +6,9 @@ import { useEffect } from "react";
 //Icons
 import Burger from "../svg/Burger";
 import LightModeIcon from '../assets/LightModeIcon.svg'
+import DarkModeIcon from '../assets/DarkModeIcon.svg'
 
-export default function Header({setShowNav, showNav, setFromHeader}){
+export default function Header({setShowNav, showNav, setFromHeader, changePalette ,setChangePalette}){
     const path = useLocation().pathname;
     
     useEffect(() => {
@@ -48,8 +49,11 @@ export default function Header({setShowNav, showNav, setFromHeader}){
                         <Link className={path === '/works' ? 'active' : ''} to="/works" title="Recent Works">Works</Link>
                         <Link className={path === '/contact' ? 'active' : ''} to="/contact" title="Send me a Message">Contact</Link>
                     </li>
-                    <li className="header__btns">
-                        <img src={LightModeIcon} alt="Change Background to Light Mode" draggable="false" width={40} height={40}/>
+                    <li className="header__btns">                       
+                        {
+                            changePalette ? <img src={DarkModeIcon} onClick={() => setChangePalette(false)} alt="Change Background to Dark Mode" draggable="false" width={40} height={40}/>
+                            : <img src={LightModeIcon} onClick={() => setChangePalette(true)} alt="Change Background to Light Mode" draggable="false" width={40} height={40}/>
+                        }
                         <div className="header__btns--mobile-menu">
                             {
                                 showNav ? null : <div onClick={()=>{setShowNav(true); setFromHeader(true)}}><Burger/></div>
@@ -68,4 +72,6 @@ Header.propTypes = {
     setShowNav: PropTypes.func,
     showNav: PropTypes.bool,
     setFromHeader: PropTypes.func,
+    setChangePalette: PropTypes.func,
+    changePalette: PropTypes.bool
 }
