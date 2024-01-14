@@ -156,7 +156,7 @@ textarea:not([rows]) {
 }
 .preloader h1 {
   font-size: clamp(var(--fs-body) + 0.5rem, 4vw, var(--fs-heading2));
-  font-family: "Okine-Medium";
+  font-family: "Okine-Black";
   color: var(--neutral-100);
   position: absolute;
   align-self: center;
@@ -515,7 +515,7 @@ body {
   padding-top: 1.2em;
   inset: 0;
   content: "";
-  background-image: url(/public/old\ dp.jpg);
+  background-image: url(/public/dp.jpg);
   background-repeat: no-repeat;
   clip-path: circle();
   background-position: center;
