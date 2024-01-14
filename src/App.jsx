@@ -75,6 +75,7 @@ function App() {
     requestAnimationFrame(raf);
   }, [loading])
 
+  //To switch the values of custom properties when light or dark mode is toggled
   useEffect(() => {
     const changeTheme = () => {
 
