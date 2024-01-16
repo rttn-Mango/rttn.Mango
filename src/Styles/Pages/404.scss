@@ -1,0 +1,29 @@
+.not-found{
+    max-width: clamp(80%, 85vw, 110rem);
+    margin-inline: auto;
+    padding-block: calc(2em + 3dvw);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    color: var(--clr-txt);
+
+    @media screen and (min-width: 800px) {
+        flex-direction: row;
+        padding-block: 0;
+        gap: 0;
+    }
+
+    img{
+        height: auto;
+        width: clamp(300px, 90dvw, 1000px);
+    }
+
+    h1{
+        font-size: clamp(calc(var(--fs-body) + 1dvw), 16vw, var(--fs-body3));
+        max-width: 15ch;
+        padding-bottom: 2rem;
+        font-family: 'Okine-Black';
+    }
+}
