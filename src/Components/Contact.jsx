@@ -10,7 +10,7 @@ export default function Contact(){
         <section className="contact">
             <p className="contact__sub-heading">got a great idea?</p>
 
-            <div className="wrapper">
+            <div className="flex-wrapper">
                 <h2>Let&apos;s talk about it</h2>
 
                 <div className="contact__details">

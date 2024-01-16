@@ -8,6 +8,7 @@
 @forward 'Pages/footer.scss';
 @forward 'Pages/nav.scss';
 @forward 'Pages/contact.scss';
+@forward 'Pages/PageTransition.scss';
 
 
 @mixin container(){
@@ -59,20 +60,19 @@ body{
         @media screen and (max-width: 1000px) {-webkit-text-stroke: 2px var(--clr-primary);}
 
         & .img{
-            display: inline-block;
+            display: inline;
             position: relative;
-
 
             &::before{
                 position: absolute;
-                padding-top: 1.2em;
-                inset: 0;
                 content: '';
+                inset: 0;
                 background-image: url(/public/dp.jpg);
                 background-repeat: no-repeat;
                 clip-path: circle();
-                background-position: center;
+                background-position: center; 
                 background-size: contain;
+                padding-top: 1.1em;
             }
         }
     }
@@ -200,6 +200,7 @@ body{
 .projects{
     @include container();
     padding-block: calc(5em + 5dvw) calc(10em + 10dvw);
+    &:hover > :not(:hover, h2){opacity: .5}
 
     h2{
         font-size: clamp(calc(var(--fs-body3) + 3dvw), 10vw, var(--fs-heading2));
@@ -251,7 +252,6 @@ body{
         border-top: 1px solid var(--neutral-500);
 
         &:not(:first-child){border-bottom: 1px solid var(--neutral-500)}
-        &:not(:hover){opacity: .7}
     }
 }
 
@@ -499,7 +499,7 @@ body{
         box-shadow: 0 0 10px rgba(255 255 255 / 0.5);
     }
 
-    .flex-wrapper{
+    .flex-wrapper:not(.contact .flex-wrapper){
         @include flex(column, calc(5rem + 15dvw));
         padding-block: 3em calc(3em + 7dvw);
     }

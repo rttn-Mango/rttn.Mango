@@ -6,12 +6,12 @@
     padding-block: calc(5em + 5dvw);
     max-width: clamp(80%, 85vw, 110rem);
     margin-inline: auto;
-    color: var(--clr-text);
+    color: var(--clr-txt);
 
     & > p{font-size: clamp(calc(var(--fs-caption) + .25em), 3dvw, calc(var(--fs-body) + .35dvw)); color: var(--clr-txt);}
 
     @media screen and (min-width: 800px) {
-        .wrapper{
+        .flex-wrapper{
             display: flex;
             flex-direction: row;
             gap: 1rem;
@@ -20,7 +20,7 @@
         }
     }
     @media screen and (width > 1400px) {
-        .wrapper{max-width: 90%; margin-inline: auto }}
+        .flex-wrapper{max-width: 90%; margin-inline: auto }}
 
         &__sub-heading{font-size: clamp(var(--fs-body), 5vw, var(--fs-body2)); font-family: 'Okine-Thin'; color: var(--clr-txt);}
 

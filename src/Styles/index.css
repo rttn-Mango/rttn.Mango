@@ -373,14 +373,14 @@ textarea:not([rows]) {
   padding-block: calc(5em + 5dvw);
   max-width: clamp(80%, 85vw, 110rem);
   margin-inline: auto;
-  color: var(--clr-text);
+  color: var(--clr-txt);
 }
 .contact > p {
   font-size: clamp(var(--fs-caption) + 0.25em, 3dvw, var(--fs-body) + 0.35dvw);
   color: var(--clr-txt);
 }
 @media screen and (min-width: 800px) {
-  .contact .wrapper {
+  .contact .flex-wrapper {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -389,7 +389,7 @@ textarea:not([rows]) {
   }
 }
 @media screen and (width > 1400px) {
-  .contact .wrapper {
+  .contact .flex-wrapper {
     max-width: 90%;
     margin-inline: auto;
   }
@@ -468,6 +468,26 @@ textarea:not([rows]) {
   animation: down-arrow 500ms linear infinite alternate;
 }
 
+.page-transition-wrapper {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+.page-transition-wrapper > div {
+  flex: 1;
+  background-color: var(--neutral-900);
+}
+.page-transition-wrapper .left {
+  transform-origin: left;
+}
+.page-transition-wrapper .right {
+  transform-origin: right;
+}
+
 body {
   background-color: var(--clr-bg);
   font-family: "Okine-Thin";
@@ -507,19 +527,19 @@ body {
   }
 }
 .hero h1 .img {
-  display: inline-block;
+  display: inline;
   position: relative;
 }
 .hero h1 .img::before {
   position: absolute;
-  padding-top: 1.2em;
-  inset: 0;
   content: "";
+  inset: 0;
   background-image: url(/public/dp.jpg);
   background-repeat: no-repeat;
   clip-path: circle();
   background-position: center;
   background-size: contain;
+  padding-top: 1.1em;
 }
 .hero .subHeading {
   font-size: clamp(var(--fs-body3) + 1dvw, 12vw, 14.375rem);
@@ -655,6 +675,9 @@ body {
   margin-inline: auto;
   padding-block: calc(5em + 5dvw) calc(10em + 10dvw);
 }
+.projects:hover > :not(:hover, h2) {
+  opacity: 0.5;
+}
 .projects h2 {
   font-size: clamp(var(--fs-body3) + 3dvw, 10vw, var(--fs-heading2));
   font-family: "Okine-Medium";
@@ -712,9 +735,6 @@ body {
 }
 .projects__contents:not(:first-child) {
   border-bottom: 1px solid var(--neutral-500);
-}
-.projects__contents:not(:hover) {
-  opacity: 0.7;
 }
 
 .about-page {
@@ -976,7 +996,7 @@ body {
     height: calc(20rem + 30dvw);
   }
 }
-.works-page .flex-wrapper {
+.works-page .flex-wrapper:not(.contact .flex-wrapper) {
   display: flex;
   flex-direction: column;
   gap: calc(5rem + 15dvw);

@@ -1,0 +1,22 @@
+.page-transition-wrapper{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+
+    & > div{
+        flex: 1;
+        background-color: var(--neutral-900);
+    }
+
+    .left{
+        transform-origin: left;
+    }
+    
+    .right{
+        transform-origin: right;
+    }
+}

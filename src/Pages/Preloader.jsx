@@ -7,9 +7,10 @@ export default function Preloader({setLoading, content}){
     useEffect(() =>{
         document.title = "Loading...";
 
-        gsap.set('span', {opacity: 0, y: 100});
-
         let tl = gsap.timeline();
+    
+        gsap.set('span', {opacity: 0, y: 100});
+        
         tl.to('span', {
             opacity: 1,
             y: 0,
@@ -28,10 +29,10 @@ export default function Preloader({setLoading, content}){
         }).to('.preloader__bg', {
             delay: .5,
             scaleY: 0,
-            stagger: .2
+            stagger: .2,
         })
 
-        setTimeout(() => setLoading(false), 5500)
+        setTimeout(() => setLoading(false), 5200)
     },[setLoading])
 
     return(

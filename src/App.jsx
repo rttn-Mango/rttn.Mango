@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import { useThemeContext } from "./hooks/useThemeContext";
+import { useLoadingContext } from "./hooks/useLoadingContext";
 
 //Pages
 import Preloader from "./Pages/Preloader";
@@ -25,7 +26,7 @@ import Burger from './svg/Burger';
 import { Analytics } from '@vercel/analytics/react';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const {loading, setLoading} = useLoadingContext();
   const [showNav, setShowNav] = useState(false);
   const [fromHeader, setFromHeader] = useState(false);
   const {changePalette, setChangePalette} = useThemeContext();
@@ -96,32 +97,32 @@ function App() {
 
   return (
       <>
-            <div className={loading ? "preloader" : 'preloader removed'}>
-              <Preloader content="Kim.Oliver.Manga" setLoading={setLoading}/>
-            </div>
+        <div className={loading ? "preloader" : 'preloader removed'}>
+          <Preloader content="Kim.Oliver.Manga" setLoading={setLoading}/>
+        </div>
 
-            <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader} changePalette={changePalette} setChangePalette={setChangePalette}/>
-              <Suspense fallback={<span aria-hidden="true" className="loading-fallback"><ScaleLoader color="#fff" size={100}/></span>}>
-                <Routes>
-                  <Route index path="/" element={<Homepage/>}/>
-                  <Route path="/about" element={<AboutPage/>}/>
-                  <Route path="/works" element={<WorksPage/>}/>
-                  <Route path="/contact" element={<ContactPage/>}/>
-                </Routes>
-              </Suspense>
-            <Footer/>
+        <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader} changePalette={changePalette} setChangePalette={setChangePalette}/>
+          <Suspense fallback={<span aria-hidden="true" className="loading-fallback"><ScaleLoader color="#fff" size={100}/></span>}>
+            <Routes>
+              <Route index path="/" element={<Homepage loading={loading}/>}/>
+              <Route path="/about" element={<AboutPage/>}/>
+              <Route path="/works" element={<WorksPage/>}/>
+              <Route path="/contact" element={<ContactPage/>}/>
+            </Routes>
+          </Suspense>
+        <Footer/>
 
-              {/* Floating Burger Menu which appears when header is not in view */}
-              <div className="burger" aria-hidden="true">
-                {
-                    showNav ? <div onClick={()=>setShowNav(false)}><Close/></div> 
-                    : <div onClick={()=>{setShowNav(true)}}><Burger/></div>
-                }
-              </div>
+          {/* Floating Burger Menu which appears when header is not in view */}
+          <div className="burger" aria-hidden="true">
+            {
+                showNav ? <div onClick={()=>setShowNav(false)}><Close/></div> 
+                : <div onClick={()=>{setShowNav(true)}}><Burger/></div>
+            }
+          </div>
 
-              <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
-                <NavPanel setShowNav={setShowNav} fromHeader={fromHeader} setFromHeader={setFromHeader}/>
-              </nav>
+          <nav className={showNav ? 'nav show' : 'nav hidden'} id="nav">
+            <NavPanel setShowNav={setShowNav} fromHeader={fromHeader} setFromHeader={setFromHeader}/>
+          </nav>
           <Analytics/>
       </>
   )

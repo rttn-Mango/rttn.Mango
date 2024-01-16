@@ -4,6 +4,7 @@ import App from './App.jsx';
 import { BrowserRouter} from 'react-router-dom';
 import ScrollToTop from './hooks/ScrollToTop.jsx';
 import ThemeContextProvider from './context/ThemeContext.jsx';
+import LoadingContextProvider from './context/LoadingContext.jsx';
 import './Styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,9 +12,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       <BrowserRouter>
         <ScrollToTop/>
-        <ThemeContextProvider>
-          <App />
-        </ThemeContextProvider>
+        <LoadingContextProvider>
+          <ThemeContextProvider>
+            <App />
+          </ThemeContextProvider>
+        </LoadingContextProvider>
       </BrowserRouter>
   </React.StrictMode>,
 )
