@@ -36,7 +36,7 @@ export default function WorksPage(){
                         <section className="works-page__card--desc">
                             <div className="desc__row">
                                 <h2>minify</h2>
-                                <Link to='' title="read more about minify">read more <TiltedArrow/> </Link>
+                                <Link to='/works/minify' title="read more about minify">read more <TiltedArrow/> </Link>
                             </div>
                             <div className="desc__row">
                                 <p>Designer & Developer</p>
@@ -60,7 +60,7 @@ export default function WorksPage(){
                         <section className="works-page__card--desc">
                             <div className="desc__row">
                                 <h2>Shortly</h2>
-                                <Link to='' title="read more about Shortly">read more <TiltedArrow/> </Link>
+                                <Link to='/works/shortly' title="read more about Shortly">read more <TiltedArrow/> </Link>
                             </div>
                             <div className="desc__row">
                                 <p>Developer</p>

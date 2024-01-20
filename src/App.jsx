@@ -12,6 +12,8 @@ import { useLoadingContext } from "./hooks/useLoadingContext";
 import Preloader from "./Pages/Preloader";
 import Homepage from "./Pages/Homepage";
 import NotFound from "./Pages/NotFound";
+import Minify from './Pages/Works/minify';
+import Shortly from './Pages/Works/shortly';
 
 //Lazy loaded Pages
 const AboutPage = lazy(() => import("./Pages/AboutPage"))
@@ -109,6 +111,10 @@ function App() {
               <Route path="/about" element={<AboutPage/>}/>
               <Route path="/works" element={<WorksPage/>}/>
               <Route path="/contact" element={<ContactPage/>}/>
+
+              {/* Works page read more */}
+              <Route path="/works/minify" element={<Minify/>}/>
+              <Route path="/works/shortly" element={<Shortly/>}/>
 
               <Route path="*" element={<NotFound/>}/>
             </Routes>
