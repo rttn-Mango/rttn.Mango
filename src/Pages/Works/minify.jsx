@@ -64,7 +64,7 @@ export default function minify(){
                 <section className="minify__overview--features">
 
                     <div className="features__compress">
-                        <h3>Compression</h3>
+                        <h3>Compress</h3>
                         <p>Size compression is one of the easiest way you can do to optimize your site which is why this was the main focus of the project as I do this quite often after finishing a project.</p>
                         <p>I also limited the max file size per image to 5mb as anything higher will also be more slower to compress.</p>
                     </div>
@@ -81,24 +81,25 @@ export default function minify(){
             <section className="minify__style-guide">
                 <h2>Style Guide</h2>
 
-                <section className="minify__style-guide--typeface">
-                    <p>typeface</p>
-                    <p>Aa</p>
-                    <p>Supreme</p>
-                </section>
+                <div className="flex-wrapper">
+                    <section className="minify__style-guide--typeface">
+                        <p>Typeface</p>
+                        <p>Aa</p>
+                        <p>Supreme</p>
+                    </section>
 
-                <section className="minify__style-guide--colors">
-                    <p>Colors</p>
-                    <div className="colors__container">
-                        {
-                            COLORS_CARD_DATA.map((data, index) => {
-                                return <ColorsCard key={index} name={data.name} hex={data.hex} rgb={data.rgb} hsl={data.hsl}/>
-                            })
-                        }
-                    </div>
-                    <p>This are some sections of the style guide of this project. <Link to="https://www.fontshare.com/fonts/supreme">Supreme</Link> was the typeface that I went with as it&apos;s quite versatile. You can find the Typeface at Fontshare which you can also download for free.</p>
-                    <p>As for the colors, I decided to go with dark theme which is easier to look at compared to lighter theme websites. The primary is chosen based on which pairs with the background better. The secondary was selected based on which compliments the primary color better and this one was the one I went with. The colors were all generated with the help of <Link to="https://realtimecolors.com">Realtimecolors</Link> so check it out.</p>
-                </section>
+                    <section className="minify__style-guide--colors">     
+                        <div className="colors__container">
+                            {
+                                COLORS_CARD_DATA.map((data, index) => {
+                                    return <ColorsCard key={index} name={data.name} hex={data.hex} rgb={data.rgb} hsl={data.hsl}/>
+                                })
+                            }
+                        </div> 
+                    </section>
+                </div>
+                <p>This are some parts of the style guide of this project. <Link to="https://www.fontshare.com/fonts/supreme">Supreme</Link> was the typeface that I went with as it&apos;s quite versatile. You can find the Typeface at Fontshare which you can also download for free.</p>
+                <p>As for the colors, I decided to go with dark theme which is easier to look at compared to lighter theme websites. The primary is chosen based on which pairs with the background better. The secondary was selected based on which compliments the primary color better and this one was the one I went with. The colors were all generated with the help of <Link to="https://realtimecolors.com">Realtimecolors</Link> so check it out.</p> 
             </section>
 
             <section className="minify__technical">
@@ -108,8 +109,8 @@ export default function minify(){
                     <h3>Designing</h3>
                     <p>Designing was the phase that took time the most. I wanted this project to be different, something that I can confidently say that I made everything which is why I started from the scratch when making the final design. I even went through several Iterations before coming up a final design.</p>
                     <p>Everything was made using Figma because I don&apos;t neither have Photoshop nor illustrator. Before I went with the actual designing, I started gathering the Context of what I want the site to be, like the user flow, the pages, the end game, and the likes. I wanted to experience UI/UX design so I added a Persona, User Journey, as well as User Flow which helped to some extent in defining the details of the site.</p>
-                    <section className="designing__mid-content">
-                        <div className="desgining__mid-content--text">
+                    <section className="designing__mid">
+                        <div className="designing__mid--text">
                             <p>Wireframing was relatively easy because I didn&apos;t want it to be overly detailed, I only wanted to gain a general idea on where should I place the components and what would it look like.</p>
                             <p>Initially, I wanted to add a primary heading right beside the drag and drop box but I discarded the Idea on the second version in favor of a cleaner and less convoluted design.</p>
                             <p>I also changed the layout in respect of the user flow that I originally came up with which is why the old about page was replaced by the homepage in the second version.</p>
@@ -117,7 +118,7 @@ export default function minify(){
                         <img src={wireframe} alt="Wireframes of minify" draggable="false" height={700} width={500}/>
                     </section>
 
-                    <section className="desgining__last">
+                    <section className="designing__last">
                         <p>For the typeface, I went with Supreme as for one, It&apos;s one of the available typefaces that I had that time, and two, not only is it versatile, it&apos;s also nicely spaced and looks great which is why I went with it.</p>
                         <p>As for the color palette, I wanted this project to be dark themed which is why the colors are focus on that. The primary suits the background pretty well, and the secondary compliments the primary so I went with those main colors.</p>
                     </section>
@@ -128,12 +129,12 @@ export default function minify(){
                     <h3>Development</h3>
                     <p>React and SASS are utilized on the front end while express for the backend. The process was simple, first is to make sure that both compression and conversion works, then add the barebones, and lastly is finish the design. This makes it sure that the design flows smoothly without any interruptions because of fetching.</p>
                     
-                    <section className="development__mid-content">
-                        <div className="development__mid-content--left">
+                    <section className="development__mid">
+                        <div className="development__mid--left">
                             <p>Tinify or tinypng as you might know, is one of the most used site for image compression which is why it&aposs the first thing that came into my mind when looking for a suitable API.</p>
                             <p>Initially, it was difficult making it work but I eventually managed to do it after some trial and error.</p>
                         </div>
-                        <div className="development__mid-content--right">
+                        <div className="development__mid--right">
                             <p>Looking for a suitable API for format conversion was quite hard because most either have paywall or have a relatively  short documentation which was a great problem.</p>
                             <p>Eventually, I stumbled upon the Cloudmersive API, though their website is insanely slow, it was worth it.</p>
                         </div>
@@ -144,7 +145,7 @@ export default function minify(){
             </section>
 
             <section className="minify__difficulties">
-                <h3>Difficulties</h3>
+                <h2>Difficulties</h2>
                 <section className="minify__difficulties--logo">
                     <img src={logo} alt="Logo of minify" draggable="false" height={200} width={350}/>
                     <div className="logo__desc">
@@ -167,7 +168,7 @@ export default function minify(){
             </section>
 
             <section className="minify__overall">
-                <h3>Overall</h3>
+                <h2>Overall</h2>
                 <p>This might&apos;ve been a difficult project to finish, it was also a great ride and I learned a lot from the start &apos;till I finished it. I wanted this to be different and I think I might&apos;ve achieved that at least to a good extent and I&apos;m happy with the outcome.</p>
                 <p>As for my plans, while I don&apos;t see myself sustaining this project for long, I&apos;ll still try to come back for some changes. There are already a few improvements that I can think of but that will be for later when I have some time to spare. Other than that, it was nice doing this project and I&apos;m looking forward to what I might do in the future. Thanks for dropping by ٩(◕‿◕｡)۶.</p>
             </section>

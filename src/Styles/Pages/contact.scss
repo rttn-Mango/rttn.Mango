@@ -37,7 +37,7 @@
         font-size: calc(var(--fs-body) + .5dvw);
         display: inline-flex;
         font-family: 'Okine-Regular';
-        color: var(--clr-primary);
+        color: var(--clr-txt);
         align-items: center;
         justify-content: center;
         gap: .75rem;
@@ -55,7 +55,6 @@
             border-color: var(--accent);
             top: -3px;
             box-shadow: 0 0 10px var(--clr-primary);
-            color: var(--secondary);
         }
     }
 

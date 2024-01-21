@@ -1,4 +1,4 @@
-import ScrollToIcon from '../../svg/ScrollTo'
+import { IoArrowDownOutline } from "react-icons/io5";
 
 export default function Hero(){
 
@@ -11,7 +11,7 @@ export default function Hero(){
                     <div className="hero__bottom">
                         <p aria-label="Hit me up for offers or collaborations">Hit me up for — <br/> offers or collabs</p>
                         <div className="hero__bottom--scrollTo" >
-                            <ScrollToIcon/>
+                            <IoArrowDownOutline/>
                         </div>
                     </div>
                 </div>

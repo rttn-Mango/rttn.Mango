@@ -6,8 +6,8 @@ import PageTransitionWrapper from "./PageTransitionWrapper";
 import me from '../assets/me.svg'
 
 //Icons
-import Code from '../assets/code.svg';
-import Design from '../assets/design.svg'
+import { MdOutlineDesignServices } from "react-icons/md";
+import { IoCodeSlash } from "react-icons/io5";
 
 
 export default function AboutPage(){
@@ -23,7 +23,7 @@ export default function AboutPage(){
                         <h2>About me</h2>
                             <img src={me} alt="An image of me" draggable="false" width={500} height={500}/>
                             <div className="about-page__profile--text-wrapper">
-                                <p>New to the industry, I specialize in Front-End Development.</p>
+                                <p>New to the industry, I specialize in <span>Front-End Development.</span></p>
                                 <p>I&apos;m also starting to explore the field of UI/UX Design while keeping tabs with the current industry trends. Equipped with a solid foundation, I&apos;m always looking to hone my skills.</p>
                             </div>
                     </div>
@@ -51,12 +51,12 @@ export default function AboutPage(){
                     <p className="about-page__niche--label" aria-label="I might be of help with these">I might be of help with these<span className="dots">.</span><span className="dots">.</span><span className="dots">.</span></p>
                     <section className="about-page__niche--field">
                         <div className="field__dev">
-                            <h3 aria-label="Development"><img src={Code} alt="Dev Icon" draggable="false" height={50} width={50} aria-hidden="true"/> Development</h3>
+                            <h3 aria-label="Development"><IoCodeSlash/> Development</h3>
                             <p>Passionate about bringing ideas into reality, I bring a solid skill set in creating user-friendly and responsive websites with a focus on delivering impactful digital experiences.</p>
                         </div>
 
                         <div className="field__design">
-                            <h3 aria-label="Design"><img src={Design} alt="Design Icon" draggable="false" height={50} width={50} aria-hidden="true"/> Design</h3>
+                            <h3 aria-label="Design"><MdOutlineDesignServices/> Design</h3>
                             <p>Though it&apos;s not my primary expertise, I&apos;ve been actively upskilling in this area to enhance my skill set and compliment my skills further.</p>
                         </div>
                     </section>

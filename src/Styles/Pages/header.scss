@@ -31,7 +31,7 @@
         position: relative;
         cursor: pointer;
 
-        & svg{color: var(--clr-primary);}
+        & svg{color: var(--clr-txt);}
     }
 
     a{
@@ -57,7 +57,7 @@
 
         &.active{
             font-family: 'Okine-Light';
-            &::after{width: 50%; background-color: var(--secondary);}
+            &::after{width: 50%; background-color: var(--clr-secondary);}
         }
 
         &:hover{ &:not(.logo, .active)::after{width: 50%; background-color: var(--neutral-300);} }

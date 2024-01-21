@@ -1,0 +1,83 @@
+.shortly{
+    max-width: clamp(80%, 85vw, 110rem);
+    margin-inline: auto;
+    color: var(--clr-txt);
+
+    h1{
+        font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
+        font-family: 'Okine-Black';
+        padding-block: calc(.5rem + 7dvw) .5em;
+        @media screen and (min-width: 700px) { padding-bottom: 0; }
+    }
+
+    p{padding-top: calc(1em + .5dvw); line-height: 1.8; font-family: 'Okine-Light';}
+
+    h2{
+        font-size: clamp(calc(var(--fs-heading3) - 5dvw), 10dvw, var(--fs-heading2));
+        font-family: 'Okine-Bold';
+        color: var(--clr-primary);
+        padding-bottom: 1.5rem;
+        padding-top: calc(1em + 1dvw);
+    }
+
+    h3{
+        font-size: clamp(calc(var(--fs-body2) + 2dvw), 10dvw, var(--fs-heading3));
+        font-family: 'Okine-Medium';
+        color: var(--clr-secondary);
+        padding-top: calc(.3em + 1dvw);
+    }
+
+    &__links{
+        display: flex;
+        flex-direction: column;
+        max-width: fit-content;
+        align-items: center;
+        gap: 1.5rem;
+        padding-bottom: calc(3em + 7dvw);
+        @media screen and (min-width: 700px) { flex-direction: row; }
+
+        & a:first-of-type{
+            text-decoration: none;
+            font-family: 'Okine-Light';
+            border: 3px solid var(--clr-primary);
+            align-self: center;
+            font-size: calc(var(--fs-body) + .15dvw);
+            padding: .75em calc(1em + 1dvw);
+            border-radius: 5em;
+        }
+
+        & a:last-of-type{
+            display: inline-flex;
+            gap: 1rem;
+            font-size: calc(var(--fs-body) + .35dvw);
+            font-family: 'Okine-Light';
+            align-items: center;
+            color: var(--accent);
+
+            & svg{
+                height: 1em;
+                width: 1em;
+            }
+        }
+    }
+
+    &__tldr, &__overview, &__overall, &__difficulties{padding-block: calc(2em + 3dvw) calc(5em + 7dvw)}
+
+    &__technical{
+        padding-block: calc(2em + 3dvw) calc(5em + 7dvw);
+        @media screen and (min-width: 1000px){
+
+            & .development__mid{
+                padding-block: calc(1em + 2dvw);
+                display: flex;
+                flex-direction: row;
+                gap: calc(1rem + 4dvw);
+
+                & > p{
+                    flex: 1;
+                }
+            }
+        }
+    }
+
+}

@@ -86,12 +86,14 @@ function App() {
       if(changePalette) {
         document.body.style.setProperty('--clr-txt', 'hsl(30, 15%, 5%)')
         document.body.style.setProperty('--clr-bg', 'hsl(30, 10%, 96%)')
-        document.body.style.setProperty('--clr-primary', 'hsl(35, 100%, 5%)')
+        document.body.style.setProperty('--clr-primary', 'hsl(29, 58%, 15%)')
+        document.body.style.setProperty('--clr-secondary', 'hsl(194, 48%, 17%)')
       }
       else{
         document.body.style.setProperty('--clr-txt', 'hsl(30, 15%, 95%)')
         document.body.style.setProperty('--clr-bg', 'hsl(210, 10%, 4%)')
-        document.body.style.setProperty('--clr-primary', 'hsl(35, 100%, 95%)')
+        document.body.style.setProperty('--clr-primary', 'hsl(30, 48%, 75%)')
+        document.body.style.setProperty('--clr-secondary', 'hsl(194, 53%, 78%)')
       }
     }
 

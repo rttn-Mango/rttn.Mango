@@ -1,14 +1,11 @@
 import TiltedArrow from '../svg/TiltedArrow';
 import PropTypes from 'prop-types';
 
-export default function ProjectsCard({setModal, title, src, index}){
+export default function ProjectsCard({title, src, index}){
     return(
         <div
             href={src}
             className="projects__contents"
-            //Window.innerwidth condition is to disable hover animation on smaller screen sizes
-            onMouseEnter={() => {setModal(window.innerWidth > 799 ? {active: true, index: index} : {active: false, index: index})}}
-            onMouseLeave={() => {setModal({active: false, index: index})}}
             title={index === 0 ? 'Minify Website' : 'Shortly Website'}
             key={index}
         >
@@ -20,7 +17,6 @@ export default function ProjectsCard({setModal, title, src, index}){
 }
 
 ProjectsCard.propTypes = {
-    setModal: PropTypes.func,
     title: PropTypes.string,
     src: PropTypes.string,
     index: PropTypes.number

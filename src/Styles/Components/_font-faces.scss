@@ -33,3 +33,16 @@
     src: url('/public/Fonts/Okine-Thin.woff2') format('woff2');
     font-display: swap;
 }
+
+//Supreme typeface
+@font-face {
+    font-family: 'Supreme-Bold';
+    src: url('/public/Fonts/Supreme-Bold.woff2'),  format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Supreme-Regular';
+    src: url('/public/Fonts/Supreme-Regular.woff2'),  format('woff2');
+    font-display: swap;
+}

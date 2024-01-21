@@ -50,7 +50,7 @@ export default function Header({setShowNav, showNav, setFromHeader, changePalett
                     <li className="header__pages">
                         <Link className={path === '/' ? 'active' : 'page'} to="/" title="Homepage">Home</Link>
                         <Link className={path === '/about' ? 'active' : 'page'} to="/about" title="About me">About</Link>
-                        <Link className={path === '/works' ? 'active' : 'page'} to="/works" title="Recent Works">Works</Link>
+                        <Link className={path.includes('/works') ? 'active' : 'page'} to="/works" title="Recent Works">Works</Link>
                         <Link className={path === '/contact' ? 'active' : 'page'} to="/contact" title="Send me a Message">Contact</Link>
                     </li>
                     <li className="header__btns">                       
