@@ -56,7 +56,7 @@ body{
         font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
         font-family: 'Okine-Black';
         color: transparent;
-        -webkit-text-stroke: 6px var(--clr-txt);
+        -webkit-text-stroke: 6px var(--clr-primary);
         padding-top: calc(.5rem + 1.5dvw);
         @media screen and (max-width: 1000px) {-webkit-text-stroke: 2px var(--clr-primary);}
 
@@ -155,7 +155,7 @@ body{
     h2{
         font-size: clamp(calc(var(--fs-heading3) - 5dvw), 10dvw, var(--fs-heading2));
         font-family: 'Okine-Medium';
-        color: var(--clr-primary);
+        color: var(--clr-txt);
         padding-bottom: 1.5rem;
     }
 
@@ -178,7 +178,7 @@ body{
 
         &:first-of-type{padding-bottom: calc(1.5em + 3dvw);}
         &:not(:first-of-type){
-            border-top: 1px solid var(--neutral-500);
+            border-top: 1px solid var(--clr-primary);
             padding-block: calc(1.5em + 3dvw);
         }
     }
@@ -205,14 +205,15 @@ body{
 .projects{
     @include container();
     padding-block: calc(5em + 5dvw) calc(10em + 10dvw);
-    &:hover > :not(:hover, h2){opacity: .5}
+
+    &__container:hover > :not(:hover){opacity: .5}
 
     h2{
         font-size: clamp(calc(var(--fs-body3) + 3dvw), 10vw, var(--fs-heading2));
         font-family: 'Okine-Medium';
-        padding-block: 2rem 10rem;
+        margin-block: 2rem 10rem;
         text-transform: uppercase;
-        color: var(--clr-primary);
+        color: var(--clr-txt);
     }
 
     h3{
@@ -221,7 +222,6 @@ body{
         font-size: clamp(calc(var(--fs-body) + 1dvw), 7vw, var(--fs-heading3));
         position: relative;
         color: var(--clr-txt);
-
     }
 
     a{
@@ -233,7 +233,7 @@ body{
         gap: .75rem;
         font-size: clamp(var(--fs-caption), 5dvw, calc(var(--fs-body) + .15dvw));
 
-        &:hover{ color: var(--accent);}
+        &:hover{ font-family: 'Okine-Medium';}
 
         & svg{
             height: 13px;
@@ -281,21 +281,21 @@ body{
         font-size: clamp(var(--fs-body2), 8vw, var(--fs-heading2));
         font-family: 'Okine-Medium';
         padding-block: .25em;
-        color: var(--clr-primary);
+        color: var(--clr-txt);
     }
 
     h3{
         font-size: clamp(calc(var(--fs-body) + .75dvw), 5.5vw, var(--fs-heading3));
         font-family: 'Okine-Regular';
         padding-block: 1.5rem;
-        color: var(--clr-secondary);
+        color: var(--clr-primary);
         display: inline-flex;
         gap: 1rem;
         align-items: center;
     }
 
     &__profile{
-        padding-block: 3em calc(10em + 10dvw);
+        padding-block: 6em calc(10em + 10dvw);
         max-height: 130dvh;
         position: relative;
         overflow: hidden;
@@ -306,18 +306,24 @@ body{
             left: 0;
             top: 0;
             z-index: -1;
+            @include flex(column, 2rem);
+            align-items: center;
+            
         }
+        @media screen and (min-width: 1200px){
+            max-height: 100dvh;
 
-        
+            & .wrapper{flex-direction: row;}
+        }
 
         & p{
             font-size: clamp(var(--fs-body), 3vw, var(--fs-body2));
             font-family: 'Okine-Light';
             max-width: 80ch;
 
-            &:nth-child(1){
+            &:nth-child(2){
                 padding-block: 2rem;
-                & span{color: var(--clr-secondary);}
+                & span{color: var(--clr-primary);}
             }
         }
     } 
@@ -343,7 +349,7 @@ body{
             font-size: clamp(var(--fs-body), 3vw, var(--fs-body2));
         }
 
-        span{color: var(--clr-secondary);}
+        span{color: var(--clr-primary);}
 
         &--sample{
             padding-block: calc(7em + 8dvw);
@@ -403,7 +409,7 @@ body{
 
         & > p:first-of-type{
             padding-block: 3rem calc(3rem + 3dvw);
-            span{color: var(--accent);}
+            span{color: var(--clr-primary);}
             font-size: clamp(var(--fs-body), 3vw, var(--fs-body2));
         }
 
@@ -584,7 +590,7 @@ body{
         padding: 1rem 1.5rem;
         background-color: transparent;
         border: 0;
-        color: var(--neutral-100);
+        color: var(--clr-txt);
         outline: 0;
 
         &::-webkit-input-placeholder, &::-moz-placeholder{
@@ -601,7 +607,7 @@ body{
         align-items: center;
         justify-content: center;
         padding-block: .65rem;
-        background-color: transparent;
+        background-color: var(--neutral-900);
         border: 1px solid var(--clr-txt);
         color: var(--neutral-100);
         cursor: pointer;
@@ -614,7 +620,7 @@ body{
         }
 
         &:hover{
-            box-shadow: 2px 3px 0 var(--clr-primary);
+            box-shadow: 4px 6px 0 var(--clr-primary);
             transform: translateY(-3px);
             img{transform: translateX(5px)}
         }
@@ -652,13 +658,13 @@ body{
                 height: 2px;
                 left: 1rem;
                 bottom: -3px;
-                background-color: var(--neutral-300);
+                background-color: var(--accent);
                 transition: width 300ms ease-in-out;
 
             }
 
             &:hover, &:focus{
-                color: var(--clr-secondary);
+                font-style: italic;
                 &::after{width: 15%;}
             }
         }

@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Contact from "../Components/Contact";
 import PageTransitionWrapper from "./PageTransitionWrapper";
@@ -20,12 +21,12 @@ export default function AboutPage(){
 
                 <section className="about-page__profile">
                     <div className="wrapper">
-                        <h2>About me</h2>
-                            <img src={me} alt="An image of me" draggable="false" width={500} height={500}/>
-                            <div className="about-page__profile--text-wrapper">
-                                <p>New to the industry, I specialize in <span>Front-End Development.</span></p>
-                                <p>I&apos;m also starting to explore the field of UI/UX Design while keeping tabs with the current industry trends. Equipped with a solid foundation, I&apos;m always looking to hone my skills.</p>
-                            </div>
+                        <img src={me} alt="An image of me" draggable="false" width={500} height={500}/>
+                        <div className="about-page__profile--text-wrapper">
+                            <h2>About me</h2>
+                            <p>New to the industry, I specialize in <span>Front-End Development.</span></p>
+                            <p>I&apos;m also starting to explore the field of UI/UX Design while keeping tabs with the current industry trends. Equipped with a solid foundation, I&apos;m always looking to hone my skills.</p>
+                        </div>
                     </div>
                 </section>
 

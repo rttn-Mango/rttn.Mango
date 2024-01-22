@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 //Images
 import wireframe from '../../assets/minify-wireframe.png'
@@ -10,7 +11,7 @@ import ColorsCard from "../../Components/ColorsCard";
 //Icon
 import TiltedArrow from '../../svg/TiltedArrow'
 
-export default function minify(){
+export default function Minify(){
     const COLORS_CARD_DATA = [
         {
             name: 'Seashell | Text',
@@ -44,23 +45,25 @@ export default function minify(){
         }
     ]
 
+    useEffect(() => {document.title = 'Read more about minify'} ,[])
+
     return(
         <main className="minify">
             <h1>minify</h1>
             <section className="minify__links">
-                <Link to=''>Check out minify</Link>
-                <Link to="">Visit Github Repo <TiltedArrow/></Link>
+                <Link to='https://minifyy.vercel.app/' title="Visit minify">Check out minify</Link>
+                <Link to='https://github.com/rttn-Mango/minify' title="Go to github repository" aria-label="Visit Github Repository">Visit Github Repo <TiltedArrow/></Link>
             </section>
 
             <section className="minify__tldr">
                 <h2>tl;dr</h2>
-                <p>Minify is a site which offers two features: image compression as well as image format conversion. The image compression utilizes the Tinify API. On the other hand, the format conversion uses the Cloudmersive API. However, I have limited the supported formats to just JPEG, PNG, and WebP to simplify the process.</p>
-                <p>I decided to create this project mainly because I felt like I need those functionalities to easily accessible. While there are numerous sites offering similar if not same services, they&apos;re commonly convoluted and some are even difficult to navigate, if not behind a paywall which is why I decided to make a site which I can easily.</p>
+                <p>Minify is a site which offers two features: image <span>compression</span> as well as image <span>format conversion</span>. The image compression utilizes the Tinify API. On the other hand, the format conversion uses the Cloudmersive API. However, I have limited the supported formats for conversion to just JPEG, PNG, and WebP to simplify the process.</p>
+                <p>I decided to create this project mainly because I felt like I need those functionalities to be easily accessible. While there are numerous sites offering similar if not same services, they&apos;re commonly convoluted and some are even difficult to navigate, if not behind a paywall which is why I decided to make a site which I can easily use.</p>
             </section>
 
             <section className="minify__overview">
                 <h2>Overview</h2>
-                <p>As I&apos;ve mentioned above, this project is mainly for personal use which is why I neither shared nor advertised it directly because the number of compression and conversion that can be done per month is quite limited. Aside from that, I was in time constraints which is why I didn&apos;t want to complicate this by adding more features that are not needed.</p>
+                <p>As I&apos;ve mentioned above, this project is mainly for personal use which is why I neither shared nor advertised it directly because the number of compression and conversion that can be done per month is extremely limited. Aside from that, I was also in time constraints which is why I didn&apos;t want to complicate this by adding more features that are not needed.</p>
                 <section className="minify__overview--features">
 
                     <div className="features__compress">
@@ -99,7 +102,7 @@ export default function minify(){
                     </section>
                 </div>
                 <p>This are some parts of the style guide of this project. <Link to="https://www.fontshare.com/fonts/supreme">Supreme</Link> was the typeface that I went with as it&apos;s quite versatile. You can find the Typeface at Fontshare which you can also download for free.</p>
-                <p>As for the colors, I decided to go with dark theme which is easier to look at compared to lighter theme websites. The primary is chosen based on which pairs with the background better. The secondary was selected based on which compliments the primary color better and this one was the one I went with. The colors were all generated with the help of <Link to="https://realtimecolors.com">Realtimecolors</Link> so check it out.</p> 
+                <p>As for the colors, I decided to go with dark theme which is easier in the eyes compared to lighter theme websites. The primary was chosen based on which suited with the background well. The secondary was selected based on which compliments the primary color better and this one was the one I went with. The colors were all generated with the help of <Link to="https://realtimecolors.com">Realtimecolors</Link> so check it out.</p> 
             </section>
 
             <section className="minify__technical">
@@ -120,22 +123,22 @@ export default function minify(){
 
                     <section className="designing__last">
                         <p>For the typeface, I went with Supreme as for one, It&apos;s one of the available typefaces that I had that time, and two, not only is it versatile, it&apos;s also nicely spaced and looks great which is why I went with it.</p>
-                        <p>As for the color palette, I wanted this project to be dark themed which is why the colors are focus on that. The primary suits the background pretty well, and the secondary compliments the primary so I went with those main colors.</p>
+                        <p>As for the color palette, I wanted this project to be dark themed because personally, I think dark theme is less straining in the eyes. I also wanted to start focusing on darker themes which is why I made my first big project with this palette</p>
                     </section>
-                    <p>I aimed for simplicity and minimalism in designing the site, prioritizing ease of use. Placing the drag-and-drop box at the hero section and a user guide below. Additionally, a call-to-action section at the bottom redirects the visitors to the API owners&apos; page for further exploration. The homepage features a simple hero section with primary and secondary buttons. The rest are for offering a clear overview without overwhelming the user with unnecessary details.</p>
+                    <p>I aimed for simplicity and minimalism in designing the site, prioritizing ease of use. Placing the drag-and-drop box at the hero section and a &apos;How to&apos; guide below. Additionally, a call-to-action section at the bottom redirects the visitors to the API owners&apos; page for further exploration. The homepage features a simple hero section with primary and secondary buttons. The rest are for offering a clear overview without overwhelming the user with unnecessary details.</p>
                 </section>
 
                 <section className="minify__technical--development">
                     <h3>Development</h3>
-                    <p>React and SASS are utilized on the front end while express for the backend. The process was simple, first is to make sure that both compression and conversion works, then add the barebones, and lastly is finish the design. This makes it sure that the design flows smoothly without any interruptions because of fetching.</p>
+                    <p>React and SASS are utilized on the front end while express was for the backend. The process was simple, first is to make sure that both compression and conversion works, then add the barebones, and lastly is to finish the design. This makes it sure that the designing flows smoothly without any interruptions because of the response from fetching.</p>
                     
                     <section className="development__mid">
                         <div className="development__mid--left">
-                            <p>Tinify or tinypng as you might know, is one of the most used site for image compression which is why it&aposs the first thing that came into my mind when looking for a suitable API.</p>
+                            <p>Tinify or tinypng as you might know, is probably one of the most used site for image compression which is why it&apos;s the first thing that came into my mind when looking for a suitable API.</p>
                             <p>Initially, it was difficult making it work but I eventually managed to do it after some trial and error.</p>
                         </div>
                         <div className="development__mid--right">
-                            <p>Looking for a suitable API for format conversion was quite hard because most either have paywall or have a relatively  short documentation which was a great problem.</p>
+                            <p>Looking for a suitable API for format conversion was quite hard because most have either a paywall or a relatively short documentation which was a great problem.</p>
                             <p>Eventually, I stumbled upon the Cloudmersive API, though their website is insanely slow, it was worth it.</p>
                         </div>
                     </section>
@@ -149,8 +152,8 @@ export default function minify(){
                 <section className="minify__difficulties--logo">
                     <img src={logo} alt="Logo of minify" draggable="false" height={200} width={350}/>
                     <div className="logo__desc">
-                        <p>The first major hurdle was the Logo, and it was also the most memorable one for me. I originally made a simple on which is just ‘P’ which stands for Pixify which was the original name of the project. But midway, I realized that if I wanted this to be different, I might as well change the logo to something better.</p>
-                        <p>It took me around 5 days to complete the new logo. I had to make a good amount of research, and a huge amount of sketches in my notebook before I came up with the current one. The lack of proper applications only made it harder as I only have Figma to use but everything ended up being worth it.</p>
+                        <p>The first major hurdle was the <span>Logo</span>, and it was also the most memorable one for me. I originally made a simple on which is just ‘P’ which stands for Pixify which was the original name of the project. But midway, I realized that if I wanted this to be different, I might as well change the logo to something better.</p>
+                        <p>It took me around a week to complete the new logo. I had to make a good amount of research, and a countless sketches in my notebook before I came up with the current one. The lack of proper applications only made it harder as I only have Figma to use but everything ended up being worth it.</p>
                     </div>
                 </section>
 
@@ -162,7 +165,7 @@ export default function minify(){
 
                     <div className="last__right">
                         <p>Last one was the Cloudmersive API, it wasn&apos;t the docs itself but the response that made it hard. The response was in a form of String of bytes which was foreign to me that time.</p>
-                        <p>After multiple attempts of converting it to base64, none of it worked so I just changed the fetch to convert the response into Buffer as I was using Axios for it before converting it to base 64.</p>
+                        <p>After multiple attempts of converting it to base64, none of it worked so I just changed the fetch to convert the response into Buffer—as I was using Axios for it—before converting it to base 64.</p>
                     </div>
                 </section>
             </section>

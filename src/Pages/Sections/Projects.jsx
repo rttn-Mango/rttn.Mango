@@ -24,6 +24,7 @@ export default function Projects(){
         <section className="projects" id='projects'>
             <h2>Works</h2>
 
+            <div className="projects__container">
             {
                 PROJECTS_DATA.map((project, i) => {
                     return (
@@ -36,6 +37,7 @@ export default function Projects(){
                     )
                 })
             }
+            </div>
         </section>
     )
 }

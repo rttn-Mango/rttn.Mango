@@ -1,9 +1,10 @@
 import TiltedArrow from '../svg/TiltedArrow';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function ProjectsCard({title, src, index}){
     return(
-        <div
+        <section
             href={src}
             className="projects__contents"
             title={index === 0 ? 'Minify Website' : 'Shortly Website'}
@@ -11,8 +12,8 @@ export default function ProjectsCard({title, src, index}){
         >
             <h3>{title}</h3>
             <p>{index === 0 ? 'Designer & Developer' : 'Developer'}</p>
-            <a href="">read more <TiltedArrow/></a>
-        </div>
+            <Link to={index === 0 ? '/works/minify' : '/works/shortly'}>read more <TiltedArrow/></Link>
+        </section>
     )
 }
 

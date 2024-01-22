@@ -15,7 +15,7 @@
     h2{
         font-size: clamp(calc(var(--fs-heading3) - 5dvw), 10dvw, var(--fs-heading2));
         font-family: 'Okine-Bold';
-        color: var(--clr-primary);
+        color: var(--clr-txt);
         padding-bottom: 1.5rem;
         padding-top: calc(1em + 1dvw);
     }
@@ -23,7 +23,7 @@
     h3{
         font-size: clamp(calc(var(--fs-body2) + 2dvw), 10dvw, var(--fs-heading3));
         font-family: 'Okine-Medium';
-        color: var(--clr-secondary);
+        color: var(--clr-primary);
         padding-top: calc(.3em + 1dvw);
     }
 
@@ -38,25 +38,52 @@
 
         & a:first-of-type{
             text-decoration: none;
-            font-family: 'Okine-Light';
+            font-family: 'Okine-Medium';
             border: 3px solid var(--clr-primary);
             align-self: center;
             font-size: calc(var(--fs-body) + .15dvw);
             padding: .75em calc(1em + 1dvw);
             border-radius: 5em;
+            position: relative;
+            overflow: hidden;
+            transition: color 500ms ease-in-out;
+
+            &::after{
+                position: absolute;
+                content: '';
+                height: 1px;
+                width: 1px;
+                background-color: var(--clr-primary);
+                inset: 0;
+                margin: auto;
+                z-index: -1;
+                border-radius: 50%;
+                transition: scale 500ms ease-in-out;
+                
+            }
+
+            &:hover, &:focus{
+                box-shadow: 0 0 50px var(--clr-secondary);
+                color: var(--clr-bg);
+                &::after{scale: 350;}
+            }
         }
 
         & a:last-of-type{
             display: inline-flex;
             gap: 1rem;
             font-size: calc(var(--fs-body) + .35dvw);
-            font-family: 'Okine-Light';
+            font-family: 'Okine-Regular';
             align-items: center;
             color: var(--accent);
 
             & svg{
                 height: 1em;
                 width: 1em;
+            }
+
+            &:hover, &:focus{
+                font-style: italic;
             }
         }
     }
@@ -65,6 +92,14 @@
 
     &__technical{
         padding-block: calc(2em + 3dvw) calc(5em + 7dvw);
+
+        & code{
+            padding: .25rem .5rem;
+            background-color: var(--neutral-500);
+            border-radius: .25rem;
+            color: var(--clr-bg);
+        }
+
         @media screen and (min-width: 1000px){
 
             & .development__mid{

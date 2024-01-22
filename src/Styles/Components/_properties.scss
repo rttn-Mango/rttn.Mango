@@ -8,18 +8,19 @@
     --fs-body: 1rem;
     --fs-caption: 0.813rem;
 
-    --clr-txt: hsl(30, 15%, 95%);
-    --clr-bg: hsl(210, 10%, 4%);
-    --clr-primary: hsl(30, 48%, 75%);
-    --clr-secondary: hsl(194, 53%, 78%);
+    --clr-txt: hsl(216, 100%, 99%);
+    --clr-bg: hsl(216, 100%, 1%);
+    --clr-primary: hsl(216, 56%, 74%);
+    --clr-secondary: hsl(217, 97%, 30%);
 
     //These are the values for the Light Mode
-    --lm-txt: hsl(30, 15%, 5%);
-    --lm-bg: hsl(30, 10%, 96%);
-    --lm-primary: hsl(29, 58%, 15%);
-    --lm-secondary: hsl(194, 48%, 17%);
+    --lm-txt: hsl(216, 100%, 1%);
+    --lm-bg: hsl(216, 100%, 99%);
+    --lm-primary: hsl(217, 97%, 30%);
+    --lm-secondary: hsl(216, 56%, 74%);
+    --lm-accent: hsl(290, 78%, 27%);
 
-    --accent: hsl(210, 78%, 62%);
+    --accent: hsl(290, 22%, 73%);
 
     --neutral-900: hsl(0, 0%, 0%);
     --neutral-700: hsl(0, 0%, 20%);

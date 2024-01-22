@@ -51,8 +51,9 @@
 
         &:not(.logo){
             &:hover, &:focus{
-                color: var(--clr-secondary);
+                color: var(--accent);
                 font-style: italic;
+                font-family: 'Okine-Regular';
             }
         }
     }

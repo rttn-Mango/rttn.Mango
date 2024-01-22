@@ -84,16 +84,18 @@ function App() {
     const changeTheme = () => {
 
       if(changePalette) {
-        document.body.style.setProperty('--clr-txt', 'hsl(30, 15%, 5%)')
-        document.body.style.setProperty('--clr-bg', 'hsl(30, 10%, 96%)')
-        document.body.style.setProperty('--clr-primary', 'hsl(29, 58%, 15%)')
-        document.body.style.setProperty('--clr-secondary', 'hsl(194, 48%, 17%)')
+        document.body.style.setProperty('--clr-txt', 'hsl(216, 100%, 1%)')
+        document.body.style.setProperty('--clr-bg', 'hsl(216, 100%, 99%)')
+        document.body.style.setProperty('--clr-primary', 'hsl(217, 97%, 30%)')
+        document.body.style.setProperty('--clr-secondary', 'hsl(216, 56%, 74%)')
+        document.body.style.setProperty('--accent', 'hsl(290, 78%, 27%)')
       }
       else{
-        document.body.style.setProperty('--clr-txt', 'hsl(30, 15%, 95%)')
-        document.body.style.setProperty('--clr-bg', 'hsl(210, 10%, 4%)')
-        document.body.style.setProperty('--clr-primary', 'hsl(30, 48%, 75%)')
-        document.body.style.setProperty('--clr-secondary', 'hsl(194, 53%, 78%)')
+        document.body.style.setProperty('--clr-txt', 'hsl(216, 100%, 99%)')
+        document.body.style.setProperty('--clr-bg', 'hsl(216, 100%, 1%)')
+        document.body.style.setProperty('--clr-primary', 'hsl(216, 56%, 74%)')
+        document.body.style.setProperty('--clr-secondary', 'hsl(217, 97%, 30%)')
+        document.body.style.setProperty('--accent', 'hsl(290, 22%, 73%)')
       }
     }
 

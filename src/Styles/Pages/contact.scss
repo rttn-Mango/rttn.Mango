@@ -29,14 +29,14 @@
         max-width: 7ch;
         font-family: 'Okine-Bold';
         padding-block: .5em;
-        color: var(--clr-txt);
+        color: var(--clr-primary);
     }
 
     a{
         text-decoration: none;
         font-size: calc(var(--fs-body) + .5dvw);
         display: inline-flex;
-        font-family: 'Okine-Regular';
+        font-family: 'Okine-Medium';
         color: var(--clr-txt);
         align-items: center;
         justify-content: center;
@@ -45,16 +45,27 @@
         padding: .5em 2em;
         border-radius: 3rem;
         position: relative;
-        top: 0;
-        transition: top 100ms ease-in-out;
         width: 100%;
-
         & svg{width: .65em;}
+        overflow: hidden;
+        transition: color 500ms ease-in-out;
 
-        &:hover, &:focus{
-            border-color: var(--accent);
-            top: -3px;
-            box-shadow: 0 0 10px var(--clr-primary);
+        &::after{
+            position: absolute;
+            content: '';
+            background-color: var(--clr-primary);
+            z-index: -1;
+            border-radius: 50%;
+            height: 1px;
+            width: 1px;
+            transition: scale 500ms ease-in-out;
+        }
+
+        &:hover, &:focus{ 
+            color: var(--clr-bg);
+            box-shadow: 0 0 50px var(--clr-secondary);
+
+            &::after{scale: 500;} 
         }
     }
 
@@ -78,7 +89,7 @@
     }
 
     &__scroll-to{
-        border: 3px solid var(--clr-primary);
+        border: 3px solid var(--clr-txt);
         width: max-content;
         padding: calc(.5rem + 1.5dvw);
         border-radius: 50%;
@@ -93,5 +104,7 @@
             height: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
             animation: down-arrow 500ms linear infinite alternate;
         }
+
+        &:hover{border: 3px solid var(--clr-primary); box-shadow: 0 0 30px var(--neutral-500);}
     }
 }
