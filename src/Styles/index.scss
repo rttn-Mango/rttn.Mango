@@ -44,6 +44,7 @@ body{
     @media screen and (max-width: 600px) { padding-top: calc(5rem + 5dvw); }
     position: relative;
     max-height: 85dvh;
+    overflow: hidden;
 
     & .wrapper{
         position: sticky;
@@ -56,26 +57,12 @@ body{
         font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
         font-family: 'Okine-Black';
         color: transparent;
+        overflow: hidden;
         -webkit-text-stroke: 6px var(--clr-primary);
         padding-top: calc(.5rem + 1.5dvw);
         @media screen and (max-width: 1000px) {-webkit-text-stroke: 2px var(--clr-primary);}
-
-        & .img{
-            display: inline;
-            position: relative;
-
-            &::before{
-                position: absolute;
-                content: '';
-                inset: 0;
-                background-image: url(/public/dp.jpg);
-                background-repeat: no-repeat;
-                clip-path: circle();
-                background-position: center; 
-                background-size: contain;
-                padding-top: 1.1em;
-            }
-        }
+        
+        span{display: inline-block; transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);}
     }
 
     .subHeading{
@@ -84,6 +71,9 @@ body{
         line-height: 1.3;
         white-space: nowrap;
         color: var(--clr-txt);
+        overflow: hidden;
+
+        span{display: inline-block; transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);}
     }
 
     &__bottom{
@@ -94,12 +84,15 @@ body{
         padding-top: calc(1em + 1dvw);
         color: var(--clr-txt);
         @media screen and (max-width: 600px) { padding-block: calc(10rem + 5dvw); }
+        & p{position: relative; transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);}
 
         &--scrollTo{
             border: 2px solid var(--clr-txt);
             border-radius: 50%;
             padding: min(3dvw, 1.5em);
             background-color: var(--neutral-900);
+            position: relative;
+            transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
             & svg{
                 width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
@@ -168,13 +161,14 @@ body{
         &:first-of-type{padding-bottom: 1rem}
     }
 
-    &__list{padding-top: 6em}
+    &__list{padding-top: 6em; overflow: hidden;}
 
     h3{
         font-size: clamp(calc(var(--fs-body2) + 2dvw), 10dvw, var(--fs-heading3));
         font-family: 'Okine-Regular';
         text-align: center;
         color: var(--clr-txt);
+        position: relative;
 
         &:first-of-type{padding-bottom: calc(1.5em + 3dvw);}
         &:not(:first-of-type){
@@ -206,7 +200,10 @@ body{
     @include container();
     padding-block: calc(5em + 5dvw) calc(10em + 10dvw);
 
-    &__container:hover > :not(:hover){opacity: .5}
+    &__container{
+        overflow: hidden;
+        &:hover > :not(:hover){opacity: .5}
+    }
 
     h2{
         font-size: clamp(calc(var(--fs-body3) + 3dvw), 10vw, var(--fs-heading2));
@@ -214,6 +211,9 @@ body{
         margin-block: 2rem 10rem;
         text-transform: uppercase;
         color: var(--clr-txt);
+        overflow: hidden;
+
+        span{display: inline-block; transition: all 700ms cubic-bezier(0.34, 1.56, 0.64, 1);}
     }
 
     h3{
@@ -255,6 +255,7 @@ body{
         justify-content: space-between;
         padding: calc(5em + 10dvw) 2vw;
         border-top: 1px solid var(--neutral-500);
+        position: relative;
 
         &:not(:first-child){border-bottom: 1px solid var(--neutral-500)}
     }

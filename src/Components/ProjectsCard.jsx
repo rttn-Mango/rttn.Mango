@@ -6,7 +6,7 @@ export default function ProjectsCard({title, src, index}){
     return(
         <section
             href={src}
-            className="projects__contents"
+            className={index === 0 ? "projects__contents | minify" : "projects__contents | shortly"}
             title={index === 0 ? 'Minify Website' : 'Shortly Website'}
             key={index}
         >

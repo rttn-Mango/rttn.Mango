@@ -388,6 +388,9 @@ textarea:not([rows]) {
   margin-inline: auto;
   color: var(--clr-txt);
 }
+.contact .flex-wrapper {
+  overflow: hidden;
+}
 .contact > p {
   font-size: clamp(var(--fs-caption) + 0.25em, 3dvw, var(--fs-body) + 0.35dvw);
   color: var(--clr-txt);
@@ -419,7 +422,14 @@ textarea:not([rows]) {
   padding-block: 0.5em;
   color: var(--clr-primary);
 }
+.contact h2 span {
+  display: inline-block;
+  transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 .contact a {
+  --_xPos: 0;
+  --_yPos: 0;
+  --_visibility: hidden;
   text-decoration: none;
   font-size: calc(var(--fs-body) + 0.5dvw);
   display: inline-flex;
@@ -441,26 +451,33 @@ textarea:not([rows]) {
 }
 .contact a::after {
   position: absolute;
+  visibility: var(--_visibility);
   content: "";
   background-color: var(--clr-primary);
+  left: var(--_xPos);
+  top: var(--_yPos);
   z-index: -1;
   border-radius: 50%;
+  scale: 0;
   height: 1px;
   width: 1px;
-  transition: scale 500ms ease-in-out;
+  transition: scale 1s ease-in-out;
 }
 .contact a:hover, .contact a:focus {
   color: var(--clr-bg);
   box-shadow: 0 0 50px var(--clr-secondary);
 }
 .contact a:hover::after, .contact a:focus::after {
-  scale: 500;
+  scale: 1000;
 }
 .contact p:not(:first-of-type) {
   font-size: calc(var(--fs-body) + 0.5dvw);
   font-family: "Okine-Regular";
   text-align: center;
   color: var(--clr-txt);
+}
+.contact__details {
+  position: relative;
 }
 @media screen and (max-width: 800px) {
   .contact__details {
@@ -928,6 +945,7 @@ body {
   margin-inline: auto;
   position: relative;
   max-height: 85dvh;
+  overflow: hidden;
 }
 @media screen and (max-width: 600px) {
   .hero {
@@ -944,6 +962,7 @@ body {
   font-size: clamp(var(--fs-body3) + 2dvw, 16vw, var(--fs-display));
   font-family: "Okine-Black";
   color: transparent;
+  overflow: hidden;
   -webkit-text-stroke: 6px var(--clr-primary);
   padding-top: calc(0.5rem + 1.5dvw);
 }
@@ -952,20 +971,9 @@ body {
     -webkit-text-stroke: 2px var(--clr-primary);
   }
 }
-.hero h1 .img {
-  display: inline;
-  position: relative;
-}
-.hero h1 .img::before {
-  position: absolute;
-  content: "";
-  inset: 0;
-  background-image: url(/public/dp.jpg);
-  background-repeat: no-repeat;
-  clip-path: circle();
-  background-position: center;
-  background-size: contain;
-  padding-top: 1.1em;
+.hero h1 span {
+  display: inline-block;
+  transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .hero .subHeading {
   font-size: clamp(var(--fs-body3) + 1dvw, 12vw, 14.375rem);
@@ -973,6 +981,11 @@ body {
   line-height: 1.3;
   white-space: nowrap;
   color: var(--clr-txt);
+  overflow: hidden;
+}
+.hero .subHeading span {
+  display: inline-block;
+  transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .hero__bottom {
   display: flex;
@@ -987,11 +1000,17 @@ body {
     padding-block: calc(10rem + 5dvw);
   }
 }
+.hero__bottom p {
+  position: relative;
+  transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 .hero__bottom--scrollTo {
   border: 2px solid var(--clr-txt);
   border-radius: 50%;
   padding: min(3dvw, 1.5em);
   background-color: var(--neutral-900);
+  position: relative;
+  transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .hero__bottom--scrollTo svg {
   width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
@@ -1065,12 +1084,14 @@ body {
 }
 .skills__list {
   padding-top: 6em;
+  overflow: hidden;
 }
 .skills h3 {
   font-size: clamp(var(--fs-body2) + 2dvw, 10dvw, var(--fs-heading3));
   font-family: "Okine-Regular";
   text-align: center;
   color: var(--clr-txt);
+  position: relative;
 }
 .skills h3:first-of-type {
   padding-bottom: calc(1.5em + 3dvw);
@@ -1103,6 +1124,9 @@ body {
   margin-inline: auto;
   padding-block: calc(5em + 5dvw) calc(10em + 10dvw);
 }
+.projects__container {
+  overflow: hidden;
+}
 .projects__container:hover > :not(:hover) {
   opacity: 0.5;
 }
@@ -1112,6 +1136,11 @@ body {
   margin-block: 2rem 10rem;
   text-transform: uppercase;
   color: var(--clr-txt);
+  overflow: hidden;
+}
+.projects h2 span {
+  display: inline-block;
+  transition: all 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .projects h3 {
   text-decoration: none;
@@ -1154,6 +1183,7 @@ body {
   justify-content: space-between;
   padding: calc(5em + 10dvw) 2vw;
   border-top: 1px solid var(--neutral-500);
+  position: relative;
 }
 @media screen and (max-width: 450px) {
   .projects__contents {

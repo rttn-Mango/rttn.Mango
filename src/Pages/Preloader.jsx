@@ -9,12 +9,13 @@ export default function Preloader({setLoading, content}){
 
         let tl = gsap.timeline();
     
-        gsap.set('span', {opacity: 0, y: 100});
+        gsap.set('.preloader span', {opacity: 0, y: 100});
         
-        tl.to('span', {
+        tl.to('.preloader span', {
             opacity: 1,
             y: 0,
-            stagger: .1
+            stagger: .1,
+            ease: 'back.out'
         }).to('.preloader__char, .preloader__dot', {
             delay: .1,
             stagger: .1,
@@ -22,7 +23,7 @@ export default function Preloader({setLoading, content}){
             opacity: 0,
             display: 'none',
             duration: .5
-        }).to('span', {
+        }).to('.preloader span', {
             opacity: 0,
             display: 'none',
             delay: 1
