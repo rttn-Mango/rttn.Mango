@@ -21,6 +21,9 @@ export default function AboutPage(){
 
         gsap.registerPlugin(ScrollTrigger);
 
+        //This allows the animation to still run even when user is tabbed somewhere else
+        gsap.ticker.lagSmoothing(0);
+
         //Makes the animation only run when user doesn't disable animations
         gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
             if(!loading){                
@@ -39,6 +42,11 @@ export default function AboutPage(){
                     delay: 3.3,
                     duration: .5,
                 })
+
+                if(window.innerWidth < 1000){
+                    gsap.set('.about-page__profile', {opacity: 0})
+                    gsap.to('.about-page__profile', {opacity: 1, delay: 3})
+                }
             }
 
             gsap.to('.about-page__profile .wrapper', {

@@ -18,6 +18,9 @@ export default function ContactPage() {
 
         gsap.registerPlugin(ScrollTrigger);
 
+        //This allows the animation to still run even when user is tabbed somewhere else
+        gsap.ticker.lagSmoothing(0);
+
         //Makes the animation only run when user doesn't disable animations
         gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
             if(!loading){                

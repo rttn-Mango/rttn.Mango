@@ -11,6 +11,9 @@ export default function PageTransitionWrapper({children}){
     useEffect(() => {
         let tl = gsap.timeline();
 
+        //This allows the animation to still run even when user is tabbed somewhere else
+        gsap.ticker.lagSmoothing(0);
+
         if(!loading){
             tl.fromTo('.col', {scaleX: 0} ,{
                 scaleX: 1,

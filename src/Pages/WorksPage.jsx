@@ -28,6 +28,9 @@ export default function WorksPage(){
 
         gsap.registerPlugin(ScrollTrigger);
 
+        //This allows the animation to still run even when user is tabbed somewhere else
+        gsap.ticker.lagSmoothing(0);
+
         //Makes the animation only run when user doesn't disable animations
         gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
             if(!loading){                
@@ -38,19 +41,25 @@ export default function WorksPage(){
                     delay: 3.3,
                     duration: .5,
                 })
-            }
 
-            gsap.fromTo('.works-page__card', {opacity: 0, scale: 0}, {
-                opacity: 1,
-                scale: 1,
-                duration: .7,
-                scrollTrigger: {
-                    trigger: '.works-page .flex-wrapper',
-                    start: 'top bottom',
-                    end: '30% bottom',
-                    scrub: 2,
+                if(window.innerWidth < 1500){
+                    gsap.set('.works-page__card', {opacity: 0})
+                    gsap.to('.works-page__card', {opacity: 1, delay: 4})
                 }
-            })
+                else{
+                    gsap.fromTo('.works-page__card', {opacity: 0, scale: 0}, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: .7,
+                        scrollTrigger: {
+                            trigger: '.works-page .flex-wrapper',
+                            start: 'top bottom',
+                            end: '30% bottom',
+                            scrub: 2,
+                        }
+                    })
+                }
+            }
         })
     }, [loading])
 

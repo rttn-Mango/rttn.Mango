@@ -10,7 +10,8 @@ export default function Preloader({setLoading, content}){
         let tl = gsap.timeline();
     
         gsap.set('.preloader span', {opacity: 0, y: 100});
-        
+        //This allows the animation to still run even when user is tabbed somewhere else
+        gsap.ticker.lagSmoothing(0);
         tl.to('.preloader span', {
             opacity: 1,
             y: 0,
