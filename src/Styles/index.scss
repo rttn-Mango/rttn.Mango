@@ -264,14 +264,18 @@ body{
 //About Page
 .about-page{
     @include container();
-
+    
     h1{
         font-size: clamp(calc(var(--fs-body3) + .75dvw), 10vw, var(--fs-heading));
         font-family: 'Okine-Black';
         padding-block: 1em;
         color: var(--clr-txt);
+        position: relative;
+        overflow: hidden;
 
-        span{
+        & span{display: inline-block;}
+
+        .h1__stagger{
             color: transparent;
             -webkit-text-stroke: 3px var(--clr-txt);
             @media screen and (max-width: 600px) { -webkit-text-stroke: 1px var(--clr-txt); }
@@ -297,7 +301,7 @@ body{
 
     &__profile{
         padding-block: 6em calc(10em + 10dvw);
-        max-height: 130dvh;
+        max-height: 100dvh;
         position: relative;
         overflow: hidden;
         color: var(--clr-txt);
@@ -354,6 +358,8 @@ body{
 
         &--sample{
             padding-block: calc(7em + 8dvw);
+            position: relative;
+
             @media screen and (max-width: 1250px) {
                 @include flex(row, 2rem);
                 align-items: center;
@@ -434,6 +440,7 @@ body{
             @include flex(column, 2rem);
             justify-content: space-between;
             font-size: clamp(var(--fs-body), 3vw, calc(var(--fs-body) + .25em));
+            overflow: hidden;
 
             @media screen and (min-width: 1000px) {
                 flex-direction: row; 

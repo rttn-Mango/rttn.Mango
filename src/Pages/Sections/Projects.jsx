@@ -72,9 +72,7 @@ export default function Projects(){
         <section className="projects" id='projects'>
             <h2 aria-label='Works'>
                 {
-                    'Works'.split('').map((char, index) => {
-                        return <span key={index}>{char}</span>
-                    })
+                    'Works'.split('').map((char, index) => <span key={index}>{char}</span> )
                 }
             </h2>
 

@@ -1204,13 +1204,18 @@ body {
   font-family: "Okine-Black";
   padding-block: 1em;
   color: var(--clr-txt);
+  position: relative;
+  overflow: hidden;
 }
 .about-page h1 span {
+  display: inline-block;
+}
+.about-page h1 .h1__stagger {
   color: transparent;
   -webkit-text-stroke: 3px var(--clr-txt);
 }
 @media screen and (max-width: 600px) {
-  .about-page h1 span {
+  .about-page h1 .h1__stagger {
     -webkit-text-stroke: 1px var(--clr-txt);
   }
 }
@@ -1231,7 +1236,7 @@ body {
 }
 .about-page__profile {
   padding-block: 6em calc(10em + 10dvw);
-  max-height: 130dvh;
+  max-height: 100dvh;
   position: relative;
   overflow: hidden;
   color: var(--clr-txt);
@@ -1292,6 +1297,7 @@ body {
 }
 .about-page__design-style--sample {
   padding-block: calc(7em + 8dvw);
+  position: relative;
 }
 @media screen and (max-width: 1250px) {
   .about-page__design-style--sample {
@@ -1379,6 +1385,7 @@ body {
   gap: 2rem;
   justify-content: space-between;
   font-size: clamp(var(--fs-body), 3vw, var(--fs-body) + 0.25em);
+  overflow: hidden;
 }
 @media screen and (min-width: 1000px) {
   .about-page__niche--field {

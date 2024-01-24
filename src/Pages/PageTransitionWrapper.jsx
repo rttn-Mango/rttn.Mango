@@ -8,28 +8,6 @@ export default function PageTransitionWrapper({children}){
     const page = useLocation()
     const {loading} = useLoadingContext();
 
-    // const aboutpageAnim = () => {
-    //     gsap.registerPlugin(ScrollTrigger);
-
-    //     gsap.registerPlugin(ScrollTrigger);
-
-    //         gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
-    //             gsap.to('div.wrapper', {
-    //                 y: '-2dvw',
-    //                 ease: 'power2',
-    //                 opacity: .3,
-    //                 scale: .93,
-    //                 scrollTrigger: {
-    //                     trigger: 'div.wrapper',
-    //                     start: 'top top',
-    //                     end: 'bottom',
-    //                     pin: true,
-    //                     scrub: true,
-    //                 }
-    //             })
-    //         })
-    // }
-
     useEffect(() => {
         let tl = gsap.timeline();
 

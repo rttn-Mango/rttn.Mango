@@ -64,16 +64,12 @@ export default function Hero(){
                 <div className="wrapper">
                     <h1 aria-label='Developer'>
                         {
-                            'Developer'.split('').map((char, index) => {
-                                return <span key={index} >{char}</span>
-                            })
+                            'Developer'.split('').map((char, index) => <span key={index} >{char}</span> )
                         }
                     </h1>
                     <p className="subHeading" aria-label="Front-end">
                         {
-                            'Front-end'.split('').map((char, index) => {
-                                return <span key={index} >{char}</span>
-                            })
+                            'Front-end'.split('').map((char, index) => <span key={index} >{char}</span> )
                         }
                     </p>
 
