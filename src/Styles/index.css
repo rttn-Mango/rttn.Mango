@@ -1403,15 +1403,20 @@ body {
 .works-page h1 {
   font-size: clamp(var(--fs-body3) + 0.75dvw, 10vw, var(--fs-display));
   font-family: "Okine-Black";
-  padding-block: calc(1em + 3.5dvw);
+  margin-block: calc(1em + 3.5dvw);
   color: var(--clr-txt);
+  overflow: hidden;
 }
 .works-page h1 span {
+  display: inline-block;
+  transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.works-page h1 .h1__staggered {
   color: transparent;
   -webkit-text-stroke: 3px var(--clr-txt);
 }
 @media screen and (max-width: 800px) {
-  .works-page h1 span {
+  .works-page h1 .h1__staggered {
     -webkit-text-stroke: 1px var(--clr-txt);
   }
 }
@@ -1521,6 +1526,7 @@ body {
 .contact-page h1 span {
   color: transparent;
   -webkit-text-stroke: 3px var(--clr-txt);
+  transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 @media screen and (max-width: 600px) {
   .contact-page h1 span {
@@ -1594,6 +1600,7 @@ body {
 .contact-page form {
   padding-bottom: 6rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
 }
 .contact-page a, .contact-page p {
   text-decoration: none;
@@ -1605,6 +1612,9 @@ body {
 }
 .contact-page__links {
   padding-block: 5rem;
+}
+.contact-page__links .text-wrapper {
+  overflow: hidden;
 }
 .contact-page__links h2 {
   font-size: clamp(var(--fs-body), 8vw, var(--fs-body3));

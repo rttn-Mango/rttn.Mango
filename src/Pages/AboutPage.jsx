@@ -99,7 +99,6 @@ export default function AboutPage(){
                     start: 'top bottom',
                     end: 'center bottom',
                     scrub: 2,
-                    markers: true
                 }
             })
         })

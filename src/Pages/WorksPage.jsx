@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
 import { useEffect } from "react";
 import PageTransitionWrapper from "./PageTransitionWrapper";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLoadingContext } from "../hooks/useLoadingContext";
 
 //Component
 import Contact from "../Components/Contact";
@@ -17,13 +20,44 @@ import shortlyTablet from '../assets/ShortlyTablet.png'
 import TiltedArrow from "../svg/TiltedArrow";
 
 export default function WorksPage(){
+    const {loading} = useLoadingContext();
+
     //To change document title once the Component mounts
-    useEffect( () => {document.title = "Works"}, [])
+    useEffect( () => {
+        document.title = "Works";
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        //Makes the animation only run when user doesn't disable animations
+        gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+            if(!loading){                
+                gsap.fromTo('.h1__staggered span, .h1__word1 span', {y: 500, opacity: 0}, {
+                    y: 0,
+                    opacity: 1,
+                    stagger: .1,
+                    delay: 3.3,
+                    duration: .5,
+                })
+            }
+
+            gsap.fromTo('.works-page__card', {opacity: 0, scale: 0}, {
+                opacity: 1,
+                scale: 1,
+                duration: .7,
+                scrollTrigger: {
+                    trigger: '.works-page .flex-wrapper',
+                    start: 'top bottom',
+                    end: '30% bottom',
+                    scrub: 2,
+                }
+            })
+        })
+    }, [loading])
 
     return(
         <PageTransitionWrapper>
             <main className="works-page">
-                <h1>My Recent <span>Works</span></h1>
+                <h1 aria-label="Recent Works"><span className="h1__word1">{'Recent'.split('').map((char, index) => <span key={index}>{char}</span>)}</span> <span className="h1__staggered" >{'Works'.split('').map((char, index) => <span key={index}>{char}</span>)}</span></h1>
 
                 <div className="flex-wrapper">
                     <section className="works-page__card">

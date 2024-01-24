@@ -460,10 +460,13 @@ body{
     h1{
         font-size: clamp(calc(var(--fs-body3) + .75dvw), 10vw, var(--fs-display));
         font-family: 'Okine-Black';
-        padding-block: calc(1em + 3.5dvw);
+        margin-block: calc(1em + 3.5dvw);
         color: var(--clr-txt);
+        overflow: hidden;
 
-        span{
+        span{display: inline-block; transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);}
+
+        .h1__staggered{
             color: transparent;
             -webkit-text-stroke: 3px var(--clr-txt);
             @media screen and (max-width: 800px) { -webkit-text-stroke: 1px var(--clr-txt); }
@@ -565,6 +568,7 @@ body{
         span{
             color: transparent;
             -webkit-text-stroke: 3px var(--clr-txt);
+            transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
             @media screen and (max-width: 600px) { -webkit-text-stroke: 1px var(--clr-txt); }
         }
     }
@@ -636,7 +640,7 @@ body{
         &:focus{box-shadow: 0 0 30px rgba(255 255 255 / 0.5)}
     }
 
-    form{padding-bottom: 6rem; border-bottom: 1px solid rgba(255 255 255 / 0.5);}
+    form{padding-bottom: 6rem; border-bottom: 1px solid rgba(255 255 255 / 0.5); overflow: hidden;}
 
     a, p{
         text-decoration: none; 
@@ -648,6 +652,8 @@ body{
 
     &__links{
         padding-block: 5rem;
+
+        .text-wrapper{overflow: hidden;}
 
         h2{
             font-size: clamp(var(--fs-body), 8vw, var(--fs-body3));
