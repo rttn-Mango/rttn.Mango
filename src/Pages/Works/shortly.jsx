@@ -1,17 +1,150 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLoadingContext } from "../../hooks/useLoadingContext";
 
 //Icon
 import TiltedArrow from '../../svg/TiltedArrow'
 
 export default function Shortly() {
-    useEffect(() => {document.title = 'Read more about Shortly'} ,[])
+    const {loading} = useLoadingContext();
+
+    useEffect(() => {
+        document.title = 'Read more about Shortly'
+
+        const checkOutBtn = document.querySelector('.check-btn');
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        //This allows the animation to still run even when user is tabbed somewhere else
+        gsap.ticker.lagSmoothing(0);
+        
+        //Hover animation for the get in touch button on contact section
+        checkOutBtn.addEventListener('mousemove', e => {
+            let rect = e.target.getBoundingClientRect();
+
+            checkOutBtn.style.setProperty('--_xPos', `${e.clientX - rect.left}px`)
+            checkOutBtn.style.setProperty('--_yPos', `${e.clientY - rect.top}px`)
+            checkOutBtn.style.setProperty('--_visibility', `visible`)
+        })
+
+        gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () =>{
+            if(!loading){
+                gsap.fromTo('.shortly h1 span', {y: 500, opacity: 0}, {
+                    y: 0,
+                    opacity: 1,
+                    stagger: .1,
+                    duration: .7,
+                })
+    
+                gsap.fromTo('.shortly__links a', {y: 500, opacity: 0}, {
+                    y: 0,
+                    opacity: 1,
+                    duration: .7,
+                })
+    
+                gsap.fromTo('.shortly__tldr h2, .shortly__tldr p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.shortly__tldr h2',
+                        start: '20% bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.shortly__overview h2, .shortly__overview h2 + p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.shortly__overview h2',
+                        start: 'center bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.shortly__overview--feature > *', {opacity: 0, y: -700}, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.shortly__overview--feature',
+                        start: 'top bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.shortly__technical h2', {opacity: 0}, {
+                    opacity: 1,
+                    stagger: .1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.shortly__technical h2',
+                        start: 'center bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.shortly__technical--designing', {opacity: 0, x: -2000}, {
+                    opacity: 1,
+                    x: 0,
+                    duration: .7,
+                    scrollTrigger: {
+                        trigger: '.shortly__technical--designing',
+                        start: 'top bottom',
+                        end: 'center bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.development__mid p', {opacity: 0, y: -500}, {
+                    opacity: 1,
+                    y: 0,
+                    duration: .7,
+                    scrollTrigger: {
+                        trigger: '.development__mid',
+                        start: 'top bottom',
+                        end: 'center bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.shortly__difficulties h2, .shortly__difficulties p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: .7,
+                    scrollTrigger: {
+                        trigger: '.shortly__difficulties',
+                        start: '30% bottom',
+                        end: '70% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.shortly__overall h2, .shortly__overall p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: .7,
+                    scrollTrigger: {
+                        trigger: '.shortly__overall',
+                        start: '30% bottom',
+                        end: '70% bottom',
+                        scrub: 2,
+                    }
+                })
+            }
+        })
+
+    } ,[loading])
 
     return(
         <main className="shortly">
-            <h1>Shortly</h1>
-            <section className="minify__links">
-                <Link to=''>Check out shortly</Link>
+            <h1 aria-label="Shortly">{'Shortly'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
+            <section className="shortly__links">
+                <Link className="check-btn" to=''>Check out shortly</Link>
                 <Link to="">Visit Github Repo <TiltedArrow/></Link>
             </section>
 

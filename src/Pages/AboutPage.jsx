@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 //Image
-import me from '../assets/me.svg'
+import me from '/public/me.svg'
 
 //Icons
 import { MdOutlineDesignServices } from "react-icons/md";

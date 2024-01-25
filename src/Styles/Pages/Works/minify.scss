@@ -7,7 +7,11 @@
         font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
         font-family: 'Okine-Black';
         padding-block: calc(.5rem + 7dvw) .5em;
+        overflow: hidden;
+        position: relative;
         @media screen and (min-width: 700px) { padding-bottom: 0; }
+
+        span{display: inline-block}
     }
 
     p{padding-top: calc(1em + .5dvw); line-height: 1.8; font-family: 'Okine-Light';}
@@ -25,7 +29,45 @@
         color: var(--clr-primary);
     }
 
-    span{opacity: 1 !important; display: inline !important;}
+    .check-btn{
+        --_xPos: 0;
+        --_yPos: 0;
+        --_visibility: hidden;
+
+        color: var(--clr-txt);
+        text-decoration: none;
+        font-family: 'Okine-Medium';
+        border: 3px solid var(--clr-primary);
+        align-self: center;
+        font-size: calc(var(--fs-body) + .15dvw);
+        padding: .75em calc(1em + 1dvw);
+        border-radius: 5em;
+        position: relative;
+        overflow: hidden;
+        transition: color 500ms ease-in-out;
+
+        &::after{
+            position: absolute;
+            content: '';
+            visibility: var(--_visibility);
+            left: var(--_xPos);
+            top: var(--_yPos);
+            height: 1px;
+            width: 1px;
+            scale: 0;
+            background-color: var(--clr-primary);
+            z-index: -1;
+            border-radius: 50%;
+            transition: scale 1s ease-in-out;
+            
+        }
+
+        &:hover, &:focus{
+            box-shadow: 0 0 50px var(--clr-secondary);
+            color: var(--clr-bg);
+            &::after{scale: 1000;}
+        }
+    }
 
     &__links{
         display: flex;
@@ -33,43 +75,12 @@
         max-width: fit-content;
         align-items: center;
         gap: 1.5rem;
-        padding-bottom: calc(3em + 7dvw);
+        overflow: hidden;
+        margin-bottom: calc(3em + 7dvw);
         @media screen and (min-width: 700px) { flex-direction: row; }
 
-        & a:first-of-type{
-            text-decoration: none;
-            font-family: 'Okine-Medium';
-            border: 3px solid var(--clr-primary);
-            align-self: center;
-            font-size: calc(var(--fs-body) + .15dvw);
-            padding: .75em calc(1em + 1dvw);
-            border-radius: 5em;
-            position: relative;
-            overflow: hidden;
-            transition: color 500ms ease-in-out;
-
-            &::after{
-                position: absolute;
-                content: '';
-                height: 1px;
-                width: 1px;
-                background-color: var(--clr-primary);
-                inset: 0;
-                margin: auto;
-                z-index: -1;
-                border-radius: 50%;
-                transition: scale 500ms ease-in-out;
-                
-            }
-
-            &:hover, &:focus{
-                box-shadow: 0 0 50px var(--clr-secondary);
-                color: var(--clr-bg);
-                &::after{scale: 350;}
-            }
-        }
-
         & a:last-of-type{
+            position: relative;
             display: inline-flex;
             gap: 1rem;
             font-size: calc(var(--fs-body) + .35dvw);
@@ -98,6 +109,7 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            overflow: hidden;
             @media screen and (min-width: 800px) {flex-direction: row}
         }
     }
@@ -110,6 +122,7 @@
             flex-direction: column;
             gap: 3rem;
             justify-content: space-between;
+            overflow: hidden;
             @media screen and (min-width: 1200px) {flex-direction: row; justify-content: space-between; padding-block: calc(2em + 3dvw);}
         }
 
@@ -172,6 +185,7 @@
             align-items: center;
             &--text{max-width: 70ch}
             justify-content: space-between;
+            overflow: hidden;
 
             @media screen and (min-width: 1000px) {
                 flex-direction: row;
@@ -186,7 +200,12 @@
             }
         }
 
-        &--development{padding-top: calc(3em + 2dvw);}
+        & .designing__last{
+            overflow: hidden;
+            & p{position: relative;}
+        }
+
+        &--development{padding-top: calc(3em + 2dvw); overflow: hidden; & > div{position: relative;}}
 
         @media screen and (min-width: 1000px){
             & .designing__last{
@@ -218,6 +237,7 @@
             width: clamp(200px, 20dvw, 18rem);
             border-radius: 1rem;
             box-shadow: 0 0 10px var(--neutral-300);
+            margin-left: .25rem;
         }
 
         @media screen and (min-width: 900px){
@@ -227,6 +247,9 @@
                 gap: calc(1rem + 4dvw);
                 align-items: center;
                 padding-bottom: calc(2em + 1dvw);
+                overflow-y: hidden;
+                
+                & > *{position: relative;}
             }
 
             &--last{

@@ -571,11 +571,16 @@ textarea:not([rows]) {
   font-size: clamp(var(--fs-body3) + 2dvw, 16vw, var(--fs-display));
   font-family: "Okine-Black";
   padding-block: calc(0.5rem + 7dvw) 0.5em;
+  overflow: hidden;
+  position: relative;
 }
 @media screen and (min-width: 700px) {
   .minify h1 {
     padding-bottom: 0;
   }
+}
+.minify h1 span {
+  display: inline-block;
 }
 .minify p {
   padding-top: calc(1em + 0.5dvw);
@@ -593,24 +598,11 @@ textarea:not([rows]) {
   font-family: "Okine-Medium";
   color: var(--clr-primary);
 }
-.minify span {
-  opacity: 1 !important;
-  display: inline !important;
-}
-.minify__links {
-  display: flex;
-  flex-direction: column;
-  max-width: fit-content;
-  align-items: center;
-  gap: 1.5rem;
-  padding-bottom: calc(3em + 7dvw);
-}
-@media screen and (min-width: 700px) {
-  .minify__links {
-    flex-direction: row;
-  }
-}
-.minify__links a:first-of-type {
+.minify .check-btn {
+  --_xPos: 0;
+  --_yPos: 0;
+  --_visibility: hidden;
+  color: var(--clr-txt);
   text-decoration: none;
   font-family: "Okine-Medium";
   border: 3px solid var(--clr-primary);
@@ -622,26 +614,43 @@ textarea:not([rows]) {
   overflow: hidden;
   transition: color 500ms ease-in-out;
 }
-.minify__links a:first-of-type::after {
+.minify .check-btn::after {
   position: absolute;
   content: "";
+  visibility: var(--_visibility);
+  left: var(--_xPos);
+  top: var(--_yPos);
   height: 1px;
   width: 1px;
+  scale: 0;
   background-color: var(--clr-primary);
-  inset: 0;
-  margin: auto;
   z-index: -1;
   border-radius: 50%;
-  transition: scale 500ms ease-in-out;
+  transition: scale 1s ease-in-out;
 }
-.minify__links a:first-of-type:hover, .minify__links a:first-of-type:focus {
+.minify .check-btn:hover, .minify .check-btn:focus {
   box-shadow: 0 0 50px var(--clr-secondary);
   color: var(--clr-bg);
 }
-.minify__links a:first-of-type:hover::after, .minify__links a:first-of-type:focus::after {
-  scale: 350;
+.minify .check-btn:hover::after, .minify .check-btn:focus::after {
+  scale: 1000;
+}
+.minify__links {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  align-items: center;
+  gap: 1.5rem;
+  overflow: hidden;
+  margin-bottom: calc(3em + 7dvw);
+}
+@media screen and (min-width: 700px) {
+  .minify__links {
+    flex-direction: row;
+  }
 }
 .minify__links a:last-of-type {
+  position: relative;
   display: inline-flex;
   gap: 1rem;
   font-size: calc(var(--fs-body) + 0.35dvw);
@@ -670,6 +679,7 @@ textarea:not([rows]) {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow: hidden;
 }
 @media screen and (min-width: 800px) {
   .minify__overview--features {
@@ -684,6 +694,7 @@ textarea:not([rows]) {
   flex-direction: column;
   gap: 3rem;
   justify-content: space-between;
+  overflow: hidden;
 }
 @media screen and (min-width: 1200px) {
   .minify__style-guide .flex-wrapper {
@@ -748,6 +759,7 @@ textarea:not([rows]) {
   padding-block: calc(2em + 8dvw);
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 .minify__technical .designing__mid--text {
   max-width: 70ch;
@@ -764,8 +776,18 @@ textarea:not([rows]) {
   width: clamp(300px, 30dvw, 23rem);
   border-radius: 1.5rem;
 }
+.minify__technical .designing__last {
+  overflow: hidden;
+}
+.minify__technical .designing__last p {
+  position: relative;
+}
 .minify__technical--development {
   padding-top: calc(3em + 2dvw);
+  overflow: hidden;
+}
+.minify__technical--development > div {
+  position: relative;
 }
 @media screen and (min-width: 1000px) {
   .minify__technical .designing__last {
@@ -797,6 +819,7 @@ textarea:not([rows]) {
   width: clamp(200px, 20dvw, 18rem);
   border-radius: 1rem;
   box-shadow: 0 0 10px var(--neutral-300);
+  margin-left: 0.25rem;
 }
 @media screen and (min-width: 900px) {
   .minify__difficulties--logo {
@@ -805,6 +828,10 @@ textarea:not([rows]) {
     gap: calc(1rem + 4dvw);
     align-items: center;
     padding-bottom: calc(2em + 1dvw);
+    overflow-y: hidden;
+  }
+  .minify__difficulties--logo > * {
+    position: relative;
   }
   .minify__difficulties--last {
     display: flex;
@@ -825,11 +852,15 @@ textarea:not([rows]) {
   font-size: clamp(var(--fs-body3) + 2dvw, 16vw, var(--fs-display));
   font-family: "Okine-Black";
   padding-block: calc(0.5rem + 7dvw) 0.5em;
+  overflow: hidden;
 }
 @media screen and (min-width: 700px) {
   .shortly h1 {
     padding-bottom: 0;
   }
+}
+.shortly h1 span {
+  display: inline-block;
 }
 .shortly p {
   padding-top: calc(1em + 0.5dvw);
@@ -849,20 +880,11 @@ textarea:not([rows]) {
   color: var(--clr-primary);
   padding-top: calc(0.3em + 1dvw);
 }
-.shortly__links {
-  display: flex;
-  flex-direction: column;
-  max-width: fit-content;
-  align-items: center;
-  gap: 1.5rem;
-  padding-bottom: calc(3em + 7dvw);
-}
-@media screen and (min-width: 700px) {
-  .shortly__links {
-    flex-direction: row;
-  }
-}
-.shortly__links a:first-of-type {
+.shortly .check-btn {
+  --_xPos: 0;
+  --_yPos: 0;
+  --_visibility: hidden;
+  color: var(--clr-txt);
   text-decoration: none;
   font-family: "Okine-Medium";
   border: 3px solid var(--clr-primary);
@@ -874,26 +896,43 @@ textarea:not([rows]) {
   overflow: hidden;
   transition: color 500ms ease-in-out;
 }
-.shortly__links a:first-of-type::after {
+.shortly .check-btn::after {
   position: absolute;
   content: "";
+  visibility: var(--_visibility);
+  left: var(--_xPos);
+  top: var(--_yPos);
   height: 1px;
   width: 1px;
+  scale: 0;
   background-color: var(--clr-primary);
-  inset: 0;
-  margin: auto;
   z-index: -1;
   border-radius: 50%;
-  transition: scale 500ms ease-in-out;
+  transition: scale 1s ease-in-out;
 }
-.shortly__links a:first-of-type:hover, .shortly__links a:first-of-type:focus {
+.shortly .check-btn:hover, .shortly .check-btn:focus {
   box-shadow: 0 0 50px var(--clr-secondary);
   color: var(--clr-bg);
 }
-.shortly__links a:first-of-type:hover::after, .shortly__links a:first-of-type:focus::after {
-  scale: 350;
+.shortly .check-btn:hover::after, .shortly .check-btn:focus::after {
+  scale: 1000;
+}
+.shortly__links {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: calc(3em + 7dvw);
+  overflow: hidden;
+}
+@media screen and (min-width: 700px) {
+  .shortly__links {
+    flex-direction: row;
+  }
 }
 .shortly__links a:last-of-type {
+  position: relative;
   display: inline-flex;
   gap: 1rem;
   font-size: calc(var(--fs-body) + 0.35dvw);
@@ -908,17 +947,27 @@ textarea:not([rows]) {
 .shortly__links a:last-of-type:hover, .shortly__links a:last-of-type:focus {
   font-style: italic;
 }
-.shortly__tldr, .shortly__overview, .shortly__overall, .shortly__difficulties {
+.shortly__tldr, .shortly__overall, .shortly__difficulties {
   padding-block: calc(2em + 3dvw) calc(5em + 7dvw);
+}
+.shortly__overview {
+  padding-block: calc(2em + 3dvw) calc(5em + 7dvw);
+}
+.shortly__overview--feature {
+  overflow: hidden;
 }
 .shortly__technical {
   padding-block: calc(2em + 3dvw) calc(5em + 7dvw);
+  overflow: hidden;
 }
 .shortly__technical code {
   padding: 0.25rem 0.5rem;
   background-color: var(--neutral-500);
   border-radius: 0.25rem;
   color: var(--clr-bg);
+}
+.shortly__technical .development__mid {
+  overflow: hidden;
 }
 @media screen and (min-width: 1000px) {
   .shortly__technical .development__mid {

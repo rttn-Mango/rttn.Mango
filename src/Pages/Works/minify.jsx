@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLoadingContext } from "../../hooks/useLoadingContext";
 
 //Images
 import wireframe from '../../assets/minify-wireframe.png'
@@ -12,6 +15,7 @@ import ColorsCard from "../../Components/ColorsCard";
 import TiltedArrow from '../../svg/TiltedArrow'
 
 export default function Minify(){
+    const {loading} = useLoadingContext();
     const COLORS_CARD_DATA = [
         {
             name: 'Seashell | Text',
@@ -45,13 +49,287 @@ export default function Minify(){
         }
     ]
 
-    useEffect(() => {document.title = 'Read more about minify'} ,[])
+    useEffect(() => {
+        document.title = 'Read more about minify';
+        const checkOutBtn = document.querySelector('.check-btn');
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        //This allows the animation to still run even when user is tabbed somewhere else
+        gsap.ticker.lagSmoothing(0);
+        
+        //Hover animation for the get in touch button on contact section
+        checkOutBtn.addEventListener('mousemove', e => {
+            let rect = e.target.getBoundingClientRect();
+
+            checkOutBtn.style.setProperty('--_xPos', `${e.clientX - rect.left}px`)
+            checkOutBtn.style.setProperty('--_yPos', `${e.clientY - rect.top}px`)
+            checkOutBtn.style.setProperty('--_visibility', `visible`)
+        })
+
+        gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+            if(!loading){
+                gsap.fromTo('.minify h1 span', {y: 500, opacity: 0}, {
+                    y: 0,
+                    opacity: 1,
+                    stagger: .1,
+                    duration: .7,
+                })
+
+                gsap.fromTo('.minify__links a', {y: 500, opacity: 0}, {
+                    y: 0,
+                    opacity: 1,
+                    duration: .7,
+                })
+
+                gsap.fromTo('.minify__tldr h2, .minify__tldr p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__tldr h2',
+                        start: '20% bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__overview h2', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__overview h2',
+                        start: '20% bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.features__compress, .features__convert', {opacity: 0, y: -500}, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__overview--features',
+                        start: 'top bottom',
+                        end: '40% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__style-guide h2', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__style-guide h2',
+                        start: '20% bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__style-guide--typeface', {opacity: 0, x: -500}, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__style-guide--typeface',
+                        start: 'top bottom',
+                        end: '30% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__style-guide--colors', {opacity: 0, x: 1300}, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__style-guide--colors',
+                        start: 'top bottom',
+                        end: '30% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__technical h2', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__technical h2',
+                        start: 'top bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__technical--development h3', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__technical--development h3',
+                        start: 'top bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.designing__mid--text', {opacity: 0, x: -700}, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.designing__mid--text',
+                        start: 'top bottom',
+                        end: '20% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.designing__mid img', {opacity: 0, x: 700}, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.designing__mid img',
+                        start: 'top bottom',
+                        end: '20% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.designing__last p', {opacity: 0, y: -700}, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.designing__last',
+                        start: 'top bottom',
+                        end: 'center bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.designing__last + p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.designing__last + p',
+                        start: 'center bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.development__mid--left', {opacity: 0, x: -700}, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.development__mid--left',
+                        start: 'top bottom',
+                        end: '20% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.development__mid--right', {opacity: 0, x: 700}, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.development__mid--right',
+                        start: 'top bottom',
+                        end: '20% bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.development__mid + p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.designing__last + p',
+                        start: 'center bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__difficulties h2', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__difficulties h2',
+                        start: '20% bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__difficulties h2', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__difficulties h2',
+                        start: '20% bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__difficulties--logo > *', {opacity: 0, y: -700}, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__difficulties--logo',
+                        start: '20% bottom',
+                        end: 'center bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.last__left, .last__right', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.last__left',
+                        start: 'top bottom',
+                        end: 'center bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__overall h2', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__overall h2',
+                        start: 'top bottom',
+                        end: 'center bottom',
+                        scrub: 2,
+                    }
+                })
+
+                gsap.fromTo('.minify__overall p', {opacity: 0}, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: '.minify__overall p',
+                        start: 'top bottom',
+                        end: 'bottom bottom',
+                        scrub: 2,
+                    }
+                })
+            }
+        })
+    } ,[loading])
 
     return(
         <main className="minify">
-            <h1>minify</h1>
+            <h1 aria-label="minify">{'minify'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
             <section className="minify__links">
-                <Link to='https://minifyy.vercel.app/' title="Visit minify">Check out minify</Link>
+                <Link to='https://minifyy.vercel.app/' className="check-btn" title="Visit minify">Check out minify</Link>
                 <Link to='https://github.com/rttn-Mango/minify' title="Go to github repository" aria-label="Visit Github Repository">Visit Github Repo <TiltedArrow/></Link>
             </section>
 
