@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import gsap from "gsap";
 import { useEffect } from "react";
 import { useLoadingContext } from "../hooks/useLoadingContext";
+import useHoverContentContext from "../hooks/useHoverContentContext";
 
 //Icons
 import Burger from "../svg/Burger";
@@ -12,6 +13,7 @@ import DarkModeIcon from '../assets/DarkModeIcon.svg'
 export default function Header({setShowNav, showNav, setFromHeader, changePalette ,setChangePalette}){
     const path = useLocation().pathname;
     const {loading} = useLoadingContext()
+    const {hoverContent, setHoverContent} = useHoverContentContext();
 
     useEffect(() => {
         if(!loading){
@@ -48,15 +50,15 @@ export default function Header({setShowNav, showNav, setFromHeader, changePalett
                         <Link to="/" title="Logo" className="logo" aria-label="Logo"> KOMA </Link>
                     </li>
                     <li className="header__pages">
-                        <Link className={path === '/' ? 'active' : 'page'} to="/" title="Homepage">Home</Link>
-                        <Link className={path === '/about' ? 'active' : 'page'} to="/about" title="About me">About</Link>
-                        <Link className={path.includes('/works') ? 'active' : 'page'} to="/works" title="Recent Works">Works</Link>
-                        <Link className={path === '/contact' ? 'active' : 'page'} to="/contact" title="Send me a Message">Contact</Link>
+                        <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} className={path === '/' ? 'active' : 'page'} to="/" title="Homepage">Home</Link>
+                        <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} className={path === '/about' ? 'active' : 'page'} to="/about" title="About me">About</Link>
+                        <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} className={path.includes('/works') ? 'active' : 'page'} to="/works" title="Recent Works">Works</Link>
+                        <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} className={path === '/contact' ? 'active' : 'page'} to="/contact" title="Send me a Message">Contact</Link>
                     </li>
                     <li className="header__btns">                       
                         {
-                            changePalette ? <img src={DarkModeIcon} onClick={() => setChangePalette(false)} alt="Change Background to Dark Mode" draggable="false" width={40} height={40}/>
-                            : <img src={LightModeIcon} onClick={() => setChangePalette(true)} alt="Change Background to Light Mode" draggable="false" width={40} height={40}/>
+                            changePalette ? <img src={DarkModeIcon} onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} onClick={() => setChangePalette(false)} alt="Change Background to Dark Mode" draggable="false" width={40} height={40}/>
+                            : <img src={LightModeIcon} onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} onClick={() => setChangePalette(true)} alt="Change Background to Light Mode" draggable="false" width={40} height={40}/>
                         }
                         <div className="header__btns--mobile-menu">
                             {

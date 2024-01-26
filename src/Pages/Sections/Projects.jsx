@@ -10,7 +10,7 @@ import Minify from '../../assets/Minify.png'
 import Shortly from '../../assets/Shortly.png'
 
 export default function Projects(){
-
+    
     const PROJECTS_DATA = [
         {
             title: 'minify',
@@ -49,7 +49,7 @@ export default function Projects(){
                 scrollTrigger: {
                     trigger: '.projects__container .minify',
                     start: 'top bottom',
-                    end: '70% bottom',
+                    end: '40% bottom',
                     scrub: 3,
                 }
             })
@@ -61,7 +61,7 @@ export default function Projects(){
                 scrollTrigger: {
                     trigger: '.projects__container .shortly',
                     start: 'top bottom',
-                    end: '70% bottom',
+                    end: '40% bottom',
                     scrub: 3,
                 }
             })

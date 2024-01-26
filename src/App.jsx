@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/all";
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import { useThemeContext } from "./hooks/useThemeContext";
 import { useLoadingContext } from "./hooks/useLoadingContext";
+import useHoverContentContext from "./hooks/useHoverContentContext";
 
 //Pages
 import Preloader from "./Pages/Preloader";
@@ -28,11 +29,15 @@ import Close from "./svg/Close";
 import Burger from './svg/Burger';
 import { Analytics } from '@vercel/analytics/react';
 
+//Icon
+import TiltedArrow from "./svg/TiltedArrow";
+
 function App() {
   const {loading, setLoading} = useLoadingContext();
   const [showNav, setShowNav] = useState(false);
   const [fromHeader, setFromHeader] = useState(false);
   const {changePalette, setChangePalette} = useThemeContext();
+  const {hoverContent, setHoverContent} = useHoverContentContext();
 
   //For disabling background actions when nav is opened or still loading, e.g. scrolling and tab navigation
   useEffect(()=> {
@@ -84,15 +89,15 @@ function App() {
     const changeTheme = () => {
 
       if(changePalette) {
-        document.body.style.setProperty('--clr-txt', 'hsl(216, 100%, 1%)')
-        document.body.style.setProperty('--clr-bg', 'hsl(216, 100%, 99%)')
+        document.body.style.setProperty('--clr-txt', 'hsl(216, 100%, 3%)')
+        document.body.style.setProperty('--clr-bg', 'hsl(216, 100%, 97%)')
         document.body.style.setProperty('--clr-primary', 'hsl(217, 97%, 30%)')
         document.body.style.setProperty('--clr-secondary', 'hsl(216, 56%, 74%)')
         document.body.style.setProperty('--accent', 'hsl(290, 78%, 27%)')
       }
       else{
-        document.body.style.setProperty('--clr-txt', 'hsl(216, 100%, 99%)')
-        document.body.style.setProperty('--clr-bg', 'hsl(216, 100%, 1%)')
+        document.body.style.setProperty('--clr-txt', 'hsl(216, 100%, 97%)')
+        document.body.style.setProperty('--clr-bg', 'hsl(216, 100%, 3%)')
         document.body.style.setProperty('--clr-primary', 'hsl(216, 56%, 74%)')
         document.body.style.setProperty('--clr-secondary', 'hsl(217, 97%, 30%)')
         document.body.style.setProperty('--accent', 'hsl(290, 22%, 73%)')
@@ -102,13 +107,55 @@ function App() {
     changeTheme();
   }, [changePalette])
 
+  //Gradient and Hover mouse follower
+  useEffect(() => {
+    gsap.set(".gradient-mouse-follower, .hover-mouse-follower", {xPercent: -50, yPercent: -50});
+
+    //Gradient
+    let xSetterGradient = gsap.quickTo('.gradient-mouse-follower',  'x', {ease: 'elastic', duration: 2});
+    let ySetterGradient = gsap.quickTo('.gradient-mouse-follower',  'y', {ease: 'elastic', duration: 2});
+
+    //Hover
+    let xSetterHover = gsap.quickTo('.hover-mouse-follower',  'x', {ease: 'elastic', duration: 1});
+    let ySetterHover = gsap.quickTo('.hover-mouse-follower',  'y', {ease: 'elastic', duration: 1});
+
+    gsap.to('.hover-mouse-follower', {
+      height: () => {
+        if(hoverContent.shouldBeDisabled) return 0
+        if(hoverContent.isHovered) return hoverContent.height
+        else return 25
+      },
+      width: () => {
+        if(hoverContent.shouldBeDisabled) return 0
+        if(hoverContent.isHovered) return hoverContent.width
+        else return 25
+      },
+      display: hoverContent.shouldBeDisabled ? 'none' : 'inherit',
+    })
+
+    document.addEventListener('mousemove', e => {
+      xSetterGradient(e.x);
+      ySetterGradient(e.y);
+
+      xSetterHover(e.x);
+      ySetterHover(e.y);
+    })
+
+  }, [hoverContent])
+
   return (
       <>
         <div className={loading ? "preloader" : 'preloader removed'}>
           <Preloader content="Kim.Oliver.Manga" setLoading={setLoading}/>
         </div>
 
-        <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader} changePalette={changePalette} setChangePalette={setChangePalette}/>
+        <div className="gradient-mouse-follower" aria-hidden="true"></div>
+        <div className="hover-mouse-follower" aria-hidden="true">
+          {hoverContent.elementToRender === 'img' && <img src="/public/dp.jpg" alt="image of me" draggable="false" height={25} width={25}/>}
+          {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('link') && <a className="minify-hover" href={hoverContent.elementToRender === 'minify-link' ? "https://minifyy.vercel.app/" : "https://sh0rtly.vercel.app/" } title="Visit the site">Visit {hoverContent.elementToRender === 'minify-link' ? 'minify' : 'shortly'} <TiltedArrow/> </a>}
+        </div>
+
+        <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader} changePalette={changePalette} setChangePalette={setChangePalette} setHoverContent={setHoverContent} hoverContent={hoverContent}/>
           <Suspense fallback={<span aria-hidden="true" className="loading-fallback"><ScaleLoader color="#fff" size={100}/></span>}>
             <Routes>
               <Route index path="/" element={<Homepage loading={loading}/>}/>
@@ -126,7 +173,7 @@ function App() {
         <Footer/>
 
           {/* Floating Burger Menu which appears when header is not in view */}
-          <div className="burger" aria-hidden="true">
+          <div className="burger" aria-hidden="true" tabIndex={-1} onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>
             {
                 showNav ? <div onClick={()=>setShowNav(false)}><Close/></div> 
                 : <div onClick={()=>{setShowNav(true)}}><Burger/></div>

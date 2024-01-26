@@ -2,8 +2,10 @@ import hrms from '../../assets/hrms.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { useEffect } from 'react';
+import useHoverContentContext from '../../hooks/useHoverContentContext';
 
 export default function Intro(){
+    const {hoverContent, setHoverContent} = useHoverContentContext();
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -32,11 +34,12 @@ export default function Intro(){
                 }
             })
         })
+        
     }, [])
 
     return(
         <section className="intro">
-            <p>Kumusta? I&apos;m <span>Kim</span>, a young blood from the Philippines.</p>
+            <p>Kumusta? I&apos;m <span onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'img', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})} >Kim</span>, a young blood from the Philippines.</p>
             <img src={hrms} alt="Holy Rosary Minor Seminary" draggable="false" height={530} width={530}/>
         </section>
     )

@@ -20,6 +20,7 @@
         display: inline-flex;
         align-items: center;
         gap: 1rem;
+        z-index: 2;
     }
 
     //Container for Burger btn
@@ -40,6 +41,7 @@
         font-size: clamp(var(--fs-caption), 3vw, 1.25rem);
         font-family: 'Okine-Thin';
         position: relative;
+        z-index: 2;
 
         //Targets the link that isn't the logo
         &:not(.logo)::after{
@@ -60,7 +62,7 @@
             &::after{width: 50%; background-color: var(--accent);}
         }
 
-        &:hover{ &:not(.logo, .active)::after{width: 50%; background-color: var(--neutral-500);} }
+        &:hover{&:not(.logo, .active)::after{width: 50%; background-color: var(--neutral-500);} }
     }
 
     &__pages{

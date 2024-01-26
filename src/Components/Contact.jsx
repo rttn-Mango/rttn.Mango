@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect } from 'react';
+import useHoverContentContext from '../hooks/useHoverContentContext';
 
 //Icons
 import TiltedArrow from '../svg/TiltedArrow';
 import ScrollToIcon from '../svg/ScrollTo'
 
 export default function Contact(){
+    const {hoverContent, setHoverContent} = useHoverContentContext();
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -60,13 +62,13 @@ export default function Contact(){
                 <h2>Let&apos;s talk about it</h2>
 
                 <div className="contact__details">
-                    <Link to='/contact'>Get in touch <TiltedArrow/> <span aria-hidden="true"></span> </Link>
+                    <Link to='/contact' onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Get in touch <TiltedArrow/> <span aria-hidden="true"></span> </Link>
                     <p>or</p>
                     <p>kim.oliver.manga@gmail.com</p>
                 </div>
             </div>
 
-            <div className="contact__scroll-to" onClick={() => window.scrollTo(0 , 0)}>
+            <div className="contact__scroll-to" onClick={() => window.scrollTo(0 , 0)} onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>
                 <ScrollToIcon/>
             </div>
         </section>

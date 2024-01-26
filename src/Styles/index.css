@@ -197,6 +197,7 @@ textarea:not([rows]) {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
+  z-index: 2;
 }
 .header__btns--mobile-menu {
   cursor: pointer;
@@ -215,6 +216,7 @@ textarea:not([rows]) {
   font-size: clamp(var(--fs-caption), 3vw, 1.25rem);
   font-family: "Okine-Thin";
   position: relative;
+  z-index: 2;
 }
 .header a:not(.logo)::after {
   position: absolute;
@@ -1070,7 +1072,6 @@ body {
 .bg-wrapper {
   background-color: var(--clr-bg);
   position: relative;
-  z-index: -1;
 }
 
 .intro {
@@ -1095,8 +1096,6 @@ body {
 }
 .intro p span {
   font-family: "Okine-Light";
-  display: inline !important;
-  opacity: 1 !important;
 }
 .intro img {
   object-fit: cover;
@@ -1174,9 +1173,15 @@ body {
 }
 .projects__container {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 .projects__container:hover > :not(:hover) {
   opacity: 0.5;
+}
+.projects__container a {
+  margin: 0;
 }
 .projects h2 {
   font-size: clamp(var(--fs-body3) + 3dvw, 10vw, var(--fs-heading2));
@@ -1199,6 +1204,8 @@ body {
 }
 .projects a {
   text-decoration: none;
+}
+.projects .read-more {
   color: var(--accent);
   font-family: "Okine-Regular";
   display: inline-flex;
@@ -1206,10 +1213,10 @@ body {
   gap: 0.75rem;
   font-size: clamp(var(--fs-caption), 5dvw, var(--fs-body) + 0.15dvw);
 }
-.projects a:hover {
+.projects .read-more:hover {
   font-family: "Okine-Medium";
 }
-.projects a svg {
+.projects .read-more svg {
   height: 13px;
   width: 13px;
 }
@@ -1755,6 +1762,63 @@ body {
   gap: 0;
   align-items: center;
   justify-content: center;
+}
+
+.gradient-mouse-follower {
+  height: min(70rem, 70%);
+  width: min(70rem, 70%);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  touch-action: none;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, rgba(102, 102, 102, 0.15) 0%, rgba(102, 102, 102, 0) 50%);
+}
+
+.hover-mouse-follower {
+  height: 1.5rem;
+  width: 1.5rem;
+  position: fixed;
+  pointer-events: none;
+  touch-action: none;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 50%;
+  background-color: var(--clr-secondary);
+  border: 1px solid var(--neutral-500);
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+.hover-mouse-follower > * {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+.hover-mouse-follower img {
+  object-fit: contain;
+  clip-path: circle();
+  height: auto;
+  width: auto;
+}
+.hover-mouse-follower .minify-hover {
+  color: var(--clr-txt);
+  font-family: "Okine-Medium";
+  font-size: var(--fs-body);
+  text-decoration: none;
+  line-height: 1.3;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  height: fit-content;
+}
+.hover-mouse-follower .minify-hover svg {
+  height: 1em;
+  width: 1em;
 }
 
 @keyframes down-arrow {

@@ -144,8 +144,8 @@ export default function Shortly() {
         <main className="shortly">
             <h1 aria-label="Shortly">{'Shortly'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
             <section className="shortly__links">
-                <Link className="check-btn" to=''>Check out shortly</Link>
-                <Link to="">Visit Github Repo <TiltedArrow/></Link>
+                <Link className="check-btn" to='https://sh0rtly.vercel.app/'>Check out shortly</Link>
+                <Link to="https://github.com/rttn-Mango/shortly">Visit Github Repo <TiltedArrow/></Link>
             </section>
 
             <section className="shortly__tldr">
