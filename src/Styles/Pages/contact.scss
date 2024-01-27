@@ -117,9 +117,8 @@
         svg{
             width: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
             height: clamp(var(--fs-caption), 5dvw, var(--fs-body2));
-            animation: down-arrow 500ms linear infinite alternate;
         }
 
-        &:hover{border: 3px solid var(--clr-primary); box-shadow: 0 0 30px var(--neutral-500);}
+        &:hover{border-color: var(--clr-primary); box-shadow: 0 0 30px var(--neutral-500); & svg{animation: down-arrow 500ms linear infinite alternate;}}
     }
 }

@@ -112,8 +112,8 @@ function App() {
     gsap.set(".gradient-mouse-follower, .hover-mouse-follower", {xPercent: -50, yPercent: -50});
 
     //Gradient
-    let xSetterGradient = gsap.quickTo('.gradient-mouse-follower',  'x', {ease: 'elastic', duration: 2});
-    let ySetterGradient = gsap.quickTo('.gradient-mouse-follower',  'y', {ease: 'elastic', duration: 2});
+    let xSetterGradient = gsap.quickTo('.gradient-mouse-follower',  'x', {ease: 'elastic', duration: 5});
+    let ySetterGradient = gsap.quickTo('.gradient-mouse-follower',  'y', {ease: 'elastic', duration: 5});
 
     //Hover
     let xSetterHover = gsap.quickTo('.hover-mouse-follower',  'x', {ease: 'elastic', duration: 1});
@@ -130,7 +130,7 @@ function App() {
         if(hoverContent.isHovered) return hoverContent.width
         else return 25
       },
-      display: hoverContent.shouldBeDisabled ? 'none' : 'inherit',
+      display: hoverContent.shouldBeDisabled || window.innerWidth < 1440 ? 'none' : 'inherit',
     })
 
     document.addEventListener('mousemove', e => {
@@ -149,10 +149,12 @@ function App() {
           <Preloader content="Kim.Oliver.Manga" setLoading={setLoading}/>
         </div>
 
-        <div className="gradient-mouse-follower" aria-hidden="true"></div>
+        <div className="gradient-mouse-follower" aria-hidden="true" style={{display: window.innerWidth < 1440 && 'none'}}></div>
         <div className="hover-mouse-follower" aria-hidden="true">
           {hoverContent.elementToRender === 'img' && <img src="/public/dp.jpg" alt="image of me" draggable="false" height={25} width={25}/>}
           {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('link') && <a className="minify-hover" href={hoverContent.elementToRender === 'minify-link' ? "https://minifyy.vercel.app/" : "https://sh0rtly.vercel.app/" } title="Visit the site">Visit {hoverContent.elementToRender === 'minify-link' ? 'minify' : 'shortly'} <TiltedArrow/> </a>}
+          {hoverContent.elementToRender === 'resume' && <span className="resume-hover">Download resume <TiltedArrow/></span>}
+          {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('awwwards') && <p className="resume-hover">{hoverContent.elementToRender.includes('vucko') ? 'Vucko' : hoverContent.elementToRender.includes('huy') ? 'Huy Phan' : 'Bright Studios'} awwwards <TiltedArrow/></p>}
         </div>
 
         <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader} changePalette={changePalette} setChangePalette={setChangePalette} setHoverContent={setHoverContent} hoverContent={hoverContent}/>

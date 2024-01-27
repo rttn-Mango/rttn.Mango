@@ -4,9 +4,14 @@ import Contact from "../Components/Contact";
 import PageTransitionWrapper from "./PageTransitionWrapper";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import resume from '../../public/Kim Oliver Manga - Resume.pdf'
+import useHoverContentContext from "../hooks/useHoverContentContext";
 
 //Image
 import me from '/public/me.svg'
+import vucko from '../assets/Vucko.png'
+import huy from '../assets/Huy.png'
+import bright from '../assets/Bright.png'
 
 //Icons
 import { MdOutlineDesignServices } from "react-icons/md";
@@ -14,6 +19,7 @@ import { IoCodeSlash } from "react-icons/io5";
 
 
 export default function AboutPage(){
+    const {hoverContent, setHoverContent} = useHoverContentContext();
     const {loading} = useLoadingContext();
 
     useEffect( () => {
@@ -54,6 +60,7 @@ export default function AboutPage(){
                 ease: 'power2',
                 opacity: .3,
                 scale: .90,
+                zIndex: -1,
                 scrollTrigger: {
                     trigger: '.about-page__profile .wrapper',
                     start: 'top top',
@@ -119,7 +126,7 @@ export default function AboutPage(){
 
                 <section className="about-page__profile">
                     <div className="wrapper">
-                        <img src={me} alt="An image of me" draggable="false" width={500} height={500}/>
+                        <a href={resume} download onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'resume', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}><img src={me} alt="An image of me" draggable="false" width={500} height={500}/></a>
                         <div className="about-page__profile--text-wrapper">
                             <h2>About me</h2>
                             <p>New to the industry, I specialize in <span>Front-End Development.</span></p>
@@ -137,8 +144,10 @@ export default function AboutPage(){
                                 <p>Though for this one, I&apos;ve added quite a few microinteractions to take things up a notch.</p>
                             </section>
                             <section className="about-page__design-style--sample">
-                                {/* Serves as the placeholder for the sample images that will be put into the section so that the other images stick to this specific element */}
-                                <div className="img-placeholder"></div>
+                                {/* Wrapping these images with an anchor tag makes them disappear for some reason so I used this onClick event instead */}
+                                <img onClick={() => window.location.href = 'https://www.awwwards.com/sites/vuckotm'} onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'vucko-awwwards', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})} src={vucko} alt="Vucko awwwards entry" draggable="false" height={400} width={400}/>
+                                <img onClick={() => window.location.href = 'https://www.awwwards.com/sites/huy-phan'} onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'huy-awwwards', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})} src={huy} alt="Huy Phan awwwards entry" draggable="false" height={400} width={400}/>
+                                <img onClick={() => window.location.href = 'https://www.awwwards.com/sites/bright-digital-studio'} onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'bright-awwwards', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})} src={bright} alt="Bright Studios awwwards entry" draggable="false" height={400} width={400}/>
                             </section>
                         </div>
                     </section>
