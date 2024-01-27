@@ -87,6 +87,7 @@
             font-family: 'Okine-Regular';
             align-items: center;
             color: var(--accent);
+            z-index: 2;
 
             & svg{
                 height: 1em;
@@ -116,7 +117,7 @@
 
     &__style-guide{
         padding-block: calc(2em + 3dvw) calc(5em + 10dvw);
-        
+
         & .flex-wrapper{
             display: flex;
             flex-direction: column;

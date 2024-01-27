@@ -72,7 +72,8 @@ export default function WorksPage(){
 
                 <div className="flex-wrapper">
                     <section className="works-page__card">
-                        <a href="https://minifyy.vercel.app/" title="Check out minify" 
+                        <a href="https://minifyy.vercel.app/" title="Check out minify"
+                            onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
                             onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'minify-link', height: 160, width: 160})}
                             onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
                         >
@@ -85,7 +86,12 @@ export default function WorksPage(){
                             <section className="works-page__card--desc">
                                 <div className="desc__row">
                                     <h2>minify</h2>
-                                    <Link to='/works/minify' title="read more about minify" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>read more <TiltedArrow/> </Link>
+                                    <Link to='/works/minify' title="read more about minify" 
+                                        onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
+                                        onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
+                                        onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}
+                                    >
+                                        read more <TiltedArrow/> </Link>
                                 </div>
                                 <div className="desc__row">
                                     <p>Designer & Developer</p>
@@ -102,6 +108,7 @@ export default function WorksPage(){
 
                     <section className="works-page__card">
                         <a href="https://sh0rtly.vercel.app/" title="Check out shortly"
+                            onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
                             onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'shortly-link', height: 160, width: 160})}
                             onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
                         >
@@ -114,7 +121,12 @@ export default function WorksPage(){
                             <section className="works-page__card--desc">
                                 <div className="desc__row">
                                     <h2>Shortly</h2>
-                                    <Link to='/works/shortly' title="read more about Shortly" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>read more <TiltedArrow/> </Link>
+                                    <Link to='/works/shortly' title="read more about Shortly"
+                                        onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
+                                        onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
+                                        onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}
+                                    >
+                                        read more <TiltedArrow/> </Link>
                                 </div>
                                 <div className="desc__row">
                                     <p>Developer</p>

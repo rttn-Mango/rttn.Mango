@@ -88,6 +88,7 @@
             font-family: 'Okine-Regular';
             align-items: center;
             color: var(--accent);
+            z-index: 2;
 
             & svg{
                 height: 1em;

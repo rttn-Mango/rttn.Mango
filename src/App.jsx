@@ -165,7 +165,7 @@ function App() {
               <Route path="/works" element={<WorksPage/>}/>
               <Route path="/contact" element={<ContactPage/>}/>
 
-              {/* Works page read more */}
+              {/* Works page read more. I didn't nest it because of animation conflicts */}
               <Route path="/works/minify" element={<Minify/>}/>
               <Route path="/works/shortly" element={<Shortly/>}/>
 

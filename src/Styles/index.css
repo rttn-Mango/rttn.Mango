@@ -661,6 +661,7 @@ textarea:not([rows]) {
   font-family: "Okine-Regular";
   align-items: center;
   color: var(--accent);
+  z-index: 2;
 }
 .minify__links a:last-of-type svg {
   height: 1em;
@@ -943,6 +944,7 @@ textarea:not([rows]) {
   font-family: "Okine-Regular";
   align-items: center;
   color: var(--accent);
+  z-index: 2;
 }
 .shortly__links a:last-of-type svg {
   height: 1em;
