@@ -11,10 +11,10 @@ export default function ProjectsCard({title, src, index}){
         <Link
             to={src}
             className={index === 0 ? "projects__contents | minify" : "projects__contents | shortly"}
-            title={index === 0 ? 'Minify Website' : 'Shortly Website'}
+            title={index === 0 ? 'Visit minify' : 'Visit Shortly'}
             key={index}
             onMouseEnter={() => index === 0 ? setHoverContent({...hoverContent, isHovered: true, elementToRender: 'minify-link', height: 160, width: 160}) : setHoverContent({...hoverContent, isHovered: true, elementToRender: 'shortly-link', height: 160, width: 160})} 
-            onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, scale: 4})}
+            onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
         >
             <h3>{title}</h3>
             <p>{index === 0 ? 'Designer & Developer' : 'Developer'}</p>

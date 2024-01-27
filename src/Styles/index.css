@@ -1816,7 +1816,6 @@ body {
   color: var(--clr-txt);
   font-family: "Okine-Medium";
   font-size: var(--fs-body);
-  text-decoration: none;
   line-height: 1.3;
   display: inline-flex;
   justify-content: center;

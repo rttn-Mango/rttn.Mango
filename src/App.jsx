@@ -152,7 +152,7 @@ function App() {
         <div className="gradient-mouse-follower" aria-hidden="true" style={{display: window.innerWidth < 1440 && 'none'}}></div>
         <div className="hover-mouse-follower" aria-hidden="true">
           {hoverContent.elementToRender === 'img' && <img src="/public/dp.jpg" alt="image of me" draggable="false" height={25} width={25}/>}
-          {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('link') && <a className="minify-hover" href={hoverContent.elementToRender === 'minify-link' ? "https://minifyy.vercel.app/" : "https://sh0rtly.vercel.app/" } title="Visit the site">Visit {hoverContent.elementToRender === 'minify-link' ? 'minify' : 'shortly'} <TiltedArrow/> </a>}
+          {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('link') && <p className="minify-hover">Visit {hoverContent.elementToRender === 'minify-link' ? 'minify' : 'shortly'} <TiltedArrow/> </p>}
           {hoverContent.elementToRender === 'resume' && <span className="resume-hover">Download resume <TiltedArrow/></span>}
           {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('awwwards') && <p className="resume-hover">{hoverContent.elementToRender.includes('vucko') ? 'Vucko' : hoverContent.elementToRender.includes('huy') ? 'Huy Phan' : 'Bright Studios'} awwwards <TiltedArrow/></p>}
         </div>
