@@ -37,7 +37,7 @@ export default function Projects(){
                 scrollTrigger: {
                     trigger: '.projects h2 span',
                     start: 'top bottom',
-                    end: 'bottom bottom',
+                    end: 'center bottom',
                     scrub: 2,
                 }
             })
@@ -49,7 +49,7 @@ export default function Projects(){
                 scrollTrigger: {
                     trigger: '.projects__container .minify',
                     start: 'top bottom',
-                    end: '40% bottom',
+                    end: '20% bottom',
                     scrub: 3,
                 }
             })
@@ -61,7 +61,7 @@ export default function Projects(){
                 scrollTrigger: {
                     trigger: '.projects__container .shortly',
                     start: 'top bottom',
-                    end: '40% bottom',
+                    end: '20% bottom',
                     scrub: 3,
                 }
             })

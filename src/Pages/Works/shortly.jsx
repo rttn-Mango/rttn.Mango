@@ -8,6 +8,10 @@ import PageTransitionWrapper from "../PageTransitionWrapper";
 
 //Icon
 import TiltedArrow from '../../svg/TiltedArrow'
+import { IoMdArrowRoundBack } from "react-icons/io";
+
+//Component
+import Contact from "../../Components/Contact";
 
 export default function Shortly() {
     const {hoverContent, setHoverContent} = useHoverContentContext();
@@ -40,6 +44,13 @@ export default function Shortly() {
                     stagger: .1,
                     duration: .7,
                     delay: 3.3
+                })
+
+                gsap.fromTo('.shortly .back', {opacity: 0}, {
+                    opacity: 1,
+                    stagger: .1,
+                    duration: .7,
+                    delay: 3.3,
                 })
     
                 gsap.fromTo('.shortly__links a', {y: 500, opacity: 0}, {
@@ -148,6 +159,7 @@ export default function Shortly() {
     return(
         <PageTransitionWrapper>
             <main className="shortly">
+            <Link to='/works' tabIndex={-1} className="back" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> <IoMdArrowRoundBack/> </Link>
                 <h1 aria-label="Shortly">{'Shortly'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
                 <section className="shortly__links">
                     <Link className="check-btn" to='https://sh0rtly.vercel.app/' onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Check out shortly</Link>
@@ -207,6 +219,8 @@ export default function Shortly() {
                     <p>Honestly, this project was relatively easy. Aside from some minor layout conflicts and the api changes, it was pretty much smooth sailing.</p>
                     <p>As for my plans, I don&apos;t really see myself coming back into this project mainly because I think this is too generic for me to even put my time on it. I might do some updates when I feel like it but other than that this is pretty much it for this project. Thanks for dropping by ٩(◕‿◕｡)۶.</p>
                 </section>
+
+                <Contact/>
             </main>
         </PageTransitionWrapper>
     )

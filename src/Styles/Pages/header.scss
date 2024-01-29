@@ -13,6 +13,7 @@
         font-family: 'Okine-Medium';
         position: relative;
         display: inline-block;
+        cursor: pointer;
     }
 
     //Right group containing burger and theme icon
@@ -32,7 +33,9 @@
         position: relative;
         cursor: pointer;
 
-        & svg{color: var(--clr-txt);}
+        
+
+        & svg{color: var(--clr-txt)}
     }
 
     a{
@@ -82,11 +85,9 @@
         justify-content:  space-between;
         align-items: center;
     }
-}
 
-@media screen and (max-width: 600px) {
-    .header{
-        &__btns--mobile-menu {display: block}
+    @media screen and (max-width: 700px) {
+        &__btns--mobile-menu {display: block; height: 30px; width: 30px; &.active svg{color: var(--neutral-100);}}
         &__pages{display: none;}
     }
 }

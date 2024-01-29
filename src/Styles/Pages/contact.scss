@@ -22,10 +22,9 @@
             align-items: center;
         }
     }
-    @media screen and (width > 1400px) {
-        .flex-wrapper{max-width: 90%; margin-inline: auto }}
+    @media screen and (width > 1400px) {.flex-wrapper{max-width: 90%; margin-inline: auto }}
 
-        &__sub-heading{font-size: clamp(var(--fs-body), 5vw, var(--fs-body2)); font-family: 'Okine-Thin'; color: var(--clr-txt);}
+    &__sub-heading{font-size: clamp(var(--fs-body), 5vw, var(--fs-body2)); font-family: 'Okine-Thin'; color: var(--clr-txt);}
 
     h2{
         font-size: clamp(calc(var(--fs-body3) + 5dvw), 10vw, var(--fs-display));
@@ -55,7 +54,7 @@
         border-radius: 3rem;
         position: relative;
         width: 100%;
-        & svg{width: .65em;}
+        & svg{width: .65em; pointer-events: none;}
         overflow: hidden;
         transition: color 500ms ease-in-out;
 

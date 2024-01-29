@@ -7,10 +7,11 @@ import useHoverContentContext from "../hooks/useHoverContentContext";
 
 //Icons
 import Burger from "../svg/Burger";
+import Close from '../svg/Close';
 import LightModeIcon from '../assets/LightModeIcon.svg'
 import DarkModeIcon from '../assets/DarkModeIcon.svg'
 
-export default function Header({setShowNav, showNav, setFromHeader, changePalette ,setChangePalette}){
+export default function Header({setShowNav, showNav, setFromHeader, changePalette ,setChangePalette, fromHeader}){
     const path = useLocation().pathname;
     const {loading} = useLoadingContext()
     const {hoverContent, setHoverContent} = useHoverContentContext();
@@ -60,9 +61,9 @@ export default function Header({setShowNav, showNav, setFromHeader, changePalett
                             changePalette ? <img src={DarkModeIcon} onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} onClick={() => setChangePalette(false)} alt="Change Background to Dark Mode" draggable="false" width={40} height={40}/>
                             : <img src={LightModeIcon} onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} onClick={() => setChangePalette(true)} alt="Change Background to Light Mode" draggable="false" width={40} height={40}/>
                         }
-                        <div className="header__btns--mobile-menu">
+                        <div className={fromHeader ? "header__btns--mobile-menu | active" : "header__btns--mobile-menu"}>
                             {
-                                showNav ? null : <div onClick={()=>{setShowNav(true); setFromHeader(true)}}><Burger/></div>
+                                showNav ? <span onClick={()=>{setShowNav(false); setFromHeader(false)}}><Close/></span> : <span onClick={()=>{setShowNav(true); setFromHeader(true)}}><Burger/></span>
                             }
                         </div>
                     </li>
@@ -80,4 +81,5 @@ Header.propTypes = {
     setFromHeader: PropTypes.func,
     setChangePalette: PropTypes.func,
     changePalette: PropTypes.bool,
+    fromHeader: PropTypes.bool
 }

@@ -4,17 +4,29 @@ import PageTransitionWrapper from "./PageTransitionWrapper";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLoadingContext } from "../hooks/useLoadingContext";
+import useHoverContentContext from "../hooks/useHoverContentContext";
 
-//Image
-import right from '../assets/Right.svg'
+//Icon
+import { BiSolidSend } from "react-icons/bi";
 
 export default function ContactPage() {
+    const {hoverContent, setHoverContent} = useHoverContentContext();
     const {loading} = useLoadingContext();
 
     //To change document title once the Component mounts
     useEffect(() => {
         document.title = 'Contact';
+        const forwardButton = document.querySelector('.contact-page button')
         window.scrollTo(0, 0);
+
+        //Hover animation for the get in forward button on contact page
+        forwardButton.addEventListener('mousemove', e => {
+            let rect = e.target.getBoundingClientRect();
+
+            forwardButton.style.setProperty('--_xPos', `${e.clientX - rect.left}px`)
+            forwardButton.style.setProperty('--_yPos', `${e.clientY - rect.top}px`)
+            forwardButton.style.setProperty('--_visibility', `visible`)
+        })
 
         gsap.registerPlugin(ScrollTrigger);
 
@@ -106,15 +118,15 @@ export default function ContactPage() {
                             <textarea name="message" id="message" placeholder="Hello, I'd like to ask about..." required/>
                         </div>
 
-                        <button type="submit">Forward <img src={right} alt="right arrow" draggable="false" width={30} height={30}/></button>
+                        <button type="submit" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Forward <BiSolidSend/></button>
                     </form>
 
                     <section className="contact-page__links">
                         <div className="text-wrapper"><h2 >Socials</h2></div>
                         <div className="contact-page__links--socials">
-                            <Link to='www.linkedin.com/in/rttn-mango' title="LinkedIn Profile">LinkedIn</Link>
-                            <Link to='https://github.com/rttn-Mango' title="Github Profile">Github</Link>
-                            <Link to='https://www.instagram.com/rttn.mango/' title="Instagram Profile">Instagram</Link>
+                            <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 60, width: 60})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} to='www.linkedin.com/in/rttn-mango' title="LinkedIn Profile">LinkedIn</Link>
+                            <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 60, width: 60})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} to='https://github.com/rttn-Mango' title="Github Profile">Github</Link>
+                            <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 60, width: 60})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} to='https://www.instagram.com/rttn.mango/' title="Instagram Profile">Instagram</Link>
                         </div>
 
                         <div className="text-wrapper"><h2 >Email</h2></div>

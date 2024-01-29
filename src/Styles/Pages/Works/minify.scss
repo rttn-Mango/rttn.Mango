@@ -3,10 +3,23 @@
     margin-inline: auto;
     color: var(--clr-txt);
 
+    .back{
+        color: var(--clr-txt);
+        padding: calc(.5rem + 1dvw);
+        width: -moz-fit-content;
+        border: 2px solid var(--clr-secondary);
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 500ms ease-in-out;
+        cursor: pointer;
+
+        &:hover{background-color: var(--clr-secondary);}
+    }
+
     h1{
         font-size: clamp(calc(var(--fs-body3) + 2dvw), 16vw, var(--fs-display));
         font-family: 'Okine-Black';
-        padding-block: calc(.5rem + 7dvw) .5em;
+        padding-block: calc(.5rem + 4.5dvw) .5em;
         overflow: hidden;
         position: relative;
         @media screen and (min-width: 700px) { padding-bottom: 0; }

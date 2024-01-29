@@ -105,9 +105,9 @@ export default function AboutPage(){
                 }
             })
 
-            gsap.fromTo('.field__dev, .field__design', {opacity: 0, y: -500}, {
-                opacity: 1,
+            gsap.fromTo('.field__dev, .field__design', {y: -300, opacity: 0, }, {
                 y: 0,
+                opacity: 1,               
                 duration: .7,
                 scrollTrigger: {
                     trigger: '.about-page__niche--field',

@@ -21,14 +21,14 @@ export default function Skills(){
             })
 
             heading3.map(heading3 => {
-                gsap.fromTo(heading3, {x: 500}, {
+                gsap.fromTo(heading3, {x: 700}, {
                     x: 0,
                     duration: .7,
                     stagger: .2,
                     scrollTrigger: {
                         trigger: heading3,
                         start: 'top bottom',
-                        end: 'bottom bottom',
+                        end: '70% bottom',
                         scrub: 2,
                     }
                 })

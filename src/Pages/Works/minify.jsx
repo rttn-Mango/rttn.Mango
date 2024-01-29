@@ -12,9 +12,11 @@ import logo from '../../assets/minify-logo.png'
 
 //Components
 import ColorsCard from "../../Components/ColorsCard";
+import Contact from "../../Components/Contact";
 
 //Icon
 import TiltedArrow from '../../svg/TiltedArrow'
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 export default function Minify(){
     const {hoverContent, setHoverContent} = useHoverContentContext();
@@ -74,6 +76,13 @@ export default function Minify(){
             if(!loading){
                 gsap.fromTo('.minify h1 span', {y: 500, opacity: 0}, {
                     y: 0,
+                    opacity: 1,
+                    stagger: .1,
+                    duration: .7,
+                    delay: 3.3,
+                })
+
+                gsap.fromTo('.minify .back', {opacity: 0}, {
                     opacity: 1,
                     stagger: .1,
                     duration: .7,
@@ -333,6 +342,7 @@ export default function Minify(){
     return(
         <PageTransitionWrapper>
             <main className="minify">
+                <Link to='/works' tabIndex={-1} className="back" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> <IoMdArrowRoundBack/> </Link>
                 <h1 aria-label="minify">{'minify'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
                 <section className="minify__links">
                     <Link to='https://minifyy.vercel.app/' className="check-btn" title="Visit minify" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Check out minify</Link>
@@ -463,6 +473,8 @@ export default function Minify(){
                     <p>This might&apos;ve been a difficult project to finish, it was also a great ride and I learned a lot from the start &apos;till I finished it. I wanted this to be different and I think I might&apos;ve achieved that at least to a good extent and I&apos;m happy with the outcome.</p>
                     <p>As for my plans, while I don&apos;t see myself sustaining this project for long, I&apos;ll still try to come back for some changes. There are already a few improvements that I can think of but that will be for later when I have some time to spare. Other than that, it was nice doing this project and I&apos;m looking forward to what I might do in the future. Thanks for dropping by ٩(◕‿◕｡)۶.</p>
                 </section>
+
+                <Contact/>
             </main>
         </PageTransitionWrapper>
     )

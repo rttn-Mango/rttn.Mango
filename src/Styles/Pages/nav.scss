@@ -29,6 +29,26 @@
             position: relative;
             color: var(--clr-text);
             font-family: 'Okine-Medium';
+            z-index: 3;
+
+            &::after{
+                position: absolute;
+                content: '';
+                height: 3px;
+                width: 0;
+                background-color: var(--neutral-500);
+                left: 0;
+                bottom: 0;
+                border-radius: 1rem;
+                transition: width 500ms ease-in-out;
+            }
+
+            &.active{
+                font-family: 'Okine-Bold';
+                &::after{width: 50%; background-color: var(--accent);}
+            }
+
+            &:hover{ &::after{width: 50%;} }
     
             &:focus{
                 color: var(--accent);

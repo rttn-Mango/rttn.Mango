@@ -55,19 +55,28 @@ function App() {
   //Burger menu animation to appear when user scrolls a certain amount
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-      const hero = document.getElementById('#trigger')
+    const hero = document.getElementById('#trigger')
+    const burger = document.querySelector('.burger');
 
-      gsap.fromTo('.burger', {scale: 0, opacity: 0},{
-        scale: 1,
-        opacity: 1,
-        ease: 'back.out',
-        scrollTrigger: {
-          trigger: hero,
-          scrub: true,
-          start: 'top top',
-          end: '5%',
-        }
-      })
+    burger.addEventListener('mousemove', e => {
+      let rect = e.target.getBoundingClientRect();
+
+      burger.style.setProperty('--_xPos', `${e.clientX - rect.left}px`)
+      burger.style.setProperty('--_yPos', `${e.clientY - rect.top}px`)
+      burger.style.setProperty('--_visibility', `visible`)
+  })
+
+    gsap.fromTo('.burger', {scale: 0, opacity: 0},{
+      scale: 1,
+      opacity: 1,
+      ease: 'back.out',
+      scrollTrigger: {
+        trigger: hero,
+        scrub: true,
+        start: 'top top',
+        end: '5%',
+      }
+    })
   },[]) 
 
   //Smooth scrolling effect
@@ -157,7 +166,7 @@ function App() {
           {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('awwwards') && <p className="resume-hover">{hoverContent.elementToRender.includes('vucko') ? 'Vucko' : hoverContent.elementToRender.includes('huy') ? 'Huy Phan' : 'Bright Studios'} awwwards <TiltedArrow/></p>}
         </div>
 
-        <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader} changePalette={changePalette} setChangePalette={setChangePalette} setHoverContent={setHoverContent} hoverContent={hoverContent}/>
+        <Header setShowNav={setShowNav} showNav={showNav} setFromHeader={setFromHeader} changePalette={changePalette} setChangePalette={setChangePalette} setHoverContent={setHoverContent} hoverContent={hoverContent} fromHeader={fromHeader}/>
           <Suspense fallback={<span aria-hidden="true" className="loading-fallback"><ScaleLoader color="#fff" size={100}/></span>}>
             <Routes>
               <Route index path="/" element={<Homepage loading={loading}/>}/>
