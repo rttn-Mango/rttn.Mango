@@ -8,7 +8,7 @@ import resume from '../../public/Kim Oliver Manga - Resume.pdf'
 import useHoverContentContext from "../hooks/useHoverContentContext";
 
 //Image
-import me from '/public/me.svg'
+import me from '../assets/me.svg'
 import vucko from '../assets/Vucko.png'
 import huy from '../assets/Huy.png'
 import bright from '../assets/Bright.png'

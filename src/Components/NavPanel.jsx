@@ -9,8 +9,6 @@ import Close from "../svg/Close";
 export default function NavPanel({setShowNav, fromHeader, setFromHeader}){
     const path = useLocation().pathname;
 
-    console.log(fromHeader)
-
     return(
         <>  
             {fromHeader && <div tabIndex={-1} className="close" onClick={()=>{setShowNav(false); setFromHeader(false)}}><Close/></div>}

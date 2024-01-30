@@ -1,4 +1,4 @@
-import hrms from '../../assets/hrms.png';
+import hrms from '../../assets/hrms.webp';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { useEffect } from 'react';
@@ -40,7 +40,7 @@ export default function Intro(){
     return(
         <section className="intro">
             <p>Kumusta? I&apos;m <span onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'img', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})} >Kim</span>, a young blood from the Philippines.</p>
-            <img src={hrms} alt="Holy Rosary Minor Seminary" draggable="false" height={530} width={530}/>
+            <img src={hrms} alt="Holy Rosary Minor Seminary" draggable="false" height={500} width={530}/>
         </section>
     )
 }
