@@ -882,6 +882,8 @@ body{
     }
 }
 
+.hide{visibility: hidden}
+
 //Down arrow animation
 @keyframes down-arrow{
     from{transform: translateY(-1px);}

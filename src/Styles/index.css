@@ -1958,6 +1958,10 @@ body {
   width: 1em;
 }
 
+.hide {
+  visibility: hidden;
+}
+
 @keyframes down-arrow {
   from {
     transform: translateY(-1px);

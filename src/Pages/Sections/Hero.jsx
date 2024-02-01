@@ -38,7 +38,7 @@ export default function Hero(){
                 gsap.to('.hero h1 span, .hero .subHeading span', {
                     y: 0,
                     opacity: 1,
-                    delay: 3,
+                    delay: 2,
                     duration: .7,
                     stagger: .1,
                 })
@@ -46,7 +46,7 @@ export default function Hero(){
                 gsap.fromTo('.hero__bottom p', {x: -100, opacity: 0} ,{
                     x: 0,
                     opacity: 1,
-                    delay: 4.5,
+                    delay: 3,
                     duration: .6
                 })
 

@@ -17,6 +17,10 @@ export default function PageTransitionWrapper({children}){
                 scaleX: 1,
                 duration: 1,
                 stagger: .2,
+                onStart: () => {
+                    document.querySelector('main').classList.add('hide')
+                    setTimeout(() => document.querySelector('main').classList.remove('hide'), 2000)
+                }
             })
             .to('.col', {
                 scaleX: 0,
@@ -25,6 +29,7 @@ export default function PageTransitionWrapper({children}){
             })
             .to('.page-transition-wrapper', {zIndex: -1})
         }
+
 
         
     },[loading])
