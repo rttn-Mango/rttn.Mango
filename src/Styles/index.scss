@@ -34,7 +34,6 @@ body{
     background-color: var(--clr-bg);
     font-family: 'Okine-Light';
     color: var(--neutral-100);
-    overflow-x: hidden;
     transition: background-color 1s ease-in-out
 }
 
@@ -272,7 +271,7 @@ body{
     h1{
         font-size: clamp(calc(var(--fs-body3) + .75dvw), 10vw, var(--fs-heading));
         font-family: 'Okine-Black';
-        padding-block: 1em;
+        margin-block: 1.5em;
         color: var(--clr-txt);
         position: relative;
         overflow: hidden;
@@ -304,7 +303,6 @@ body{
     }
 
     &__profile{
-        padding-block: 6em calc(10em + 10dvw);
         max-height: 100dvh;
         position: relative;
         overflow: hidden;
@@ -321,7 +319,9 @@ body{
         @media screen and (min-width: 1200px){
             max-height: 100dvh;
 
-            & .wrapper{flex-direction: row;}
+            & .wrapper{
+                flex-direction: row;
+            }
         }
 
         & p{
@@ -339,6 +339,7 @@ body{
     &__design-style{
         padding-block: calc(2em + 3dvw) calc(7em + 8dvw);
         color: var(--clr-txt);
+        overflow: hidden;
 
         .flex{
             @include flex(column, 1rem);
@@ -364,6 +365,7 @@ body{
             position: relative;
             width: -moz-fit-content;
             align-self: center;
+            z-index: 0;
 
             @media screen and (max-width: 1250px) {
                 @include flex(row, 2rem);
@@ -380,7 +382,6 @@ body{
                     position: absolute;
                     top: calc(5rem + 4dvw);
                     left: -8dvw;
-                    z-index: -1;
                     scale: 1;
                     transition: scale 500ms ease-in-out;
                 }
@@ -474,21 +475,28 @@ body{
         color: var(--neutral-100);
     }
 
-    a:not(.contact a){
+    div[role='link']{
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-size: calc(var(--fs-body) + .08em);
         color: hsl(290, 22%, 73%);
-        font-family: 'Okine-Light';
-        height: fit-content;
+
 
         & svg{
             width: .6em;
             height: max-content;
         }
 
-        &:hover{font-family: 'Okine-Regular'}
+        &:hover{font-family: 'Okine-Medium'}
+    }
+
+    section a:not(.contact a){
+        font-size: calc(var(--fs-body) + .08em);
+        
+        font-family: 'Okine-Light';
+        height: fit-content;
+        text-decoration: none;
+
     }
 
     .desc__row{
@@ -740,7 +748,6 @@ body{
     right: 5dvw;
     background-color: var(--neutral-900);
     border: .5px solid var(--neutral-700);
-    transform: rotate(0);
     border-radius: 50%;
     pointer-events: all;
     touch-action: all;
@@ -772,10 +779,11 @@ body{
         height: 4rem;
         width:  4rem;
         padding: 1rem;
+        rotate: 0;
 
         &:not(#logo):active{
-            transform: rotate(180deg);
-            transition: transform 200ms ease-in-out;
+            rotate: 180deg;
+            transition: rotate 200ms ease-in-out;
         }
     }
 }

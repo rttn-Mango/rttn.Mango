@@ -550,7 +550,7 @@ textarea:not([rows]) {
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100%;
   width: 100%;
   top: 0;
   z-index: 10;
@@ -1046,7 +1046,6 @@ body {
   background-color: var(--clr-bg);
   font-family: "Okine-Light";
   color: var(--neutral-100);
-  overflow-x: hidden;
   transition: background-color 1s ease-in-out;
 }
 
@@ -1325,7 +1324,7 @@ body {
 .about-page h1 {
   font-size: clamp(var(--fs-body3) + 0.75dvw, 10vw, var(--fs-heading));
   font-family: "Okine-Black";
-  padding-block: 1em;
+  margin-block: 1.5em;
   color: var(--clr-txt);
   position: relative;
   overflow: hidden;
@@ -1358,7 +1357,6 @@ body {
   align-items: center;
 }
 .about-page__profile {
-  padding-block: 6em calc(10em + 10dvw);
   max-height: 100dvh;
   position: relative;
   overflow: hidden;
@@ -1395,6 +1393,7 @@ body {
 .about-page__design-style {
   padding-block: calc(2em + 3dvw) calc(7em + 8dvw);
   color: var(--clr-txt);
+  overflow: hidden;
 }
 .about-page__design-style .flex {
   display: flex;
@@ -1422,6 +1421,7 @@ body {
   position: relative;
   width: -moz-fit-content;
   align-self: center;
+  z-index: 0;
 }
 @media screen and (max-width: 1250px) {
   .about-page__design-style--sample {
@@ -1441,7 +1441,6 @@ body {
   position: absolute;
   top: calc(5rem + 4dvw);
   left: -8dvw;
-  z-index: -1;
   scale: 1;
   transition: scale 500ms ease-in-out;
 }
@@ -1549,21 +1548,24 @@ body {
   font-family: "Okine-Bold";
   color: var(--neutral-100);
 }
-.works-page a:not(.contact a) {
+.works-page div[role=link] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: calc(var(--fs-body) + 0.08em);
   color: hsl(290, 22%, 73%);
-  font-family: "Okine-Light";
-  height: fit-content;
 }
-.works-page a:not(.contact a) svg {
+.works-page div[role=link] svg {
   width: 0.6em;
   height: max-content;
 }
-.works-page a:not(.contact a):hover {
-  font-family: "Okine-Regular";
+.works-page div[role=link]:hover {
+  font-family: "Okine-Medium";
+}
+.works-page section a:not(.contact a) {
+  font-size: calc(var(--fs-body) + 0.08em);
+  font-family: "Okine-Light";
+  height: fit-content;
+  text-decoration: none;
 }
 .works-page .desc__row {
   display: flex;
@@ -1832,7 +1834,6 @@ body {
   right: 5dvw;
   background-color: var(--neutral-900);
   border: 0.5px solid var(--neutral-700);
-  transform: rotate(0);
   border-radius: 50%;
   pointer-events: all;
   touch-action: all;
@@ -1864,10 +1865,11 @@ body {
   height: 4rem;
   width: 4rem;
   padding: 1rem;
+  rotate: 0;
 }
 .burger svg:not(#logo):active {
-  transform: rotate(180deg);
-  transition: transform 200ms ease-in-out;
+  rotate: 180deg;
+  transition: rotate 200ms ease-in-out;
 }
 
 .disabled {

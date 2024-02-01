@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import gsap from 'gsap'
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useLoadingContext } from '../hooks/useLoadingContext';
 
 export default function PageTransitionWrapper({children}){
-    const page = useLocation()
     const {loading} = useLoadingContext();
 
     useEffect(() => {
@@ -25,11 +23,11 @@ export default function PageTransitionWrapper({children}){
                 duration: 2,
                 stagger: .2,
             })
-            .to('.page-transition-wrapper', {
-                zIndex: -1,
-            })
+            .to('.page-transition-wrapper', {zIndex: -1})
         }
-    },[page.pathname, page.key, loading])
+
+        
+    },[loading])
 
     return(
         <>

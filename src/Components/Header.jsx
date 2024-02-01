@@ -81,5 +81,5 @@ Header.propTypes = {
     setFromHeader: PropTypes.func,
     setChangePalette: PropTypes.func,
     changePalette: PropTypes.bool,
-    fromHeader: PropTypes.bool
+    fromHeader: PropTypes.bool,
 }

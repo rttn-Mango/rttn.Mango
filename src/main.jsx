@@ -13,13 +13,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       <BrowserRouter>
         <ScrollToTop/>
-        <HoverContentContextProvider>
-          <LoadingContextProvider>
-            <ThemeContextProvider>
-              <App />
-            </ThemeContextProvider>
-          </LoadingContextProvider>
-        </HoverContentContextProvider>
+        <LoadingContextProvider>
+          <HoverContentContextProvider>
+              <ThemeContextProvider>
+                <App />
+              </ThemeContextProvider>
+          </HoverContentContextProvider>
+        </LoadingContextProvider>
       </BrowserRouter>
   </React.StrictMode>,
 )

@@ -55,8 +55,7 @@ function App() {
   //Burger menu animation to appear when user scrolls a certain amount
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-    const hero = document.getElementById('#trigger')
-    const burger = document.querySelector('.burger');
+    const burger = document.querySelector('#floating-burger');
 
     burger.addEventListener('mousemove', e => {
       let rect = e.target.getBoundingClientRect();
@@ -66,17 +65,18 @@ function App() {
       burger.style.setProperty('--_visibility', `visible`)
   })
 
-    gsap.fromTo('.burger', {scale: 0, opacity: 0},{
+    gsap.fromTo('#floating-burger', {scale: 0, opacity: 0},{
       scale: 1,
       opacity: 1,
       ease: 'back.out',
       scrollTrigger: {
-        trigger: hero,
+        trigger: document.body,
         scrub: true,
-        start: 'top top',
-        end: '5%',
+        start: '3% top',
+        end: '3% top',
       }
     })
+
   },[]) 
 
   //Smooth scrolling effect
@@ -184,7 +184,7 @@ function App() {
         <Footer/>
 
         {/* Floating Burger Menu which appears when header is not in view */}
-        <div className="burger" aria-hidden="true" tabIndex={-1} onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>
+        <div className="burger" id='floating-burger' aria-hidden="true" tabIndex={-1} onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>
           {
               showNav ? <div onClick={()=>setShowNav(false)}><Close/></div> 
               : <div onClick={()=>{setShowNav(true)}}><Burger/></div>

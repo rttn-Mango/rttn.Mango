@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useEffect } from "react";
 import PageTransitionWrapper from "./PageTransitionWrapper";
 import gsap from "gsap";
@@ -23,6 +23,7 @@ import TiltedArrow from "../svg/TiltedArrow";
 export default function WorksPage(){
     const {hoverContent, setHoverContent} = useHoverContentContext();
     const {loading} = useLoadingContext();
+    const navigate = useNavigate();
 
     //To change document title once the Component mounts
     useEffect( () => {
@@ -86,12 +87,12 @@ export default function WorksPage(){
                             <section className="works-page__card--desc">
                                 <div className="desc__row">
                                     <h2>minify</h2>
-                                    <Link to='/works/minify' title="read more about minify" 
-                                        onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
+                                    <div role="link" title="read more about minify" 
+                                        onClick={() => {navigate('/works/minify'); setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
                                         onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
                                         onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}
                                     >
-                                        read more <TiltedArrow/> </Link>
+                                        read more <TiltedArrow/> </div>
                                 </div>
                                 <div className="desc__row">
                                     <p>Designer & Developer</p>
@@ -108,7 +109,7 @@ export default function WorksPage(){
 
                     <section className="works-page__card">
                         <a href="https://sh0rtly.vercel.app/" title="Check out shortly"
-                            onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
+                            onClick={() => {navigate('/works/minify');setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
                             onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'shortly-link', height: 160, width: 160})}
                             onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
                         >
@@ -121,12 +122,12 @@ export default function WorksPage(){
                             <section className="works-page__card--desc">
                                 <div className="desc__row">
                                     <h2>Shortly</h2>
-                                    <Link to='/works/shortly' title="read more about Shortly"
-                                        onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
+                                    <div role="link" title="read more about Shortly"
+                                        onClick={() => {navigate('/works/shortly'); setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
                                         onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
                                         onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}
                                     >
-                                        read more <TiltedArrow/> </Link>
+                                        read more <TiltedArrow/> </div>
                                 </div>
                                 <div className="desc__row">
                                     <p>Developer</p>
