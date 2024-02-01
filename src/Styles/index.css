@@ -1071,7 +1071,7 @@ body {
   font-family: "Okine-Black";
   color: transparent;
   overflow: hidden;
-  -webkit-text-stroke: 6px var(--clr-primary);
+  -webkit-text-stroke: 6px var(--clr-txt);
   padding-top: calc(0.5rem + 1.5dvw);
 }
 @media screen and (max-width: 1000px) {

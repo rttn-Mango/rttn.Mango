@@ -36,7 +36,7 @@ export default function AboutPage(){
                 gsap.fromTo('.h1__line1, .h1__last-word', {x: 2000, opacity: 0} ,{
                     opacity: 1,
                     x: 0,
-                    delay: 3,
+                    delay: 2.3,
                     duration: 1,
                     ease: 'sine.out'
                 })
@@ -45,7 +45,7 @@ export default function AboutPage(){
                     y: 0,
                     opacity: 1,
                     stagger: .1,
-                    delay: 3.3,
+                    delay: 2.5,
                     duration: .5,
                 })
 
@@ -54,7 +54,7 @@ export default function AboutPage(){
                     ease: 'power2',
                     opacity: .3,
                     scale: .90,
-                    delay: 3.3,
+                    delay: 3,
                     scrollTrigger: {
                         trigger: '.about-page__profile .wrapper',
                         start: 'top top',
@@ -91,7 +91,6 @@ export default function AboutPage(){
                     y: 0,
                     opacity: 1,               
                     duration: .7,
-                    stagger: .7,
                     scrollTrigger: {
                         trigger: '.about-page__niche--field',
                         start: 'top 70%',

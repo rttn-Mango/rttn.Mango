@@ -41,7 +41,7 @@ export default function WorksPage(){
                     y: 0,
                     opacity: 1,
                     stagger: .1,
-                    delay: 3.3,
+                    delay: 2.5,
                     duration: .5,
                 })
 

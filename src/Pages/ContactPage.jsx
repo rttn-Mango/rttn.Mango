@@ -39,7 +39,7 @@ export default function ContactPage() {
                 gsap.fromTo('.contact-page h1', {opacity: 0}, {
                     opacity: 1,
                     stagger: .1,
-                    delay: 3,
+                    delay: 2.7,
                     duration: .7,
                 })
 
