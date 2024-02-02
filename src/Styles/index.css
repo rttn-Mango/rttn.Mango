@@ -166,7 +166,7 @@ textarea:not([rows]) {
   background-color: var(--neutral-900);
   transform-origin: top;
 }
-.preloader h1 {
+.preloader p {
   font-size: clamp(var(--fs-body) + 0.5rem, 4vw, var(--fs-heading2));
   font-family: "Okine-Black";
   color: var(--neutral-100);
@@ -175,7 +175,7 @@ textarea:not([rows]) {
   margin: auto;
   text-transform: uppercase;
 }
-.preloader h1 span {
+.preloader p span {
   display: inline-block;
   transition: all 0.1s ease;
 }

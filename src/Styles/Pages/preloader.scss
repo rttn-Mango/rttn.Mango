@@ -20,7 +20,7 @@
         transform-origin: top;
     }
 
-    h1{
+    p{
         font-size: clamp(calc(var(--fs-body) + .5rem), 4vw, var(--fs-heading2));
         font-family: 'Okine-Black';
         color: var(--neutral-100);

@@ -44,7 +44,7 @@ export default function Preloader({setLoading, content}){
             <div className="preloader__bg"></div>
             <div className="preloader__bg"></div>
 
-            <h1 aria-label='Kim Oliver Manga'>           
+            <p aria-label='Kim Oliver Manga'>           
                 {content.split('').map((letter, index) => {
                     //I know this thing here is ugly but it works, for now...
                     return(
@@ -53,7 +53,7 @@ export default function Preloader({setLoading, content}){
                         </span>
                     )
                 })}
-            </h1>
+            </p>
         </>
     )
 }
