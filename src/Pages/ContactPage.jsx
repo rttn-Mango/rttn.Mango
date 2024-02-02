@@ -15,7 +15,7 @@ export default function ContactPage() {
 
     //To change document title once the Component mounts
     useEffect(() => {
-        document.title = 'Contact';
+        document.title = 'Contact • koma';
         const forwardButton = document.querySelector('.contact-page button')
         window.scrollTo(0, 0);
 

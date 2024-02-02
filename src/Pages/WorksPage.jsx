@@ -27,7 +27,7 @@ export default function WorksPage(){
 
     //To change document title once the Component mounts
     useEffect( () => {
-        document.title = "Works";
+        document.title = "Works • koma";
 
         gsap.registerPlugin(ScrollTrigger);
 

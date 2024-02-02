@@ -23,7 +23,7 @@ export default function AboutPage(){
     const {loading} = useLoadingContext();
 
     useEffect( () => {
-        document.title = "About";
+        document.title = "About • koma";
 
         gsap.registerPlugin(ScrollTrigger);
 

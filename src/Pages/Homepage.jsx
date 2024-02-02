@@ -14,7 +14,7 @@ export default function Homepage({loading}){
 
     //To change document title once the Component mounts
     useEffect( () => { 
-        if(!loading)document.title = "Home"
+        if(!loading)document.title = "koma • Front-End Developer"
     }, [loading])
 
     return(
