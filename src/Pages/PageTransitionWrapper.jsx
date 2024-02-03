@@ -2,18 +2,19 @@ import PropTypes from 'prop-types';
 import gsap from 'gsap'
 import { useEffect } from 'react';
 import { useLoadingContext } from '../hooks/useLoadingContext';
+import { useLocation } from 'react-router-dom';
 
 export default function PageTransitionWrapper({children}){
     const {loading} = useLoadingContext();
+    const path = useLocation();
 
     useEffect(() => {
         let tl = gsap.timeline();
-
         //This allows the animation to still run even when user is tabbed somewhere else
         gsap.ticker.lagSmoothing(0);
 
         if(!loading){
-            tl.fromTo('.col', {scaleX: 0} ,{
+            {path.key !== 'default' &&  tl.fromTo('.col', {scaleX: 0} ,{
                 scaleX: 1,
                 duration: 1,
                 stagger: .2,
@@ -21,8 +22,8 @@ export default function PageTransitionWrapper({children}){
                     document.querySelector('main').classList.add('hide')
                     setTimeout(() => document.querySelector('main').classList.remove('hide'), 2000)
                 }
-            })
-            .to('.col', {
+            })}
+            tl.to('.col', {
                 scaleX: 0,
                 duration: 2,
                 stagger: .2,
@@ -32,7 +33,7 @@ export default function PageTransitionWrapper({children}){
 
 
         
-    },[loading])
+    },[loading, path])
 
     return(
         <>

@@ -46,12 +46,13 @@ export default function Skills(){
 
             <section className="skills__list">
                 <h3>React</h3>
+                <h3>SCSS</h3>
                 <h3>UI Design</h3>
                 <h3>Figma</h3>
                 <h3>JavaScript</h3>
-                <h3>GSAP</h3>
                 <h3>HTML5</h3>
                 <h3>CSS3</h3>
+                <h3>GSAP</h3>
             </section>
         </section>
     )
