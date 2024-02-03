@@ -62,6 +62,6 @@ Welcome! This is my personal portfolio website which serves to showcase my skill
 - [Stackoverflow](https://stackoverflow.com/) - Used to get ideas.
 
 ## Author
-- Website - (https://mng0.vercel.app)
+- Website - (https://www.mngo.dev)
 
 Feel free to reach out if you have any questions or suggestions. Thanks for dropping by! ٩(◕‿◕｡)۶
