@@ -73,11 +73,21 @@
             transition: scale 1s ease-in-out;
         }
 
-        &:hover, &:focus{ 
-            color: var(--clr-bg);
-            box-shadow: 0 0 50px var(--clr-secondary);
+        @media screen and (min-width: 1000px) {
+            &:hover, &:focus{ 
+                color: var(--clr-bg);
+                box-shadow: 0 0 50px var(--clr-secondary);
+    
+                &::after{scale: 1000} 
+            }
+        }
 
-            &::after{scale: 1000} 
+        //Smaller screen sizes
+        @media screen and (max-width: 1000px) {
+            &:focus{
+                background-color: var(--clr-primary);
+                color: var(--clr-bg);
+            }
         }
     }
 

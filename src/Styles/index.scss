@@ -470,9 +470,16 @@ body{
     }
 
     h2:not(.contact h2){
-        font-size: clamp(calc(var(--fs-body) + .2em), 8dvw, var(--fs-heading3));
+        font-size: clamp(calc(var(--fs-body) + .2em), 10dvw, var(--fs-heading2));
         font-family: 'Okine-Bold';
         color: var(--neutral-100);
+    }
+
+    h3{
+        font-size: clamp(calc(var(--fs-body2) + .2em), 8dvw, var(--fs-heading3));
+        font-family: 'Okine-Medium';
+        color: var(--clr-txt);
+        padding-bottom: 1.5rem;
     }
 
     div[role='link']{
@@ -480,7 +487,7 @@ body{
         align-items: center;
         gap: 8px;
         color: hsl(290, 22%, 73%);
-
+        padding: 2rem;
 
         & svg{
             width: .6em;
@@ -494,9 +501,7 @@ body{
         font-size: calc(var(--fs-body) + .08em);
         
         font-family: 'Okine-Light';
-        height: fit-content;
         text-decoration: none;
-
     }
 
     .desc__row{
@@ -537,7 +542,6 @@ body{
         width: fit-content;
         
         &--desc{margin-block: 3em; color: var(--neutral-100);}
-
         @media screen and (min-width: 900px) {
             &:last-of-type{align-self: flex-end;}
             &--desc{
@@ -555,6 +559,14 @@ body{
         }
     }
 
+
+    &__minify--tldr, &__shortly--tldr{
+        padding-block: calc(2em + 3dvw) calc(5em + 10dvw); 
+        & span{color: var(--clr-primary);}
+        & p:last-of-type{
+            padding-top: calc(1rem + .5dvw)
+        }
+    }
     
 }
 

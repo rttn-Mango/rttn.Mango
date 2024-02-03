@@ -159,7 +159,7 @@ export default function Shortly() {
     return(
         <PageTransitionWrapper>
             <main className="shortly">
-            <Link to='/works' tabIndex={-1} className="back" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> <IoMdArrowRoundBack/> </Link>
+            <Link to='/works' tabIndex={-1} className="back" onClick={() => setHoverContent({...hoverContent, shouldBeDisabled: false})} onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> <IoMdArrowRoundBack/> </Link>
                 <h1 aria-label="Shortly">{'Shortly'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
                 <section className="shortly__links">
                     <Link className="check-btn" to='https://sh0rtly.vercel.app/' onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Check out shortly</Link>
@@ -170,11 +170,7 @@ export default function Shortly() {
                         Visit Github Repo <TiltedArrow/></Link>
                 </section>
 
-                <section className="shortly__tldr">
-                    <h2>tl;dr</h2>
-                    <p>Shortly is a simple URL - Shortening website which was based from <Link to="https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G">this challenge</Link> on frontendmentor. The original challenge was just a simple landing page which is why I made some changes and additions to the layout in order to make it a little more challenging. I also replaced the original API with a different one from bit.ly as the first one stopped working so I had to find a replacement.</p>
-                    <p>Before minify, this was my biggest project, which I know, isn&apos;t really that much. One of the differences tho is that I didn&apos;t use Figma for this project when I was doing the layout for the other pages as I didn&apos;t know about it at that time.</p>
-                </section>
+                
 
                 <section className="shortly__overview">
                     <h2>Overview</h2>

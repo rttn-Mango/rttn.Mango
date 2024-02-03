@@ -342,7 +342,7 @@ export default function Minify(){
     return(
         <PageTransitionWrapper>
             <main className="minify">
-                <Link to='/works' tabIndex={-1} className="back" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> <IoMdArrowRoundBack/> </Link>
+                <Link to='/works' tabIndex={-1} className="back" onClick={() => setHoverContent({...hoverContent, shouldBeDisabled: false})} onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> <IoMdArrowRoundBack/> </Link>
                 <h1 aria-label="minify">{'minify'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
                 <section className="minify__links">
                     <Link to='https://minifyy.vercel.app/' className="check-btn" title="Visit minify" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Check out minify</Link>
@@ -351,12 +351,6 @@ export default function Minify(){
                         onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})}
                     >
                         Visit Github Repo <TiltedArrow/></Link>
-                </section>
-
-                <section className="minify__tldr">
-                    <h2>tl;dr</h2>
-                    <p>Minify is a site which offers two features: image <span>compression</span> as well as image <span>format conversion</span>. The image compression utilizes the Tinify API. On the other hand, the format conversion uses the Cloudmersive API. However, I have limited the supported formats for conversion to just JPEG, PNG, and WebP to simplify the process.</p>
-                    <p>I decided to create this project mainly because I felt like I need those functionalities to be easily accessible. While there are numerous sites offering similar if not same services, they&apos;re commonly convoluted and some are even difficult to navigate, if not behind a paywall which is why I decided to make a site which I can easily use.</p>
                 </section>
 
                 <section className="minify__overview">

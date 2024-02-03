@@ -494,12 +494,20 @@ textarea:not([rows]) {
   width: 1px;
   transition: scale 1s ease-in-out;
 }
-.contact a:hover, .contact a:focus {
-  color: var(--clr-bg);
-  box-shadow: 0 0 50px var(--clr-secondary);
+@media screen and (min-width: 1000px) {
+  .contact a:hover, .contact a:focus {
+    color: var(--clr-bg);
+    box-shadow: 0 0 50px var(--clr-secondary);
+  }
+  .contact a:hover::after, .contact a:focus::after {
+    scale: 1000;
+  }
 }
-.contact a:hover::after, .contact a:focus::after {
-  scale: 1000;
+@media screen and (max-width: 1000px) {
+  .contact a:focus {
+    background-color: var(--clr-primary);
+    color: var(--clr-bg);
+  }
 }
 .contact p:not(:first-of-type) {
   font-size: calc(var(--fs-body) + 0.5dvw);
@@ -711,12 +719,6 @@ textarea:not([rows]) {
 }
 .minify__links a:last-of-type:hover, .minify__links a:last-of-type:focus {
   font-style: italic;
-}
-.minify__tldr {
-  padding-block: calc(2em + 3dvw) calc(5em + 10dvw);
-}
-.minify__tldr span {
-  color: var(--clr-primary);
 }
 .minify__overview {
   padding-block: calc(2em + 3dvw) calc(5em + 10dvw);
@@ -1544,15 +1546,22 @@ body {
   }
 }
 .works-page h2:not(.contact h2) {
-  font-size: clamp(var(--fs-body) + 0.2em, 8dvw, var(--fs-heading3));
+  font-size: clamp(var(--fs-body) + 0.2em, 10dvw, var(--fs-heading2));
   font-family: "Okine-Bold";
   color: var(--neutral-100);
+}
+.works-page h3 {
+  font-size: clamp(var(--fs-body2) + 0.2em, 8dvw, var(--fs-heading3));
+  font-family: "Okine-Medium";
+  color: var(--clr-txt);
+  padding-bottom: 1.5rem;
 }
 .works-page div[role=link] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: hsl(290, 22%, 73%);
+  padding: 2rem;
 }
 .works-page div[role=link] svg {
   width: 0.6em;
@@ -1564,7 +1573,6 @@ body {
 .works-page section a:not(.contact a) {
   font-size: calc(var(--fs-body) + 0.08em);
   font-family: "Okine-Light";
-  height: fit-content;
   text-decoration: none;
 }
 .works-page .desc__row {
@@ -1638,6 +1646,15 @@ body {
   .works-page__card img {
     opacity: 0.95;
   }
+}
+.works-page__minify--tldr, .works-page__shortly--tldr {
+  padding-block: calc(2em + 3dvw) calc(5em + 10dvw);
+}
+.works-page__minify--tldr span, .works-page__shortly--tldr span {
+  color: var(--clr-primary);
+}
+.works-page__minify--tldr p:last-of-type, .works-page__shortly--tldr p:last-of-type {
+  padding-top: calc(1rem + 0.5dvw);
 }
 
 .contact-page {
