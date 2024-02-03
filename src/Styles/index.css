@@ -1648,6 +1648,7 @@ body {
   }
 }
 .works-page__minify--tldr, .works-page__shortly--tldr {
+  color: var(--clr-txt);
   padding-block: calc(2em + 3dvw) calc(5em + 10dvw);
 }
 .works-page__minify--tldr span, .works-page__shortly--tldr span {
