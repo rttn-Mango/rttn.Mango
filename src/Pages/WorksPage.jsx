@@ -132,7 +132,7 @@ export default function WorksPage(){
                                     <div className="desc__row">
                                         <h2>Shortly</h2>
                                         <div role="link" title="read more about Shortly"
-                                            onClick={() => {navigate('/works/shortly'); setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
+                                            onClick={e => {e.preventDefault(); navigate('/works/shortly'); setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
                                             onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
                                             onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}
                                         >
