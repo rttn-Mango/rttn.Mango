@@ -563,6 +563,7 @@ body{
     &__minify--tldr, &__shortly--tldr{
         padding-block: calc(2em + 3dvw) calc(5em + 10dvw); 
         & span{color: var(--clr-primary);}
+        & a{color: var(--clr-primary); font-style: italic;}
         & p:last-of-type{
             padding-top: calc(1rem + .5dvw)
         }

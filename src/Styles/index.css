@@ -1653,6 +1653,10 @@ body {
 .works-page__minify--tldr span, .works-page__shortly--tldr span {
   color: var(--clr-primary);
 }
+.works-page__minify--tldr a, .works-page__shortly--tldr a {
+  color: var(--clr-primary);
+  font-style: italic;
+}
 .works-page__minify--tldr p:last-of-type, .works-page__shortly--tldr p:last-of-type {
   padding-top: calc(1rem + 0.5dvw);
 }
