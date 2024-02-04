@@ -8,7 +8,7 @@ import PageTransitionWrapper from "../PageTransitionWrapper";
 
 //Images
 import wireframe from '../../assets/minify-wireframe.png'
-import logo from '../../assets/minify-logo.png'
+import logo from '../../assets/minify-logo.webp'
 
 //Components
 import ColorsCard from "../../Components/ColorsCard";
@@ -322,9 +322,9 @@ export default function Minify(){
         <PageTransitionWrapper>
             <main className="minify">
                 <Link to='/works' tabIndex={-1} className="back" onClick={() => setHoverContent({...hoverContent, shouldBeDisabled: false})} onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> <IoMdArrowRoundBack/> </Link>
-                <h1 aria-label="minify">{'minify'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
+                <h1 aria-label="minify">{'OptiMG'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
                 <section className="minify__links">
-                    <Link to='https://minifyy.vercel.app/' className="check-btn" title="Visit minify" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Check out minify</Link>
+                    <Link to='https://optimg.vercel.app/' className="check-btn" title="Visit OptiMG" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Check out OptiMG</Link>
                     <Link to='https://github.com/rttn-Mango/minify' title="Go to github repository" aria-label="Visit Github Repository"
                         onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} 
                         onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})}

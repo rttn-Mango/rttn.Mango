@@ -654,7 +654,7 @@ textarea:not([rows]) {
   border-radius: 5em;
   position: relative;
   overflow: hidden;
-  transition: color 500ms ease-in-out;
+  transition: color 300ms ease-in-out;
 }
 .minify .check-btn::after {
   position: absolute;
@@ -670,12 +670,16 @@ textarea:not([rows]) {
   border-radius: 50%;
   transition: scale 1s ease-in-out;
 }
-.minify .check-btn:hover, .minify .check-btn:focus {
+.minify .check-btn:hover {
   box-shadow: 0 0 50px var(--clr-secondary);
   color: var(--clr-bg);
 }
-.minify .check-btn:hover::after, .minify .check-btn:focus::after {
+.minify .check-btn:hover::after {
   scale: 1000;
+}
+.minify .check-btn:focus {
+  background-color: var(--clr-primary);
+  color: var(--clr-bg);
 }
 .minify__links {
   display: flex;
@@ -944,7 +948,7 @@ textarea:not([rows]) {
   border-radius: 5em;
   position: relative;
   overflow: hidden;
-  transition: color 500ms ease-in-out;
+  transition: color 300ms ease-in-out;
 }
 .shortly .check-btn::after {
   position: absolute;
@@ -960,12 +964,16 @@ textarea:not([rows]) {
   border-radius: 50%;
   transition: scale 1s ease-in-out;
 }
-.shortly .check-btn:hover, .shortly .check-btn:focus {
+.shortly .check-btn:hover {
   box-shadow: 0 0 50px var(--clr-secondary);
   color: var(--clr-bg);
 }
-.shortly .check-btn:hover::after, .shortly .check-btn:focus::after {
+.shortly .check-btn:hover::after {
   scale: 1000;
+}
+.shortly .check-btn:focus {
+  background-color: var(--clr-primary);
+  color: var(--clr-bg);
 }
 .shortly__links {
   display: flex;
@@ -1521,7 +1529,7 @@ body {
   }
 }
 .works-page h2:not(.contact h2) {
-  font-size: clamp(var(--fs-body) + 0.2em, 10dvw, var(--fs-heading2));
+  font-size: clamp(var(--fs-body) + 0.2em, 7dvw, var(--fs-heading2));
   font-family: "Okine-Bold";
   color: var(--neutral-100);
 }

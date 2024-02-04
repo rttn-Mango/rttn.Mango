@@ -10,9 +10,9 @@ import useHoverContentContext from "../hooks/useHoverContentContext";
 import Contact from "../Components/Contact";
 
 //Images
-import minify from '../assets/Minify.png';
-import minifyMobile from '../assets/MinifyMobile.png';
-import minifyTablet from '../assets/MinifyTablet.png';
+import minify from '../assets/Minify.webp';
+import minifyMobile from '../assets/MinifyMobile.webp';
+import minifyTablet from '../assets/MinifyTablet.webp';
 import shortly from '../assets/Shortly.png';
 import shortlyMobile from '../assets/ShortlyMobile.png'
 import shortlyTablet from '../assets/ShortlyTablet.png'
@@ -59,7 +59,7 @@ export default function WorksPage(){
                 <div className="flex-wrapper">
                     <section className="works-page__minify">
                         <section className="works-page__card">
-                            <a href="https://minifyy.vercel.app/" tabIndex={-1} title="Check out minify"
+                            <a href="https://optimg.vercel.app/" tabIndex={-1} title="Check out minify"
                                 onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
                                 onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'minify-link', height: 160, width: 160})}
                                 onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
@@ -72,7 +72,7 @@ export default function WorksPage(){
 
                                 <section className="works-page__card--desc">
                                     <div className="desc__row">
-                                        <h2>minify</h2>
+                                        <h2>OptiMG</h2>
                                         <div role="link" tabIndex={1} title="read more about minify" 
                                             onClick={e => {e.preventDefault(); navigate('/works/minify'); setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
                                             onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
@@ -95,7 +95,7 @@ export default function WorksPage(){
 
                         <section className="works-page__minify--tldr">
                             <h3>tl;dr</h3>
-                            <p>Minify is a site which offers two features: image <span>compression</span> as well as image <span>format conversion</span>. The image compression utilizes the Tinify API. On the other hand, the format conversion uses the Cloudmersive API. However, I have limited the supported formats for conversion to just JPEG, PNG, and WebP to simplify the process.</p>
+                            <p>OptiMG is a site which offers two features: image <span>compression</span> as well as image <span>format conversion</span>. The image compression utilizes the Tinify API. On the other hand, the format conversion uses the Cloudmersive API. However, I have limited the supported formats for conversion to just JPEG, PNG, and WebP to simplify the process.</p>
                             <p>I decided to create this project mainly because I felt like I need those functionalities to be easily accessible. While there are numerous sites offering similar if not same services, they&apos;re commonly convoluted and some are even difficult to navigate, if not behind a paywall which is why I decided to make a site which I can easily use.</p>
                         </section>
                     </section>

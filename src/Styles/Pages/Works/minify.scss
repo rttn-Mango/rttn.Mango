@@ -57,7 +57,7 @@
         border-radius: 5em;
         position: relative;
         overflow: hidden;
-        transition: color 500ms ease-in-out;
+        transition: color 300ms ease-in-out;
 
         &::after{
             position: absolute;
@@ -75,10 +75,15 @@
             
         }
 
-        &:hover, &:focus{
+        &:hover{
             box-shadow: 0 0 50px var(--clr-secondary);
             color: var(--clr-bg);
             &::after{scale: 1000;}
+        }
+
+        &:focus{
+            background-color: var(--clr-primary);
+            color: var(--clr-bg);
         }
     }
 

@@ -462,7 +462,7 @@ body{
     }
 
     h2:not(.contact h2){
-        font-size: clamp(calc(var(--fs-body) + .2em), 10dvw, var(--fs-heading2));
+        font-size: clamp(calc(var(--fs-body) + .2em), 7dvw, var(--fs-heading2));
         font-family: 'Okine-Bold';
         color: var(--neutral-100);
     }

@@ -2,15 +2,15 @@
 import ProjectsCard from '../../Components/ProjectsCard';
 
 //Images
-import Minify from '../../assets/Minify.png'
+import Minify from '../../assets/Minify.webp'
 import Shortly from '../../assets/Shortly.png'
 
 export default function Projects(){
     
     const PROJECTS_DATA = [
         {
-            title: 'minify',
-            src: 'https://minifyy.vercel.app/',
+            title: 'OptiMG',
+            src: 'https://optimg.vercel.app/',
             img: Minify
         },
         {

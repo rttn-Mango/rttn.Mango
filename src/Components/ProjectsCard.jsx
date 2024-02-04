@@ -11,7 +11,7 @@ export default function ProjectsCard({title, src, index}){
         <Link
             to={src}
             className={index === 0 ? "projects__contents | minify" : "projects__contents | shortly"}
-            title={index === 0 ? 'Visit minify' : 'Visit Shortly'}
+            title={index === 0 ? 'Visit Optimg' : 'Visit Shortly'}
             key={index}
             onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
             onMouseEnter={() => index === 0 ? setHoverContent({...hoverContent, isHovered: true, elementToRender: 'minify-link', height: 160, width: 160}) : setHoverContent({...hoverContent, isHovered: true, elementToRender: 'shortly-link', height: 160, width: 160})} 
