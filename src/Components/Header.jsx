@@ -24,18 +24,15 @@ export default function Header({setShowNav, showNav, setFromHeader, changePalett
                 gsap.ticker.lagSmoothing(0);
 
                 gsap.fromTo('.logo', {opacity: 0, x: -100} ,{
-                    delay: 1.5,
                     opacity: 1,
                     x: 0
                 })
                 gsap.fromTo('.header__pages a', {opacity: 0, y: 100} ,{
-                    delay: 1.5,
                     opacity: 1,
                     y: 0,
                     stagger: .3
                 })
                 gsap.fromTo('.header__btns', {opacity: 0, x: 100} ,{
-                    delay: 1.5,
                     opacity: 1,
                     x: 0
                 })

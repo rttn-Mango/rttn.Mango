@@ -126,21 +126,23 @@ function App() {
     let ySetterGradient = gsap.quickTo('.gradient-mouse-follower',  'y', {ease: 'elastic', duration: 5});
 
     //Hover
-    let xSetterHover = gsap.quickTo('.hover-mouse-follower',  'x', {ease: 'elastic', duration: 1});
-    let ySetterHover = gsap.quickTo('.hover-mouse-follower',  'y', {ease: 'elastic', duration: 1});
+    let xSetterHover = gsap.quickTo('.hover-mouse-follower',  'x', {ease: 'elastic'});
+    let ySetterHover = gsap.quickTo('.hover-mouse-follower',  'y', {ease: 'elastic'});
 
     gsap.to('.hover-mouse-follower', {
       height: () => {
         if(hoverContent.shouldBeDisabled) return 0
         if(hoverContent.isHovered) return hoverContent.height
+        //This is to reset the height back to 25 when mouse follower is hidden and user clicked a link
         else return 25
       },
       width: () => {
         if(hoverContent.shouldBeDisabled) return 0
         if(hoverContent.isHovered) return hoverContent.width
+        //This is to reset the width back to 25 when mouse follower is hidden and user clicked a link
         else return 25
       },
-      display: hoverContent.shouldBeDisabled || window.innerWidth < 1440 ? 'none' : 'inherit'
+      display: hoverContent.shouldBeDisabled || window.innerWidth < 1440 ? 'none' : 'inherit',
     })
 
     document.addEventListener('mousemove', e => {

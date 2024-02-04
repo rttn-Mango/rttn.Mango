@@ -38,14 +38,13 @@ export default function ContactPage() {
             if(!loading){                
                 gsap.fromTo('.contact-page h1', {opacity: 0}, {
                     opacity: 1,
-                    stagger: .1,
-                    delay: 2.7,
-                    duration: .7,
+                    delay: 1.3,
+                    duration: .5,
                 })
 
                 if(window.innerWidth < 1700){
                     gsap.set('.contact-page .contact-page__container .form-group', {opacity: 0})
-                    gsap.to('.contact-page .contact-page__container .form-group', {opacity: 1, delay: 3})
+                    gsap.to('.contact-page .contact-page__container .form-group', {opacity: 1, delay: 2})
                 }
                 else{
                     gsap.utils.toArray('.form-group').map(form => {
@@ -53,13 +52,11 @@ export default function ContactPage() {
                             opacity: 1,
                             x: 0,
                             stagger: .1,
-                            delay: 5,
-                            duration: .7,
+                            duration: .5,
                             scrollTrigger: {
                                 trigger: form,
                                 start: '40% bottom',
                                 end: 'bottom bottom',
-                                scrub: 2,
                             }
                         })
                     })
@@ -69,12 +66,11 @@ export default function ContactPage() {
             gsap.fromTo('.contact-page h2', {opacity: 0, y: -200}, {
                 opacity: 1,
                 y: 0,
-                duration: .7,
+                duration: .6,
                 scrollTrigger: {
                     trigger: '.contact-page__links',
                     start: '10% bottom',
                     end: '30% bottom',
-                    scrub: 2,
                 }
             })
 
@@ -85,7 +81,6 @@ export default function ContactPage() {
                     trigger: '.contact-page__links',
                     start: '30% bottom',
                     end: 'center bottom',
-                    scrub: 2,
                 }
             })
 
@@ -105,7 +100,7 @@ export default function ContactPage() {
 
                         <div className="form-group">
                             <label htmlFor="name">What should I call you<span>?</span></label>
-                            <input id="name" name="name" type="text" placeholder="Ipsum Dolor" required/>
+                            <input id="name" name="name" type="text" placeholder="Ipsum Dolor" maxLength={30} required/>
                         </div>
 
                         <div className="form-group">
@@ -115,7 +110,7 @@ export default function ContactPage() {
 
                         <div className="form-group">
                             <label htmlFor="message">What&apos;s your question<span>?</span></label>
-                            <textarea name="message" id="message" placeholder="Hello, I'd like to ask about..." required/>
+                            <textarea name="message" id="message" placeholder="Hello, I'd like to ask about..." maxLength={300} required/>
                         </div>
 
                         <button type="submit" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Forward <BiSolidSend/></button>

@@ -19,7 +19,6 @@ export default function Intro(){
                     trigger: '.intro',
                     start: '30% bottom',
                     end: '60% bottom',
-                    scrub: 2,
                 }
             })
 
@@ -30,7 +29,6 @@ export default function Intro(){
                     trigger: '.intro',
                     start: '30% bottom',
                     end: '70% bottom',
-                    scrub: 2,
                 }
             })
         })

@@ -37,30 +37,15 @@ export default function WorksPage(){
         //Makes the animation only run when user doesn't disable animations
         gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
             if(!loading){                
-                gsap.fromTo('.h1__staggered span, .h1__word1 span', {y: 500, opacity: 0}, {
-                    y: 0,
+                gsap.fromTo('.works-page h1', {opacity: 0}, {
                     opacity: 1,
-                    stagger: .1,
-                    delay: 2.5,
+                    delay: 1.3,
                     duration: .5,
                 })
 
                 if(window.innerWidth < 1500){
                     gsap.set('.works-page__card', {opacity: 0})
-                    gsap.to('.works-page__card', {opacity: 1, delay: 4})
-                }
-                else{
-                    gsap.fromTo('.works-page__card', {opacity: 0, scale: 0}, {
-                        opacity: 1,
-                        scale: 1,
-                        duration: .7,
-                        scrollTrigger: {
-                            trigger: '.works-page .flex-wrapper',
-                            start: 'top bottom',
-                            end: '30% bottom',
-                            scrub: 2,
-                        }
-                    })
+                    gsap.to('.works-page__card', {opacity: 1, delay: 1.3})
                 }
             }
         })
@@ -69,12 +54,12 @@ export default function WorksPage(){
     return(
         <PageTransitionWrapper>
             <main className="works-page">
-                <h1 aria-label="Recent Works"><span className="h1__word1">{'Recent'.split('').map((char, index) => <span key={index}>{char}</span>)}</span> <span className="h1__staggered" >{'Works'.split('').map((char, index) => <span key={index}>{char}</span>)}</span></h1>
+                <h1>Recent <span>Works</span></h1>
 
                 <div className="flex-wrapper">
                     <section className="works-page__minify">
                         <section className="works-page__card">
-                            <a href="https://minifyy.vercel.app/" title="Check out minify"
+                            <a href="https://minifyy.vercel.app/" tabIndex={-1} title="Check out minify"
                                 onClick={() => {setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
                                 onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'minify-link', height: 160, width: 160})}
                                 onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
@@ -88,7 +73,7 @@ export default function WorksPage(){
                                 <section className="works-page__card--desc">
                                     <div className="desc__row">
                                         <h2>minify</h2>
-                                        <div role="link" title="read more about minify" 
+                                        <div role="link" tabIndex={1} title="read more about minify" 
                                             onClick={e => {e.preventDefault(); navigate('/works/minify'); setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
                                             onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
                                             onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}
@@ -117,7 +102,7 @@ export default function WorksPage(){
 
                     <section className="works-page__shortly">
                         <section className="works-page__card">
-                            <a href="https://sh0rtly.vercel.app/" title="Check out shortly"
+                            <a href="https://sh0rtly.vercel.app/" tabIndex={-1} title="Check out shortly"
                                 onClick={() => {navigate('/works/minify');setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
                                 onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'shortly-link', height: 160, width: 160})}
                                 onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
@@ -131,7 +116,7 @@ export default function WorksPage(){
                                 <section className="works-page__card--desc">
                                     <div className="desc__row">
                                         <h2>Shortly</h2>
-                                        <div role="link" title="read more about Shortly"
+                                        <div role="link" tabIndex={1} title="read more about Shortly"
                                             onClick={e => {e.preventDefault(); navigate('/works/shortly'); setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}} 
                                             onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
                                             onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}

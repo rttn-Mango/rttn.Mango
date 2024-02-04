@@ -15,35 +15,24 @@ export default function Preloader({setLoading, content}){
         tl.to('.preloader span', {
             opacity: 1,
             y: 0,
-            stagger: .1,
+            stagger: .03,
             ease: 'back.out'
         }).to('.preloader__char, .preloader__dot', {
-            delay: .1,
-            stagger: .1,
+            stagger: .03,
             y: -100,
             opacity: 0,
             display: 'none',
-            duration: .5
         }).to('.preloader span', {
             opacity: 0,
             display: 'none',
-            delay: 1
-        }).to('.preloader__bg', {
-            delay: .5,
-            scaleY: 0,
-            stagger: .2,
+            delay: .2,
         })
 
-        setTimeout(() => setLoading(false), 5200)
+        setTimeout(() => setLoading(false), 2300)
     },[setLoading])
 
     return(
         <>
-            
-            {/* Empty divs which fade out once preloader is */}
-            <div className="preloader__bg"></div>
-            <div className="preloader__bg"></div>
-
             <p aria-label='Kim Oliver Manga'>           
                 {content.split('').map((letter, index) => {
                     //I know this thing here is ugly but it works, for now...

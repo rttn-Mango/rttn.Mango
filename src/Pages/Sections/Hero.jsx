@@ -27,7 +27,7 @@ export default function Hero(){
                     trigger: '.hero .wrapper',
                     start: 'top top',
                     end: '130%',
-                    scrub: 3,
+                    scrub: 2,
                     pin: true,
                 }
             })
@@ -38,21 +38,21 @@ export default function Hero(){
                 gsap.to('.hero h1 span, .hero .subHeading span', {
                     y: 0,
                     opacity: 1,
-                    duration: .7,
+                    duration: .3,
                     stagger: .1,
                 })
 
                 gsap.fromTo('.hero__bottom p', {x: -100, opacity: 0} ,{
                     x: 0,
                     opacity: 1,
-                    delay: 1.5,
+                    delay: 1,
                     duration: .6
                 })
 
                 gsap.fromTo('.hero__bottom--scrollTo', {x: 100, opacity: 0} ,{
                     x: 0,
                     opacity: 1,
-                    delay: 1.5,
+                    delay: 1,
                     duration: .6
                 })
             }

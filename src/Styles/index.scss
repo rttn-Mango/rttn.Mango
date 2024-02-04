@@ -214,9 +214,6 @@ body{
         margin-block: 2rem 10rem;
         text-transform: uppercase;
         color: var(--clr-txt);
-        overflow: hidden;
-
-        span{display: inline-block; transition: all 700ms cubic-bezier(0.34, 1.56, 0.64, 1);}
     }
 
     h3{
@@ -276,9 +273,7 @@ body{
         position: relative;
         overflow: hidden;
 
-        & span{display: inline-block;}
-
-        .h1__stagger{
+        span{
             color: transparent;
             -webkit-text-stroke: 3px var(--clr-txt);
             @media screen and (max-width: 600px) { -webkit-text-stroke: 1px var(--clr-txt); }
@@ -458,14 +453,11 @@ body{
         font-family: 'Okine-Black';
         margin-block: calc(1em + 3.5dvw);
         color: var(--clr-txt);
-        overflow: hidden;
 
-        span{display: inline-block; transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1);}
-
-        .h1__staggered{
+        span{
             color: transparent;
             -webkit-text-stroke: 3px var(--clr-txt);
-            @media screen and (max-width: 800px) { -webkit-text-stroke: 1px var(--clr-txt); }
+            @media screen and (max-width: 600px) { -webkit-text-stroke: 1px var(--clr-txt); }
         }
     }
 
@@ -692,7 +684,7 @@ body{
     a, p{
         text-decoration: none; 
         font-family: 'Okine-Light';
-        z-index: 2;
+        z-index: 1;
         color: var(--clr-txt);
     }
 

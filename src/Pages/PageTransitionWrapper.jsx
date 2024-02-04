@@ -16,17 +16,17 @@ export default function PageTransitionWrapper({children}){
         if(!loading){
             {path.key !== 'default' &&  tl.fromTo('.col', {scaleX: 0} ,{
                 scaleX: 1,
-                duration: 1,
-                stagger: .2,
+                duration: .5,
+                stagger: .1,
                 onStart: () => {
                     document.querySelector('main').classList.add('hide')
-                    setTimeout(() => document.querySelector('main').classList.remove('hide'), 2000)
+                    setTimeout(() => document.querySelector('main').classList.remove('hide'), 1400)
                 }
             })}
             tl.to('.col', {
                 scaleX: 0,
-                duration: 2,
-                stagger: .2,
+                duration: 1,
+                stagger: .1,
             })
             .to('.page-transition-wrapper', {zIndex: -1})
         }

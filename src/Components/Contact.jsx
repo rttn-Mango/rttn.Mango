@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect } from 'react';
 import useHoverContentContext from '../hooks/useHoverContentContext';
 
@@ -13,7 +11,6 @@ export default function Contact(){
     const {hoverContent, setHoverContent} = useHoverContentContext();
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
         let getInTouchButton = document.querySelector('.contact__details a')
         
         //Hover animation for the get in touch button on contact section
@@ -23,34 +20,6 @@ export default function Contact(){
             getInTouchButton.style.setProperty('--_xPos', `${e.clientX - rect.left}px`)
             getInTouchButton.style.setProperty('--_yPos', `${e.clientY - rect.top}px`)
             getInTouchButton.style.setProperty('--_visibility', `visible`)
-        })
-
-        //Makes the animation only run when user doesn't disable animations
-        gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
-
-            gsap.fromTo('.contact h2', {opacity: 0, x: -1000}, {
-                opacity: 1,
-                x: 0,
-                duration: .5,
-                scrollTrigger: {
-                    trigger: '.contact',
-                    start: '20% bottom',
-                    end: '40% bottom',
-                    scrub: 2, 
-                }
-            })
-
-            gsap.fromTo('.contact__details', {opacity: 0, x: 1000}, {
-                opacity: 1,
-                x: 0,
-                duration: .5,
-                scrollTrigger: {
-                    trigger: '.contact',
-                    start: '20% bottom',
-                    end: '40% bottom',
-                    scrub: 2, 
-                }
-            })
         })
     }, [])
 

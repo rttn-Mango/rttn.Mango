@@ -13,13 +13,6 @@
     //Hides the dots from view
     &__dot{visibility: hidden;}
 
-    //Serves as background which will fade out later
-    &__bg{
-        flex: 1;
-        background-color: var(--neutral-900);
-        transform-origin: top;
-    }
-
     p{
         font-size: clamp(calc(var(--fs-body) + .5rem), 4vw, var(--fs-heading2));
         font-family: 'Okine-Black';
@@ -28,7 +21,8 @@
         align-self: center;
         margin: auto;
         text-transform: uppercase;
+        overflow: hidden;
 
-        span{display:inline-block; transition: all .1s ease;}
+        span{display:inline-block; transition-timing-function: ease;}
     }
 }

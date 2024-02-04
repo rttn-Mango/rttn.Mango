@@ -4,12 +4,10 @@
 //Contact Component
 .contact{
 
-    padding-block: calc(5em + 5dvw);
+    margin-block: calc(5em + 5dvw);
     max-width: clamp(80%, 85vw, 110rem);
     margin-inline: auto;
     color: var(--clr-txt);
-
-    .flex-wrapper{ overflow: hidden;}
 
     & > p{font-size: clamp(calc(var(--fs-caption) + .25em), 3dvw, calc(var(--fs-body) + .35dvw)); color: var(--clr-txt);}
 
@@ -32,8 +30,6 @@
         font-family: 'Okine-Bold';
         padding-block: .5em;
         color: var(--clr-primary);
-
-        span{display: inline-block; transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);}
     }
 
     a{
@@ -56,7 +52,7 @@
         width: 100%;
         & svg{width: .65em; pointer-events: none;}
         overflow: hidden;
-        transition: color 500ms ease-in-out;
+        transition: color 300ms ease-in-out;
 
         &::after{
             position: absolute;
@@ -74,7 +70,7 @@
         }
 
         @media screen and (min-width: 1000px) {
-            &:hover, &:focus{ 
+            &:hover{ 
                 color: var(--clr-bg);
                 box-shadow: 0 0 50px var(--clr-secondary);
     
@@ -82,12 +78,9 @@
             }
         }
 
-        //Smaller screen sizes
-        @media screen and (max-width: 1000px) {
-            &:focus{
-                background-color: var(--clr-primary);
-                color: var(--clr-bg);
-            }
+        &:focus{
+            background-color: var(--clr-primary);
+            color: var(--clr-bg);
         }
     }
 

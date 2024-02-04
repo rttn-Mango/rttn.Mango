@@ -43,112 +43,104 @@ export default function Shortly() {
                     opacity: 1,
                     stagger: .1,
                     duration: .7,
-                    delay: 3.3
+                    delay: 2
                 })
 
                 gsap.fromTo('.shortly .back', {opacity: 0}, {
                     opacity: 1,
                     stagger: .1,
                     duration: .7,
-                    delay: 3.3,
+                    delay: 2
                 })
     
                 gsap.fromTo('.shortly__links a', {y: 500, opacity: 0}, {
                     y: 0,
                     opacity: 1,
                     duration: .7,
-                    delay: 3.3
+                    delay: 2
                 })
     
                 gsap.fromTo('.shortly__tldr h2, .shortly__tldr p', {opacity: 0}, {
                     opacity: 1,
-                    duration: 1,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.shortly__tldr h2',
                         start: '20% bottom',
                         end: 'bottom bottom',
-                        scrub: 2,
                     }
                 })
 
                 gsap.fromTo('.shortly__overview h2, .shortly__overview h2 + p', {opacity: 0}, {
                     opacity: 1,
-                    duration: 1,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.shortly__overview h2',
                         start: 'center bottom',
                         end: 'bottom bottom',
-                        scrub: 2,
                     }
                 })
 
                 gsap.fromTo('.shortly__overview--feature > *', {opacity: 0, y: -700}, {
                     opacity: 1,
                     y: 0,
-                    duration: 1,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.shortly__overview--feature',
                         start: 'top bottom',
                         end: 'bottom bottom',
-                        scrub: 2,
                     }
                 })
 
                 gsap.fromTo('.shortly__technical h2', {opacity: 0}, {
                     opacity: 1,
                     stagger: .1,
-                    duration: 1,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.shortly__technical h2',
                         start: 'center bottom',
                         end: 'bottom bottom',
-                        scrub: 2,
                     }
                 })
 
                 gsap.fromTo('.shortly__technical--designing', {opacity: 0, x: -2000}, {
                     opacity: 1,
                     x: 0,
-                    duration: .7,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.shortly__technical--designing',
                         start: 'top bottom',
                         end: 'center bottom',
-                        scrub: 2,
                     }
                 })
 
                 gsap.fromTo('.development__mid p', {opacity: 0, y: -500}, {
                     opacity: 1,
                     y: 0,
-                    duration: .7,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.development__mid',
                         start: 'top bottom',
                         end: 'center bottom',
-                        scrub: 2,
                     }
                 })
 
                 gsap.fromTo('.shortly__difficulties h2, .shortly__difficulties p', {opacity: 0}, {
                     opacity: 1,
-                    duration: .7,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.shortly__difficulties',
                         start: '30% bottom',
                         end: '70% bottom',
-                        scrub: 2,
                     }
                 })
 
                 gsap.fromTo('.shortly__overall h2, .shortly__overall p', {opacity: 0}, {
                     opacity: 1,
-                    duration: .7,
+                    duration: .6,
                     scrollTrigger: {
                         trigger: '.shortly__overall',
                         start: '30% bottom',
-                        end: '70% bottom',
-                        scrub: 2,
+                        end: '70% bottom'
                     }
                 })
             }

@@ -33,19 +33,17 @@ export default function AboutPage(){
         //Makes the animation only run when user doesn't disable animations
         gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
             if(!loading){                
-                gsap.fromTo('.h1__line1, .h1__last-word', {x: 2000, opacity: 0} ,{
+                gsap.fromTo('.about-page .h1__line1, .h1__last-word', {x: 2000, opacity: 0} ,{
                     opacity: 1,
                     x: 0,
-                    delay: 2.3,
-                    duration: 1,
+                    delay: 1.5,
+                    duration: .5,
                     ease: 'sine.out'
                 })
 
-                gsap.fromTo('.h1__stagger span', {y: 500, opacity: 0}, {
-                    y: 0,
+                gsap.fromTo('.about-page .h1__stagger span', {opacity: 0}, {
                     opacity: 1,
-                    stagger: .1,
-                    delay: 2.5,
+                    delay: 1.3,
                     duration: .5,
                 })
 
@@ -54,67 +52,29 @@ export default function AboutPage(){
                     ease: 'power2',
                     opacity: .3,
                     scale: .90,
-                    delay: 3,
+                    delay: 2,
                     scrollTrigger: {
                         trigger: '.about-page__profile .wrapper',
                         start: 'top top',
-                        end: '130%',
-                        scrub: 2,
+                        end: '100%',
                         pin: true,
+                        scrub: 2
                     }
                 })
     
-                gsap.fromTo('.about-page__design-style h2, .about-page__design-style--desc', {opacity: 0}, {
+                gsap.fromTo('.about-page__design-style--desc', {opacity: 0}, {
                     opacity: 1,
-                    duration: .7,
+                    duration: .3,
                     scrollTrigger: {
                         trigger: '.about-page__design-style',
                         start: 'top bottom',
                         end: '40% bottom',
-                        scrub: 2,
-                    }
-                })
-    
-                gsap.fromTo('.about-page__niche h2', {opacity: 0}, {
-                    opacity: 1,
-                    duration: .7,
-                    stagger: .1,
-                    scrollTrigger: {
-                        trigger: '.about-page__niche',
-                        start: 'top bottom',
-                        end: '30% bottom',
-                        scrub: 2,
-                    }
-                })
-    
-                gsap.fromTo('.field__dev, .field__design', {y: -500, opacity: 0, }, {
-                    y: 0,
-                    opacity: 1,               
-                    duration: .7,
-                    scrollTrigger: {
-                        trigger: '.about-page__niche--field',
-                        start: 'top 70%',
-                        end: 'center 70%',
-                        scrub: 2,
-                    }
-                })
-
-                //Used id instead of class because the latter was somehow messing the rest of the animations up
-                gsap.fromTo('#ds-wrapper section:last-of-type', {opacity: 0, x: 700}, {
-                    opacity: 1,
-                    x: 0,
-                    duration: .7,
-                    scrollTrigger: {
-                        trigger: '#ds-wrapper',
-                        start: 'center 70%',
-                        end: 'center 70%',
-                        scrub: 2,
                     }
                 })
 
                 if(window.innerWidth < 1000){
                     gsap.set('.about-page__profile', {opacity: 0})
-                    gsap.to('.about-page__profile', {opacity: 1, delay: 3})
+                    gsap.to('.about-page__profile', {opacity: 1, delay: 2})
                 }
             }
         })
@@ -123,11 +83,11 @@ export default function AboutPage(){
     return(
         <PageTransitionWrapper>
             <main className="about-page">
-                <h1 aria-label="Crafting seamless, user-friendly sites."><span className="h1__line1">Crafting seamless,</span> <span className="h1__stagger">{'user-friendly'.split('').map((char, index) => <span key={index}>{char}</span>)}</span> <span className="h1__last-word">sites.</span></h1>
+                <h1>Crafting seamless <span>user-friendly</span> sites.</h1>
 
                 <section className="about-page__profile">
                     <div className="wrapper">
-                        <a href={resume} download onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'resume', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}><img src={me} alt="An image of me" draggable="false" width={500} height={500}/></a>
+                        <a href={resume} tabIndex={-1} download onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'resume', height: 160, width: 160})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}><img src={me} alt="An image of me" draggable="false" width={500} height={500}/></a>
                         <div className="about-page__profile--text-wrapper">
                             <h2>About me</h2>
                             <p>New to the industry, I specialize in <span>Front-End Development.</span></p>
