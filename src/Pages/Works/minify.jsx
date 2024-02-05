@@ -325,7 +325,7 @@ export default function Minify(){
                 <h1 aria-label="minify">{'OptiMG'.split('').map((char, index) => <span key={index}>{char}</span>)}</h1>
                 <section className="minify__links">
                     <Link to='https://optimg.vercel.app/' className="check-btn" title="Visit OptiMG" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>Check out OptiMG</Link>
-                    <Link to='https://github.com/rttn-Mango/minify' title="Go to github repository" aria-label="Visit Github Repository"
+                    <Link to='https://github.com/rttn-Mango/OptiMG' title="Go to github repository" aria-label="Visit Github Repository"
                         onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} 
                         onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})}
                     >
