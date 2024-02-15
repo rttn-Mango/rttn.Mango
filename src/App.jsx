@@ -126,8 +126,8 @@ function App() {
     let ySetterGradient = gsap.quickTo('.gradient-mouse-follower',  'y', {ease: 'elastic', duration: 5});
 
     //Hover
-    let xSetterHover = gsap.quickTo('.hover-mouse-follower',  'x', {ease: 'elastic'});
-    let ySetterHover = gsap.quickTo('.hover-mouse-follower',  'y', {ease: 'elastic'});
+    let xSetterHover = gsap.quickTo('.hover-mouse-follower',  'x', {duration: .3});
+    let ySetterHover = gsap.quickTo('.hover-mouse-follower',  'y', {duration: .3});
 
     gsap.to('.hover-mouse-follower', {
       height: () => {

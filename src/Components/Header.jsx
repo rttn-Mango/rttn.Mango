@@ -30,11 +30,13 @@ export default function Header({setShowNav, showNav, setFromHeader, changePalett
                 gsap.fromTo('.header__pages a', {opacity: 0, y: 100} ,{
                     opacity: 1,
                     y: 0,
-                    stagger: .3
+                    stagger: .3,
+                    delay: .5
                 })
                 gsap.fromTo('.header__btns', {opacity: 0, x: 100} ,{
                     opacity: 1,
-                    x: 0
+                    x: 0,
+                    delay: .5
                 })
             })
         }
@@ -45,7 +47,7 @@ export default function Header({setShowNav, showNav, setFromHeader, changePalett
             <nav>
                 <ul role="list">
                     <li>
-                        <Link to="/" title="Logo" className="logo" aria-label="Logo"> KOMA </Link>
+                        <Link to="/" title="Logo" className="logo" aria-label="Logo" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}> KOMA </Link>
                     </li>
                     <li className="header__pages">
                         <Link onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} className={path === '/' ? 'active' : 'page'} to="/" title="Homepage">Home</Link>
@@ -55,8 +57,26 @@ export default function Header({setShowNav, showNav, setFromHeader, changePalett
                     </li>
                     <li className="header__btns">                       
                         {
-                            changePalette ? <img src={DarkModeIcon} onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} onClick={() => setChangePalette(false)} alt="Change Background to Dark Mode" draggable="false" width={40} height={40}/>
-                            : <img src={LightModeIcon} onMouseEnter={() => setHoverContent({...hoverContent ,isHovered: true, height: 100, width: 100})} onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, height: 25, width: 25})} onClick={() => setChangePalette(true)} alt="Change Background to Light Mode" draggable="false" width={40} height={40}/>
+                            changePalette ? 
+                            <img 
+                                src={DarkModeIcon} 
+                                onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
+                                onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})} 
+                                onClick={() => setChangePalette(false)} 
+                                alt="Change Background to Dark Mode" 
+                                draggable="false" 
+                                width={40} height={40}
+                            /> 
+                            : 
+                            <img 
+                                src={LightModeIcon} 
+                                onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} 
+                                onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}
+                                onClick={() => setChangePalette(true)} 
+                                alt="Change Background to Light Mode" 
+                                draggable="false" 
+                                width={40} height={40}
+                            />
                         }
                         <div className={fromHeader ? "header__btns--mobile-menu | active" : "header__btns--mobile-menu"}>
                             {

@@ -98,17 +98,17 @@ export default function ContactPage() {
                         {/*To disable captcha when sending message */}
                         <input type="hidden" name="_captcha" value='false'/>
 
-                        <div className="form-group">
+                        <div className="form-group" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>
                             <label htmlFor="name">What should I call you<span>?</span></label>
                             <input id="name" name="name" type="text" placeholder="Ipsum Dolor" maxLength={30} required/>
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>
                             <label htmlFor="email">Your Email Address<span>?</span></label>
                             <input id="email" name="email" type="email" placeholder="Lorem-Ipsum@email.com" required/>
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group" onMouseEnter={() => setHoverContent({...hoverContent ,shouldBeDisabled: true})} onMouseLeave={() => setHoverContent({...hoverContent, shouldBeDisabled: false})}>
                             <label htmlFor="message">What&apos;s your question<span>?</span></label>
                             <textarea name="message" id="message" placeholder="Hello, I'd like to ask about..." maxLength={300} required/>
                         </div>

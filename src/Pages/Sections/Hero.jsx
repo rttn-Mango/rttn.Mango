@@ -33,24 +33,19 @@ export default function Hero(){
             })
 
             if(!loading){
-                gsap.set('.hero h1 span, .hero .subHeading span', {y: 300, opacity: 0})
-
-                gsap.to('.hero h1 span, .hero .subHeading span', {
+                gsap.fromTo('.hero h1, .hero .subHeading',{opacity: 0} ,{
                     y: 0,
                     opacity: 1,
                     duration: .3,
-                    stagger: .1,
                 })
 
-                gsap.fromTo('.hero__bottom p', {x: -100, opacity: 0} ,{
-                    x: 0,
+                gsap.fromTo('.hero__bottom p', {opacity: 0} ,{
                     opacity: 1,
                     delay: 1,
                     duration: .6
                 })
 
-                gsap.fromTo('.hero__bottom--scrollTo', {x: 100, opacity: 0} ,{
-                    x: 0,
+                gsap.fromTo('.hero__bottom--scrollTo', {opacity: 0} ,{
                     opacity: 1,
                     delay: 1,
                     duration: .6
@@ -63,16 +58,8 @@ export default function Hero(){
     return(
             <section className="hero">
                 <div className="wrapper">
-                    <h1 aria-label='Developer'>
-                        {
-                            'Developer'.split('').map((char, index) => <span key={index} >{char}</span> )
-                        }
-                    </h1>
-                    <p className="subHeading" aria-label="Front-end">
-                        {
-                            'Front-end'.split('').map((char, index) => <span key={index} >{char}</span> )
-                        }
-                    </p>
+                    <h1>Developer</h1>
+                    <p className="subHeading">Front-end</p>
 
                     <div className="hero__bottom">
                         <p aria-label="Hit me up for offers or collaborations">Hit me up for — <br/> offers or collabs</p>
