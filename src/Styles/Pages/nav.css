@@ -27,7 +27,7 @@
 }
 .nav ul li a {
   text-decoration: none;
-  font-size: clamp(var(--font-size-300), 10vw, var(--font-size-800));
+  font-size: clamp(calc(var(--fs-body2) + .5dvh),10dvh,var(--fs-heading));
   list-style: 1.5;
   position: relative;
 }
