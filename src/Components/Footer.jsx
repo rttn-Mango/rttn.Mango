@@ -12,7 +12,7 @@ export default function Footer(){
                     </li>
                 </ul>
                 <ul role="list" className="footer__links">
-                    <li><a href="www.linkedin.com/in/rttn-mango">Linkedin</a></li>
+                    <li><a href="https://www.linkedin.com/in/rttn-mango">Linkedin</a></li>
                     <li><a href="https://github.com/rttn-Mango">Github</a></li>
                     <li><a href="https://www.instagram.com/rttn.mango/">Instagram</a></li>
                 </ul>
