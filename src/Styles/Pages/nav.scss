@@ -26,7 +26,7 @@
 
         & li a{
             text-decoration: none;
-            font-size: clamp(var(--fs-body3), 10vw, var(--fs-heading2));
+            font-size: clamp(calc(var(--fs-body2) + .5dvh),10dvh,var(--fs-heading));
             position: relative;
             color: var(--clr-text);
             font-family: 'Okine-Medium';
