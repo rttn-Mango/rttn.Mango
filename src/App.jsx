@@ -164,7 +164,7 @@ function App() {
         <div className="gradient-mouse-follower" aria-hidden="true" style={{display: window.innerWidth < 1200 && 'none'}}></div>
         <div className="hover-mouse-follower" aria-hidden="true">
           {hoverContent.elementToRender === 'img' && <img src={dp} alt="image of me" draggable="false" height={25} width={25}/>}
-          {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('link') && <p style={{display: hoverContent.shouldBeDisabled || window.innerWidth < 1440 ? 'none' : 'inline-flex'}} className="minify-hover">Visit {hoverContent.elementToRender === 'minify-link' ? 'OptiMG' : 'shortly'} <TiltedArrow/> </p>}
+          {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('link') && <p style={{display: hoverContent.shouldBeDisabled || window.innerWidth < 1200 ? 'none' : 'inline-flex'}} className="minify-hover">Visit {hoverContent.elementToRender === 'minify-link' ? 'OptiMG' : 'shortly'} <TiltedArrow/> </p>}
           {hoverContent.elementToRender === 'resume' && <span className="resume-hover">Download resume <TiltedArrow/></span>}
           {hoverContent.elementToRender !== null && hoverContent.elementToRender.includes('awwwards') && <p className="resume-hover">{hoverContent.elementToRender.includes('vucko') ? 'Vucko' : hoverContent.elementToRender.includes('huy') ? 'Huy Phan' : 'Bright Studios'} awwwards <TiltedArrow/></p>}
         </div>
