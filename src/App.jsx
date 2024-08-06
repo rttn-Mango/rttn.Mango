@@ -142,7 +142,7 @@ function App() {
         //This is to reset the width back to 25 when mouse follower is hidden and user clicked a link
         else return 25
       },
-      display: hoverContent.shouldBeDisabled || window.innerWidth < 1440 ? 'none' : 'inherit',
+      display: hoverContent.shouldBeDisabled || window.innerWidth < 1200 ? 'none' : 'inherit',
     })
 
     document.addEventListener('mousemove', e => {
