@@ -1,6 +1,8 @@
 # rttn.Mango
 
-Welcome! This is my personal portfolio website which serves to showcase my skills, projects, and knowledge. Feel free to explore and Thanks for dropping by!
+Welcome! This is my personal portfolio website which serves to showcase my skills, projects, and knowledge. Feel free to explore.
+
+Thanks for dropping by!
 
 ## Table of Contents
 - [Overview](#overview)
