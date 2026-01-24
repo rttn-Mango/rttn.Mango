@@ -103,7 +103,7 @@ export default function WorksPage(){
                     <section className="works-page__shortly">
                         <section className="works-page__card">
                             <a href="https://sh0rtly.vercel.app/" tabIndex={-1} title="Check out shortly"
-                                onClick={() => {navigate('/works/minify');setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
+                                onClick={() => {navigate('/works/shortly');setHoverContent({...hoverContent, shouldBeDisabled: false, elementToRender: null, height: 25, width: 25})}}
                                 onMouseEnter={() => setHoverContent({...hoverContent, isHovered: true, elementToRender: 'shortly-link', height: 160, width: 160})}
                                 onMouseLeave={() => setHoverContent({...hoverContent, isHovered: false, elementToRender: null, height: 25, width: 25})}
                             >
