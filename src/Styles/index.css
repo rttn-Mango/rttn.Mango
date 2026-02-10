@@ -1913,6 +1913,7 @@ body {
   display: flex;
   align-items: start;
   justify-content: center;
+  white-space: nowrap;
 }
 .hover-mouse-follower > * {
   position: absolute;
